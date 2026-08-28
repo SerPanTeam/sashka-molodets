@@ -1,14 +1,12 @@
 {
-  "ts": "2026-08-28T21:27:28.413Z",
-  "event": "success",
+  "ts": "2026-08-28T21:27:49.806Z",
+  "event": "error",
   "provider": "openai",
   "category": "household",
-  "id": "plate",
-  "de": "Teller",
+  "id": "spoon",
+  "de": "Löffel",
   "imageFiles": 32,
-  "file": "plate.png",
-  "bytes": 921061,
-  "mimeType": "image/png",
   "quality": "medium",
-  "ms": 30868
+  "error": "OpenAI image request failed (429): {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}",
+  "ms": 18815
 }
