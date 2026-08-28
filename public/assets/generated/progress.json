@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:06.022Z",
+  "ts": "2026-08-28T22:35:08.501Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "vegetables",
-  "id": "broccoli",
-  "de": "Brokkoli",
+  "id": "onion",
+  "de": "Zwiebel",
   "imageFiles": 32,
-  "file": "broccoli.png"
+  "file": "onion.png"
 }
