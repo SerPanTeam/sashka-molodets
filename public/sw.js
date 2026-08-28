@@ -1,7 +1,7 @@
-const CACHE="sashka-molodets-v15";
+const CACHE="sashka-molodets-v16";
 const BASE=self.registration.scope;
 const url=path=>new URL(path,BASE).href;
-const CORE=[BASE,url("index.html"),url("styles.css"),url("enhancements.css"),url("admin-status.css"),url("app.js"),url("admin-status.js"),url("pages-shim.js"),url("audio-bridge.js"),url("object-sfx.js"),url("manifest.webmanifest"),url("icon.svg"),url("content/content.json")];
+const CORE=[BASE,url("index.html"),url("styles.css"),url("enhancements.css"),url("admin-status.css"),url("app.js"),url("admin-status.js"),url("pages-shim.js"),url("audio-bridge.js"),url("object-sfx.js"),url("object-sfx-local.js"),url("manifest.webmanifest"),url("icon.svg"),url("content/content.json")];
 
 self.addEventListener("install",event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));
@@ -17,7 +17,8 @@ const isMutable=requestUrl=>{
   const p=requestUrl.pathname;
   return p.includes("/content/") ||
     p.includes("/assets/generated/") ||
-    /\/(?:index\.html|app\.js|pages-shim\.js|audio-bridge\.js|object-sfx\.js|admin-status\.js|sw\.js)$/.test(p);
+    p.includes("/assets/sfx/") ||
+    /\/(?:index\.html|app\.js|pages-shim\.js|audio-bridge\.js|object-sfx\.js|object-sfx-local\.js|admin-status\.js|sw\.js)$/.test(p);
 };
 
 async function networkFirst(request){
