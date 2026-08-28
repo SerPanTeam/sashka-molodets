@@ -91,6 +91,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/ship.question.de.wav",
+        "success": "./assets/generated/audio/ship.success.de.wav"
       }
     },
     {

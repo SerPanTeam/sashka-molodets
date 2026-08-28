@@ -400,3 +400,8 @@
 {"ts":"2026-08-28T20:55:35.705Z","event":"start","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":109,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Flugzeug."}
 {"ts":"2026-08-28T20:55:36.896Z","event":"success","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":110,"kind":"success","file":"airplane.success.de.wav","bytes":240044,"ms":1190}
 {"ts":"2026-08-28T20:55:38.100Z","event":"item-complete","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":110,"failures":0}
+{"ts":"2026-08-28T20:55:41.786Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":110,"kind":"question","transcript":"Wo ist das Schiff?"}
+{"ts":"2026-08-28T20:55:42.531Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":111,"kind":"question","file":"ship.question.de.wav","bytes":115244,"ms":742}
+{"ts":"2026-08-28T20:55:43.733Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":111,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Schiff."}
+{"ts":"2026-08-28T20:55:44.737Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":112,"kind":"success","file":"ship.success.de.wav","bytes":218444,"ms":1003}
+{"ts":"2026-08-28T20:55:45.941Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":112,"failures":0}
