@@ -722,3 +722,8 @@
 {"ts":"2026-08-28T21:04:31.925Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":171,"kind":"success","transcript":"Сашка, молодець! Це полуниця."}
 {"ts":"2026-08-28T21:04:32.873Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":172,"kind":"success","file":"strawberry.success.ua.wav","bytes":192044,"ms":947}
 {"ts":"2026-08-28T21:04:34.076Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":172,"failures":0}
+{"ts":"2026-08-28T21:04:36.592Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":172,"kind":"question","transcript":"Де кавун?"}
+{"ts":"2026-08-28T21:04:38.194Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":173,"kind":"question","file":"watermelon.question.ua.wav","bytes":96044,"ms":1600}
+{"ts":"2026-08-28T21:04:39.394Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":173,"kind":"success","transcript":"Сашка, молодець! Це кавун."}
+{"ts":"2026-08-28T21:04:40.313Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":174,"kind":"success","file":"watermelon.success.ua.wav","bytes":184844,"ms":918}
+{"ts":"2026-08-28T21:04:41.516Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":174,"failures":0}

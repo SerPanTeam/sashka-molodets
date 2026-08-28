@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T21:04:34.076Z",
+  "ts": "2026-08-28T21:04:41.516Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "fruits",
-  "id": "strawberry",
-  "de": "Erdbeere",
+  "id": "watermelon",
+  "de": "Wassermelone",
   "mode": "ua",
-  "audioFiles": 172,
+  "audioFiles": 174,
   "failures": 0
 }
