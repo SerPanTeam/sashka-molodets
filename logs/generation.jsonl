@@ -355,3 +355,8 @@
 {"ts":"2026-08-28T20:54:29.694Z","event":"start","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":91,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Kamm."}
 {"ts":"2026-08-28T20:54:30.705Z","event":"success","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":92,"kind":"success","file":"comb.success.de.wav","bytes":232844,"ms":1010}
 {"ts":"2026-08-28T20:54:31.908Z","event":"item-complete","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":92,"failures":0}
+{"ts":"2026-08-28T20:54:34.472Z","event":"start","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":92,"kind":"question","transcript":"Wo ist der Schwamm?"}
+{"ts":"2026-08-28T20:54:35.838Z","event":"success","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":93,"kind":"question","file":"sponge.question.de.wav","bytes":127244,"ms":1362}
+{"ts":"2026-08-28T20:54:37.040Z","event":"start","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":93,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Schwamm."}
+{"ts":"2026-08-28T20:54:38.128Z","event":"success","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":94,"kind":"success","file":"sponge.success.de.wav","bytes":256844,"ms":1087}
+{"ts":"2026-08-28T20:54:39.333Z","event":"item-complete","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":94,"failures":0}
