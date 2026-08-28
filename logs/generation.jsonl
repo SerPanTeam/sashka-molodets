@@ -320,3 +320,8 @@
 {"ts":"2026-08-28T20:53:37.697Z","event":"start","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":77,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Pfanne."}
 {"ts":"2026-08-28T20:53:38.869Z","event":"success","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":78,"kind":"success","file":"pan.success.de.wav","bytes":264044,"ms":1171}
 {"ts":"2026-08-28T20:53:40.072Z","event":"item-complete","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":78,"failures":0}
+{"ts":"2026-08-28T20:53:43.288Z","event":"start","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":78,"kind":"question","transcript":"Wo ist der Kühlschrank?"}
+{"ts":"2026-08-28T20:53:44.138Z","event":"success","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":79,"kind":"question","file":"fridge.question.de.wav","bytes":163244,"ms":847}
+{"ts":"2026-08-28T20:53:45.340Z","event":"start","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":79,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Kühlschrank."}
+{"ts":"2026-08-28T20:53:46.474Z","event":"success","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":80,"kind":"success","file":"fridge.success.de.wav","bytes":247244,"ms":1134}
+{"ts":"2026-08-28T20:53:47.681Z","event":"item-complete","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":80,"failures":0}

@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:53:40.072Z",
+  "ts": "2026-08-28T20:53:47.681Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "pan",
-  "de": "Pfanne",
+  "id": "fridge",
+  "de": "Kühlschrank",
   "mode": "de",
-  "audioFiles": 78,
+  "audioFiles": 80,
   "failures": 0
 }
