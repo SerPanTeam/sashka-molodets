@@ -7,10 +7,13 @@
     const newCore = ['animals', 'vegetables', 'fruits', 'household', 'hygiene', 'transport'];
     const categories = Array.isArray(saved.categories) ? saved.categories : [];
     const looksLikeOldDefault = categories.length === 0 || (categories.length === 3 && oldCore.every(x => categories.includes(x)));
+    const oldSettingsVersion = Number(saved.settingsVersion || 0);
     localStorage.setItem(settingsKey, JSON.stringify({
       ...saved,
-      settingsVersion: 2,
-      voiceMode: saved.voiceMode === 'de' ? 'de' : 'dual',
+      settingsVersion: 3,
+      // v3 fixes stale clients that remained locked in German-only mode from
+      // an older build. Migrate once to DE → UA, then preserve future choices.
+      voiceMode: oldSettingsVersion < 3 ? 'dual' : (saved.voiceMode === 'de' ? 'de' : 'dual'),
       autoSpeak: saved.autoSpeak !== false,
       categories: looksLikeOldDefault ? newCore : categories
     }));
