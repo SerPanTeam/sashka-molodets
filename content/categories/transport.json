@@ -75,6 +75,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/airplane.question.de.wav",
+        "success": "./assets/generated/audio/airplane.success.de.wav"
       }
     },
     {

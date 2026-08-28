@@ -395,3 +395,8 @@
 {"ts":"2026-08-28T20:55:28.052Z","event":"start","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":107,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Fahrrad."}
 {"ts":"2026-08-28T20:55:29.246Z","event":"success","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":108,"kind":"success","file":"bicycle.success.de.wav","bytes":240044,"ms":1193}
 {"ts":"2026-08-28T20:55:30.450Z","event":"item-complete","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":108,"failures":0}
+{"ts":"2026-08-28T20:55:33.310Z","event":"start","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":108,"kind":"question","transcript":"Wo ist das Flugzeug?"}
+{"ts":"2026-08-28T20:55:34.503Z","event":"success","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":109,"kind":"question","file":"airplane.question.de.wav","bytes":170444,"ms":1190}
+{"ts":"2026-08-28T20:55:35.705Z","event":"start","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":109,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Flugzeug."}
+{"ts":"2026-08-28T20:55:36.896Z","event":"success","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":110,"kind":"success","file":"airplane.success.de.wav","bytes":240044,"ms":1190}
+{"ts":"2026-08-28T20:55:38.100Z","event":"item-complete","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":110,"failures":0}
