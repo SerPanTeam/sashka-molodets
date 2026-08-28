@@ -2,13 +2,68 @@ name: Generate priority learning assets
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/generate-priority-assets.yml'
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: generate-priority-assets
+  cancel-in-progress: true
 
 jobs:
-  disabled:
+  generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      AI_DEFAULT_PROVIDER: google
+      GOOGLE_TTS_MODEL: gemini-3.1-flash-tts-preview
+      GOOGLE_TTS_VOICE: Sulafat
+
     steps:
-      - name: Generation disabled
-        run: echo 'AI generation is disabled until GEMINI_API_KEY is replaced with the intended paid-account key.'
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate source and key
+        run: |
+          node --check scripts/generate-one-audio.mjs
+          node scripts/check-content.mjs
+          test -n "$GEMINI_API_KEY" || (echo 'GEMINI_API_KEY is missing' && exit 1)
+          echo 'READY: key present; every item will be logged and checkpointed separately.'
+
+      - name: 🐶 Animals · German TTS
+        run: bash scripts/generate-category-audio.sh animals dog cat rabbit cow horse pig sheep lion elephant bear
+
+      - name: 🥕 Vegetables · German TTS
+        run: bash scripts/generate-category-audio.sh vegetables tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic
+
+      - name: 🍎 Fruits · German TTS
+        run: bash scripts/generate-category-audio.sh fruits apple banana orange pear grapes strawberry watermelon peach cherries kiwi
+
+      - name: 🏠 Household · German TTS
+        run: bash scripts/generate-category-audio.sh household cup plate spoon fork table glass bowl pot pan fridge
+
+      - name: 🧼 Hygiene · German TTS
+        run: bash scripts/generate-category-audio.sh hygiene toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth
+
+      - name: 🚗 Transport · German TTS
+        run: bash scripts/generate-category-audio.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
+
+      - name: Final generation summary
+        if: always()
+        run: |
+          echo "German WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.de.wav' | wc -l)"
+          echo 'Last structured progress:'
+          test ! -f public/assets/generated/progress.json || cat public/assets/generated/progress.json
+          echo 'Every API attempt is also recorded in logs/generation.jsonl and GitHub Actions output.'
