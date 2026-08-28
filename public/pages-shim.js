@@ -1,4 +1,16 @@
 (() => {
+  // Bilingual mode is a product rule: every prompt/feedback is spoken
+  // first in German and then in Ukrainian. Keep auto speech enabled by default.
+  try {
+    const settingsKey = 'sashka.settings';
+    const saved = JSON.parse(localStorage.getItem(settingsKey) || '{}');
+    localStorage.setItem(settingsKey, JSON.stringify({
+      ...saved,
+      languageMode: 'dual',
+      autoSpeak: true
+    }));
+  } catch {}
+
   const nativeFetch = window.fetch.bind(window);
 
   async function loadStaticContent() {
