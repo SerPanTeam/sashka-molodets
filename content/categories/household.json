@@ -59,6 +59,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/fork.question.de.wav",
+        "success": "./assets/generated/audio/fork.success.de.wav"
       }
     },
     {

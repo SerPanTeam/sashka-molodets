@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:52:55.934Z",
+  "ts": "2026-08-28T20:53:02.586Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "spoon",
-  "de": "Löffel",
+  "id": "fork",
+  "de": "Gabel",
   "mode": "de",
-  "audioFiles": 66,
+  "audioFiles": 68,
   "failures": 0
 }

@@ -290,3 +290,8 @@
 {"ts":"2026-08-28T20:52:53.840Z","event":"start","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":65,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Löffel."}
 {"ts":"2026-08-28T20:52:54.728Z","event":"success","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":66,"kind":"success","file":"spoon.success.de.wav","bytes":240044,"ms":888}
 {"ts":"2026-08-28T20:52:55.934Z","event":"item-complete","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":66,"failures":0}
+{"ts":"2026-08-28T20:52:58.472Z","event":"start","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":66,"kind":"question","transcript":"Wo ist die Gabel?"}
+{"ts":"2026-08-28T20:52:59.211Z","event":"success","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":67,"kind":"question","file":"fork.question.de.wav","bytes":96044,"ms":735}
+{"ts":"2026-08-28T20:53:00.411Z","event":"start","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":67,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Gabel."}
+{"ts":"2026-08-28T20:53:01.384Z","event":"success","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":68,"kind":"success","file":"fork.success.de.wav","bytes":252044,"ms":972}
+{"ts":"2026-08-28T20:53:02.586Z","event":"item-complete","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":68,"failures":0}
