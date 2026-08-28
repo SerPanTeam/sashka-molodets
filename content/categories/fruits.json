@@ -54,7 +54,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/banana.question.ua.wav",
         "success": "./assets/generated/audio/banana.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/banana.png"
     },
     {
       "id": "orange",
