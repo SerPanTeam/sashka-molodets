@@ -477,3 +477,6 @@
 {"ts":"2026-08-28T20:59:20.745Z","event":"skip-existing","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":113,"kind":"question","file":"pear.question.de.wav"}
 {"ts":"2026-08-28T20:59:20.747Z","event":"skip-existing","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":113,"kind":"success","file":"pear.success.de.wav"}
 {"ts":"2026-08-28T20:59:20.750Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:23.455Z","event":"skip-existing","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"kind":"question","file":"grapes.question.de.wav"}
+{"ts":"2026-08-28T20:59:23.458Z","event":"skip-existing","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"kind":"success","file":"grapes.success.de.wav"}
+{"ts":"2026-08-28T20:59:23.460Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"failures":0}
