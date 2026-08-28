@@ -184,3 +184,6 @@
 {"ts":"2026-08-28T20:50:20.593Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":26,"kind":"question","file":"tomato.question.de.wav"}
 {"ts":"2026-08-28T20:50:20.597Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":26,"kind":"success","file":"tomato.success.de.wav"}
 {"ts":"2026-08-28T20:50:20.598Z","event":"item-complete","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":26,"failures":0}
+{"ts":"2026-08-28T20:50:23.072Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":26,"kind":"question","file":"cucumber.question.de.wav"}
+{"ts":"2026-08-28T20:50:23.075Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":26,"kind":"success","file":"cucumber.success.de.wav"}
+{"ts":"2026-08-28T20:50:23.077Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":26,"failures":0}
