@@ -5,201 +5,101 @@
       "id": "toothbrush",
       "category": "hygiene",
       "emoji": "🪥",
-      "labels": {
-        "de": "Zahnbürste",
-        "ua": "зубна щітка"
-      },
-      "article": {
-        "de": "die"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/toothbrush.question.de.wav",
-        "success": "./assets/generated/audio/toothbrush.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/toothbrush.question.ua.wav",
-        "success": "./assets/generated/audio/toothbrush.success.ua.wav"
-      }
+      "labels": { "de": "Zahnbürste", "ua": "зубна щітка" },
+      "article": { "de": "die" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/toothbrush.question.de.wav", "success": "./assets/generated/audio/toothbrush.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/toothbrush.question.ua.wav", "success": "./assets/generated/audio/toothbrush.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/toothbrush.png"
     },
     {
       "id": "toothpaste",
       "category": "hygiene",
       "emoji": "🦷",
-      "labels": {
-        "de": "Zahnpasta",
-        "ua": "зубна паста"
-      },
-      "article": {
-        "de": "die"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/toothpaste.question.de.wav",
-        "success": "./assets/generated/audio/toothpaste.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/toothpaste.question.ua.wav",
-        "success": "./assets/generated/audio/toothpaste.success.ua.wav"
-      }
+      "labels": { "de": "Zahnpasta", "ua": "зубна паста" },
+      "article": { "de": "die" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/toothpaste.question.de.wav", "success": "./assets/generated/audio/toothpaste.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/toothpaste.question.ua.wav", "success": "./assets/generated/audio/toothpaste.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/toothpaste.png"
     },
     {
       "id": "soap",
       "category": "hygiene",
       "emoji": "🧼",
-      "labels": {
-        "de": "Seife",
-        "ua": "мило"
-      },
-      "article": {
-        "de": "die"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/soap.question.de.wav",
-        "success": "./assets/generated/audio/soap.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/soap.question.ua.wav",
-        "success": "./assets/generated/audio/soap.success.ua.wav"
-      }
+      "labels": { "de": "Seife", "ua": "мило" },
+      "article": { "de": "die" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/soap.question.de.wav", "success": "./assets/generated/audio/soap.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/soap.question.ua.wav", "success": "./assets/generated/audio/soap.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/soap.png"
     },
     {
       "id": "towel",
       "category": "hygiene",
       "emoji": "🧻",
-      "labels": {
-        "de": "Handtuch",
-        "ua": "рушник"
-      },
-      "article": {
-        "de": "das"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/towel.question.de.wav",
-        "success": "./assets/generated/audio/towel.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/towel.question.ua.wav",
-        "success": "./assets/generated/audio/towel.success.ua.wav"
-      }
+      "labels": { "de": "Handtuch", "ua": "рушник" },
+      "article": { "de": "das" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/towel.question.de.wav", "success": "./assets/generated/audio/towel.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/towel.question.ua.wav", "success": "./assets/generated/audio/towel.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/towel.png"
     },
     {
       "id": "shampoo",
       "category": "hygiene",
       "emoji": "🧴",
-      "labels": {
-        "de": "Shampoo",
-        "ua": "шампунь"
-      },
-      "article": {
-        "de": "das"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/shampoo.question.de.wav",
-        "success": "./assets/generated/audio/shampoo.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/shampoo.question.ua.wav",
-        "success": "./assets/generated/audio/shampoo.success.ua.wav"
-      }
+      "labels": { "de": "Shampoo", "ua": "шампунь" },
+      "article": { "de": "das" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/shampoo.question.de.wav", "success": "./assets/generated/audio/shampoo.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/shampoo.question.ua.wav", "success": "./assets/generated/audio/shampoo.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/shampoo.png"
     },
     {
       "id": "comb",
       "category": "hygiene",
       "emoji": "🪮",
-      "labels": {
-        "de": "Kamm",
-        "ua": "гребінець"
-      },
-      "article": {
-        "de": "der"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/comb.question.de.wav",
-        "success": "./assets/generated/audio/comb.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/comb.question.ua.wav",
-        "success": "./assets/generated/audio/comb.success.ua.wav"
-      }
+      "labels": { "de": "Kamm", "ua": "гребінець" },
+      "article": { "de": "der" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/comb.question.de.wav", "success": "./assets/generated/audio/comb.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/comb.question.ua.wav", "success": "./assets/generated/audio/comb.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/comb.png"
     },
     {
       "id": "sponge",
       "category": "hygiene",
       "emoji": "🧽",
-      "labels": {
-        "de": "Schwamm",
-        "ua": "губка"
-      },
-      "article": {
-        "de": "der"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/sponge.question.de.wav",
-        "success": "./assets/generated/audio/sponge.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/sponge.question.ua.wav",
-        "success": "./assets/generated/audio/sponge.success.ua.wav"
-      }
+      "labels": { "de": "Schwamm", "ua": "губка" },
+      "article": { "de": "der" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/sponge.question.de.wav", "success": "./assets/generated/audio/sponge.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/sponge.question.ua.wav", "success": "./assets/generated/audio/sponge.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/sponge.png"
     },
     {
       "id": "toilet-paper",
       "category": "hygiene",
       "emoji": "🧻",
-      "labels": {
-        "de": "Toilettenpapier",
-        "ua": "туалетний папір"
-      },
-      "article": {
-        "de": "das"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/toilet-paper.question.de.wav",
-        "success": "./assets/generated/audio/toilet-paper.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/toilet-paper.question.ua.wav",
-        "success": "./assets/generated/audio/toilet-paper.success.ua.wav"
-      }
+      "labels": { "de": "Toilettenpapier", "ua": "туалетний папір" },
+      "article": { "de": "das" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/toilet-paper.question.de.wav", "success": "./assets/generated/audio/toilet-paper.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/toilet-paper.question.ua.wav", "success": "./assets/generated/audio/toilet-paper.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/toilet-paper.png"
     },
     {
       "id": "hairbrush",
       "category": "hygiene",
       "emoji": "💇",
-      "labels": {
-        "de": "Haarbürste",
-        "ua": "щітка для волосся"
-      },
-      "article": {
-        "de": "die"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/hairbrush.question.de.wav",
-        "success": "./assets/generated/audio/hairbrush.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/hairbrush.question.ua.wav",
-        "success": "./assets/generated/audio/hairbrush.success.ua.wav"
-      }
+      "labels": { "de": "Haarbürste", "ua": "щітка для волосся" },
+      "article": { "de": "die" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/hairbrush.question.de.wav", "success": "./assets/generated/audio/hairbrush.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/hairbrush.question.ua.wav", "success": "./assets/generated/audio/hairbrush.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/hairbrush.png"
     },
     {
       "id": "washcloth",
       "category": "hygiene",
       "emoji": "🫧",
-      "labels": {
-        "de": "Waschlappen",
-        "ua": "мочалка"
-      },
-      "article": {
-        "de": "der"
-      },
-      "generatedAudioDe": {
-        "question": "./assets/generated/audio/washcloth.question.de.wav",
-        "success": "./assets/generated/audio/washcloth.success.de.wav"
-      },
-      "generatedAudioUa": {
-        "question": "./assets/generated/audio/washcloth.question.ua.wav",
-        "success": "./assets/generated/audio/washcloth.success.ua.wav"
-      }
+      "labels": { "de": "Waschlappen", "ua": "мочалка" },
+      "article": { "de": "der" },
+      "generatedAudioDe": { "question": "./assets/generated/audio/washcloth.question.de.wav", "success": "./assets/generated/audio/washcloth.success.de.wav" },
+      "generatedAudioUa": { "question": "./assets/generated/audio/washcloth.question.ua.wav", "success": "./assets/generated/audio/washcloth.success.ua.wav" },
+      "generatedImage": "./assets/generated/images/washcloth.png"
     }
   ]
 }
