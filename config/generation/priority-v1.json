@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "categories": {
+    "animals": [
+      "dog",
+      "cat",
+      "rabbit",
+      "cow",
+      "horse",
+      "pig",
+      "sheep",
+      "lion",
+      "elephant",
+      "bear"
+    ],
+    "vegetables": [
+      "tomato",
+      "cucumber",
+      "carrot",
+      "potato",
+      "corn",
+      "pepper",
+      "broccoli",
+      "onion",
+      "eggplant",
+      "garlic"
+    ],
+    "fruits": [
+      "apple",
+      "banana",
+      "orange",
+      "pear",
+      "grapes",
+      "strawberry",
+      "watermelon",
+      "peach",
+      "cherries",
+      "kiwi"
+    ]
+  }
+}
