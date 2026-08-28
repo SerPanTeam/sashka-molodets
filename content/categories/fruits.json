@@ -22,6 +22,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/apple.question.de.wav",
         "success": "./assets/generated/audio/apple.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/apple.question.ua.wav",
+        "success": "./assets/generated/audio/apple.success.ua.wav"
       }
     },
     {
