@@ -139,6 +139,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/hairbrush.question.de.wav",
+        "success": "./assets/generated/audio/hairbrush.success.de.wav"
       }
     },
     {

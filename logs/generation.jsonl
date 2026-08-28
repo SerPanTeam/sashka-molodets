@@ -365,3 +365,8 @@
 {"ts":"2026-08-28T20:54:43.970Z","event":"start","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":95,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Toilettenpapier."}
 {"ts":"2026-08-28T20:54:45.023Z","event":"success","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":96,"kind":"success","file":"toilet-paper.success.de.wav","bytes":268844,"ms":1052}
 {"ts":"2026-08-28T20:54:46.227Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":96,"failures":0}
+{"ts":"2026-08-28T20:54:49.075Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":96,"kind":"question","transcript":"Wo ist die Haarbürste?"}
+{"ts":"2026-08-28T20:54:49.974Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":97,"kind":"question","file":"hairbrush.question.de.wav","bytes":158444,"ms":895}
+{"ts":"2026-08-28T20:54:51.177Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":97,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Haarbürste."}
+{"ts":"2026-08-28T20:54:52.386Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":98,"kind":"success","file":"hairbrush.success.de.wav","bytes":266444,"ms":1208}
+{"ts":"2026-08-28T20:54:53.588Z","event":"item-complete","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":98,"failures":0}
