@@ -417,3 +417,6 @@
 {"ts":"2026-08-28T20:58:33.514Z","event":"skip-existing","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":113,"kind":"question","file":"cow.question.de.wav"}
 {"ts":"2026-08-28T20:58:33.516Z","event":"skip-existing","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":113,"kind":"success","file":"cow.success.de.wav"}
 {"ts":"2026-08-28T20:58:33.518Z","event":"item-complete","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:58:35.815Z","event":"skip-existing","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":113,"kind":"question","file":"horse.question.de.wav"}
+{"ts":"2026-08-28T20:58:35.818Z","event":"skip-existing","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":113,"kind":"success","file":"horse.success.de.wav"}
+{"ts":"2026-08-28T20:58:35.820Z","event":"item-complete","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":113,"failures":0}
