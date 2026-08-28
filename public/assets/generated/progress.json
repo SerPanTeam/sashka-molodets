@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:54:24.771Z",
+  "ts": "2026-08-28T20:54:31.908Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "shampoo",
-  "de": "Shampoo",
+  "id": "comb",
+  "de": "Kamm",
   "mode": "de",
-  "audioFiles": 90,
+  "audioFiles": 92,
   "failures": 0
 }

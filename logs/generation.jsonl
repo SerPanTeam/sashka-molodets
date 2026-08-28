@@ -350,3 +350,8 @@
 {"ts":"2026-08-28T20:54:22.373Z","event":"start","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":89,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Shampoo."}
 {"ts":"2026-08-28T20:54:23.568Z","event":"success","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":90,"kind":"success","file":"shampoo.success.de.wav","bytes":232844,"ms":1194}
 {"ts":"2026-08-28T20:54:24.771Z","event":"item-complete","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":90,"failures":0}
+{"ts":"2026-08-28T20:54:27.524Z","event":"start","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":90,"kind":"question","transcript":"Wo ist der Kamm?"}
+{"ts":"2026-08-28T20:54:28.492Z","event":"success","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":91,"kind":"question","file":"comb.question.de.wav","bytes":84044,"ms":965}
+{"ts":"2026-08-28T20:54:29.694Z","event":"start","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":91,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Kamm."}
+{"ts":"2026-08-28T20:54:30.705Z","event":"success","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":92,"kind":"success","file":"comb.success.de.wav","bytes":232844,"ms":1010}
+{"ts":"2026-08-28T20:54:31.908Z","event":"item-complete","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":92,"failures":0}
