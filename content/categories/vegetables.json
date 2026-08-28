@@ -82,7 +82,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/carrot.question.ua.wav",
         "success": "./assets/generated/audio/carrot.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/carrot.png"
     },
     {
       "id": "corn",
