@@ -117,7 +117,8 @@
       "generatedAudio": {
         "success": "./assets/generated/audio/cow.success.bilingual.wav",
         "retry": "./assets/generated/audio/cow.retry.bilingual.wav"
-      }
+      },
+      "generatedAudioDe": {}
     },
     {
       "id": "pig",

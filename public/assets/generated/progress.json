@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T20:07:34.436Z",
-  "event": "item-complete",
+  "ts": "2026-08-28T20:13:08.332Z",
+  "event": "item-complete-with-errors",
   "category": "animals",
-  "id": "rabbit",
-  "de": "Hase",
+  "id": "cow",
+  "de": "Kuh",
   "mode": "de",
   "audioFiles": 6,
-  "failures": 0
+  "failures": 2
 }
