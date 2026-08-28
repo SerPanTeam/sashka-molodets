@@ -707,3 +707,8 @@
 {"ts":"2026-08-28T21:04:11.897Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":165,"kind":"success","transcript":"Сашка, молодець! Це апельсин."}
 {"ts":"2026-08-28T21:04:12.835Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":166,"kind":"success","file":"orange.success.ua.wav","bytes":218444,"ms":937}
 {"ts":"2026-08-28T21:04:14.037Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":166,"failures":0}
+{"ts":"2026-08-28T21:04:16.461Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":166,"kind":"question","transcript":"Де груша?"}
+{"ts":"2026-08-28T21:04:17.115Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":167,"kind":"question","file":"pear.question.ua.wav","bytes":105644,"ms":651}
+{"ts":"2026-08-28T21:04:18.315Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":167,"kind":"success","transcript":"Сашка, молодець! Це груша."}
+{"ts":"2026-08-28T21:04:19.249Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":168,"kind":"success","file":"pear.success.ua.wav","bytes":172844,"ms":933}
+{"ts":"2026-08-28T21:04:20.452Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":168,"failures":0}

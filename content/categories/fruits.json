@@ -103,6 +103,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/pear.question.de.wav",
         "success": "./assets/generated/audio/pear.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pear.question.ua.wav",
+        "success": "./assets/generated/audio/pear.success.ua.wav"
       }
     },
     {
