@@ -11,6 +11,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/car.question.de.wav",
+        "success": "./assets/generated/audio/car.success.de.wav"
       }
     },
     {
