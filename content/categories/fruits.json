@@ -26,7 +26,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/apple.question.ua.wav",
         "success": "./assets/generated/audio/apple.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/apple.png"
     },
     {
       "id": "banana",

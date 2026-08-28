@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:20:20.434Z",
+  "ts": "2026-08-28T21:20:56.973Z",
   "event": "success",
   "provider": "openai",
-  "category": "vegetables",
-  "id": "garlic",
-  "de": "Knoblauch",
-  "imageFiles": 20,
-  "file": "garlic.png",
-  "bytes": 1164986,
+  "category": "fruits",
+  "id": "apple",
+  "de": "Apfel",
+  "imageFiles": 21,
+  "file": "apple.png",
+  "bytes": 1535001,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 34103
+  "ms": 32815
 }
