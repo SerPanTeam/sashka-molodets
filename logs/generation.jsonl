@@ -98,3 +98,8 @@
 {"ts":"2026-08-28T20:46:10.676Z","event":"start","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":6,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hase."}
 {"ts":"2026-08-28T20:46:11.739Z","event":"success","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":7,"kind":"success","file":"rabbit.success.de.wav","bytes":240044,"ms":1062}
 {"ts":"2026-08-28T20:46:12.941Z","event":"item-complete","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":7,"failures":0}
+{"ts":"2026-08-28T20:46:15.512Z","event":"start","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":7,"kind":"question","transcript":"Wo ist die Kuh?"}
+{"ts":"2026-08-28T20:46:17.296Z","event":"success","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":8,"kind":"question","file":"cow.question.de.wav","bytes":110444,"ms":1780}
+{"ts":"2026-08-28T20:46:18.496Z","event":"start","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":8,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kuh."}
+{"ts":"2026-08-28T20:46:20.423Z","event":"success","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":9,"kind":"success","file":"cow.success.de.wav","bytes":232844,"ms":1926}
+{"ts":"2026-08-28T20:46:21.627Z","event":"item-complete","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":9,"failures":0}

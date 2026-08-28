@@ -119,7 +119,10 @@
         "success": "./assets/generated/audio/cow.success.bilingual.wav",
         "retry": "./assets/generated/audio/cow.retry.bilingual.wav"
       },
-      "generatedAudioDe": {}
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cow.question.de.wav",
+        "success": "./assets/generated/audio/cow.success.de.wav"
+      }
     },
     {
       "id": "pig",
