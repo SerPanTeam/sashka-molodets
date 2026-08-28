@@ -471,3 +471,6 @@
 {"ts":"2026-08-28T20:59:15.795Z","event":"skip-existing","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"kind":"question","file":"banana.question.de.wav"}
 {"ts":"2026-08-28T20:59:15.797Z","event":"skip-existing","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"kind":"success","file":"banana.success.de.wav"}
 {"ts":"2026-08-28T20:59:15.799Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:18.315Z","event":"skip-existing","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":113,"kind":"question","file":"orange.question.de.wav"}
+{"ts":"2026-08-28T20:59:18.317Z","event":"skip-existing","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":113,"kind":"success","file":"orange.success.de.wav"}
+{"ts":"2026-08-28T20:59:18.322Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":113,"failures":0}
