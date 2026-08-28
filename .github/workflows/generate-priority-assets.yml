@@ -1,21 +1,14 @@
 name: Generate priority learning assets
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/generate-priority-assets.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
-concurrency:
-  group: generate-priority-assets
-  cancel-in-progress: true
-
 jobs:
-  stop:
+  disabled:
     runs-on: ubuntu-latest
     steps:
       - name: Generation disabled
-        run: echo 'AI generation disabled. No API calls will be made.'
+        run: echo 'AI generation is disabled until GEMINI_API_KEY is replaced with the intended paid-account key.'
