@@ -203,7 +203,11 @@
           "ua": "фіолетовий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/eggplant.question.de.wav",
+        "success": "./assets/generated/audio/eggplant.success.de.wav"
+      }
     },
     {
       "id": "garlic",
