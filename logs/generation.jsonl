@@ -1252,3 +1252,6 @@
 {"ts":"2026-08-28T22:31:08.321Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"kind":"question","file":"soap.question.de.wav"}
 {"ts":"2026-08-28T22:31:08.325Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"kind":"success","file":"soap.success.de.wav"}
 {"ts":"2026-08-28T22:31:08.327Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:11.241Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"kind":"question","file":"towel.question.de.wav"}
+{"ts":"2026-08-28T22:31:11.245Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"kind":"success","file":"towel.success.de.wav"}
+{"ts":"2026-08-28T22:31:11.247Z","event":"item-complete","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"failures":0}
