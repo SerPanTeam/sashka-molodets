@@ -1491,3 +1491,4 @@
 {"ts":"2026-08-28T22:34:38.339Z","event":"skip-existing","provider":"openai","category":"animals","id":"pig","de":"Schwein","imageFiles":32,"file":"pig.png"}
 {"ts":"2026-08-28T22:34:40.862Z","event":"skip-existing","provider":"openai","category":"animals","id":"sheep","de":"Schaf","imageFiles":32,"file":"sheep.png"}
 {"ts":"2026-08-28T22:34:43.309Z","event":"skip-existing","provider":"openai","category":"animals","id":"lion","de":"Löwe","imageFiles":32,"file":"lion.png"}
+{"ts":"2026-08-28T22:34:45.860Z","event":"skip-existing","provider":"openai","category":"animals","id":"elephant","de":"Elefant","imageFiles":32,"file":"elephant.png"}
