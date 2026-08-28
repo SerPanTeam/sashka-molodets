@@ -1,4 +1,4 @@
-# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:58Z
+# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:59Z
 name: Generate priority learning assets
 
 on:
@@ -69,6 +69,7 @@ jobs:
             echo 'Smoke assets already existed; nothing new to commit.'
           else
             git commit -m 'feat: persist successful OpenAI smoke assets'
+            git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
             git pull --rebase origin main
             git push origin HEAD:main
           fi
