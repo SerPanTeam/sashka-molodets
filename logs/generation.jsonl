@@ -516,3 +516,6 @@
 {"ts":"2026-08-28T20:59:51.917Z","event":"skip-existing","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":113,"kind":"question","file":"bowl.question.de.wav"}
 {"ts":"2026-08-28T20:59:51.920Z","event":"skip-existing","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":113,"kind":"success","file":"bowl.success.de.wav"}
 {"ts":"2026-08-28T20:59:51.922Z","event":"item-complete","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:54.344Z","event":"skip-existing","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":113,"kind":"question","file":"pot.question.de.wav"}
+{"ts":"2026-08-28T20:59:54.347Z","event":"skip-existing","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":113,"kind":"success","file":"pot.success.de.wav"}
+{"ts":"2026-08-28T20:59:54.349Z","event":"item-complete","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":113,"failures":0}
