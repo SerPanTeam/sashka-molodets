@@ -57,6 +57,10 @@
         "question": "./assets/generated/audio/rabbit.question.bilingual.wav",
         "success": "./assets/generated/audio/rabbit.success.bilingual.wav",
         "retry": "./assets/generated/audio/rabbit.retry.bilingual.wav"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/rabbit.question.de.wav",
+        "success": "./assets/generated/audio/rabbit.success.de.wav"
       }
     },
     {

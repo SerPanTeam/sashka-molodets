@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T20:05:56.389Z",
+  "ts": "2026-08-28T20:07:34.436Z",
   "event": "item-complete",
   "category": "animals",
-  "id": "cat",
-  "de": "Katze",
+  "id": "rabbit",
+  "de": "Hase",
   "mode": "de",
-  "audioFiles": 4,
+  "audioFiles": 6,
   "failures": 0
 }

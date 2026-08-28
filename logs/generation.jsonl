@@ -8,3 +8,8 @@
 {"ts":"2026-08-28T20:05:43.405Z","event":"start","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":3,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Katze."}
 {"ts":"2026-08-28T20:05:49.384Z","event":"success","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":4,"kind":"success","file":"cat.success.de.wav","bytes":282284,"ms":5979}
 {"ts":"2026-08-28T20:05:56.389Z","event":"item-complete","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":4,"failures":0}
+{"ts":"2026-08-28T20:05:59.995Z","event":"start","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":4,"kind":"question","transcript":"Wo ist der Hase?"}
+{"ts":"2026-08-28T20:06:17.192Z","event":"success","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":5,"kind":"question","file":"rabbit.question.de.wav","bytes":124844,"ms":17194}
+{"ts":"2026-08-28T20:06:24.196Z","event":"start","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":5,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hase."}
+{"ts":"2026-08-28T20:07:27.431Z","event":"success","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":6,"kind":"success","file":"rabbit.success.de.wav","bytes":272684,"ms":63234}
+{"ts":"2026-08-28T20:07:34.436Z","event":"item-complete","category":"animals","id":"rabbit","de":"Hase","mode":"de","audioFiles":6,"failures":0}
