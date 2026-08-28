@@ -802,3 +802,8 @@
 {"ts":"2026-08-28T21:06:20.152Z","event":"start","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"ua","audioFiles":203,"kind":"success","transcript":"Сашка, молодець! Це зубна паста."}
 {"ts":"2026-08-28T21:06:21.013Z","event":"success","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"ua","audioFiles":204,"kind":"success","file":"toothpaste.success.ua.wav","bytes":216044,"ms":857}
 {"ts":"2026-08-28T21:06:22.216Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"ua","audioFiles":204,"failures":0}
+{"ts":"2026-08-28T21:06:24.782Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":204,"kind":"question","transcript":"Де мило?"}
+{"ts":"2026-08-28T21:06:25.628Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":205,"kind":"question","file":"soap.question.ua.wav","bytes":91244,"ms":842}
+{"ts":"2026-08-28T21:06:26.828Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":205,"kind":"success","transcript":"Сашка, молодець! Це мило."}
+{"ts":"2026-08-28T21:06:27.751Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":206,"kind":"success","file":"soap.success.ua.wav","bytes":151244,"ms":922}
+{"ts":"2026-08-28T21:06:28.955Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":206,"failures":0}
