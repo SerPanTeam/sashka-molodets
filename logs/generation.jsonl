@@ -489,3 +489,6 @@
 {"ts":"2026-08-28T20:59:30.667Z","event":"skip-existing","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":113,"kind":"question","file":"peach.question.de.wav"}
 {"ts":"2026-08-28T20:59:30.670Z","event":"skip-existing","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":113,"kind":"success","file":"peach.success.de.wav"}
 {"ts":"2026-08-28T20:59:30.671Z","event":"item-complete","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:33.010Z","event":"skip-existing","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":113,"kind":"question","file":"cherries.question.de.wav"}
+{"ts":"2026-08-28T20:59:33.013Z","event":"skip-existing","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":113,"kind":"success","file":"cherries.success.de.wav"}
+{"ts":"2026-08-28T20:59:33.015Z","event":"item-complete","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":113,"failures":0}
