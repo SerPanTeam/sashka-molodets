@@ -1,0 +1,94 @@
+name: Regenerate Olexander German success audio
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/regenerate-olexander-success.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: regenerate-olexander-success
+  cancel-in-progress: true
+
+jobs:
+  regenerate-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      AI_DEFAULT_PROVIDER: openai
+      OPENAI_TTS_MODEL: gpt-4o-mini-tts
+      OPENAI_TTS_VOICE: coral
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate Olexander source
+        run: |
+          node --check scripts/generate-one-audio.mjs
+          grep -q 'Olexander, super' scripts/generate-one-audio.mjs
+          test -n "$OPENAI_API_KEY" || (echo 'ERROR: OPENAI_API_KEY is missing' && exit 1)
+
+      - name: Regenerate all German success WAV files
+        run: |
+          set -euo pipefail
+          rm -f public/assets/generated/audio/*.success.de.wav
+          IDS=$(node -e "const p=require('./config/generation/priority-v1.json'); console.log(Object.values(p.categories).flat().join(' '))")
+          for id in $IDS; do
+            echo "=== Olexander success TTS: $id ==="
+            node scripts/generate-one-audio.mjs --provider=openai --id="$id" --mode=de --kinds=success --pause-ms=250
+          done
+          COUNT=$(find public/assets/generated/audio -maxdepth 1 -type f -name '*.success.de.wav' | wc -l)
+          echo "German success WAV count: $COUNT"
+          test "$COUNT" -eq 60
+
+      - name: Persist refreshed audio
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f public/assets/generated/audio
+          git add content/categories
+          git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
+          git commit -m 'feat: regenerate German success audio with Olexander'
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Prepare production site
+        run: |
+          rm -rf _site
+          mkdir -p _site/content
+          cp -R public/. _site/
+          cp -R content/. _site/content/
+          touch _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
