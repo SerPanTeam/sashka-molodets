@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:38.515Z",
+  "ts": "2026-08-28T22:35:40.887Z",
   "event": "skip-existing",
   "provider": "openai",
-  "category": "fruits",
-  "id": "kiwi",
-  "de": "Kiwi",
+  "category": "household",
+  "id": "cup",
+  "de": "Tasse",
   "imageFiles": 32,
-  "file": "kiwi.png"
+  "file": "cup.png"
 }
