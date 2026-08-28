@@ -1300,3 +1300,6 @@
 {"ts":"2026-08-28T22:31:49.615Z","event":"skip-existing","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"kind":"question","file":"tram.question.de.wav"}
 {"ts":"2026-08-28T22:31:49.618Z","event":"skip-existing","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"kind":"success","file":"tram.success.de.wav"}
 {"ts":"2026-08-28T22:31:49.620Z","event":"item-complete","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:52.052Z","event":"skip-existing","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"kind":"question","file":"helicopter.question.de.wav"}
+{"ts":"2026-08-28T22:31:52.055Z","event":"skip-existing","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"kind":"success","file":"helicopter.success.de.wav"}
+{"ts":"2026-08-28T22:31:52.058Z","event":"item-complete","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"failures":0}
