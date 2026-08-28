@@ -147,7 +147,8 @@
       "generatedAudio": {
         "question": "./assets/generated/audio/horse.question.bilingual.wav",
         "success": "./assets/generated/audio/horse.success.bilingual.wav"
-      }
+      },
+      "generatedAudioDe": {}
     },
     {
       "id": "sheep",
