@@ -1,4 +1,4 @@
-const CACHE="sashka-molodets-v4";
+const CACHE="sashka-molodets-v5";
 const BASE=self.registration.scope;
 const url=path=>new URL(path,BASE).href;
 const CORE=[BASE,url("index.html"),url("styles.css"),url("app.js"),url("pages-shim.js"),url("manifest.webmanifest"),url("icon.svg"),url("content/content.json")];
