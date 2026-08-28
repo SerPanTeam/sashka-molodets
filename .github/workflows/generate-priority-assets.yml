@@ -1,4 +1,4 @@
-# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:51Z
+# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:58Z
 name: Generate priority learning assets
 
 on:
@@ -43,6 +43,7 @@ jobs:
         run: |
           node --check scripts/generate-one-audio.mjs
           node --check scripts/generate-one-image.mjs
+          node --check public/app.js
           node scripts/check-content.mjs
           test -n "$OPENAI_API_KEY" || (echo 'ERROR: OPENAI_API_KEY GitHub secret is missing' && exit 1)
           echo 'READY: OpenAI key present. Smoke gate runs before mass generation.'
@@ -63,8 +64,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -f public/assets/generated/audio public/assets/generated/images
-          git add public/assets/generated/progress.json content/categories
-          test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
+          git add content/categories
           if git diff --cached --quiet; then
             echo 'Smoke assets already existed; nothing new to commit.'
           else
