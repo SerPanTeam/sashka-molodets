@@ -837,3 +837,8 @@
 {"ts":"2026-08-28T21:07:07.647Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":217,"kind":"success","transcript":"Сашка, молодець! Це щітка для волосся."}
 {"ts":"2026-08-28T21:07:08.684Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":218,"kind":"success","file":"hairbrush.success.ua.wav","bytes":216044,"ms":1037}
 {"ts":"2026-08-28T21:07:09.887Z","event":"item-complete","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":218,"failures":0}
+{"ts":"2026-08-28T21:07:12.313Z","event":"start","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"ua","audioFiles":218,"kind":"question","transcript":"Де мочалка?"}
+{"ts":"2026-08-28T21:07:13.132Z","event":"success","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"ua","audioFiles":219,"kind":"question","file":"washcloth.question.ua.wav","bytes":127244,"ms":816}
+{"ts":"2026-08-28T21:07:14.333Z","event":"start","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"ua","audioFiles":219,"kind":"success","transcript":"Сашка, молодець! Це мочалка."}
+{"ts":"2026-08-28T21:07:15.563Z","event":"success","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"ua","audioFiles":220,"kind":"success","file":"washcloth.success.ua.wav","bytes":268844,"ms":1229}
+{"ts":"2026-08-28T21:07:16.767Z","event":"item-complete","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"ua","audioFiles":220,"failures":0}
