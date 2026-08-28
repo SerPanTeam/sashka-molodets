@@ -480,3 +480,6 @@
 {"ts":"2026-08-28T20:59:23.455Z","event":"skip-existing","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"kind":"question","file":"grapes.question.de.wav"}
 {"ts":"2026-08-28T20:59:23.458Z","event":"skip-existing","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"kind":"success","file":"grapes.success.de.wav"}
 {"ts":"2026-08-28T20:59:23.460Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:25.870Z","event":"skip-existing","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":113,"kind":"question","file":"strawberry.question.de.wav"}
+{"ts":"2026-08-28T20:59:25.873Z","event":"skip-existing","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":113,"kind":"success","file":"strawberry.success.de.wav"}
+{"ts":"2026-08-28T20:59:25.875Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":113,"failures":0}
