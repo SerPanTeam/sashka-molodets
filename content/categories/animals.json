@@ -136,7 +136,10 @@
         "de": "das"
       },
       "generatedAudio": {},
-      "generatedAudioDe": {}
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pig.question.de.wav",
+        "success": "./assets/generated/audio/pig.success.de.wav"
+      }
     },
     {
       "id": "horse",

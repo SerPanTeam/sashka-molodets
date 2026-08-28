@@ -108,3 +108,8 @@
 {"ts":"2026-08-28T20:46:26.600Z","event":"start","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":10,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Pferd."}
 {"ts":"2026-08-28T20:46:29.784Z","event":"success","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":11,"kind":"success","file":"horse.success.de.wav","bytes":247244,"ms":3183}
 {"ts":"2026-08-28T20:46:30.987Z","event":"item-complete","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":11,"failures":0}
+{"ts":"2026-08-28T20:46:34.562Z","event":"start","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":11,"kind":"question","transcript":"Wo ist das Schwein?"}
+{"ts":"2026-08-28T20:46:36.629Z","event":"success","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":12,"kind":"question","file":"pig.question.de.wav","bytes":120044,"ms":2063}
+{"ts":"2026-08-28T20:46:37.831Z","event":"start","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":12,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Schwein."}
+{"ts":"2026-08-28T20:46:39.455Z","event":"success","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":13,"kind":"success","file":"pig.success.de.wav","bytes":259244,"ms":1623}
+{"ts":"2026-08-28T20:46:40.656Z","event":"item-complete","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":13,"failures":0}
