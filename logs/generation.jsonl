@@ -882,3 +882,8 @@
 {"ts":"2026-08-28T21:08:09.530Z","event":"start","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":235,"kind":"success","transcript":"Сашка, молодець! Це трактор."}
 {"ts":"2026-08-28T21:08:10.587Z","event":"success","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":236,"kind":"success","file":"tractor.success.ua.wav","bytes":192044,"ms":1056}
 {"ts":"2026-08-28T21:08:11.790Z","event":"item-complete","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":236,"failures":0}
+{"ts":"2026-08-28T21:08:14.221Z","event":"start","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"ua","audioFiles":236,"kind":"question","transcript":"Де трамвай?"}
+{"ts":"2026-08-28T21:08:14.918Z","event":"success","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"ua","audioFiles":237,"kind":"question","file":"tram.question.ua.wav","bytes":81644,"ms":693}
+{"ts":"2026-08-28T21:08:16.118Z","event":"start","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"ua","audioFiles":237,"kind":"success","transcript":"Сашка, молодець! Це трамвай."}
+{"ts":"2026-08-28T21:08:17.145Z","event":"success","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"ua","audioFiles":238,"kind":"success","file":"tram.success.ua.wav","bytes":225644,"ms":1026}
+{"ts":"2026-08-28T21:08:18.348Z","event":"item-complete","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"ua","audioFiles":238,"failures":0}
