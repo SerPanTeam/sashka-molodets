@@ -1,0 +1,15 @@
+{
+  "name": "sashka-molodets",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bilingual German-Ukrainian learning PWA for children with pluggable AI asset providers.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "NODE_ENV=production node server.mjs",
+    "check": "node scripts/check-content.mjs",
+    "generate:assets": "node scripts/generate-assets.mjs --dry-run",
+    "generate:assets:live": "node scripts/generate-assets.mjs"
+  },
+  "engines": {"node": ">=20"}
+}

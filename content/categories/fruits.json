@@ -1,0 +1,185 @@
+{
+  "category": "fruits",
+  "items": [
+    {
+      "id": "apple",
+      "category": "fruits",
+      "emoji": "🍎",
+      "labels": {
+        "de": "Apfel",
+        "ua": "яблуко"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "rot",
+          "ua": "червоне"
+        }
+      }
+    },
+    {
+      "id": "banana",
+      "category": "fruits",
+      "emoji": "🍌",
+      "labels": {
+        "de": "Banane",
+        "ua": "банан"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "gelb",
+          "ua": "жовтий"
+        }
+      }
+    },
+    {
+      "id": "orange",
+      "category": "fruits",
+      "emoji": "🍊",
+      "labels": {
+        "de": "Orange",
+        "ua": "апельсин"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "orange",
+          "ua": "помаранчевий"
+        }
+      }
+    },
+    {
+      "id": "pear",
+      "category": "fruits",
+      "emoji": "🍐",
+      "labels": {
+        "de": "Birne",
+        "ua": "груша"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелена"
+        }
+      }
+    },
+    {
+      "id": "grapes",
+      "category": "fruits",
+      "emoji": "🍇",
+      "labels": {
+        "de": "Trauben",
+        "ua": "виноград"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "violett",
+          "ua": "фіолетовий"
+        }
+      }
+    },
+    {
+      "id": "strawberry",
+      "category": "fruits",
+      "emoji": "🍓",
+      "labels": {
+        "de": "Erdbeere",
+        "ua": "полуниця"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "rot",
+          "ua": "червона"
+        }
+      }
+    },
+    {
+      "id": "watermelon",
+      "category": "fruits",
+      "emoji": "🍉",
+      "labels": {
+        "de": "Wassermelone",
+        "ua": "кавун"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелений"
+        }
+      }
+    },
+    {
+      "id": "peach",
+      "category": "fruits",
+      "emoji": "🍑",
+      "labels": {
+        "de": "Pfirsich",
+        "ua": "персик"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "orange",
+          "ua": "помаранчевий"
+        }
+      }
+    },
+    {
+      "id": "cherries",
+      "category": "fruits",
+      "emoji": "🍒",
+      "labels": {
+        "de": "Kirschen",
+        "ua": "вишні"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "rot",
+          "ua": "червоні"
+        }
+      }
+    },
+    {
+      "id": "kiwi",
+      "category": "fruits",
+      "emoji": "🥝",
+      "labels": {
+        "de": "Kiwi",
+        "ua": "ківі"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелений"
+        }
+      }
+    }
+  ]
+}

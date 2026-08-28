@@ -1,0 +1,77 @@
+{
+  "category": "shapes",
+  "items": [
+    {
+      "id": "circle",
+      "category": "shapes",
+      "emoji": "🔵",
+      "labels": {
+        "de": "Kreis",
+        "ua": "коло"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "square",
+      "category": "shapes",
+      "emoji": "🟦",
+      "labels": {
+        "de": "Quadrat",
+        "ua": "квадрат"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "triangle",
+      "category": "shapes",
+      "emoji": "🔺",
+      "labels": {
+        "de": "Dreieck",
+        "ua": "трикутник"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "diamond",
+      "category": "shapes",
+      "emoji": "🔷",
+      "labels": {
+        "de": "Raute",
+        "ua": "ромб"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "star",
+      "category": "shapes",
+      "emoji": "⭐",
+      "labels": {
+        "de": "Stern",
+        "ua": "зірка"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "heart",
+      "category": "shapes",
+      "emoji": "❤️",
+      "labels": {
+        "de": "Herz",
+        "ua": "серце"
+      },
+      "article": {
+        "de": "das"
+      }
+    }
+  ]
+}

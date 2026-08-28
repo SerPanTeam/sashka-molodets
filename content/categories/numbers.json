@@ -1,0 +1,137 @@
+{
+  "category": "numbers",
+  "items": [
+    {
+      "id": "number-0",
+      "category": "numbers",
+      "emoji": "0️⃣",
+      "labels": {
+        "de": "Null",
+        "ua": "нуль"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-1",
+      "category": "numbers",
+      "emoji": "1️⃣",
+      "labels": {
+        "de": "Eins",
+        "ua": "один"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-2",
+      "category": "numbers",
+      "emoji": "2️⃣",
+      "labels": {
+        "de": "Zwei",
+        "ua": "два"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-3",
+      "category": "numbers",
+      "emoji": "3️⃣",
+      "labels": {
+        "de": "Drei",
+        "ua": "три"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-4",
+      "category": "numbers",
+      "emoji": "4️⃣",
+      "labels": {
+        "de": "Vier",
+        "ua": "чотири"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-5",
+      "category": "numbers",
+      "emoji": "5️⃣",
+      "labels": {
+        "de": "Fünf",
+        "ua": "п’ять"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-6",
+      "category": "numbers",
+      "emoji": "6️⃣",
+      "labels": {
+        "de": "Sechs",
+        "ua": "шість"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-7",
+      "category": "numbers",
+      "emoji": "7️⃣",
+      "labels": {
+        "de": "Sieben",
+        "ua": "сім"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-8",
+      "category": "numbers",
+      "emoji": "8️⃣",
+      "labels": {
+        "de": "Acht",
+        "ua": "вісім"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-9",
+      "category": "numbers",
+      "emoji": "9️⃣",
+      "labels": {
+        "de": "Neun",
+        "ua": "дев’ять"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "number-10",
+      "category": "numbers",
+      "emoji": "🔟",
+      "labels": {
+        "de": "Zehn",
+        "ua": "десять"
+      },
+      "article": {
+        "de": "die"
+      }
+    }
+  ]
+}

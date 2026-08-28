@@ -1,0 +1,9 @@
+.env
+.DS_Store
+node_modules/
+*.log
+public/assets/generated/images/*
+!public/assets/generated/images/.gitkeep
+public/assets/generated/audio/*
+!public/assets/generated/audio/.gitkeep
+content/generated-manifest.json

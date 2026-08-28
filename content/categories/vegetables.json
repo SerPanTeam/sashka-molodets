@@ -1,0 +1,185 @@
+{
+  "category": "vegetables",
+  "items": [
+    {
+      "id": "tomato",
+      "category": "vegetables",
+      "emoji": "🍅",
+      "labels": {
+        "de": "Tomate",
+        "ua": "помідор"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "rot",
+          "ua": "червоний"
+        }
+      }
+    },
+    {
+      "id": "cucumber",
+      "category": "vegetables",
+      "emoji": "🥒",
+      "labels": {
+        "de": "Gurke",
+        "ua": "огірок"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелений"
+        }
+      }
+    },
+    {
+      "id": "carrot",
+      "category": "vegetables",
+      "emoji": "🥕",
+      "labels": {
+        "de": "Karotte",
+        "ua": "морква"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "orange",
+          "ua": "помаранчева"
+        }
+      }
+    },
+    {
+      "id": "corn",
+      "category": "vegetables",
+      "emoji": "🌽",
+      "labels": {
+        "de": "Mais",
+        "ua": "кукурудза"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "gelb",
+          "ua": "жовта"
+        }
+      }
+    },
+    {
+      "id": "pepper",
+      "category": "vegetables",
+      "emoji": "🫑",
+      "labels": {
+        "de": "Paprika",
+        "ua": "перець"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелений"
+        }
+      }
+    },
+    {
+      "id": "broccoli",
+      "category": "vegetables",
+      "emoji": "🥦",
+      "labels": {
+        "de": "Brokkoli",
+        "ua": "броколі"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелені"
+        }
+      }
+    },
+    {
+      "id": "potato",
+      "category": "vegetables",
+      "emoji": "🥔",
+      "labels": {
+        "de": "Kartoffel",
+        "ua": "картопля"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "braun",
+          "ua": "коричнева"
+        }
+      }
+    },
+    {
+      "id": "onion",
+      "category": "vegetables",
+      "emoji": "🧅",
+      "labels": {
+        "de": "Zwiebel",
+        "ua": "цибуля"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "gelb",
+          "ua": "жовта"
+        }
+      }
+    },
+    {
+      "id": "eggplant",
+      "category": "vegetables",
+      "emoji": "🍆",
+      "labels": {
+        "de": "Aubergine",
+        "ua": "баклажан"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "violett",
+          "ua": "фіолетовий"
+        }
+      }
+    },
+    {
+      "id": "garlic",
+      "category": "vegetables",
+      "emoji": "🧄",
+      "labels": {
+        "de": "Knoblauch",
+        "ua": "часник"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "weiß",
+          "ua": "білий"
+        }
+      }
+    }
+  ]
+}

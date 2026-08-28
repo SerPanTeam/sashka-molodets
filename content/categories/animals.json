@@ -1,0 +1,185 @@
+{
+  "category": "animals",
+  "items": [
+    {
+      "id": "dog",
+      "category": "animals",
+      "emoji": "🐶",
+      "labels": {
+        "de": "Hund",
+        "ua": "собака"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "cat",
+      "category": "animals",
+      "emoji": "🐱",
+      "labels": {
+        "de": "Katze",
+        "ua": "кіт"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "rabbit",
+      "category": "animals",
+      "emoji": "🐰",
+      "labels": {
+        "de": "Hase",
+        "ua": "заєць"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "bear",
+      "category": "animals",
+      "emoji": "🐻",
+      "labels": {
+        "de": "Bär",
+        "ua": "ведмідь"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "fox",
+      "category": "animals",
+      "emoji": "🦊",
+      "labels": {
+        "de": "Fuchs",
+        "ua": "лисиця"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "lion",
+      "category": "animals",
+      "emoji": "🦁",
+      "labels": {
+        "de": "Löwe",
+        "ua": "лев"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "cow",
+      "category": "animals",
+      "emoji": "🐮",
+      "labels": {
+        "de": "Kuh",
+        "ua": "корова"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "pig",
+      "category": "animals",
+      "emoji": "🐷",
+      "labels": {
+        "de": "Schwein",
+        "ua": "свиня"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "horse",
+      "category": "animals",
+      "emoji": "🐴",
+      "labels": {
+        "de": "Pferd",
+        "ua": "кінь"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "sheep",
+      "category": "animals",
+      "emoji": "🐑",
+      "labels": {
+        "de": "Schaf",
+        "ua": "вівця"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "frog",
+      "category": "animals",
+      "emoji": "🐸",
+      "labels": {
+        "de": "Frosch",
+        "ua": "жаба"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "duck",
+      "category": "animals",
+      "emoji": "🦆",
+      "labels": {
+        "de": "Ente",
+        "ua": "качка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "chicken",
+      "category": "animals",
+      "emoji": "🐔",
+      "labels": {
+        "de": "Huhn",
+        "ua": "курка"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "penguin",
+      "category": "animals",
+      "emoji": "🐧",
+      "labels": {
+        "de": "Pinguin",
+        "ua": "пінгвін"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "elephant",
+      "category": "animals",
+      "emoji": "🐘",
+      "labels": {
+        "de": "Elefant",
+        "ua": "слон"
+      },
+      "article": {
+        "de": "der"
+      }
+    }
+  ]
+}

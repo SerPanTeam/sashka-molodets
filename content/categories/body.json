@@ -1,0 +1,77 @@
+{
+  "category": "body",
+  "items": [
+    {
+      "id": "hand",
+      "category": "body",
+      "emoji": "🖐️",
+      "labels": {
+        "de": "Hand",
+        "ua": "рука"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "eye",
+      "category": "body",
+      "emoji": "👁️",
+      "labels": {
+        "de": "Auge",
+        "ua": "око"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "ear",
+      "category": "body",
+      "emoji": "👂",
+      "labels": {
+        "de": "Ohr",
+        "ua": "вухо"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "nose",
+      "category": "body",
+      "emoji": "👃",
+      "labels": {
+        "de": "Nase",
+        "ua": "ніс"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "mouth",
+      "category": "body",
+      "emoji": "👄",
+      "labels": {
+        "de": "Mund",
+        "ua": "рот"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "foot",
+      "category": "body",
+      "emoji": "🦶",
+      "labels": {
+        "de": "Fuß",
+        "ua": "ступня"
+      },
+      "article": {
+        "de": "der"
+      }
+    }
+  ]
+}

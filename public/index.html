@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#7ec8ff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Сашка молодец</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button id="brandButton" class="brand" aria-label="Удерживайте для настроек"><span class="brand-star">★</span><span>Сашка молодец</span></button>
+      <div class="top-actions">
+        <button id="soundButton" class="round-button" aria-label="Повторить">🔊</button>
+        <button id="fullscreenButton" class="round-button" aria-label="Полный экран">⛶</button>
+      </div>
+    </header>
+    <main id="main" class="main"></main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+  </div>
+
+  <dialog id="parentDialog" class="parent-dialog">
+    <form method="dialog" class="parent-panel">
+      <div class="parent-header"><div><div class="eyebrow">Режим взрослого</div><h2>Настройки</h2></div><button class="round-button" value="cancel">✕</button></div>
+      <label>Имя ребёнка<input id="childNameInput" maxlength="24" autocomplete="off"></label>
+      <label>Языковой режим<select id="languageModeInput"><option value="de-first">Немецкий → украинская поддержка</option><option value="dual">Оба языка одновременно</option><option value="ua-first">Украинский → немецкая поддержка</option></select></label>
+      <label>Уровень<select id="difficultyInput"><option value="1">1 — 2 картинки</option><option value="2">2 — 4 картинки</option><option value="3">3 — 6 картинок</option><option value="4">4 — похожие варианты</option><option value="5">5 — цвет + предмет</option></select></label>
+      <label class="checkline"><input id="labelsInput" type="checkbox"><span>Показывать подписи</span></label>
+      <label class="checkline"><input id="autoSpeakInput" type="checkbox"><span>Автоматически озвучивать</span></label>
+      <label>Категории<div id="categorySettings" class="category-settings"></div></label>
+      <div class="parent-actions"><button id="resetProgressButton" type="button" class="secondary-button">Сбросить прогресс</button><button id="saveSettingsButton" type="button" class="primary-button">Сохранить</button></div>
+      <div class="parent-note">Для настоящей блокировки выхода: установите PWA и включите системное «Закрепление приложения» (App pinning) на Android.</div>
+    </form>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

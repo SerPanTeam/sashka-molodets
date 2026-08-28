@@ -1,0 +1,77 @@
+{
+  "category": "home",
+  "items": [
+    {
+      "id": "house",
+      "category": "home",
+      "emoji": "🏠",
+      "labels": {
+        "de": "Haus",
+        "ua": "будинок"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "bed",
+      "category": "home",
+      "emoji": "🛏️",
+      "labels": {
+        "de": "Bett",
+        "ua": "ліжко"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "chair",
+      "category": "home",
+      "emoji": "🪑",
+      "labels": {
+        "de": "Stuhl",
+        "ua": "стілець"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "door",
+      "category": "home",
+      "emoji": "🚪",
+      "labels": {
+        "de": "Tür",
+        "ua": "двері"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "lamp",
+      "category": "home",
+      "emoji": "💡",
+      "labels": {
+        "de": "Lampe",
+        "ua": "лампа"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "key",
+      "category": "home",
+      "emoji": "🔑",
+      "labels": {
+        "de": "Schlüssel",
+        "ua": "ключ"
+      },
+      "article": {
+        "de": "der"
+      }
+    }
+  ]
+}

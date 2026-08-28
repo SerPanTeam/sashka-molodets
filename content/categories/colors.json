@@ -1,0 +1,113 @@
+{
+  "category": "colors",
+  "items": [
+    {
+      "id": "red",
+      "category": "colors",
+      "emoji": "🔴",
+      "labels": {
+        "de": "Rot",
+        "ua": "червоний"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "orange-color",
+      "category": "colors",
+      "emoji": "🟠",
+      "labels": {
+        "de": "Orange",
+        "ua": "помаранчевий"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "yellow",
+      "category": "colors",
+      "emoji": "🟡",
+      "labels": {
+        "de": "Gelb",
+        "ua": "жовтий"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "green",
+      "category": "colors",
+      "emoji": "🟢",
+      "labels": {
+        "de": "Grün",
+        "ua": "зелений"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "blue",
+      "category": "colors",
+      "emoji": "🔵",
+      "labels": {
+        "de": "Blau",
+        "ua": "синій"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "purple",
+      "category": "colors",
+      "emoji": "🟣",
+      "labels": {
+        "de": "Lila",
+        "ua": "фіолетовий"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "black",
+      "category": "colors",
+      "emoji": "⚫",
+      "labels": {
+        "de": "Schwarz",
+        "ua": "чорний"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "white",
+      "category": "colors",
+      "emoji": "⚪",
+      "labels": {
+        "de": "Weiß",
+        "ua": "білий"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "brown",
+      "category": "colors",
+      "emoji": "🟤",
+      "labels": {
+        "de": "Braun",
+        "ua": "коричневий"
+      },
+      "article": {
+        "de": "das"
+      }
+    }
+  ]
+}

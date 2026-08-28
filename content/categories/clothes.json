@@ -1,0 +1,77 @@
+{
+  "category": "clothes",
+  "items": [
+    {
+      "id": "shirt",
+      "category": "clothes",
+      "emoji": "👕",
+      "labels": {
+        "de": "T-Shirt",
+        "ua": "футболка"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "pants",
+      "category": "clothes",
+      "emoji": "👖",
+      "labels": {
+        "de": "Hose",
+        "ua": "штани"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "dress",
+      "category": "clothes",
+      "emoji": "👗",
+      "labels": {
+        "de": "Kleid",
+        "ua": "сукня"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "shoe",
+      "category": "clothes",
+      "emoji": "👟",
+      "labels": {
+        "de": "Schuh",
+        "ua": "черевик"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "hat",
+      "category": "clothes",
+      "emoji": "🧢",
+      "labels": {
+        "de": "Mütze",
+        "ua": "кепка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "jacket",
+      "category": "clothes",
+      "emoji": "🧥",
+      "labels": {
+        "de": "Jacke",
+        "ua": "куртка"
+      },
+      "article": {
+        "de": "die"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "languages": [
+    "de-DE",
+    "uk-UA"
+  ],
+  "categoryFiles": [
+    "categories/animals.json",
+    "categories/body.json",
+    "categories/clothes.json",
+    "categories/colors.json",
+    "categories/fruits.json",
+    "categories/home.json",
+    "categories/numbers.json",
+    "categories/shapes.json",
+    "categories/transport.json",
+    "categories/vegetables.json"
+  ]
+}
