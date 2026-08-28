@@ -49,7 +49,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/cat.question.ua.wav",
         "success": "./assets/generated/audio/cat.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/cat.png"
     },
     {
       "id": "rabbit",

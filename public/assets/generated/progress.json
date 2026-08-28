@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:09:07.636Z",
+  "ts": "2026-08-28T21:09:48.679Z",
   "event": "success",
   "provider": "openai",
   "category": "animals",
-  "id": "dog",
-  "de": "Hund",
-  "imageFiles": 2,
-  "file": "dog.png",
-  "bytes": 1210427,
+  "id": "cat",
+  "de": "Katze",
+  "imageFiles": 3,
+  "file": "cat.png",
+  "bytes": 1306853,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 40257
+  "ms": 38310
 }
