@@ -298,7 +298,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/elephant.question.ua.wav",
         "success": "./assets/generated/audio/elephant.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/elephant.png"
     }
   ]
 }
