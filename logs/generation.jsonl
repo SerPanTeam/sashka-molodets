@@ -390,3 +390,8 @@
 {"ts":"2026-08-28T20:55:20.633Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":105,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Zug."}
 {"ts":"2026-08-28T20:55:21.826Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":106,"kind":"success","file":"train.success.de.wav","bytes":266444,"ms":1192}
 {"ts":"2026-08-28T20:55:23.029Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":106,"failures":0}
+{"ts":"2026-08-28T20:55:25.972Z","event":"start","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":106,"kind":"question","transcript":"Wo ist das Fahrrad?"}
+{"ts":"2026-08-28T20:55:26.851Z","event":"success","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":107,"kind":"question","file":"bicycle.question.de.wav","bytes":108044,"ms":876}
+{"ts":"2026-08-28T20:55:28.052Z","event":"start","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":107,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Fahrrad."}
+{"ts":"2026-08-28T20:55:29.246Z","event":"success","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":108,"kind":"success","file":"bicycle.success.de.wav","bytes":240044,"ms":1193}
+{"ts":"2026-08-28T20:55:30.450Z","event":"item-complete","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":108,"failures":0}

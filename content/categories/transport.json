@@ -59,6 +59,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bicycle.question.de.wav",
+        "success": "./assets/generated/audio/bicycle.success.de.wav"
       }
     },
     {
