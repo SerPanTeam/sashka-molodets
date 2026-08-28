@@ -142,3 +142,8 @@
 {"ts":"2026-08-28T20:47:21.573Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":23,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Gurke."}
 {"ts":"2026-08-28T20:47:22.826Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":24,"kind":"success","file":"cucumber.success.de.wav","bytes":292844,"ms":1252}
 {"ts":"2026-08-28T20:47:24.028Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":24,"failures":0}
+{"ts":"2026-08-28T20:47:26.971Z","event":"start","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":24,"kind":"question","transcript":"Wo ist die Karotte?"}
+{"ts":"2026-08-28T20:47:27.972Z","event":"success","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":25,"kind":"question","file":"carrot.question.de.wav","bytes":132044,"ms":997}
+{"ts":"2026-08-28T20:47:29.174Z","event":"start","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":25,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Karotte."}
+{"ts":"2026-08-28T20:47:30.337Z","event":"success","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":26,"kind":"success","file":"carrot.success.de.wav","bytes":244844,"ms":1162}
+{"ts":"2026-08-28T20:47:31.541Z","event":"item-complete","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":26,"failures":0}

@@ -65,7 +65,11 @@
           "ua": "помаранчева"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/carrot.question.de.wav",
+        "success": "./assets/generated/audio/carrot.success.de.wav"
+      }
     },
     {
       "id": "corn",
