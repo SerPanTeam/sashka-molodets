@@ -1177,3 +1177,6 @@
 {"ts":"2026-08-28T22:30:04.943Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":240,"kind":"question","file":"onion.question.de.wav"}
 {"ts":"2026-08-28T22:30:04.947Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":240,"kind":"success","file":"onion.success.de.wav"}
 {"ts":"2026-08-28T22:30:04.950Z","event":"item-complete","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:08.154Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":240,"kind":"question","file":"eggplant.question.de.wav"}
+{"ts":"2026-08-28T22:30:08.158Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":240,"kind":"success","file":"eggplant.success.de.wav"}
+{"ts":"2026-08-28T22:30:08.160Z","event":"item-complete","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":240,"failures":0}
