@@ -42,9 +42,10 @@ jobs:
 
       - name: ④ Generate ONE German TTS
         run: |
+          set -o pipefail
           mkdir -p public/assets/generated/smoke logs
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] START TTS: Alexander, super! Gut gemacht! Das ist die Tomate.' | tee logs/gemini-smoke.log
-          node --input-type=module <<'NODE'
+          date -u '+[%Y-%m-%dT%H:%M:%SZ] START TTS: tomato success de' | tee logs/gemini-smoke.log
+          node --input-type=module 2>&1 <<'NODE' | tee -a logs/gemini-smoke.log
           import { writeFile, stat } from 'node:fs/promises';
           import { generateSpeech } from './src/server/providers/google.mjs';
           const started = Date.now();
@@ -64,12 +65,22 @@ jobs:
           }
           NODE
           date -u '+[%Y-%m-%dT%H:%M:%SZ] SUCCESS TTS' | tee -a logs/gemini-smoke.log
-          ls -lh public/assets/generated/smoke/tomato.success.de.wav
 
-      - name: ⑤ Generate ONE tomato image
+      - name: ⑤ Persist TTS proof immediately
         run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/generated/smoke/tomato.success.de.wav logs/gemini-smoke.log
+          git commit -m 'test: persist successful Gemini TTS smoke asset'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'TTS PROOF SAVED TO MAIN'
+
+      - name: ⑥ Generate ONE tomato image
+        run: |
+          set -o pipefail
           date -u '+[%Y-%m-%dT%H:%M:%SZ] START IMAGE: tomato' | tee -a logs/gemini-smoke.log
-          node --input-type=module <<'NODE'
+          node --input-type=module 2>&1 <<'NODE' | tee -a logs/gemini-smoke.log
           import { writeFile, stat } from 'node:fs/promises';
           import { generateImage } from './src/server/providers/google.mjs';
           const started = Date.now();
@@ -86,15 +97,19 @@ jobs:
           }
           NODE
           date -u '+[%Y-%m-%dT%H:%M:%SZ] SUCCESS IMAGE' | tee -a logs/gemini-smoke.log
-          ls -lh public/assets/generated/smoke/tomato.jpg
 
-      - name: ⑥ Persist proof to main
+      - name: ⑦ Persist image/log result
+        if: always()
         run: |
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] COMMIT smoke assets' | tee -a logs/gemini-smoke.log
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/generated/smoke logs/gemini-smoke.log
-          git commit -m 'test: persist successful Gemini smoke assets'
+          git add logs/gemini-smoke.log
+          test ! -f public/assets/generated/smoke/tomato.jpg || git add public/assets/generated/smoke/tomato.jpg
+          if git diff --cached --quiet; then
+            echo 'No new image/log changes to persist.'
+            exit 0
+          fi
+          git commit -m 'test: persist Gemini image smoke result'
           git pull --rebase origin main
           git push origin HEAD:main
-          echo 'SMOKE COMPLETE: TTS + image generated and persisted.'
+          echo 'IMAGE/LOG RESULT SAVED TO MAIN'
