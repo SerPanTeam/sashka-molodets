@@ -29,13 +29,13 @@
     <form method="dialog" class="parent-panel">
       <div class="parent-header"><div><div class="eyebrow">Режим взрослого</div><h2>Настройки</h2></div><button class="round-button" value="cancel">✕</button></div>
       <label>Имя ребёнка<input id="childNameInput" maxlength="24" autocomplete="off"></label>
-      <label>Языковой режим<select id="languageModeInput"><option value="de-first">Немецкий → украинская поддержка</option><option value="dual">Оба языка одновременно</option><option value="ua-first">Украинский → немецкая поддержка</option></select></label>
+      <label>Языки<select id="languageModeInput"><option value="dual">Сначала немецкий → затем украинский</option></select></label>
       <label>Уровень<select id="difficultyInput"><option value="1">1 — 2 картинки</option><option value="2">2 — 4 картинки</option><option value="3">3 — 6 картинок</option><option value="4">4 — похожие варианты</option><option value="5">5 — цвет + предмет</option></select></label>
       <label class="checkline"><input id="labelsInput" type="checkbox"><span>Показывать подписи</span></label>
       <label class="checkline"><input id="autoSpeakInput" type="checkbox"><span>Автоматически озвучивать</span></label>
       <label>Категории<div id="categorySettings" class="category-settings"></div></label>
       <div class="parent-actions"><button id="resetProgressButton" type="button" class="secondary-button">Сбросить прогресс</button><button id="saveSettingsButton" type="button" class="primary-button">Сохранить</button></div>
-      <div class="parent-note">Для настоящей блокировки выхода: установите PWA и включите системное «Закрепление приложения» (App pinning) на Android.</div>
+      <div class="parent-note">Каждый вопрос и каждая подсказка озвучиваются по-немецки и затем по-украински. Для настоящей блокировки выхода: установите PWA и включите системное «Закрепление приложения» (App pinning) на Android.</div>
     </form>
   </dialog>
   <script src="./pages-shim.js"></script>
