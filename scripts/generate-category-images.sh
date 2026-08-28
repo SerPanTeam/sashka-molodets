@@ -13,7 +13,8 @@ for id in "${ids[@]}"; do
   status=success
   node scripts/generate-one-image.mjs --provider="$provider" --quality="$quality" --id="$id" || status=error
 
-  git add public/assets/generated/images public/assets/generated/progress.json content/categories
+  git add -f public/assets/generated/images
+  git add public/assets/generated/progress.json content/categories
   test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
   if ! git diff --cached --quiet; then
     git commit -m "feat: checkpoint ${provider} image ${category}/${id} (${status})"
