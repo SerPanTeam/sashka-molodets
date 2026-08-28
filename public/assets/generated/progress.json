@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-28T21:28:53.822Z",
+  "ts": "2026-08-28T21:29:14.609Z",
   "event": "error",
   "provider": "openai",
   "category": "household",
-  "id": "glass",
-  "de": "Glas",
+  "id": "bowl",
+  "de": "Schüssel",
   "imageFiles": 32,
   "quality": "medium",
   "error": "OpenAI image request failed (429): {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}",
-  "ms": 18452
+  "ms": 18431
 }
