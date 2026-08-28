@@ -405,3 +405,6 @@
 {"ts":"2026-08-28T20:55:43.733Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":111,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Schiff."}
 {"ts":"2026-08-28T20:55:44.737Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":112,"kind":"success","file":"ship.success.de.wav","bytes":218444,"ms":1003}
 {"ts":"2026-08-28T20:55:45.941Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":112,"failures":0}
+{"ts":"2026-08-28T20:58:26.363Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"kind":"question","file":"dog.question.de.wav"}
+{"ts":"2026-08-28T20:58:26.366Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"kind":"success","file":"dog.success.de.wav"}
+{"ts":"2026-08-28T20:58:26.368Z","event":"item-complete","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"failures":0}

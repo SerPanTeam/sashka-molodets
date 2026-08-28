@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:55:45.941Z",
+  "ts": "2026-08-28T20:58:26.368Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "transport",
-  "id": "ship",
-  "de": "Schiff",
+  "category": "animals",
+  "id": "dog",
+  "de": "Hund",
   "mode": "de",
-  "audioFiles": 112,
+  "audioFiles": 113,
   "failures": 0
 }
