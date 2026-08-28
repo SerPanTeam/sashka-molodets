@@ -588,3 +588,8 @@
 {"ts":"2026-08-28T21:00:57.154Z","event":"start","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":118,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Straßenbahn."}
 {"ts":"2026-08-28T21:00:58.272Z","event":"success","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":119,"kind":"success","file":"tram.success.de.wav","bytes":228044,"ms":1117}
 {"ts":"2026-08-28T21:00:59.475Z","event":"item-complete","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":119,"failures":0}
+{"ts":"2026-08-28T21:01:01.976Z","event":"start","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":119,"kind":"question","transcript":"Wo ist der Hubschrauber?"}
+{"ts":"2026-08-28T21:01:03.689Z","event":"success","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":120,"kind":"question","file":"helicopter.question.de.wav","bytes":148844,"ms":1711}
+{"ts":"2026-08-28T21:01:04.891Z","event":"start","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":120,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hubschrauber."}
+{"ts":"2026-08-28T21:01:05.894Z","event":"success","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":121,"kind":"success","file":"helicopter.success.de.wav","bytes":228044,"ms":1002}
+{"ts":"2026-08-28T21:01:07.097Z","event":"item-complete","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":121,"failures":0}

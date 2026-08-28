@@ -155,6 +155,10 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/helicopter.question.de.wav",
+        "success": "./assets/generated/audio/helicopter.success.de.wav"
       }
     }
   ]
