@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:03.509Z",
+  "ts": "2026-08-28T22:35:06.022Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "vegetables",
-  "id": "pepper",
-  "de": "Paprika",
+  "id": "broccoli",
+  "de": "Brokkoli",
   "imageFiles": 32,
-  "file": "pepper.png"
+  "file": "broccoli.png"
 }
