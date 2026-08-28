@@ -1342,3 +1342,6 @@
 {"ts":"2026-08-28T22:32:23.944Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":240,"kind":"question","file":"carrot.question.ua.wav"}
 {"ts":"2026-08-28T22:32:23.948Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":240,"kind":"success","file":"carrot.success.ua.wav"}
 {"ts":"2026-08-28T22:32:23.950Z","event":"item-complete","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:32:26.488Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"ua","audioFiles":240,"kind":"question","file":"potato.question.ua.wav"}
+{"ts":"2026-08-28T22:32:26.491Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"ua","audioFiles":240,"kind":"success","file":"potato.success.ua.wav"}
+{"ts":"2026-08-28T22:32:26.494Z","event":"item-complete","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"ua","audioFiles":240,"failures":0}
