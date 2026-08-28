@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T21:00:32.380Z",
+  "ts": "2026-08-28T21:00:34.860Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "bicycle",
-  "de": "Fahrrad",
+  "id": "airplane",
+  "de": "Flugzeug",
   "mode": "de",
   "audioFiles": 113,
   "failures": 0
