@@ -17,7 +17,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       AI_DEFAULT_PROVIDER: google
@@ -43,20 +43,30 @@ jobs:
           node --check scripts/generate-assets.mjs
           node --check src/server/providers/google.mjs
           node scripts/check-content.mjs
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo 'GEMINI_API_KEY secret is missing'
-            exit 1
-          fi
+          test -n "$GEMINI_API_KEY" || (echo 'GEMINI_API_KEY secret is missing' && exit 1)
 
-      - name: Generate Gemini bilingual voices
+      - name: Generate German-only Gemini voices
         run: |
           node scripts/generate-assets.mjs \
             --provider=google \
-            --categories=animals,vegetables,fruits \
+            --categories=animals,vegetables,fruits,household,hygiene,transport \
             --per-category=10 \
             --audio-only \
-            --audio-kinds=question,success,retry \
-            --pause-ms=850 \
+            --voice-modes=de \
+            --audio-kinds=question,success \
+            --pause-ms=7500 \
+            --continue-on-error
+
+      - name: Generate missing bilingual Gemini voices
+        run: |
+          node scripts/generate-assets.mjs \
+            --provider=google \
+            --categories=animals,vegetables,fruits,household,hygiene,transport \
+            --per-category=10 \
+            --audio-only \
+            --voice-modes=bilingual \
+            --audio-kinds=question,success \
+            --pause-ms=7500 \
             --continue-on-error
 
       - name: Commit generated voices
@@ -67,25 +77,25 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No new voice assets to commit.'
           else
-            git commit -m 'feat: generate Gemini bilingual learning voices'
+            git commit -m 'feat: generate Gemini German and bilingual voices'
             git push
           fi
 
-      - name: Try generating reviewed learning images
+      - name: Generate reviewed learning images
         run: |
           node scripts/generate-assets.mjs \
             --provider=google \
-            --categories=animals,vegetables,fruits \
+            --categories=animals,vegetables,fruits,household,hygiene,transport \
             --per-category=10 \
-            --image-attempts=3 \
-            --pause-ms=900 \
+            --image-attempts=2 \
+            --pause-ms=2500 \
             --continue-on-error
 
       - name: Commit generated images
         run: |
           git add public/assets/generated/images content/categories
           if git diff --cached --quiet; then
-            echo 'No image assets were generated. Nano Banana API image generation requires a paid Gemini API tier.'
+            echo 'No new image assets were generated.'
           else
             git commit -m 'feat: generate reviewed Gemini learning images'
             git push
