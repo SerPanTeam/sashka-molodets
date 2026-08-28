@@ -75,6 +75,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/shampoo.question.de.wav",
+        "success": "./assets/generated/audio/shampoo.success.de.wav"
       }
     },
     {

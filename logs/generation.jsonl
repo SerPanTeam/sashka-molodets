@@ -345,3 +345,8 @@
 {"ts":"2026-08-28T20:54:15.370Z","event":"start","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":87,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Handtuch."}
 {"ts":"2026-08-28T20:54:16.511Z","event":"success","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":88,"kind":"success","file":"towel.success.de.wav","bytes":256844,"ms":1140}
 {"ts":"2026-08-28T20:54:17.713Z","event":"item-complete","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":88,"failures":0}
+{"ts":"2026-08-28T20:54:20.245Z","event":"start","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":88,"kind":"question","transcript":"Wo ist das Shampoo?"}
+{"ts":"2026-08-28T20:54:21.171Z","event":"success","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":89,"kind":"question","file":"shampoo.question.de.wav","bytes":177644,"ms":923}
+{"ts":"2026-08-28T20:54:22.373Z","event":"start","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":89,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Shampoo."}
+{"ts":"2026-08-28T20:54:23.568Z","event":"success","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":90,"kind":"success","file":"shampoo.success.de.wav","bytes":232844,"ms":1194}
+{"ts":"2026-08-28T20:54:24.771Z","event":"item-complete","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":90,"failures":0}
