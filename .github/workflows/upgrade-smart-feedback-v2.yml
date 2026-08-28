@@ -1,0 +1,111 @@
+name: Upgrade smart teaching feedback v2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/upgrade-smart-feedback-v2.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upgrade-smart-feedback-v2
+  cancel-in-progress: true
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Patch contextual feedback
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const p='public/app.js';
+          let s=fs.readFileSync(p,'utf8');
+
+          const feedback=`const colorDe=x=>x?.attributes?.color?.de||"",colorUa=x=>x?.attributes?.color?.ua||"";
+          const deAccArticle=x=>plural.has(x.id)?"die":article(x)==="der"?"den":article(x);
+          function deAdj(color,ending){if(!color)return"";if(color==="orange"||color==="rosa")return color;return \`${'${color}'}${'${ending}'}\`}
+          function deNamed(x,acc=false){const c=colorDe(x);if(!c)return \`${'${acc?deAccArticle(x):article(x)}'} ${'${x.labels.de}'}\`;const pl=plural.has(x.id),a=acc?deAccArticle(x):article(x),ending=pl||acc&&article(x)==="der"?"en":"e";return \`${'${a}'} ${'${deAdj(c,ending)}'} ${'${x.labels.de}'}\`}
+          const uaNamed=x=>colorUa(x)?\`${'${colorUa(x)}'} ${'${x.labels.ua}'}\`:x.labels.ua;
+          const good=t=>({de:\`Olexander, super! Genau richtig. Das ist ${'${deNamed(t)}'}. Gut aufgepasst!\`,ua:\`Сашка, молодець! Саме так. Це ${'${uaNamed(t)}'}. Ти чудово придивився!\`});
+          function bad(x,t,n){
+            const xc=colorDe(x),tc=colorDe(t),xu=colorUa(x),tu=colorUa(t);
+            if(n===1)return{de:\`Das ist ${'${deNamed(x)}'}. Wir suchen aber ${'${deNamed(t,true)}'}. Schau noch einmal genau hin, Olexander.\`,ua:\`Це ${'${uaNamed(x)}'}. А ось що нам потрібно знайти: ${'${uaNamed(t)}'}. Подумай ще, друже.\`};
+            if(xc&&tc&&xc!==tc)return{de:\`Achte auf die Farbe: ${'${x.labels.de}'} ist ${'${xc}'}, aber ${'${t.labels.de}'} ist ${'${tc}'}. Welche Karte passt besser?\`,ua:\`Подивись на колір: ${'${x.labels.ua}'} — ${'${xu}'}, а ${'${t.labels.ua}'} — ${'${tu}'}. Яка картинка підходить краще?\`};
+            if(tc)return{de:\`Kleiner Tipp: Wir suchen ${'${deNamed(t,true)}'}. Die Farbe ${'${tc}'} hilft dir. Lass dir Zeit und schau noch einmal.\`,ua:\`Маленька підказка: потрібний предмет має колір ${'${tu}'}. Не поспішай і подивись ще раз.\`};
+            return{de:\`Fast! Das hier ist ${'${article(x)}'} ${'${x.labels.de}'}. Gesucht ist ${'${article(t)}'} ${'${t.labels.de}'}. Vergleiche die Bilder noch einmal in Ruhe.\`,ua:\`Майже! На цій картинці — ${'${x.labels.ua}'}, а нам потрібен інший предмет: ${'${t.labels.ua}'}. Спокійно порівняй картинки ще раз.\`};
+          }
+          `;
+          const feedbackRe=/const good=t=>\(\{[\s\S]*?\nfunction bad\(x,t,n\)\{[\s\S]*?\}\n(?=function record)/;
+          if(!feedbackRe.test(s))throw new Error('feedback block not found');
+          s=s.replace(feedbackRe,feedback);
+
+          const voice=`async function playItemVoice(item,kind,fallback){
+            // Questions keep the clean recorded voice. Explanations are built
+            // from the actual chosen/target cards, so they are spoken live.
+            if(kind!=="question"){
+              const parts=[{text:fallback.de,lang:"de-DE"}];
+              if(state.settings.voiceMode!=="de")parts.push({text:fallback.ua,lang:"uk-UA"});
+              await speakSeq(parts);
+              return true;
+            }
+            if(state.settings.voiceMode==="de"){
+              const src=item?.generatedAudioDe?.question;
+              if(src&&await playRecorded(src))return true;
+              await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+              return false;
+            }
+            const deSrc=item?.generatedAudioDe?.question,uaSrc=item?.generatedAudioUa?.question;
+            let deOk=false,uaOk=false;
+            if(deSrc)deOk=await playRecorded(deSrc);
+            if(!deOk)await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+            if(uaSrc)uaOk=await playRecorded(uaSrc);
+            if(!uaOk)await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
+            return deOk&&uaOk;
+          }
+          `;
+          const voiceRe=/async function playItemVoice\(item,kind,fallback\)\{[\s\S]*?\n\}\n(?=const speakCurrent)/;
+          if(!voiceRe.test(s))throw new Error('voice block not found');
+          s=s.replace(voiceRe,voice);
+
+          const speak=`function preferredVoice(lang){if(!("speechSynthesis"in window))return null;const prefix=lang.slice(0,2).toLowerCase(),voices=speechSynthesis.getVoices().filter(v=>String(v.lang||"").toLowerCase().startsWith(prefix));const score=v=>/natural|neural|premium|enhanced|google|microsoft|online/i.test(v.name||"")?2:v.localService?1:0;return voices.sort((a,b)=>score(b)-score(a))[0]||null}
+          function speakSeq(parts){return new Promise(resolve=>{if(!("speechSynthesis"in window))return resolve();speechSynthesis.cancel();let i=0;const next=()=>{if(i>=parts.length)return resolve();const x=parts[i++],u=new SpeechSynthesisUtterance(x.text),v=preferredVoice(x.lang);u.lang=x.lang;if(v)u.voice=v;u.rate=.9;u.pitch=1;u.onend=next;u.onerror=next;speechSynthesis.speak(u)};next()})}`;
+          const speakRe=/function speakSeq\(parts\)\{[^\n]*\}/;
+          if(!speakRe.test(s))throw new Error('speech block not found');
+          s=s.replace(speakRe,speak);
+
+          fs.writeFileSync(p,s);
+          NODE
+          node --check public/app.js
+          grep -q 'Подумай ще, друже' public/app.js
+          grep -q 'Achte auf die Farbe' public/app.js
+          grep -q 'kind!=="question"' public/app.js
+          grep -q 'preferredVoice' public/app.js
+
+      - name: Bump cache
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('public/index.html'); s=p.read_text();
+          import re
+          s=re.sub(r'\?v=\d+','?v=18',s); p.write_text(s)
+          p=Path('public/sw.js'); s=p.read_text(); s=re.sub(r'sashka-molodets-v\d+','sashka-molodets-v18',s); p.write_text(s)
+          PY
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/app.js public/index.html public/sw.js
+          git commit -m 'feat: make feedback contextual and conversational'
+          git pull --rebase origin main
+          git push origin HEAD:main
