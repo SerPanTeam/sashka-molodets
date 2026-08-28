@@ -300,3 +300,8 @@
 {"ts":"2026-08-28T20:53:08.087Z","event":"start","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":69,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Tisch."}
 {"ts":"2026-08-28T20:53:09.120Z","event":"success","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":70,"kind":"success","file":"table.success.de.wav","bytes":244844,"ms":1033}
 {"ts":"2026-08-28T20:53:10.323Z","event":"item-complete","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":70,"failures":0}
+{"ts":"2026-08-28T20:53:13.173Z","event":"start","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":70,"kind":"question","transcript":"Wo ist das Glas?"}
+{"ts":"2026-08-28T20:53:14.024Z","event":"success","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":71,"kind":"question","file":"glass.question.de.wav","bytes":129644,"ms":847}
+{"ts":"2026-08-28T20:53:15.225Z","event":"start","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":71,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Glas."}
+{"ts":"2026-08-28T20:53:16.252Z","event":"success","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":72,"kind":"success","file":"glass.success.de.wav","bytes":192044,"ms":1026}
+{"ts":"2026-08-28T20:53:17.455Z","event":"item-complete","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":72,"failures":0}

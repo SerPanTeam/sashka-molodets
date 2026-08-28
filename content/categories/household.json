@@ -91,6 +91,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/glass.question.de.wav",
+        "success": "./assets/generated/audio/glass.success.de.wav"
       }
     },
     {
