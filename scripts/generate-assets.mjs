@@ -61,7 +61,7 @@ for (const category of requestedCategories) {
 const subjectDescriptions = {
   dog: "one friendly domestic dog, whole body, natural canine anatomy",
   cat: "one friendly domestic cat, whole body, natural feline anatomy",
-  rabbit: "one rabbit/hare, whole body, long ears, natural anatomy",
+  rabbit: "one rabbit, whole body, long ears, natural anatomy",
   cow: "one black-and-white dairy cow, whole body, natural anatomy",
   horse: "one brown horse, whole body, natural anatomy",
   pig: "one pink farm pig, whole body, natural anatomy",
@@ -88,7 +88,7 @@ const subjectDescriptions = {
   watermelon: "one whole green striped watermelon, round-to-oval shape",
   peach: "one ripe peach with soft orange-pink skin and a small leaf",
   cherries: "a natural pair of ripe red cherries joined by stems",
-  kiwi: "one whole brown fuzzy kiwi fruit, oval shape",
+  kiwi: "one whole brown fuzzy kiwi fruit, oval shape"
 };
 
 function imagePrompt(item, correction = "") {
@@ -103,20 +103,26 @@ function imagePrompt(item, correction = "") {
     produce ? "For food/produce: absolutely no cartoon face, eyes, mouth, arms or legs; keep the real characteristic shape and natural color." : "For animals: natural species anatomy, four limbs only when appropriate, normal eyes, no clothing, no human pose, no exaggerated cartoon anatomy.",
     "No text, letters, numbers, labels, border, logo, watermark, hands, people, toys, tableware, extra food, decorative props, duplicate subject, or confusing objects.",
     "Optimize for visual discrimination in a preschool matching game: clear silhouette, distinctive defining features, uncluttered image.",
-    correction ? `Previous QA correction to address: ${correction}` : "",
+    correction ? `Previous QA correction to address: ${correction}` : ""
   ].filter(Boolean).join(" ");
 }
 
-function isPluralGerman(item) { return ["grapes", "cherries"].includes(item.id); }
+const pluralGerman = new Set(["grapes", "cherries"]);
+function deQuestion(item) {
+  return pluralGerman.has(item.id) ? `Wo sind die ${item.labels.de}?` : `Wo ist ${item.article?.de || "die"} ${item.labels.de}?`;
+}
+function deThisIs(item) {
+  return pluralGerman.has(item.id) ? `Das sind die ${item.labels.de}.` : `Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
+}
 function questionText(item) {
-  return `Wo ist ${item.article?.de || "die"} ${item.labels.de}?  [short pause]  Де ${item.labels.ua}?`;
+  return `${deQuestion(item)} [short pause] Де ${item.labels.ua}?`;
 }
 function successText(item) {
-  const de = isPluralGerman(item) ? `Super! Das sind die ${item.labels.de}.` : `Super! Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
-  return `${de}  [short pause]  Молодець! Це ${item.labels.ua}.`;
+  return `Alexander, super! Gut gemacht! ${deThisIs(item)} [short pause] Сашка, молодець! Це ${item.labels.ua}.`;
 }
 function retryText(item) {
-  return `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.  [short pause]  Ще ні. Знайди ${item.labels.ua}.`;
+  const de = pluralGerman.has(item.id) ? `Noch nicht. Suche die ${item.labels.de}.` : `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.`;
+  return `${de} [short pause] Ще ні. Знайди ${item.labels.ua}.`;
 }
 function audioText(item, kind) {
   if (kind === "success") return successText(item);
@@ -144,14 +150,14 @@ for (const item of selected) {
             prompt: imagePrompt(item, correction),
             aspectRatio: "1:1",
             imageSize: "1K",
-            size: "1024x1024",
+            size: "1024x1024"
           }), `image ${item.id}`);
           if (!qa) { accepted = generated; break; }
           const review = await withRetry(() => reviewImage({
             provider,
             buffer: generated.buffer,
             mimeType: generated.mimeType,
-            expected: `${subjectDescriptions[item.id] || item.labels.de}; German label ${item.labels.de}; Ukrainian label ${item.labels.ua}`,
+            expected: `${subjectDescriptions[item.id] || item.labels.de}; German label ${item.labels.de}; Ukrainian label ${item.labels.ua}`
           }), `qa ${item.id}`);
           console.log(`  QA attempt ${attempt}: ${review.text.replace(/\s+/g, " ").slice(0, 220)}`);
           if (review.pass) { accepted = generated; break; }
@@ -161,7 +167,7 @@ for (const item of selected) {
         }
         if (accepted) {
           await writeFile(file, accepted.buffer);
-          item.generatedImage = `/assets/generated/images/${item.id}.png`;
+          item.generatedImage = `./assets/generated/images/${item.id}.png`;
           imageCount++;
         } else {
           console.warn(`  SKIP ${item.id}: image failed QA after ${maxImageAttempts} attempts; emoji fallback will remain.`);
@@ -169,7 +175,7 @@ for (const item of selected) {
       }
       await sleep(pauseMs);
     } else if (!item.generatedImage) {
-      item.generatedImage = `/assets/generated/images/${item.id}.png`;
+      item.generatedImage = `./assets/generated/images/${item.id}.png`;
     }
   }
 
@@ -187,14 +193,14 @@ for (const item of selected) {
             provider,
             text: audioText(item, kind),
             language: "German de-DE first, then Ukrainian uk-UA",
-            style: "warm, cheerful, caring preschool educator; native-sounding pronunciation in each language; clear and natural; slightly playful but not theatrical; medium-slow pace; insert a short natural pause when switching from German to Ukrainian; speak the transcript only",
+            style: "warm, cheerful, caring preschool educator; native-sounding pronunciation in each language; clear and natural; slightly playful but not theatrical; medium-slow pace; a brief natural pause when switching from German to Ukrainian; speak only the requested phrases"
           }), `audio ${item.id}/${kind}`);
           await writeFile(file, result.buffer);
           audioCount++;
         }
         await sleep(pauseMs);
       }
-      item.generatedAudio[kind] = `/assets/generated/audio/${fileName}`;
+      item.generatedAudio[kind] = `./assets/generated/audio/${fileName}`;
     }
   }
 }
