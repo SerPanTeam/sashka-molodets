@@ -103,3 +103,8 @@
 {"ts":"2026-08-28T20:46:18.496Z","event":"start","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":8,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kuh."}
 {"ts":"2026-08-28T20:46:20.423Z","event":"success","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":9,"kind":"success","file":"cow.success.de.wav","bytes":232844,"ms":1926}
 {"ts":"2026-08-28T20:46:21.627Z","event":"item-complete","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"de","audioFiles":9,"failures":0}
+{"ts":"2026-08-28T20:46:24.117Z","event":"start","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":9,"kind":"question","transcript":"Wo ist das Pferd?"}
+{"ts":"2026-08-28T20:46:25.399Z","event":"success","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":10,"kind":"question","file":"horse.question.de.wav","bytes":96044,"ms":1279}
+{"ts":"2026-08-28T20:46:26.600Z","event":"start","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":10,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Pferd."}
+{"ts":"2026-08-28T20:46:29.784Z","event":"success","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":11,"kind":"success","file":"horse.success.de.wav","bytes":247244,"ms":3183}
+{"ts":"2026-08-28T20:46:30.987Z","event":"item-complete","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"de","audioFiles":11,"failures":0}

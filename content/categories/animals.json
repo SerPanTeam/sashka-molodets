@@ -153,7 +153,10 @@
         "question": "./assets/generated/audio/horse.question.bilingual.wav",
         "success": "./assets/generated/audio/horse.success.bilingual.wav"
       },
-      "generatedAudioDe": {}
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/horse.question.de.wav",
+        "success": "./assets/generated/audio/horse.success.de.wav"
+      }
     },
     {
       "id": "sheep",
