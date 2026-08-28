@@ -1411,3 +1411,6 @@
 {"ts":"2026-08-28T22:33:21.957Z","event":"skip-existing","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":240,"kind":"question","file":"glass.question.ua.wav"}
 {"ts":"2026-08-28T22:33:21.960Z","event":"skip-existing","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":240,"kind":"success","file":"glass.success.ua.wav"}
 {"ts":"2026-08-28T22:33:21.963Z","event":"item-complete","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:33:24.374Z","event":"skip-existing","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":240,"kind":"question","file":"bowl.question.ua.wav"}
+{"ts":"2026-08-28T22:33:24.378Z","event":"skip-existing","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":240,"kind":"success","file":"bowl.success.ua.wav"}
+{"ts":"2026-08-28T22:33:24.380Z","event":"item-complete","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":240,"failures":0}
