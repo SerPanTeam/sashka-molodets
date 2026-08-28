@@ -1165,3 +1165,6 @@
 {"ts":"2026-08-28T22:29:54.723Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":240,"kind":"question","file":"potato.question.de.wav"}
 {"ts":"2026-08-28T22:29:54.727Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":240,"kind":"success","file":"potato.success.de.wav"}
 {"ts":"2026-08-28T22:29:54.730Z","event":"item-complete","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:29:57.085Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":240,"kind":"question","file":"corn.question.de.wav"}
+{"ts":"2026-08-28T22:29:57.089Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":240,"kind":"success","file":"corn.success.de.wav"}
+{"ts":"2026-08-28T22:29:57.091Z","event":"item-complete","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":240,"failures":0}
