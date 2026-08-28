@@ -18,6 +18,16 @@
 
   const nativeFetch = window.fetch.bind(window);
 
+  const isProductionReady = item => {
+    const de = item?.generatedAudioDe || {};
+    const ua = item?.generatedAudioUa || {};
+    return Boolean(
+      item?.generatedImage &&
+      de.question && de.success &&
+      ua.question && ua.success
+    );
+  };
+
   async function loadStaticContent() {
     const manifestResponse = await nativeFetch('./content/content.json', { cache: 'no-store' });
     if (!manifestResponse.ok) throw new Error('Static content manifest unavailable');
@@ -28,20 +38,20 @@
       if (!response.ok) throw new Error(`Content file unavailable: ${path}`);
       return response.json();
     }));
+    const allItems = categories.flatMap(category => category.items || []);
+    const readyItems = allItems.filter(isProductionReady);
     return {
       schemaVersion: manifest.schemaVersion || 1,
       languages: manifest.languages || ['de-DE', 'uk-UA'],
-      items: categories.flatMap(category => category.items || [])
+      items: readyItems
     };
   }
 
   window.fetch = async (input, init) => {
     const url = typeof input === 'string' ? input : input?.url;
     if (url === '/api/content') {
-      try {
-        const response = await nativeFetch(input, init);
-        if (response.ok && (response.headers.get('content-type') || '').includes('application/json')) return response;
-      } catch {}
+      // GitHub Pages has no API backend. Always build fresh content from the
+      // deployed static JSON and expose only cards with image + DE + UA audio.
       const content = await loadStaticContent();
       return new Response(JSON.stringify(content), { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } });
     }
