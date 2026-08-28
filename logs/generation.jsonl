@@ -807,3 +807,8 @@
 {"ts":"2026-08-28T21:06:26.828Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":205,"kind":"success","transcript":"Сашка, молодець! Це мило."}
 {"ts":"2026-08-28T21:06:27.751Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":206,"kind":"success","file":"soap.success.ua.wav","bytes":151244,"ms":922}
 {"ts":"2026-08-28T21:06:28.955Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"ua","audioFiles":206,"failures":0}
+{"ts":"2026-08-28T21:06:32.500Z","event":"start","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"ua","audioFiles":206,"kind":"question","transcript":"Де рушник?"}
+{"ts":"2026-08-28T21:06:33.193Z","event":"success","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"ua","audioFiles":207,"kind":"question","file":"towel.question.ua.wav","bytes":81644,"ms":690}
+{"ts":"2026-08-28T21:06:34.395Z","event":"start","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"ua","audioFiles":207,"kind":"success","transcript":"Сашка, молодець! Це рушник."}
+{"ts":"2026-08-28T21:06:35.422Z","event":"success","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"ua","audioFiles":208,"kind":"success","file":"towel.success.ua.wav","bytes":194444,"ms":1026}
+{"ts":"2026-08-28T21:06:36.626Z","event":"item-complete","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"ua","audioFiles":208,"failures":0}
