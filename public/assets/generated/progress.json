@@ -1,9 +1,9 @@
 {
-  "ts": "2026-08-28T20:25:08.278Z",
+  "ts": "2026-08-28T20:31:08.314Z",
   "event": "item-complete-with-errors",
   "category": "animals",
-  "id": "pig",
-  "de": "Schwein",
+  "id": "sheep",
+  "de": "Schaf",
   "mode": "de",
   "audioFiles": 6,
   "failures": 2
