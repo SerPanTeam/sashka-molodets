@@ -305,3 +305,8 @@
 {"ts":"2026-08-28T20:53:15.225Z","event":"start","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":71,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Glas."}
 {"ts":"2026-08-28T20:53:16.252Z","event":"success","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":72,"kind":"success","file":"glass.success.de.wav","bytes":192044,"ms":1026}
 {"ts":"2026-08-28T20:53:17.455Z","event":"item-complete","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":72,"failures":0}
+{"ts":"2026-08-28T20:53:21.204Z","event":"start","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":72,"kind":"question","transcript":"Wo ist die Schüssel?"}
+{"ts":"2026-08-28T20:53:21.807Z","event":"success","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":73,"kind":"question","file":"bowl.question.de.wav","bytes":103244,"ms":600}
+{"ts":"2026-08-28T20:53:23.008Z","event":"start","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":73,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Schüssel."}
+{"ts":"2026-08-28T20:53:24.056Z","event":"success","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":74,"kind":"success","file":"bowl.success.de.wav","bytes":230444,"ms":1048}
+{"ts":"2026-08-28T20:53:25.259Z","event":"item-complete","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":74,"failures":0}

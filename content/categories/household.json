@@ -107,6 +107,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bowl.question.de.wav",
+        "success": "./assets/generated/audio/bowl.success.de.wav"
       }
     },
     {
