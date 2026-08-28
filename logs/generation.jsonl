@@ -777,3 +777,8 @@
 {"ts":"2026-08-28T21:05:47.246Z","event":"start","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":193,"kind":"success","transcript":"Сашка, молодець! Це миска."}
 {"ts":"2026-08-28T21:05:47.939Z","event":"success","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":194,"kind":"success","file":"bowl.success.ua.wav","bytes":170444,"ms":693}
 {"ts":"2026-08-28T21:05:49.142Z","event":"item-complete","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"ua","audioFiles":194,"failures":0}
+{"ts":"2026-08-28T21:05:51.485Z","event":"start","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"ua","audioFiles":194,"kind":"question","transcript":"Де каструля?"}
+{"ts":"2026-08-28T21:05:52.176Z","event":"success","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"ua","audioFiles":195,"kind":"question","file":"pot.question.ua.wav","bytes":93644,"ms":689}
+{"ts":"2026-08-28T21:05:53.378Z","event":"start","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"ua","audioFiles":195,"kind":"success","transcript":"Сашка, молодець! Це каструля."}
+{"ts":"2026-08-28T21:05:54.360Z","event":"success","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"ua","audioFiles":196,"kind":"success","file":"pot.success.ua.wav","bytes":184844,"ms":981}
+{"ts":"2026-08-28T21:05:55.563Z","event":"item-complete","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"ua","audioFiles":196,"failures":0}
