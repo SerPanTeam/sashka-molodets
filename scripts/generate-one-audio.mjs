@@ -30,7 +30,7 @@ const plural=new Set(["grapes","cherries"]);
 const deQuestion=x=>plural.has(x.id)?`Wo sind die ${x.labels.de}?`:`Wo ist ${x.article?.de||"die"} ${x.labels.de}?`;
 const deThis=x=>plural.has(x.id)?`Das sind die ${x.labels.de}.`:`Das ist ${x.article?.de||"die"} ${x.labels.de}.`;
 const texts=(kind)=>{
-  const de=kind==="success"?`Alexander, super! Gut gemacht! ${deThis(item)}`:kind==="retry"?(plural.has(item.id)?`Noch nicht. Suche die ${item.labels.de}.`:`Noch nicht. Suche ${item.article?.de||"die"} ${item.labels.de}.`):deQuestion(item);
+  const de=kind==="success"?`Olexander, super! Gut gemacht! ${deThis(item)}`:kind==="retry"?(plural.has(item.id)?`Noch nicht. Suche die ${item.labels.de}.`:`Noch nicht. Suche ${item.article?.de||"die"} ${item.labels.de}.`):deQuestion(item);
   const ua=kind==="success"?`Сашка, молодець! Це ${item.labels.ua}.`:kind==="retry"?`Ще ні. Знайди ${item.labels.ua}.`:`Де ${item.labels.ua}?`;
   return {de,ua};
 };
