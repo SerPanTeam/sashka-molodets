@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:34:18.072Z",
+  "ts": "2026-08-28T22:34:20.627Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "tractor",
-  "de": "Traktor",
+  "id": "tram",
+  "de": "Straßenbahn",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
