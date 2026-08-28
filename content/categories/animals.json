@@ -182,6 +182,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/horse.question.de.wav",
         "success": "./assets/generated/audio/horse.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/horse.question.ua.wav",
+        "success": "./assets/generated/audio/horse.success.ua.wav"
       }
     },
     {

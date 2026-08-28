@@ -613,3 +613,8 @@
 {"ts":"2026-08-28T21:01:32.097Z","event":"start","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"ua","audioFiles":128,"kind":"success","transcript":"Сашка, молодець! Це корова."}
 {"ts":"2026-08-28T21:01:33.070Z","event":"success","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"ua","audioFiles":129,"kind":"success","file":"cow.success.ua.wav","bytes":168044,"ms":973}
 {"ts":"2026-08-28T21:01:34.273Z","event":"item-complete","provider":"openai","category":"animals","id":"cow","de":"Kuh","mode":"ua","audioFiles":129,"failures":0}
+{"ts":"2026-08-28T21:01:36.678Z","event":"start","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"ua","audioFiles":129,"kind":"question","transcript":"Де кінь?"}
+{"ts":"2026-08-28T21:02:07.657Z","event":"success","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"ua","audioFiles":130,"kind":"question","file":"horse.question.ua.wav","bytes":81644,"ms":30976}
+{"ts":"2026-08-28T21:02:08.859Z","event":"start","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"ua","audioFiles":130,"kind":"success","transcript":"Сашка, молодець! Це кінь."}
+{"ts":"2026-08-28T21:02:09.781Z","event":"success","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"ua","audioFiles":131,"kind":"success","file":"horse.success.ua.wav","bytes":184844,"ms":921}
+{"ts":"2026-08-28T21:02:10.983Z","event":"item-complete","provider":"openai","category":"animals","id":"horse","de":"Pferd","mode":"ua","audioFiles":131,"failures":0}
