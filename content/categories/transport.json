@@ -139,6 +139,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/tram.question.de.wav",
+        "success": "./assets/generated/audio/tram.success.de.wav"
       }
     },
     {
