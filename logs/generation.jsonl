@@ -558,3 +558,6 @@
 {"ts":"2026-08-28T21:00:24.876Z","event":"skip-existing","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":113,"kind":"question","file":"car.question.de.wav"}
 {"ts":"2026-08-28T21:00:24.879Z","event":"skip-existing","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":113,"kind":"success","file":"car.success.de.wav"}
 {"ts":"2026-08-28T21:00:24.880Z","event":"item-complete","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:27.149Z","event":"skip-existing","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":113,"kind":"question","file":"bus.question.de.wav"}
+{"ts":"2026-08-28T21:00:27.151Z","event":"skip-existing","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":113,"kind":"success","file":"bus.success.de.wav"}
+{"ts":"2026-08-28T21:00:27.153Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":113,"failures":0}
