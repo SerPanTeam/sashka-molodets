@@ -468,3 +468,6 @@
 {"ts":"2026-08-28T20:59:13.363Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"kind":"question","file":"apple.question.de.wav"}
 {"ts":"2026-08-28T20:59:13.366Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"kind":"success","file":"apple.success.de.wav"}
 {"ts":"2026-08-28T20:59:13.367Z","event":"item-complete","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:15.795Z","event":"skip-existing","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"kind":"question","file":"banana.question.de.wav"}
+{"ts":"2026-08-28T20:59:15.797Z","event":"skip-existing","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"kind":"success","file":"banana.success.de.wav"}
+{"ts":"2026-08-28T20:59:15.799Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":113,"failures":0}
