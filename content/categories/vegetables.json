@@ -42,7 +42,11 @@
           "ua": "зелений"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cucumber.question.de.wav",
+        "success": "./assets/generated/audio/cucumber.success.de.wav"
+      }
     },
     {
       "id": "carrot",

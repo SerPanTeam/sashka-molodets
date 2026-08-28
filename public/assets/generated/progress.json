@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:47:16.047Z",
+  "ts": "2026-08-28T20:47:24.028Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "tomato",
-  "de": "Tomate",
+  "id": "cucumber",
+  "de": "Gurke",
   "mode": "de",
-  "audioFiles": 22,
+  "audioFiles": 24,
   "failures": 0
 }

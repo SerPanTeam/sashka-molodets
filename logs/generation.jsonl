@@ -137,3 +137,8 @@
 {"ts":"2026-08-28T20:47:13.665Z","event":"start","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":21,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Tomate."}
 {"ts":"2026-08-28T20:47:14.844Z","event":"success","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":22,"kind":"success","file":"tomato.success.de.wav","bytes":242444,"ms":1179}
 {"ts":"2026-08-28T20:47:16.047Z","event":"item-complete","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":22,"failures":0}
+{"ts":"2026-08-28T20:47:19.360Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":22,"kind":"question","transcript":"Wo ist die Gurke?"}
+{"ts":"2026-08-28T20:47:20.371Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":23,"kind":"question","file":"cucumber.question.de.wav","bytes":122444,"ms":1008}
+{"ts":"2026-08-28T20:47:21.573Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":23,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Gurke."}
+{"ts":"2026-08-28T20:47:22.826Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":24,"kind":"success","file":"cucumber.success.de.wav","bytes":292844,"ms":1252}
+{"ts":"2026-08-28T20:47:24.028Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":24,"failures":0}
