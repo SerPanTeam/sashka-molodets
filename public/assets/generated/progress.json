@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:34:20.627Z",
+  "ts": "2026-08-28T22:34:23.146Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "tram",
-  "de": "Straßenbahn",
+  "id": "helicopter",
+  "de": "Hubschrauber",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
