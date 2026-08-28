@@ -265,6 +265,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/kiwi.question.de.wav",
         "success": "./assets/generated/audio/kiwi.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/kiwi.question.ua.wav",
+        "success": "./assets/generated/audio/kiwi.success.ua.wav"
       }
     }
   ]
