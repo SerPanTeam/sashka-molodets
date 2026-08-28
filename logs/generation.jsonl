@@ -1273,3 +1273,6 @@
 {"ts":"2026-08-28T22:31:26.601Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":240,"kind":"question","file":"washcloth.question.de.wav"}
 {"ts":"2026-08-28T22:31:26.604Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":240,"kind":"success","file":"washcloth.success.de.wav"}
 {"ts":"2026-08-28T22:31:26.607Z","event":"item-complete","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:29.727Z","event":"skip-existing","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":240,"kind":"question","file":"car.question.de.wav"}
+{"ts":"2026-08-28T22:31:29.730Z","event":"skip-existing","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":240,"kind":"success","file":"car.success.de.wav"}
+{"ts":"2026-08-28T22:31:29.733Z","event":"item-complete","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":240,"failures":0}
