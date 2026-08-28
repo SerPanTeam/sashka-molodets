@@ -128,3 +128,8 @@
 {"ts":"2026-08-28T20:47:00.179Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":18,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Elefant."}
 {"ts":"2026-08-28T20:47:01.416Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":19,"kind":"success","file":"elephant.success.de.wav","bytes":273644,"ms":1236}
 {"ts":"2026-08-28T20:47:02.618Z","event":"item-complete","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":19,"failures":0}
+{"ts":"2026-08-28T20:47:05.314Z","event":"start","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":19,"kind":"question","transcript":"Wo ist der Bär?"}
+{"ts":"2026-08-28T20:47:07.392Z","event":"success","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":20,"kind":"question","file":"bear.question.de.wav","bytes":108044,"ms":2073}
+{"ts":"2026-08-28T20:47:08.592Z","event":"start","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":20,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Bär."}
+{"ts":"2026-08-28T20:47:09.772Z","event":"success","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":21,"kind":"success","file":"bear.success.de.wav","bytes":244844,"ms":1179}
+{"ts":"2026-08-28T20:47:10.975Z","event":"item-complete","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":21,"failures":0}

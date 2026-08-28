@@ -74,7 +74,11 @@
       "article": {
         "de": "der"
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bear.question.de.wav",
+        "success": "./assets/generated/audio/bear.success.de.wav"
+      }
     },
     {
       "id": "fox",
