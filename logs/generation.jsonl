@@ -510,3 +510,6 @@
 {"ts":"2026-08-28T20:59:47.296Z","event":"skip-existing","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":113,"kind":"question","file":"table.question.de.wav"}
 {"ts":"2026-08-28T20:59:47.299Z","event":"skip-existing","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":113,"kind":"success","file":"table.success.de.wav"}
 {"ts":"2026-08-28T20:59:47.301Z","event":"item-complete","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:49.638Z","event":"skip-existing","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":113,"kind":"question","file":"glass.question.de.wav"}
+{"ts":"2026-08-28T20:59:49.640Z","event":"skip-existing","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":113,"kind":"success","file":"glass.success.de.wav"}
+{"ts":"2026-08-28T20:59:49.642Z","event":"item-complete","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"de","audioFiles":113,"failures":0}
