@@ -1309,3 +1309,6 @@
 {"ts":"2026-08-28T22:31:56.945Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":240,"kind":"question","file":"cat.question.ua.wav"}
 {"ts":"2026-08-28T22:31:56.949Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":240,"kind":"success","file":"cat.success.ua.wav"}
 {"ts":"2026-08-28T22:31:56.951Z","event":"item-complete","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:59.409Z","event":"skip-existing","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":240,"kind":"question","file":"rabbit.question.ua.wav"}
+{"ts":"2026-08-28T22:31:59.412Z","event":"skip-existing","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":240,"kind":"success","file":"rabbit.success.ua.wav"}
+{"ts":"2026-08-28T22:31:59.415Z","event":"item-complete","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":240,"failures":0}
