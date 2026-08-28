@@ -191,7 +191,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/potato.question.ua.wav",
         "success": "./assets/generated/audio/potato.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/potato.png"
     },
     {
       "id": "onion",

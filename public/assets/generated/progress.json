@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:16:13.402Z",
+  "ts": "2026-08-28T21:16:46.868Z",
   "event": "success",
   "provider": "openai",
   "category": "vegetables",
-  "id": "carrot",
-  "de": "Karotte",
-  "imageFiles": 13,
-  "file": "carrot.png",
-  "bytes": 959700,
+  "id": "potato",
+  "de": "Kartoffel",
+  "imageFiles": 14,
+  "file": "potato.png",
+  "bytes": 1478008,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 31758
+  "ms": 30693
 }
