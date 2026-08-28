@@ -200,3 +200,8 @@
 {"ts":"2026-08-28T20:50:40.433Z","event":"start","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":29,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Mais."}
 {"ts":"2026-08-28T20:50:41.823Z","event":"success","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":30,"kind":"success","file":"corn.success.de.wav","bytes":208844,"ms":1389}
 {"ts":"2026-08-28T20:50:43.026Z","event":"item-complete","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":30,"failures":0}
+{"ts":"2026-08-28T20:50:45.606Z","event":"start","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":30,"kind":"question","transcript":"Wo ist die Paprika?"}
+{"ts":"2026-08-28T20:50:46.690Z","event":"success","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":31,"kind":"question","file":"pepper.question.de.wav","bytes":120044,"ms":1080}
+{"ts":"2026-08-28T20:50:47.892Z","event":"start","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":31,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Paprika."}
+{"ts":"2026-08-28T20:50:49.307Z","event":"success","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":32,"kind":"success","file":"pepper.success.de.wav","bytes":240044,"ms":1414}
+{"ts":"2026-08-28T20:50:50.509Z","event":"item-complete","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":32,"failures":0}

@@ -111,7 +111,11 @@
           "ua": "зелений"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pepper.question.de.wav",
+        "success": "./assets/generated/audio/pepper.success.de.wav"
+      }
     },
     {
       "id": "broccoli",
