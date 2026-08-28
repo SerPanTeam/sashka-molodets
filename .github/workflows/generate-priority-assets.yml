@@ -1,4 +1,4 @@
-# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:47Z
+# clean OpenAI restart after checkpoint fix: 2026-08-28T20:49Z
 name: Generate priority learning assets
 
 on:
