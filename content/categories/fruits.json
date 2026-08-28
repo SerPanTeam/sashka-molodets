@@ -110,7 +110,11 @@
           "ua": "фіолетовий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/grapes.question.de.wav",
+        "success": "./assets/generated/audio/grapes.success.de.wav"
+      }
     },
     {
       "id": "strawberry",

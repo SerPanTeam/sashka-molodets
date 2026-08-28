@@ -245,3 +245,8 @@
 {"ts":"2026-08-28T20:51:45.722Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":47,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Birne."}
 {"ts":"2026-08-28T20:51:47.443Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":48,"kind":"success","file":"pear.success.de.wav","bytes":228044,"ms":1720}
 {"ts":"2026-08-28T20:51:48.646Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":48,"failures":0}
+{"ts":"2026-08-28T20:51:51.363Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":48,"kind":"question","transcript":"Wo sind die Trauben?"}
+{"ts":"2026-08-28T20:51:52.432Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":49,"kind":"question","file":"grapes.question.de.wav","bytes":124844,"ms":1066}
+{"ts":"2026-08-28T20:51:53.634Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":49,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das sind die Trauben."}
+{"ts":"2026-08-28T20:51:54.772Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":50,"kind":"success","file":"grapes.success.de.wav","bytes":276044,"ms":1136}
+{"ts":"2026-08-28T20:51:55.975Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":50,"failures":0}
