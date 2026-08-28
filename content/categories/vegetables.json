@@ -180,7 +180,11 @@
           "ua": "жовта"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/onion.question.de.wav",
+        "success": "./assets/generated/audio/onion.success.de.wav"
+      }
     },
     {
       "id": "eggplant",
