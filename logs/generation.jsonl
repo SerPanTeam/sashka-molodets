@@ -205,3 +205,8 @@
 {"ts":"2026-08-28T20:50:47.892Z","event":"start","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":31,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Paprika."}
 {"ts":"2026-08-28T20:50:49.307Z","event":"success","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":32,"kind":"success","file":"pepper.success.de.wav","bytes":240044,"ms":1414}
 {"ts":"2026-08-28T20:50:50.509Z","event":"item-complete","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":32,"failures":0}
+{"ts":"2026-08-28T20:50:52.932Z","event":"start","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":32,"kind":"question","transcript":"Wo ist der Brokkoli?"}
+{"ts":"2026-08-28T20:50:54.215Z","event":"success","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":33,"kind":"question","file":"broccoli.question.de.wav","bytes":163244,"ms":1280}
+{"ts":"2026-08-28T20:50:55.417Z","event":"start","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":33,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Brokkoli."}
+{"ts":"2026-08-28T20:50:56.278Z","event":"success","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":34,"kind":"success","file":"broccoli.success.de.wav","bytes":249644,"ms":861}
+{"ts":"2026-08-28T20:50:57.482Z","event":"item-complete","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":34,"failures":0}

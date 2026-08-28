@@ -134,7 +134,11 @@
           "ua": "зелені"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/broccoli.question.de.wav",
+        "success": "./assets/generated/audio/broccoli.success.de.wav"
+      }
     },
     {
       "id": "potato",

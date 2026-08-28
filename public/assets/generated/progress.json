@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:50:50.509Z",
+  "ts": "2026-08-28T20:50:57.482Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "pepper",
-  "de": "Paprika",
+  "id": "broccoli",
+  "de": "Brokkoli",
   "mode": "de",
-  "audioFiles": 32,
+  "audioFiles": 34,
   "failures": 0
 }
