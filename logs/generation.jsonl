@@ -852,3 +852,8 @@
 {"ts":"2026-08-28T21:07:28.198Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":223,"kind":"success","transcript":"Сашка, молодець! Це автобус."}
 {"ts":"2026-08-28T21:07:29.298Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":224,"kind":"success","file":"bus.success.ua.wav","bytes":256844,"ms":1099}
 {"ts":"2026-08-28T21:07:30.501Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":224,"failures":0}
+{"ts":"2026-08-28T21:07:32.883Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":224,"kind":"question","transcript":"Де поїзд?"}
+{"ts":"2026-08-28T21:07:33.539Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":225,"kind":"question","file":"train.question.ua.wav","bytes":88844,"ms":653}
+{"ts":"2026-08-28T21:07:34.740Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":225,"kind":"success","transcript":"Сашка, молодець! Це поїзд."}
+{"ts":"2026-08-28T21:07:35.546Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":226,"kind":"success","file":"train.success.ua.wav","bytes":168044,"ms":805}
+{"ts":"2026-08-28T21:07:36.749Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":226,"failures":0}
