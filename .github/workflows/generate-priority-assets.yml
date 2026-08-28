@@ -12,12 +12,12 @@ permissions:
 
 concurrency:
   group: generate-priority-assets
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 120
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       AI_DEFAULT_PROVIDER: google
@@ -37,66 +37,97 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Validate source
+      - name: Validate source and secret
         run: |
           node --check public/app.js
           node --check scripts/generate-assets.mjs
           node --check src/server/providers/google.mjs
           node scripts/check-content.mjs
           test -n "$GEMINI_API_KEY" || (echo 'GEMINI_API_KEY secret is missing' && exit 1)
+          echo 'Gemini secret present; source validation passed.'
 
-      - name: Generate German-only Gemini voices
-        run: |
-          node scripts/generate-assets.mjs \
-            --provider=google \
-            --categories=animals,vegetables,fruits,household,hygiene,transport \
-            --per-category=10 \
-            --audio-only \
-            --voice-modes=de \
-            --audio-kinds=question,success \
-            --pause-ms=7500 \
-            --continue-on-error
-
-      - name: Generate missing bilingual Gemini voices
-        run: |
-          node scripts/generate-assets.mjs \
-            --provider=google \
-            --categories=animals,vegetables,fruits,household,hygiene,transport \
-            --per-category=10 \
-            --audio-only \
-            --voice-modes=bilingual \
-            --audio-kinds=question,success \
-            --pause-ms=7500 \
-            --continue-on-error
-
-      - name: Commit generated voices
+      - name: Configure Git checkpointing
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/generated/audio content/categories
-          if git diff --cached --quiet; then
-            echo 'No new voice assets to commit.'
-          else
-            git commit -m 'feat: generate Gemini German and bilingual voices'
-            git push
-          fi
 
-      - name: Generate reviewed learning images
+      - name: Generate and checkpoint German voices by category
+        shell: bash
         run: |
-          node scripts/generate-assets.mjs \
-            --provider=google \
-            --categories=animals,vegetables,fruits,household,hygiene,transport \
-            --per-category=10 \
-            --image-attempts=2 \
-            --pause-ms=2500 \
-            --continue-on-error
+          set -u
+          for category in animals vegetables fruits household hygiene transport; do
+            echo "===== DE VOICES: $category ====="
+            node scripts/generate-assets.mjs \
+              --provider=google \
+              --categories="$category" \
+              --per-category=10 \
+              --audio-only \
+              --voice-modes=de \
+              --audio-kinds=question,success \
+              --pause-ms=9000 \
+              --continue-on-error
+            git add public/assets/generated/audio content/categories
+            if git diff --cached --quiet; then
+              echo "CHECKPOINT: no new DE files for $category"
+            else
+              git commit -m "feat: checkpoint Gemini DE voices for $category"
+              git pull --rebase origin main
+              git push origin HEAD:main
+              echo "CHECKPOINT: DE voices for $category persisted to main"
+            fi
+          done
 
-      - name: Commit generated images
+      - name: Generate and checkpoint bilingual voices by category
+        shell: bash
         run: |
-          git add public/assets/generated/images content/categories
-          if git diff --cached --quiet; then
-            echo 'No new image assets were generated.'
-          else
-            git commit -m 'feat: generate reviewed Gemini learning images'
-            git push
-          fi
+          set -u
+          for category in animals vegetables fruits household hygiene transport; do
+            echo "===== DE+UA VOICES: $category ====="
+            node scripts/generate-assets.mjs \
+              --provider=google \
+              --categories="$category" \
+              --per-category=10 \
+              --audio-only \
+              --voice-modes=bilingual \
+              --audio-kinds=question,success \
+              --pause-ms=9000 \
+              --continue-on-error
+            git add public/assets/generated/audio content/categories
+            if git diff --cached --quiet; then
+              echo "CHECKPOINT: no new bilingual files for $category"
+            else
+              git commit -m "feat: checkpoint Gemini bilingual voices for $category"
+              git pull --rebase origin main
+              git push origin HEAD:main
+              echo "CHECKPOINT: bilingual voices for $category persisted to main"
+            fi
+          done
+
+      - name: Generate and checkpoint reviewed images by category
+        shell: bash
+        run: |
+          set -u
+          for category in animals vegetables fruits household hygiene transport; do
+            echo "===== REVIEWED IMAGES: $category ====="
+            node scripts/generate-assets.mjs \
+              --provider=google \
+              --categories="$category" \
+              --per-category=10 \
+              --image-attempts=2 \
+              --pause-ms=15000 \
+              --continue-on-error
+            git add public/assets/generated/images content/categories
+            if git diff --cached --quiet; then
+              echo "CHECKPOINT: no new images for $category"
+            else
+              git commit -m "feat: checkpoint reviewed Gemini images for $category"
+              git pull --rebase origin main
+              git push origin HEAD:main
+              echo "CHECKPOINT: images for $category persisted to main"
+            fi
+          done
+
+      - name: Final counts
+        run: |
+          echo "Audio files: $(find public/assets/generated/audio -type f ! -name '.gitkeep' | wc -l)"
+          echo "Image files: $(find public/assets/generated/images -type f ! -name '.gitkeep' | wc -l)"
