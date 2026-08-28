@@ -260,3 +260,8 @@
 {"ts":"2026-08-28T20:52:10.268Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":53,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Wassermelone."}
 {"ts":"2026-08-28T20:52:11.542Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":54,"kind":"success","file":"watermelon.success.de.wav","bytes":264044,"ms":1274}
 {"ts":"2026-08-28T20:52:12.744Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":54,"failures":0}
+{"ts":"2026-08-28T20:52:15.412Z","event":"start","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":54,"kind":"question","transcript":"Wo ist der Pfirsich?"}
+{"ts":"2026-08-28T20:52:16.297Z","event":"success","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":55,"kind":"question","file":"peach.question.de.wav","bytes":165644,"ms":882}
+{"ts":"2026-08-28T20:52:17.499Z","event":"start","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":55,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Pfirsich."}
+{"ts":"2026-08-28T20:52:18.484Z","event":"success","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":56,"kind":"success","file":"peach.success.de.wav","bytes":264044,"ms":984}
+{"ts":"2026-08-28T20:52:19.688Z","event":"item-complete","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":56,"failures":0}

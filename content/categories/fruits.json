@@ -179,7 +179,11 @@
           "ua": "помаранчевий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/peach.question.de.wav",
+        "success": "./assets/generated/audio/peach.success.de.wav"
+      }
     },
     {
       "id": "cherries",
