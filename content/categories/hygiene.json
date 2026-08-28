@@ -155,6 +155,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toilet-paper.question.de.wav",
         "success": "./assets/generated/audio/toilet-paper.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/toilet-paper.question.ua.wav",
+        "success": "./assets/generated/audio/toilet-paper.success.ua.wav"
       }
     },
     {
