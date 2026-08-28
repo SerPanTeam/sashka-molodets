@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:26.051Z",
+  "ts": "2026-08-28T22:35:28.484Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "fruits",
-  "id": "grapes",
-  "de": "Trauben",
+  "id": "strawberry",
+  "de": "Erdbeere",
   "imageFiles": 32,
-  "file": "grapes.png"
+  "file": "strawberry.png"
 }
