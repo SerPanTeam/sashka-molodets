@@ -41,6 +41,7 @@ const index = await readFile(path.join(root, 'public/index.html'), 'utf8');
 const shim = await readFile(path.join(root, 'public/pages-shim.js'), 'utf8');
 const bridge = await readFile(path.join(root, 'public/audio-bridge.js'), 'utf8');
 const sfx = await readFile(path.join(root, 'public/object-sfx.js'), 'utf8');
+const localSfx = await readFile(path.join(root, 'public/object-sfx-local.js'), 'utf8');
 
 if (/\bAlexander,\s*(?:super|noch nicht)/.test(app)) errors.push('app.js still contains legacy Alexander praise/prompt');
 if (!app.includes('Olexander, super!')) errors.push('app.js missing Olexander success praise');
@@ -48,16 +49,25 @@ if (!app.includes('await playApplause()')) errors.push('correct-answer flow does
 if (!app.includes('await window.SashkaSfx.play(t.id)')) errors.push('correct-answer flow does not await object SFX');
 if (app.includes('state.wrong>=3')) errors.push('wrong-answer flow still auto-advances after repeated misses');
 if (!app.includes('state.locked=true;state.wrong++')) errors.push('wrong-answer audio is not protected from rapid-tap interruption');
-if (!app.includes('kind==="retry"?item?.generatedAudioUa?.question:null')) errors.push('retry flow lacks recorded Ukrainian fallback');
+if (!app.includes('if(kind!=="question")')) errors.push('dynamic feedback voice path missing');
+if (!app.includes('parts.push({text:fallback.ua,lang:"uk-UA"})')) errors.push('dynamic feedback does not guarantee Ukrainian after German');
+if (!app.includes('Подумай ще, друже')) errors.push('contextual Ukrainian first-miss explanation missing');
+if (!app.includes('Achte auf die Farbe')) errors.push('attribute-comparison feedback missing');
+if (!app.includes('preferredVoice')) errors.push('preferred natural browser voice selection missing');
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
+if (!index.includes('object-sfx-local.js')) errors.push('index.html does not load local animal SFX override');
 if (!index.includes('audio-bridge.js')) errors.push('index.html does not load audio-bridge.js');
 if (!index.includes('animal-sound-sources.html')) errors.push('animal sound attribution link missing');
 if (!shim.includes("voiceMode: oldSettingsVersion < 3 ? 'dual'")) errors.push('bilingual settings migration missing');
 if (!shim.includes('physicalAssetsExist')) errors.push('production shim does not verify physical asset existence');
 if (!bridge.includes('window.Audio = BridgedAudio')) errors.push('shared recorded-audio bridge missing');
 if (!sfx.includes('window.SashkaSfx')) errors.push('object SFX runtime missing');
-if (!sfx.includes('Barking_of_a_dog.ogg') || !sfx.includes('Elephant_voice_-_trumpeting.ogg')) errors.push('real animal recording map missing');
-if (!sfx.includes('Special:Redirect/file')) errors.push('real animal recording loader missing');
+if (!localSfx.includes("'./assets/sfx/animals/dog.ogg'") || !localSfx.includes("'./assets/sfx/animals/sheep.ogg'")) errors.push('local real animal recording map missing');
+
+for (const id of ['dog','cat','cow','horse','pig','sheep','lion','elephant','bear']) {
+  if (!(await exists(`public/assets/sfx/animals/${id}.ogg`))) errors.push(`missing local real animal SFX: ${id}.ogg`);
+}
+
 if (ids.length !== 60) errors.push(`priority list expected 60 items, got ${ids.length}`);
 if (readyCount < 1) errors.push('no production-ready priority cards remain');
 
@@ -74,4 +84,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, DE→UA retry protection, real animal recordings, shared audio bridge, applause → SFX sequencing.');
+console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, applause → SFX sequencing.');
