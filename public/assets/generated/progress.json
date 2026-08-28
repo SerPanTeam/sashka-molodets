@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:34:55.844Z",
+  "ts": "2026-08-28T22:34:58.462Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "vegetables",
-  "id": "carrot",
-  "de": "Karotte",
+  "id": "potato",
+  "de": "Kartoffel",
   "imageFiles": 32,
-  "file": "carrot.png"
+  "file": "potato.png"
 }
