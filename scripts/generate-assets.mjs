@@ -12,6 +12,7 @@ const flag = name => argv.includes(`--${name}`);
 const value = (name, fallback) => argv.find(x => x.startsWith(`--${name}=`))?.slice(name.length + 3) ?? fallback;
 const dry = flag("dry-run");
 const force = flag("force");
+const continueOnError = flag("continue-on-error");
 const provider = value("provider", process.env.AI_DEFAULT_PROVIDER || "google");
 const categoriesArg = value("categories", "animals,vegetables,fruits");
 const categories = categoriesArg === "all" ? null : categoriesArg.split(",").map(x => x.trim()).filter(Boolean);
@@ -115,14 +116,14 @@ function deThisIs(item) {
   return pluralGerman.has(item.id) ? `Das sind die ${item.labels.de}.` : `Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
 }
 function questionText(item) {
-  return `${deQuestion(item)} [short pause] Де ${item.labels.ua}?`;
+  return `${deQuestion(item)}\nДе ${item.labels.ua}?`;
 }
 function successText(item) {
-  return `Alexander, super! Gut gemacht! ${deThisIs(item)} [short pause] Сашка, молодець! Це ${item.labels.ua}.`;
+  return `[excited] Alexander, super! Gut gemacht! ${deThisIs(item)}\n[excited] Сашка, молодець! Це ${item.labels.ua}.`;
 }
 function retryText(item) {
   const de = pluralGerman.has(item.id) ? `Noch nicht. Suche die ${item.labels.de}.` : `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.`;
-  return `${de} [short pause] Ще ні. Знайди ${item.labels.ua}.`;
+  return `${de}\nЩе ні. Знайди ${item.labels.ua}.`;
 }
 function audioText(item, kind) {
   if (kind === "success") return successText(item);
@@ -131,80 +132,96 @@ function audioText(item, kind) {
 }
 
 console.log(`Selected ${selected.length} items: ${requestedCategories.join(", ")} (${perCategory}/category)`);
-console.log(`Images=${doImages} Audio=${doAudio} QA=${qa} Provider=${provider} Dry=${dry}`);
+console.log(`Images=${doImages} Audio=${doAudio} QA=${qa} Provider=${provider} Dry=${dry} ContinueOnError=${continueOnError}`);
 
-let imageCount = 0, audioCount = 0, qaRejected = 0;
+let imageCount = 0;
+let audioCount = 0;
+let qaRejected = 0;
+let failures = 0;
+
 for (const item of selected) {
   if (doImages) {
-    const file = path.join(imageDir, `${item.id}.png`);
-    let exists = false;
-    try { await access(file); exists = true; } catch {}
-    if (!exists || force) {
-      console.log(`[image:${provider}] ${item.category}/${item.id}`);
-      if (!dry) {
-        let correction = "";
-        let accepted = null;
-        for (let attempt = 1; attempt <= maxImageAttempts; attempt++) {
-          const generated = await withRetry(() => generateImage({
-            provider,
-            prompt: imagePrompt(item, correction),
-            aspectRatio: "1:1",
-            imageSize: "1K",
-            size: "1024x1024"
-          }), `image ${item.id}`);
-          if (!qa) { accepted = generated; break; }
-          const review = await withRetry(() => reviewImage({
-            provider,
-            buffer: generated.buffer,
-            mimeType: generated.mimeType,
-            expected: `${subjectDescriptions[item.id] || item.labels.de}; German label ${item.labels.de}; Ukrainian label ${item.labels.ua}`
-          }), `qa ${item.id}`);
-          console.log(`  QA attempt ${attempt}: ${review.text.replace(/\s+/g, " ").slice(0, 220)}`);
-          if (review.pass) { accepted = generated; break; }
-          qaRejected++;
-          correction = review.text;
-          await sleep(pauseMs);
+    try {
+      const file = path.join(imageDir, `${item.id}.png`);
+      let exists = false;
+      try { await access(file); exists = true; } catch {}
+      if (!exists || force) {
+        console.log(`[image:${provider}] ${item.category}/${item.id}`);
+        if (!dry) {
+          let correction = "";
+          let accepted = null;
+          for (let attempt = 1; attempt <= maxImageAttempts; attempt++) {
+            const generated = await withRetry(() => generateImage({
+              provider,
+              prompt: imagePrompt(item, correction),
+              aspectRatio: "1:1",
+              imageSize: "1K",
+              size: "1024x1024"
+            }), `image ${item.id}`);
+            if (!qa) { accepted = generated; break; }
+            const review = await withRetry(() => reviewImage({
+              provider,
+              buffer: generated.buffer,
+              mimeType: generated.mimeType,
+              expected: `${subjectDescriptions[item.id] || item.labels.de}; German label ${item.labels.de}; Ukrainian label ${item.labels.ua}`
+            }), `qa ${item.id}`);
+            console.log(`  QA attempt ${attempt}: ${review.text.replace(/\s+/g, " ").slice(0, 220)}`);
+            if (review.pass) { accepted = generated; break; }
+            qaRejected++;
+            correction = review.text;
+            await sleep(pauseMs);
+          }
+          if (accepted) {
+            await writeFile(file, accepted.buffer);
+            item.generatedImage = `./assets/generated/images/${item.id}.png`;
+            imageCount++;
+          } else {
+            console.warn(`  SKIP ${item.id}: image failed QA after ${maxImageAttempts} attempts; emoji fallback will remain.`);
+          }
         }
-        if (accepted) {
-          await writeFile(file, accepted.buffer);
-          item.generatedImage = `./assets/generated/images/${item.id}.png`;
-          imageCount++;
-        } else {
-          console.warn(`  SKIP ${item.id}: image failed QA after ${maxImageAttempts} attempts; emoji fallback will remain.`);
-        }
+        await sleep(pauseMs);
+      } else if (!item.generatedImage) {
+        item.generatedImage = `./assets/generated/images/${item.id}.png`;
       }
-      await sleep(pauseMs);
-    } else if (!item.generatedImage) {
-      item.generatedImage = `./assets/generated/images/${item.id}.png`;
+    } catch (error) {
+      failures++;
+      console.error(`[image failed] ${item.id}: ${String(error?.message || error).slice(0, 900)}`);
+      if (!continueOnError) throw error;
     }
   }
 
   if (doAudio) {
     item.generatedAudio ||= {};
     for (const kind of kinds) {
-      const fileName = `${item.id}.${kind}.bilingual.wav`;
-      const file = path.join(audioDir, fileName);
-      let exists = false;
-      try { await access(file); exists = true; } catch {}
-      if (!exists || force) {
-        console.log(`[audio:${provider}] ${item.category}/${item.id} ${kind}`);
-        if (!dry) {
-          const result = await withRetry(() => generateSpeech({
-            provider,
-            text: audioText(item, kind),
-            language: "German de-DE first, then Ukrainian uk-UA",
-            style: "warm, cheerful, caring preschool educator; native-sounding pronunciation in each language; clear and natural; slightly playful but not theatrical; medium-slow pace; a brief natural pause when switching from German to Ukrainian; speak only the requested phrases"
-          }), `audio ${item.id}/${kind}`);
-          await writeFile(file, result.buffer);
-          audioCount++;
+      try {
+        const fileName = `${item.id}.${kind}.bilingual.wav`;
+        const file = path.join(audioDir, fileName);
+        let exists = false;
+        try { await access(file); exists = true; } catch {}
+        if (!exists || force) {
+          console.log(`[audio:${provider}] ${item.category}/${item.id} ${kind}`);
+          if (!dry) {
+            const result = await withRetry(() => generateSpeech({
+              provider,
+              text: audioText(item, kind),
+              language: "German de-DE first, then Ukrainian uk-UA",
+              style: "warm, cheerful, caring preschool educator; native-sounding pronunciation in each language; clear and natural; slightly playful but not theatrical; medium-slow pace; pause naturally at the line break before switching languages; speak only the requested phrases"
+            }), `audio ${item.id}/${kind}`);
+            await writeFile(file, result.buffer);
+            audioCount++;
+          }
+          await sleep(pauseMs);
         }
-        await sleep(pauseMs);
+        item.generatedAudio[kind] = `./assets/generated/audio/${fileName}`;
+      } catch (error) {
+        failures++;
+        console.error(`[audio failed] ${item.id}/${kind}: ${String(error?.message || error).slice(0, 900)}`);
+        if (!continueOnError) throw error;
       }
-      item.generatedAudio[kind] = `./assets/generated/audio/${fileName}`;
     }
   }
 }
 
 if (!dry) await saveContentGroups(content);
-console.log(`Done. New images=${imageCount}; new audio=${audioCount}; QA rejections/regenerations=${qaRejected}.`);
+console.log(`Done. New images=${imageCount}; new audio=${audioCount}; QA rejections/regenerations=${qaRejected}; failures=${failures}.`);
 if (dry) console.log("Dry run: no API calls or files were written. Remove --dry-run to generate assets.");
