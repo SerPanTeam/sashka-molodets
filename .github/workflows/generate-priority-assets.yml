@@ -1,4 +1,4 @@
-# clean OpenAI restart after checkpoint fix: 2026-08-28T20:49Z
+# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:51Z
 name: Generate priority learning assets
 
 on:
@@ -26,6 +26,7 @@ jobs:
       OPENAI_IMAGE_QUALITY: medium
       OPENAI_TTS_MODEL: gpt-4o-mini-tts
       OPENAI_TTS_VOICE: coral
+      OPENAI_TTS_VOICE_UA: coral
 
     steps:
       - name: Checkout
@@ -46,11 +47,13 @@ jobs:
           test -n "$OPENAI_API_KEY" || (echo 'ERROR: OPENAI_API_KEY GitHub secret is missing' && exit 1)
           echo 'READY: OpenAI key present. Smoke gate runs before mass generation.'
 
-      - name: Smoke gate · ONE TTS + ONE image
+      - name: Smoke gate · DE + UA TTS + ONE image
         run: |
           set -e
           echo '=== OPENAI SMOKE: tomato German TTS ==='
           node scripts/generate-one-audio.mjs --provider=openai --id=tomato --mode=de --kinds=question --pause-ms=0
+          echo '=== OPENAI SMOKE: tomato Ukrainian TTS ==='
+          node scripts/generate-one-audio.mjs --provider=openai --id=tomato --mode=ua --kinds=question --pause-ms=0
           echo '=== OPENAI SMOKE: tomato GPT-Image-2 ==='
           node scripts/generate-one-image.mjs --provider=openai --quality=medium --id=tomato
           echo '=== OPENAI SMOKE PASSED ==='
@@ -89,23 +92,23 @@ jobs:
         env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
 
-      - name: 🐶 Animals · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🐶 Animals · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh animals dog cat rabbit cow horse pig sheep lion elephant bear
-      - name: 🥕 Vegetables · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🥕 Vegetables · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh vegetables tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic
-      - name: 🍎 Fruits · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🍎 Fruits · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh fruits apple banana orange pear grapes strawberry watermelon peach cherries kiwi
-      - name: 🏠 Household · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🏠 Household · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh household cup plate spoon fork table glass bowl pot pan fridge
-      - name: 🧼 Hygiene · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🧼 Hygiene · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh hygiene toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth
-      - name: 🚗 Transport · bilingual TTS
-        env: { AUDIO_MODE: bilingual }
+      - name: 🚗 Transport · Ukrainian TTS
+        env: { AUDIO_MODE: ua }
         run: bash scripts/generate-category-audio.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
 
       - name: 🐶 Animals · GPT-Image-2
@@ -125,7 +128,8 @@ jobs:
         if: always()
         run: |
           echo "German WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.de.wav' | wc -l)"
-          echo "Bilingual WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.bilingual.wav' | wc -l)"
+          echo "Ukrainian WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.ua.wav' | wc -l)"
+          echo "Legacy bilingual WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.bilingual.wav' | wc -l)"
           echo "Image files: $(find public/assets/generated/images -maxdepth 1 -type f \( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \) | wc -l)"
           echo 'Last structured progress:'
           test ! -f public/assets/generated/progress.json || cat public/assets/generated/progress.json
