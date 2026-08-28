@@ -162,6 +162,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/pig.question.de.wav",
         "success": "./assets/generated/audio/pig.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pig.question.ua.wav",
+        "success": "./assets/generated/audio/pig.success.ua.wav"
       }
     },
     {
