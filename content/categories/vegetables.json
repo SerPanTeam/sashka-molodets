@@ -145,7 +145,11 @@
           "ua": "коричнева"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/potato.question.de.wav",
+        "success": "./assets/generated/audio/potato.success.de.wav"
+      }
     },
     {
       "id": "onion",

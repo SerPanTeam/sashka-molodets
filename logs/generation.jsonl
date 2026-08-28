@@ -190,3 +190,8 @@
 {"ts":"2026-08-28T20:50:25.569Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":26,"kind":"question","file":"carrot.question.de.wav"}
 {"ts":"2026-08-28T20:50:25.573Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":26,"kind":"success","file":"carrot.success.de.wav"}
 {"ts":"2026-08-28T20:50:25.574Z","event":"item-complete","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":26,"failures":0}
+{"ts":"2026-08-28T20:50:28.056Z","event":"start","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":26,"kind":"question","transcript":"Wo ist die Kartoffel?"}
+{"ts":"2026-08-28T20:50:30.268Z","event":"success","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":27,"kind":"question","file":"potato.question.de.wav","bytes":134444,"ms":2209}
+{"ts":"2026-08-28T20:50:31.470Z","event":"start","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":27,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kartoffel."}
+{"ts":"2026-08-28T20:50:33.156Z","event":"success","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":28,"kind":"success","file":"potato.success.de.wav","bytes":285644,"ms":1685}
+{"ts":"2026-08-28T20:50:34.359Z","event":"item-complete","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":28,"failures":0}
