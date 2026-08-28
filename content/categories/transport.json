@@ -155,6 +155,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/tractor.question.de.wav",
         "success": "./assets/generated/audio/tractor.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/tractor.question.ua.wav",
+        "success": "./assets/generated/audio/tractor.success.ua.wav"
       }
     },
     {

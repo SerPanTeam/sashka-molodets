@@ -877,3 +877,8 @@
 {"ts":"2026-08-28T21:08:02.631Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":233,"kind":"success","transcript":"Сашка, молодець! Це вантажівка."}
 {"ts":"2026-08-28T21:08:03.855Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":234,"kind":"success","file":"truck.success.ua.wav","bytes":225644,"ms":1223}
 {"ts":"2026-08-28T21:08:05.056Z","event":"item-complete","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":234,"failures":0}
+{"ts":"2026-08-28T21:08:07.419Z","event":"start","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":234,"kind":"question","transcript":"Де трактор?"}
+{"ts":"2026-08-28T21:08:08.329Z","event":"success","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":235,"kind":"question","file":"tractor.question.ua.wav","bytes":129644,"ms":908}
+{"ts":"2026-08-28T21:08:09.530Z","event":"start","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":235,"kind":"success","transcript":"Сашка, молодець! Це трактор."}
+{"ts":"2026-08-28T21:08:10.587Z","event":"success","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":236,"kind":"success","file":"tractor.success.ua.wav","bytes":192044,"ms":1056}
+{"ts":"2026-08-28T21:08:11.790Z","event":"item-complete","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"ua","audioFiles":236,"failures":0}
