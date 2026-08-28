@@ -432,3 +432,6 @@
 {"ts":"2026-08-28T20:58:45.176Z","event":"skip-existing","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":113,"kind":"question","file":"elephant.question.de.wav"}
 {"ts":"2026-08-28T20:58:45.179Z","event":"skip-existing","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":113,"kind":"success","file":"elephant.success.de.wav"}
 {"ts":"2026-08-28T20:58:45.181Z","event":"item-complete","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:58:47.711Z","event":"skip-existing","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":113,"kind":"question","file":"bear.question.de.wav"}
+{"ts":"2026-08-28T20:58:47.713Z","event":"skip-existing","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":113,"kind":"success","file":"bear.success.de.wav"}
+{"ts":"2026-08-28T20:58:47.715Z","event":"item-complete","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":113,"failures":0}
