@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:33:49.643Z",
+  "ts": "2026-08-28T22:33:52.259Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "sponge",
-  "de": "Schwamm",
+  "id": "toilet-paper",
+  "de": "Toilettenpapier",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
