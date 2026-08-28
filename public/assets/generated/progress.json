@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:25:07.544Z",
+  "ts": "2026-08-28T21:25:43.501Z",
   "event": "success",
   "provider": "openai",
   "category": "fruits",
-  "id": "peach",
-  "de": "Pfirsich",
-  "imageFiles": 28,
-  "file": "peach.png",
-  "bytes": 1473505,
+  "id": "cherries",
+  "de": "Kirschen",
+  "imageFiles": 29,
+  "file": "cherries.png",
+  "bytes": 1056763,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 31234
+  "ms": 33127
 }

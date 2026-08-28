@@ -250,7 +250,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/cherries.question.ua.wav",
         "success": "./assets/generated/audio/cherries.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/cherries.png"
     },
     {
       "id": "kiwi",
