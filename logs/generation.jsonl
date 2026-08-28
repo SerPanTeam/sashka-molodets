@@ -1288,3 +1288,6 @@
 {"ts":"2026-08-28T22:31:39.599Z","event":"skip-existing","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":240,"kind":"question","file":"airplane.question.de.wav"}
 {"ts":"2026-08-28T22:31:39.603Z","event":"skip-existing","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":240,"kind":"success","file":"airplane.success.de.wav"}
 {"ts":"2026-08-28T22:31:39.605Z","event":"item-complete","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:42.098Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":240,"kind":"question","file":"ship.question.de.wav"}
+{"ts":"2026-08-28T22:31:42.102Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":240,"kind":"success","file":"ship.success.de.wav"}
+{"ts":"2026-08-28T22:31:42.104Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":240,"failures":0}

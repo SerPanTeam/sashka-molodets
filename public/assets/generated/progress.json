@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:31:39.605Z",
+  "ts": "2026-08-28T22:31:42.104Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "airplane",
-  "de": "Flugzeug",
+  "id": "ship",
+  "de": "Schiff",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
