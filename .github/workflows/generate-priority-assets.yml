@@ -17,12 +17,14 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      AI_DEFAULT_PROVIDER: google
-      GOOGLE_TTS_MODEL: gemini-3.1-flash-tts-preview
-      GOOGLE_TTS_VOICE: Sulafat
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      AI_DEFAULT_PROVIDER: openai
+      OPENAI_IMAGE_MODEL: gpt-image-2
+      OPENAI_IMAGE_QUALITY: medium
+      OPENAI_TTS_MODEL: gpt-4o-mini-tts
+      OPENAI_TTS_VOICE: coral
 
     steps:
       - name: Checkout
@@ -35,35 +37,94 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Validate source and key
+      - name: Validate OpenAI setup
         run: |
           node --check scripts/generate-one-audio.mjs
+          node --check scripts/generate-one-image.mjs
           node scripts/check-content.mjs
-          test -n "$GEMINI_API_KEY" || (echo 'GEMINI_API_KEY is missing' && exit 1)
-          echo 'READY: key present; every item will be logged and checkpointed separately.'
+          test -n "$OPENAI_API_KEY" || (echo 'ERROR: OPENAI_API_KEY GitHub secret is missing' && exit 1)
+          echo 'READY: OpenAI key present. Smoke gate runs before mass generation.'
+
+      - name: Smoke gate · ONE TTS + ONE image
+        run: |
+          set -e
+          echo '=== OPENAI SMOKE: tomato German TTS ==='
+          node scripts/generate-one-audio.mjs --provider=openai --id=tomato --mode=de --kinds=question --pause-ms=0
+          echo '=== OPENAI SMOKE: tomato GPT-Image-2 ==='
+          node scripts/generate-one-image.mjs --provider=openai --quality=medium --id=tomato
+          echo '=== OPENAI SMOKE PASSED ==='
+
+      - name: Persist smoke proof immediately
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/generated/audio public/assets/generated/images public/assets/generated/progress.json content/categories
+          test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
+          if git diff --cached --quiet; then
+            echo 'Smoke assets already existed; nothing new to commit.'
+          else
+            git commit -m 'feat: persist successful OpenAI smoke assets'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
 
       - name: 🐶 Animals · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh animals dog cat rabbit cow horse pig sheep lion elephant bear
-
       - name: 🥕 Vegetables · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh vegetables tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic
-
       - name: 🍎 Fruits · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh fruits apple banana orange pear grapes strawberry watermelon peach cherries kiwi
-
       - name: 🏠 Household · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh household cup plate spoon fork table glass bowl pot pan fridge
-
       - name: 🧼 Hygiene · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh hygiene toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth
-
       - name: 🚗 Transport · German TTS
+        env: { AUDIO_MODE: de }
         run: bash scripts/generate-category-audio.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
+
+      - name: 🐶 Animals · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh animals dog cat rabbit cow horse pig sheep lion elephant bear
+      - name: 🥕 Vegetables · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh vegetables tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic
+      - name: 🍎 Fruits · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh fruits apple banana orange pear grapes strawberry watermelon peach cherries kiwi
+      - name: 🏠 Household · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh household cup plate spoon fork table glass bowl pot pan fridge
+      - name: 🧼 Hygiene · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh hygiene toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth
+      - name: 🚗 Transport · bilingual TTS
+        env: { AUDIO_MODE: bilingual }
+        run: bash scripts/generate-category-audio.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
+
+      - name: 🐶 Animals · GPT-Image-2
+        run: bash scripts/generate-category-images.sh animals dog cat rabbit cow horse pig sheep lion elephant bear
+      - name: 🥕 Vegetables · GPT-Image-2
+        run: bash scripts/generate-category-images.sh vegetables tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic
+      - name: 🍎 Fruits · GPT-Image-2
+        run: bash scripts/generate-category-images.sh fruits apple banana orange pear grapes strawberry watermelon peach cherries kiwi
+      - name: 🏠 Household · GPT-Image-2
+        run: bash scripts/generate-category-images.sh household cup plate spoon fork table glass bowl pot pan fridge
+      - name: 🧼 Hygiene · GPT-Image-2
+        run: bash scripts/generate-category-images.sh hygiene toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth
+      - name: 🚗 Transport · GPT-Image-2
+        run: bash scripts/generate-category-images.sh transport car bus train bicycle airplane ship truck tractor tram helicopter
 
       - name: Final generation summary
         if: always()
         run: |
           echo "German WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.de.wav' | wc -l)"
+          echo "Bilingual WAV files: $(find public/assets/generated/audio -maxdepth 1 -type f -name '*.bilingual.wav' | wc -l)"
+          echo "Image files: $(find public/assets/generated/images -maxdepth 1 -type f \( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \) | wc -l)"
           echo 'Last structured progress:'
           test ! -f public/assets/generated/progress.json || cat public/assets/generated/progress.json
-          echo 'Every API attempt is also recorded in logs/generation.jsonl and GitHub Actions output.'
+          echo 'Every OpenAI API attempt is recorded in logs/generation.jsonl and Actions output.'
