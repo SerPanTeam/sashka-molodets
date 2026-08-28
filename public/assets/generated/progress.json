@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:22:03.309Z",
+  "ts": "2026-08-28T21:22:37.662Z",
   "event": "success",
   "provider": "openai",
   "category": "fruits",
-  "id": "orange",
-  "de": "Orange",
-  "imageFiles": 23,
-  "file": "orange.png",
-  "bytes": 1339903,
+  "id": "pear",
+  "de": "Birne",
+  "imageFiles": 24,
+  "file": "pear.png",
+  "bytes": 1163195,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 31777
+  "ms": 31600
 }
