@@ -23,7 +23,10 @@
         "question": "./assets/generated/audio/tomato.question.de.wav",
         "success": "./assets/generated/audio/tomato.success.de.wav"
       },
-      "generatedImage": "./assets/generated/images/tomato.png"
+      "generatedImage": "./assets/generated/images/tomato.png",
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/tomato.question.ua.wav"
+      }
     },
     {
       "id": "cucumber",
