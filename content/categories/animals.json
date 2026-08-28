@@ -141,6 +141,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/cow.question.de.wav",
         "success": "./assets/generated/audio/cow.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/cow.question.ua.wav",
+        "success": "./assets/generated/audio/cow.success.ua.wav"
       }
     },
     {
