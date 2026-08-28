@@ -19,7 +19,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/cup.question.ua.wav",
         "success": "./assets/generated/audio/cup.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/cup.png"
     },
     {
       "id": "plate",

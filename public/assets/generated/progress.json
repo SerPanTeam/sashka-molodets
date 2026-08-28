@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:26:18.793Z",
+  "ts": "2026-08-28T21:26:54.797Z",
   "event": "success",
   "provider": "openai",
-  "category": "fruits",
-  "id": "kiwi",
-  "de": "Kiwi",
-  "imageFiles": 30,
-  "file": "kiwi.png",
-  "bytes": 1818435,
+  "category": "household",
+  "id": "cup",
+  "de": "Tasse",
+  "imageFiles": 31,
+  "file": "cup.png",
+  "bytes": 1203311,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 32606
+  "ms": 32992
 }
