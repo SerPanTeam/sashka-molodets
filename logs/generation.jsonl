@@ -1486,3 +1486,4 @@
 {"ts":"2026-08-28T22:34:25.679Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","imageFiles":32,"file":"dog.png"}
 {"ts":"2026-08-28T22:34:28.278Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","imageFiles":32,"file":"cat.png"}
 {"ts":"2026-08-28T22:34:30.841Z","event":"skip-existing","provider":"openai","category":"animals","id":"rabbit","de":"Hase","imageFiles":32,"file":"rabbit.png"}
+{"ts":"2026-08-28T22:34:33.319Z","event":"skip-existing","provider":"openai","category":"animals","id":"cow","de":"Kuh","imageFiles":32,"file":"cow.png"}
