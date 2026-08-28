@@ -712,3 +712,8 @@
 {"ts":"2026-08-28T21:04:18.315Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":167,"kind":"success","transcript":"Сашка, молодець! Це груша."}
 {"ts":"2026-08-28T21:04:19.249Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":168,"kind":"success","file":"pear.success.ua.wav","bytes":172844,"ms":933}
 {"ts":"2026-08-28T21:04:20.452Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"ua","audioFiles":168,"failures":0}
+{"ts":"2026-08-28T21:04:22.807Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":168,"kind":"question","transcript":"Де виноград?"}
+{"ts":"2026-08-28T21:04:23.580Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":169,"kind":"question","file":"grapes.question.ua.wav","bytes":91244,"ms":770}
+{"ts":"2026-08-28T21:04:24.782Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":169,"kind":"success","transcript":"Сашка, молодець! Це виноград."}
+{"ts":"2026-08-28T21:04:26.026Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":170,"kind":"success","file":"grapes.success.ua.wav","bytes":208844,"ms":1244}
+{"ts":"2026-08-28T21:04:27.231Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":170,"failures":0}
