@@ -423,3 +423,6 @@
 {"ts":"2026-08-28T20:58:38.152Z","event":"skip-existing","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":113,"kind":"question","file":"pig.question.de.wav"}
 {"ts":"2026-08-28T20:58:38.155Z","event":"skip-existing","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":113,"kind":"success","file":"pig.success.de.wav"}
 {"ts":"2026-08-28T20:58:38.171Z","event":"item-complete","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:58:40.609Z","event":"skip-existing","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":113,"kind":"question","file":"sheep.question.de.wav"}
+{"ts":"2026-08-28T20:58:40.612Z","event":"skip-existing","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":113,"kind":"success","file":"sheep.success.de.wav"}
+{"ts":"2026-08-28T20:58:40.614Z","event":"item-complete","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":113,"failures":0}
