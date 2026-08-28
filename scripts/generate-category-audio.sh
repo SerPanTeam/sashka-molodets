@@ -13,7 +13,8 @@ for id in "${ids[@]}"; do
   status=success
   node scripts/generate-one-audio.mjs --provider="$provider" --id="$id" --mode="$mode" --kinds=question,success --pause-ms=1200 || status=error
 
-  git add public/assets/generated/audio public/assets/generated/progress.json content/categories
+  git add -f public/assets/generated/audio
+  git add public/assets/generated/progress.json content/categories
   test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
   if ! git diff --cached --quiet; then
     git commit -m "feat: checkpoint ${provider} ${mode} audio ${category}/${id} (${status})"
