@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:31:16.227Z",
+  "ts": "2026-08-28T22:31:18.809Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "comb",
-  "de": "Kamm",
+  "id": "sponge",
+  "de": "Schwamm",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
