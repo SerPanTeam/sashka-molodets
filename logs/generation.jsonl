@@ -702,3 +702,8 @@
 {"ts":"2026-08-28T21:04:04.802Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":163,"kind":"success","transcript":"Сашка, молодець! Це банан."}
 {"ts":"2026-08-28T21:04:06.014Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":164,"kind":"success","file":"banana.success.ua.wav","bytes":285644,"ms":1210}
 {"ts":"2026-08-28T21:04:07.236Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":164,"failures":0}
+{"ts":"2026-08-28T21:04:09.720Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":164,"kind":"question","transcript":"Де апельсин?"}
+{"ts":"2026-08-28T21:04:10.696Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":165,"kind":"question","file":"orange.question.ua.wav","bytes":84044,"ms":973}
+{"ts":"2026-08-28T21:04:11.897Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":165,"kind":"success","transcript":"Сашка, молодець! Це апельсин."}
+{"ts":"2026-08-28T21:04:12.835Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":166,"kind":"success","file":"orange.success.ua.wav","bytes":218444,"ms":937}
+{"ts":"2026-08-28T21:04:14.037Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"ua","audioFiles":166,"failures":0}
