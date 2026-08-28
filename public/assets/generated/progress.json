@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:11:11.549Z",
+  "ts": "2026-08-28T21:11:46.726Z",
   "event": "success",
   "provider": "openai",
   "category": "animals",
-  "id": "cow",
-  "de": "Kuh",
-  "imageFiles": 5,
-  "file": "cow.png",
-  "bytes": 1248444,
+  "id": "horse",
+  "de": "Pferd",
+  "imageFiles": 6,
+  "file": "horse.png",
+  "bytes": 1178943,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 41997
+  "ms": 31972
 }

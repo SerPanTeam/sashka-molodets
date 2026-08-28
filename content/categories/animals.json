@@ -202,7 +202,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/horse.question.ua.wav",
         "success": "./assets/generated/audio/horse.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/horse.png"
     },
     {
       "id": "sheep",
