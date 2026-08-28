@@ -573,3 +573,8 @@
 {"ts":"2026-08-28T21:00:38.219Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":113,"kind":"question","file":"ship.question.de.wav"}
 {"ts":"2026-08-28T21:00:38.221Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":113,"kind":"success","file":"ship.success.de.wav"}
 {"ts":"2026-08-28T21:00:38.224Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:40.756Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":113,"kind":"question","transcript":"Wo ist der Lastwagen?"}
+{"ts":"2026-08-28T21:00:41.616Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":114,"kind":"question","file":"truck.question.de.wav","bytes":132044,"ms":857}
+{"ts":"2026-08-28T21:00:42.817Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":114,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Lastwagen."}
+{"ts":"2026-08-28T21:00:44.190Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":115,"kind":"success","file":"truck.success.de.wav","bytes":261644,"ms":1372}
+{"ts":"2026-08-28T21:00:45.393Z","event":"item-complete","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":115,"failures":0}
