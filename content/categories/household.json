@@ -115,6 +115,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/glass.question.de.wav",
         "success": "./assets/generated/audio/glass.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/glass.question.ua.wav",
+        "success": "./assets/generated/audio/glass.success.ua.wav"
       }
     },
     {

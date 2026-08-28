@@ -767,3 +767,8 @@
 {"ts":"2026-08-28T21:05:33.034Z","event":"start","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"ua","audioFiles":189,"kind":"success","transcript":"Сашка, молодець! Це стіл."}
 {"ts":"2026-08-28T21:05:34.574Z","event":"success","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"ua","audioFiles":190,"kind":"success","file":"table.success.ua.wav","bytes":242444,"ms":1539}
 {"ts":"2026-08-28T21:05:35.777Z","event":"item-complete","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"ua","audioFiles":190,"failures":0}
+{"ts":"2026-08-28T21:05:38.538Z","event":"start","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":190,"kind":"question","transcript":"Де склянка?"}
+{"ts":"2026-08-28T21:05:39.533Z","event":"success","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":191,"kind":"question","file":"glass.question.ua.wav","bytes":103244,"ms":993}
+{"ts":"2026-08-28T21:05:40.735Z","event":"start","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":191,"kind":"success","transcript":"Сашка, молодець! Це склянка."}
+{"ts":"2026-08-28T21:05:41.777Z","event":"success","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":192,"kind":"success","file":"glass.success.ua.wav","bytes":230444,"ms":1040}
+{"ts":"2026-08-28T21:05:42.982Z","event":"item-complete","provider":"openai","category":"household","id":"glass","de":"Glas","mode":"ua","audioFiles":192,"failures":0}
