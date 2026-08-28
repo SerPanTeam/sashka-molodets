@@ -175,7 +175,10 @@
       "generatedAudio": {
         "retry": "./assets/generated/audio/sheep.retry.bilingual.wav"
       },
-      "generatedAudioDe": {}
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/sheep.question.de.wav",
+        "success": "./assets/generated/audio/sheep.success.de.wav"
+      }
     },
     {
       "id": "frog",
