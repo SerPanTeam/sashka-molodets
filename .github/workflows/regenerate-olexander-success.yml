@@ -2,10 +2,6 @@ name: Regenerate Olexander German success audio
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/regenerate-olexander-success.yml'
 
 permissions:
   contents: write
@@ -46,13 +42,23 @@ jobs:
           grep -q 'Olexander, super' scripts/generate-one-audio.mjs
           test -n "$OPENAI_API_KEY" || (echo 'ERROR: OPENAI_API_KEY is missing' && exit 1)
 
-      - name: Regenerate all German success WAV files
+      - name: Quota preflight with one success clip
         run: |
           set -euo pipefail
-          rm -f public/assets/generated/audio/*.success.de.wav
-          IDS=$(node -e "const p=require('./config/generation/priority-v1.json'); console.log(Object.values(p.categories).flat().join(' '))")
+          mkdir -p /tmp/old-success
+          cp public/assets/generated/audio/dog.success.de.wav /tmp/old-success/dog.success.de.wav
+          rm -f public/assets/generated/audio/dog.success.de.wav
+          node scripts/generate-one-audio.mjs --provider=openai --id=dog --mode=de --kinds=success --pause-ms=0
+          test -s public/assets/generated/audio/dog.success.de.wav
+          echo 'OpenAI TTS preflight succeeded; continuing with full batch.'
+
+      - name: Regenerate remaining German success WAV files
+        run: |
+          set -euo pipefail
+          IDS=$(node -e "const p=require('./config/generation/priority-v1.json'); console.log(Object.values(p.categories).flat().filter(x=>x!=='dog').join(' '))")
           for id in $IDS; do
             echo "=== Olexander success TTS: $id ==="
+            rm -f "public/assets/generated/audio/${id}.success.de.wav"
             node scripts/generate-one-audio.mjs --provider=openai --id="$id" --mode=de --kinds=success --pause-ms=250
           done
           COUNT=$(find public/assets/generated/audio -maxdepth 1 -type f -name '*.success.de.wav' | wc -l)
@@ -68,8 +74,11 @@ jobs:
           git add content/categories
           git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
           git commit -m 'feat: regenerate German success audio with Olexander'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            test "$attempt" -lt 5 || exit 1
+            sleep $((attempt * 2))
+          done
 
       - name: Prepare production site
         run: |
