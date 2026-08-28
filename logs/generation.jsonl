@@ -817,3 +817,8 @@
 {"ts":"2026-08-28T21:06:41.194Z","event":"start","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"ua","audioFiles":209,"kind":"success","transcript":"Сашка, молодець! Це шампунь."}
 {"ts":"2026-08-28T21:06:42.231Z","event":"success","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"ua","audioFiles":210,"kind":"success","file":"shampoo.success.ua.wav","bytes":192044,"ms":1036}
 {"ts":"2026-08-28T21:06:43.434Z","event":"item-complete","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"ua","audioFiles":210,"failures":0}
+{"ts":"2026-08-28T21:06:46.167Z","event":"start","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"ua","audioFiles":210,"kind":"question","transcript":"Де гребінець?"}
+{"ts":"2026-08-28T21:06:47.224Z","event":"success","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"ua","audioFiles":211,"kind":"question","file":"comb.question.ua.wav","bytes":96044,"ms":1055}
+{"ts":"2026-08-28T21:06:48.426Z","event":"start","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"ua","audioFiles":211,"kind":"success","transcript":"Сашка, молодець! Це гребінець."}
+{"ts":"2026-08-28T21:06:49.315Z","event":"success","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"ua","audioFiles":212,"kind":"success","file":"comb.success.ua.wav","bytes":194444,"ms":887}
+{"ts":"2026-08-28T21:06:50.518Z","event":"item-complete","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"ua","audioFiles":212,"failures":0}
