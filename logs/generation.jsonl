@@ -220,3 +220,8 @@
 {"ts":"2026-08-28T20:51:10.113Z","event":"start","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":37,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Aubergine."}
 {"ts":"2026-08-28T20:51:11.524Z","event":"success","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":38,"kind":"success","file":"eggplant.success.de.wav","bytes":254444,"ms":1410}
 {"ts":"2026-08-28T20:51:12.727Z","event":"item-complete","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":38,"failures":0}
+{"ts":"2026-08-28T20:51:15.197Z","event":"start","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":38,"kind":"question","transcript":"Wo ist der Knoblauch?"}
+{"ts":"2026-08-28T20:51:15.852Z","event":"success","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":39,"kind":"question","file":"garlic.question.de.wav","bytes":136844,"ms":652}
+{"ts":"2026-08-28T20:51:17.054Z","event":"start","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":39,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Knoblauch."}
+{"ts":"2026-08-28T20:51:18.214Z","event":"success","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":40,"kind":"success","file":"garlic.success.de.wav","bytes":309644,"ms":1159}
+{"ts":"2026-08-28T20:51:19.417Z","event":"item-complete","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":40,"failures":0}

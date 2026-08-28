@@ -226,7 +226,11 @@
           "ua": "білий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/garlic.question.de.wav",
+        "success": "./assets/generated/audio/garlic.success.de.wav"
+      }
     }
   ]
 }
