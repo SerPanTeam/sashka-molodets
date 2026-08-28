@@ -1,6 +1,8 @@
 import { expectOk, findBase64Payload, pcm16Mono24kToWav } from "./utils.mjs";
 
 const endpoint = "https://generativelanguage.googleapis.com/v1beta/interactions";
+const vertexExpressBase = "https://aiplatform.googleapis.com/v1/publishers/google/models";
+
 const headers = () => ({
   "x-goog-api-key": key(),
   "Content-Type": "application/json",
@@ -10,6 +12,10 @@ const headers = () => ({
 function key() {
   if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is not configured");
   return process.env.GEMINI_API_KEY;
+}
+
+function vertexExpressKey() {
+  return process.env.VERTEX_API_KEY || process.env.GOOGLE_CLOUD_API_KEY || "";
 }
 
 function findText(value) {
@@ -24,9 +30,34 @@ function findText(value) {
   return "";
 }
 
+async function generateImageViaVertexExpress({ prompt, aspectRatio, imageSize, model }) {
+  const apiKey = vertexExpressKey();
+  if (!apiKey) throw new Error("VERTEX_API_KEY is not configured");
+  const response = await fetch(`${vertexExpressBase}/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ role: "USER", parts: [{ text: prompt }] }],
+      generationConfig: {
+        responseModalities: ["TEXT", "IMAGE"],
+        imageConfig: {
+          aspectRatio,
+          imageSize,
+        },
+      },
+    }),
+  });
+  await expectOk(response, "Google Vertex Express image");
+  const data = await response.json();
+  const payload = findBase64Payload(data, "image");
+  if (!payload) throw new Error("Vertex Express image response did not contain image data");
+  return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/png", source: "vertex-express" };
+}
+
 export function status() {
   return {
     configured: Boolean(process.env.GEMINI_API_KEY),
+    vertexExpressConfigured: Boolean(vertexExpressKey()),
     imageModel: process.env.GOOGLE_IMAGE_MODEL || "gemini-3.1-flash-image",
     visionModel: process.env.GOOGLE_VISION_MODEL || "gemini-3.6-flash",
     ttsModel: process.env.GOOGLE_TTS_MODEL || "gemini-3.1-flash-tts-preview",
@@ -40,6 +71,14 @@ export async function generateImage({
   model = process.env.GOOGLE_IMAGE_MODEL || "gemini-3.1-flash-image",
 }) {
   if (!prompt) throw new Error("prompt is required");
+
+  // Prefer Google Cloud Vertex/Agent Platform Express for image generation when
+  // a dedicated Cloud API key is configured. This lets TTS stay on AI Studio
+  // while image generation uses Cloud billing / Express quotas.
+  if (vertexExpressKey()) {
+    return generateImageViaVertexExpress({ prompt, aspectRatio, imageSize, model });
+  }
+
   const response = await fetch(endpoint, {
     method: "POST",
     headers: headers(),
@@ -58,7 +97,7 @@ export async function generateImage({
   const data = await response.json();
   const payload = findBase64Payload(data, "image");
   if (!payload) throw new Error("Google image response did not contain image data");
-  return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/jpeg" };
+  return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/jpeg", source: "gemini-api" };
 }
 
 export async function reviewImage({
