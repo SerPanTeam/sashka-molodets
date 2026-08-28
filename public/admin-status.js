@@ -15,7 +15,7 @@
         ["⑦ Persist image/log result", "🧾 Сохранение картинки/лога", 10]
       ].map(([name,label,weight]) => ({name,label,weight}))
     },
-    "generate-priority-assets.yml": { mode: "Массовая генерация", stages: [] }
+    "generate-priority-assets.yml": { mode: "OpenAI · DE → UA · картинки", stages: [] }
   };
   let panel, timer;
   const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
@@ -34,10 +34,10 @@
       <div class="admin-ai-percent"><strong id="adminAiPercent">—</strong><span>прогресс текущего запуска</span></div>
       <div id="adminAiStage" class="admin-ai-stage">Получаю GitHub Actions…</div>
       <div id="adminAiSteps" class="admin-ai-steps"></div>
-      <div class="admin-ai-metrics"><div><b id="adminAiAudioCount">—</b><span>аудио создано</span></div><div><b id="adminAiImageCount">—</b><span>картинок создано</span></div></div>
+      <div class="admin-ai-metrics"><div><b id="adminAiAudioCount">—</b><span>голоса DE / UA</span></div><div><b id="adminAiImageCount">—</b><span>картинок создано</span></div></div>
       <div class="admin-ai-meta"><span id="adminAiStarted">Старт: —</span><span id="adminAiUpdated">Проверено: —</span></div>
       <a id="adminAiLink" class="admin-ai-link" href="https://github.com/${REPO}/actions" target="_blank" rel="noopener">Открыть текущий GitHub Actions ↗</a>
-      <div class="admin-ai-note">Реальный статус GitHub Actions. Обновление каждые 30 секунд. Каждый сохранённый smoke-файл сразу попадает в счётчик.</div>`;
+      <div class="admin-ai-note">Реальный статус GitHub Actions. Обновление каждые 30 секунд. Счётчики показывают только файлы, уже сохранённые в main.</div>`;
     const actions = document.querySelector(".parent-actions");
     actions ? parent.insertBefore(panel, actions) : parent.append(panel);
     panel.querySelector("#adminAiRefresh")?.addEventListener("click", () => refresh(true));
@@ -89,12 +89,13 @@
   const fmt = v => { try { return v ? new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",day:"2-digit",month:"2-digit"}).format(new Date(v)) : "—"; } catch { return "—"; } };
   async function countDir(path,re) { try { const a=await gh(`/contents/${path}?ref=main&_=${Date.now()}`); return Array.isArray(a)?a.filter(x=>x.type==="file"&&re.test(x.name)).length:0; } catch { return 0; } }
   async function updateCounts() {
-    const [a,i,sa,si]=await Promise.all([
-      countDir("public/assets/generated/audio",/\.(wav|mp3|ogg|m4a)$/i),countDir("public/assets/generated/images",/\.(jpe?g|png|webp)$/i),
-      countDir("public/assets/generated/smoke",/\.(wav|mp3|ogg|m4a)$/i),countDir("public/assets/generated/smoke",/\.(jpe?g|png|webp)$/i)
+    const [de,ua,i]=await Promise.all([
+      countDir("public/assets/generated/audio",/\.de\.(wav|mp3|ogg|m4a)$/i),
+      countDir("public/assets/generated/audio",/\.ua\.(wav|mp3|ogg|m4a)$/i),
+      countDir("public/assets/generated/images",/\.(jpe?g|png|webp)$/i)
     ]);
-    panel.querySelector("#adminAiAudioCount").textContent=a+sa;
-    panel.querySelector("#adminAiImageCount").textContent=i+si;
+    panel.querySelector("#adminAiAudioCount").textContent=`${de} / ${ua}`;
+    panel.querySelector("#adminAiImageCount").textContent=i;
   }
   async function refresh(manual=false) {
     ensurePanel(); if(!panel) return;
