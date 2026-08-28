@@ -285,3 +285,8 @@
 {"ts":"2026-08-28T20:52:46.788Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":63,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Teller."}
 {"ts":"2026-08-28T20:52:47.797Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":64,"kind":"success","file":"plate.success.de.wav","bytes":242444,"ms":1008}
 {"ts":"2026-08-28T20:52:49.000Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":64,"failures":0}
+{"ts":"2026-08-28T20:52:51.711Z","event":"start","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":64,"kind":"question","transcript":"Wo ist der Löffel?"}
+{"ts":"2026-08-28T20:52:52.637Z","event":"success","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":65,"kind":"question","file":"spoon.question.de.wav","bytes":127244,"ms":923}
+{"ts":"2026-08-28T20:52:53.840Z","event":"start","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":65,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Löffel."}
+{"ts":"2026-08-28T20:52:54.728Z","event":"success","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":66,"kind":"success","file":"spoon.success.de.wav","bytes":240044,"ms":888}
+{"ts":"2026-08-28T20:52:55.934Z","event":"item-complete","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":66,"failures":0}
