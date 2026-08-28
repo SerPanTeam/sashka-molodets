@@ -25,7 +25,8 @@
       },
       "generatedImage": "./assets/generated/images/tomato.png",
       "generatedAudioUa": {
-        "question": "./assets/generated/audio/tomato.question.ua.wav"
+        "question": "./assets/generated/audio/tomato.question.ua.wav",
+        "success": "./assets/generated/audio/tomato.success.ua.wav"
       }
     },
     {
