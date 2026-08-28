@@ -24,6 +24,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Validate production bundle
+        run: |
+          node --check public/app.js
+          node --check public/pages-shim.js
+          node --check public/audio-bridge.js
+          node --check public/object-sfx.js
+          node scripts/validate-production.mjs
+
       - name: Prepare static site
         run: |
           mkdir -p _site/content
