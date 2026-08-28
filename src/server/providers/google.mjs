@@ -48,7 +48,7 @@ export async function generateImage({
       input: prompt,
       response_format: {
         type: "image",
-        mime_type: "image/png",
+        mime_type: "image/jpeg",
         aspect_ratio: aspectRatio,
         image_size: imageSize,
       },
@@ -58,12 +58,12 @@ export async function generateImage({
   const data = await response.json();
   const payload = findBase64Payload(data, "image");
   if (!payload) throw new Error("Google image response did not contain image data");
-  return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/png" };
+  return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/jpeg" };
 }
 
 export async function reviewImage({
   buffer,
-  mimeType = "image/png",
+  mimeType = "image/jpeg",
   expected,
   model = process.env.GOOGLE_VISION_MODEL || "gemini-3.6-flash",
 }) {
