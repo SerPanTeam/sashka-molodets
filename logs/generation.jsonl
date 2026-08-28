@@ -235,3 +235,8 @@
 {"ts":"2026-08-28T20:51:31.488Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":43,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Banane."}
 {"ts":"2026-08-28T20:51:32.401Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":44,"kind":"success","file":"banana.success.de.wav","bytes":252044,"ms":913}
 {"ts":"2026-08-28T20:51:33.604Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":44,"failures":0}
+{"ts":"2026-08-28T20:51:36.283Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":44,"kind":"question","transcript":"Wo ist die Orange?"}
+{"ts":"2026-08-28T20:51:37.879Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":45,"kind":"question","file":"orange.question.de.wav","bytes":132044,"ms":1593}
+{"ts":"2026-08-28T20:51:39.081Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":45,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Orange."}
+{"ts":"2026-08-28T20:51:39.972Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":46,"kind":"success","file":"orange.success.de.wav","bytes":235244,"ms":890}
+{"ts":"2026-08-28T20:51:41.176Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":46,"failures":0}

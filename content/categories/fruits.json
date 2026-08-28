@@ -64,7 +64,11 @@
           "ua": "помаранчевий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/orange.question.de.wav",
+        "success": "./assets/generated/audio/orange.success.de.wav"
+      }
     },
     {
       "id": "pear",
