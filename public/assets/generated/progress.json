@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T21:00:22.460Z",
+  "ts": "2026-08-28T21:00:24.880Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "hygiene",
-  "id": "washcloth",
-  "de": "Waschlappen",
+  "category": "transport",
+  "id": "car",
+  "de": "Auto",
   "mode": "de",
   "audioFiles": 113,
   "failures": 0
