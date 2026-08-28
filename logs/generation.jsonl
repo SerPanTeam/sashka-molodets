@@ -522,3 +522,6 @@
 {"ts":"2026-08-28T20:59:56.636Z","event":"skip-existing","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":113,"kind":"question","file":"pan.question.de.wav"}
 {"ts":"2026-08-28T20:59:56.639Z","event":"skip-existing","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":113,"kind":"success","file":"pan.success.de.wav"}
 {"ts":"2026-08-28T20:59:56.641Z","event":"item-complete","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:59.171Z","event":"skip-existing","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"kind":"question","file":"fridge.question.de.wav"}
+{"ts":"2026-08-28T20:59:59.173Z","event":"skip-existing","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"kind":"success","file":"fridge.success.de.wav"}
+{"ts":"2026-08-28T20:59:59.175Z","event":"item-complete","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"failures":0}
