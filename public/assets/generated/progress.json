@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:32:44.424Z",
+  "ts": "2026-08-28T22:32:46.928Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "fruits",
-  "id": "apple",
-  "de": "Apfel",
+  "id": "banana",
+  "de": "Banane",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
