@@ -5,100 +5,210 @@
       "id": "cup",
       "category": "household",
       "emoji": "☕",
-      "labels": { "de": "Tasse", "ua": "чашка" },
-      "article": { "de": "die" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/cup.question.de.wav", "success": "./assets/generated/audio/cup.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/cup.question.ua.wav", "success": "./assets/generated/audio/cup.success.ua.wav" },
+      "labels": {
+        "de": "Tasse",
+        "ua": "чашка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cup.question.de.wav",
+        "success": "./assets/generated/audio/cup.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/cup.question.ua.wav",
+        "success": "./assets/generated/audio/cup.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/cup.png"
     },
     {
       "id": "plate",
       "category": "household",
       "emoji": "🍽️",
-      "labels": { "de": "Teller", "ua": "тарілка" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/plate.question.de.wav", "success": "./assets/generated/audio/plate.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/plate.question.ua.wav", "success": "./assets/generated/audio/plate.success.ua.wav" },
+      "labels": {
+        "de": "Teller",
+        "ua": "тарілка"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/plate.question.de.wav",
+        "success": "./assets/generated/audio/plate.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/plate.question.ua.wav",
+        "success": "./assets/generated/audio/plate.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/plate.png"
     },
     {
       "id": "spoon",
       "category": "household",
       "emoji": "🥄",
-      "labels": { "de": "Löffel", "ua": "ложка" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/spoon.question.de.wav", "success": "./assets/generated/audio/spoon.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/spoon.question.ua.wav", "success": "./assets/generated/audio/spoon.success.ua.wav" },
+      "labels": {
+        "de": "Löffel",
+        "ua": "ложка"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/spoon.question.de.wav",
+        "success": "./assets/generated/audio/spoon.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/spoon.question.ua.wav",
+        "success": "./assets/generated/audio/spoon.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/spoon.png"
     },
     {
       "id": "fork",
       "category": "household",
       "emoji": "🍴",
-      "labels": { "de": "Gabel", "ua": "виделка" },
-      "article": { "de": "die" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/fork.question.de.wav", "success": "./assets/generated/audio/fork.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/fork.question.ua.wav", "success": "./assets/generated/audio/fork.success.ua.wav" },
+      "labels": {
+        "de": "Gabel",
+        "ua": "виделка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/fork.question.de.wav",
+        "success": "./assets/generated/audio/fork.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/fork.question.ua.wav",
+        "success": "./assets/generated/audio/fork.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/fork.png"
     },
     {
       "id": "table",
       "category": "household",
       "emoji": "🪵",
-      "labels": { "de": "Tisch", "ua": "стіл" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/table.question.de.wav", "success": "./assets/generated/audio/table.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/table.question.ua.wav", "success": "./assets/generated/audio/table.success.ua.wav" },
+      "labels": {
+        "de": "Tisch",
+        "ua": "стіл"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/table.question.de.wav",
+        "success": "./assets/generated/audio/table.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/table.question.ua.wav",
+        "success": "./assets/generated/audio/table.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/table.png"
     },
     {
       "id": "glass",
       "category": "household",
       "emoji": "🥛",
-      "labels": { "de": "Glas", "ua": "склянка" },
-      "article": { "de": "das" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/glass.question.de.wav", "success": "./assets/generated/audio/glass.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/glass.question.ua.wav", "success": "./assets/generated/audio/glass.success.ua.wav" },
+      "labels": {
+        "de": "Glas",
+        "ua": "склянка"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/glass.question.de.wav",
+        "success": "./assets/generated/audio/glass.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/glass.question.ua.wav",
+        "success": "./assets/generated/audio/glass.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/glass.png"
     },
     {
       "id": "bowl",
       "category": "household",
       "emoji": "🥣",
-      "labels": { "de": "Schüssel", "ua": "миска" },
-      "article": { "de": "die" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/bowl.question.de.wav", "success": "./assets/generated/audio/bowl.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/bowl.question.ua.wav", "success": "./assets/generated/audio/bowl.success.ua.wav" },
+      "labels": {
+        "de": "Schüssel",
+        "ua": "миска"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bowl.question.de.wav",
+        "success": "./assets/generated/audio/bowl.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bowl.question.ua.wav",
+        "success": "./assets/generated/audio/bowl.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/bowl.png"
     },
     {
       "id": "pot",
       "category": "household",
       "emoji": "🍲",
-      "labels": { "de": "Topf", "ua": "каструля" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/pot.question.de.wav", "success": "./assets/generated/audio/pot.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/pot.question.ua.wav", "success": "./assets/generated/audio/pot.success.ua.wav" },
+      "labels": {
+        "de": "Topf",
+        "ua": "каструля"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pot.question.de.wav",
+        "success": "./assets/generated/audio/pot.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pot.question.ua.wav",
+        "success": "./assets/generated/audio/pot.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/pot.png"
     },
     {
       "id": "pan",
       "category": "household",
       "emoji": "🍳",
-      "labels": { "de": "Pfanne", "ua": "сковорідка" },
-      "article": { "de": "die" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/pan.question.de.wav", "success": "./assets/generated/audio/pan.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/pan.question.ua.wav", "success": "./assets/generated/audio/pan.success.ua.wav" },
+      "labels": {
+        "de": "Pfanne",
+        "ua": "сковорідка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pan.question.de.wav",
+        "success": "./assets/generated/audio/pan.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pan.question.ua.wav",
+        "success": "./assets/generated/audio/pan.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/pan.png"
     },
     {
       "id": "fridge",
       "category": "household",
       "emoji": "🧊",
-      "labels": { "de": "Kühlschrank", "ua": "холодильник" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/fridge.question.de.wav", "success": "./assets/generated/audio/fridge.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/fridge.question.ua.wav", "success": "./assets/generated/audio/fridge.success.ua.wav" },
+      "labels": {
+        "de": "Kühlschrank",
+        "ua": "холодильник"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/fridge.question.de.wav",
+        "success": "./assets/generated/audio/fridge.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/fridge.question.ua.wav",
+        "success": "./assets/generated/audio/fridge.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/fridge.png"
     }
   ]

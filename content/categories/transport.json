@@ -5,100 +5,210 @@
       "id": "car",
       "category": "transport",
       "emoji": "🚗",
-      "labels": { "de": "Auto", "ua": "автомобіль" },
-      "article": { "de": "das" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/car.question.de.wav", "success": "./assets/generated/audio/car.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/car.question.ua.wav", "success": "./assets/generated/audio/car.success.ua.wav" },
+      "labels": {
+        "de": "Auto",
+        "ua": "автомобіль"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/car.question.de.wav",
+        "success": "./assets/generated/audio/car.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/car.question.ua.wav",
+        "success": "./assets/generated/audio/car.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/car.png"
     },
     {
       "id": "bus",
       "category": "transport",
       "emoji": "🚌",
-      "labels": { "de": "Bus", "ua": "автобус" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/bus.question.de.wav", "success": "./assets/generated/audio/bus.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/bus.question.ua.wav", "success": "./assets/generated/audio/bus.success.ua.wav" },
+      "labels": {
+        "de": "Bus",
+        "ua": "автобус"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bus.question.de.wav",
+        "success": "./assets/generated/audio/bus.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bus.question.ua.wav",
+        "success": "./assets/generated/audio/bus.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/bus.png"
     },
     {
       "id": "train",
       "category": "transport",
       "emoji": "🚆",
-      "labels": { "de": "Zug", "ua": "поїзд" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/train.question.de.wav", "success": "./assets/generated/audio/train.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/train.question.ua.wav", "success": "./assets/generated/audio/train.success.ua.wav" },
+      "labels": {
+        "de": "Zug",
+        "ua": "поїзд"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/train.question.de.wav",
+        "success": "./assets/generated/audio/train.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/train.question.ua.wav",
+        "success": "./assets/generated/audio/train.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/train.png"
     },
     {
       "id": "bicycle",
       "category": "transport",
       "emoji": "🚲",
-      "labels": { "de": "Fahrrad", "ua": "велосипед" },
-      "article": { "de": "das" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/bicycle.question.de.wav", "success": "./assets/generated/audio/bicycle.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/bicycle.question.ua.wav", "success": "./assets/generated/audio/bicycle.success.ua.wav" },
+      "labels": {
+        "de": "Fahrrad",
+        "ua": "велосипед"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bicycle.question.de.wav",
+        "success": "./assets/generated/audio/bicycle.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bicycle.question.ua.wav",
+        "success": "./assets/generated/audio/bicycle.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/bicycle.png"
     },
     {
       "id": "airplane",
       "category": "transport",
       "emoji": "✈️",
-      "labels": { "de": "Flugzeug", "ua": "літак" },
-      "article": { "de": "das" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/airplane.question.de.wav", "success": "./assets/generated/audio/airplane.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/airplane.question.ua.wav", "success": "./assets/generated/audio/airplane.success.ua.wav" },
+      "labels": {
+        "de": "Flugzeug",
+        "ua": "літак"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/airplane.question.de.wav",
+        "success": "./assets/generated/audio/airplane.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/airplane.question.ua.wav",
+        "success": "./assets/generated/audio/airplane.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/airplane.png"
     },
     {
       "id": "ship",
       "category": "transport",
       "emoji": "🚢",
-      "labels": { "de": "Schiff", "ua": "корабель" },
-      "article": { "de": "das" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/ship.question.de.wav", "success": "./assets/generated/audio/ship.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/ship.question.ua.wav", "success": "./assets/generated/audio/ship.success.ua.wav" },
+      "labels": {
+        "de": "Schiff",
+        "ua": "корабель"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/ship.question.de.wav",
+        "success": "./assets/generated/audio/ship.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/ship.question.ua.wav",
+        "success": "./assets/generated/audio/ship.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/ship.png"
     },
     {
       "id": "truck",
       "category": "transport",
       "emoji": "🚚",
-      "labels": { "de": "Lastwagen", "ua": "вантажівка" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/truck.question.de.wav", "success": "./assets/generated/audio/truck.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/truck.question.ua.wav", "success": "./assets/generated/audio/truck.success.ua.wav" },
+      "labels": {
+        "de": "Lastwagen",
+        "ua": "вантажівка"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/truck.question.de.wav",
+        "success": "./assets/generated/audio/truck.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/truck.question.ua.wav",
+        "success": "./assets/generated/audio/truck.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/truck.png"
     },
     {
       "id": "tractor",
       "category": "transport",
       "emoji": "🚜",
-      "labels": { "de": "Traktor", "ua": "трактор" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/tractor.question.de.wav", "success": "./assets/generated/audio/tractor.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/tractor.question.ua.wav", "success": "./assets/generated/audio/tractor.success.ua.wav" },
+      "labels": {
+        "de": "Traktor",
+        "ua": "трактор"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/tractor.question.de.wav",
+        "success": "./assets/generated/audio/tractor.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/tractor.question.ua.wav",
+        "success": "./assets/generated/audio/tractor.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/tractor.png"
     },
     {
       "id": "tram",
       "category": "transport",
       "emoji": "🚋",
-      "labels": { "de": "Straßenbahn", "ua": "трамвай" },
-      "article": { "de": "die" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/tram.question.de.wav", "success": "./assets/generated/audio/tram.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/tram.question.ua.wav", "success": "./assets/generated/audio/tram.success.ua.wav" },
+      "labels": {
+        "de": "Straßenbahn",
+        "ua": "трамвай"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/tram.question.de.wav",
+        "success": "./assets/generated/audio/tram.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/tram.question.ua.wav",
+        "success": "./assets/generated/audio/tram.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/tram.png"
     },
     {
       "id": "helicopter",
       "category": "transport",
       "emoji": "🚁",
-      "labels": { "de": "Hubschrauber", "ua": "гелікоптер" },
-      "article": { "de": "der" },
-      "generatedAudioDe": { "question": "./assets/generated/audio/helicopter.question.de.wav", "success": "./assets/generated/audio/helicopter.success.de.wav" },
-      "generatedAudioUa": { "question": "./assets/generated/audio/helicopter.question.ua.wav", "success": "./assets/generated/audio/helicopter.success.ua.wav" },
+      "labels": {
+        "de": "Hubschrauber",
+        "ua": "гелікоптер"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/helicopter.question.de.wav",
+        "success": "./assets/generated/audio/helicopter.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/helicopter.question.ua.wav",
+        "success": "./assets/generated/audio/helicopter.success.ua.wav"
+      },
       "generatedImage": "./assets/generated/images/helicopter.png"
     }
   ]
