@@ -1204,3 +1204,6 @@
 {"ts":"2026-08-28T22:30:28.331Z","event":"skip-existing","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":240,"kind":"question","file":"watermelon.question.de.wav"}
 {"ts":"2026-08-28T22:30:28.334Z","event":"skip-existing","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":240,"kind":"success","file":"watermelon.success.de.wav"}
 {"ts":"2026-08-28T22:30:28.337Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:30.784Z","event":"skip-existing","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":240,"kind":"question","file":"peach.question.de.wav"}
+{"ts":"2026-08-28T22:30:30.787Z","event":"skip-existing","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":240,"kind":"success","file":"peach.success.de.wav"}
+{"ts":"2026-08-28T22:30:30.790Z","event":"item-complete","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":240,"failures":0}
