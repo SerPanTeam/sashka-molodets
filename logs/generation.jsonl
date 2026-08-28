@@ -867,3 +867,8 @@
 {"ts":"2026-08-28T21:07:48.756Z","event":"start","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":229,"kind":"success","transcript":"Сашка, молодець! Це літак."}
 {"ts":"2026-08-28T21:07:50.116Z","event":"success","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":230,"kind":"success","file":"airplane.success.ua.wav","bytes":192044,"ms":1359}
 {"ts":"2026-08-28T21:07:51.422Z","event":"item-complete","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":230,"failures":0}
+{"ts":"2026-08-28T21:07:53.862Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":230,"kind":"question","transcript":"Де корабель?"}
+{"ts":"2026-08-28T21:07:54.513Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":231,"kind":"question","file":"ship.question.ua.wav","bytes":81644,"ms":648}
+{"ts":"2026-08-28T21:07:55.714Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":231,"kind":"success","transcript":"Сашка, молодець! Це корабель."}
+{"ts":"2026-08-28T21:07:56.750Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":232,"kind":"success","file":"ship.success.ua.wav","bytes":213644,"ms":1035}
+{"ts":"2026-08-28T21:07:57.953Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":232,"failures":0}
