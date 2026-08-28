@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:52:41.524Z",
+  "ts": "2026-08-28T20:52:49.000Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "cup",
-  "de": "Tasse",
+  "id": "plate",
+  "de": "Teller",
   "mode": "de",
-  "audioFiles": 62,
+  "audioFiles": 64,
   "failures": 0
 }

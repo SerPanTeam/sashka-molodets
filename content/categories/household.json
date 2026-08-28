@@ -27,6 +27,10 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/plate.question.de.wav",
+        "success": "./assets/generated/audio/plate.success.de.wav"
       }
     },
     {

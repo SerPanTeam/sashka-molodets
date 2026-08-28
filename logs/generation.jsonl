@@ -280,3 +280,8 @@
 {"ts":"2026-08-28T20:52:39.106Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":61,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Tasse."}
 {"ts":"2026-08-28T20:52:40.320Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":62,"kind":"success","file":"cup.success.de.wav","bytes":249644,"ms":1213}
 {"ts":"2026-08-28T20:52:41.524Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":62,"failures":0}
+{"ts":"2026-08-28T20:52:44.179Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":62,"kind":"question","transcript":"Wo ist der Teller?"}
+{"ts":"2026-08-28T20:52:45.586Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":63,"kind":"question","file":"plate.question.de.wav","bytes":86444,"ms":1404}
+{"ts":"2026-08-28T20:52:46.788Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":63,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Teller."}
+{"ts":"2026-08-28T20:52:47.797Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":64,"kind":"success","file":"plate.success.de.wav","bytes":242444,"ms":1008}
+{"ts":"2026-08-28T20:52:49.000Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":64,"failures":0}
