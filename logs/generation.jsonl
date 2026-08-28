@@ -593,3 +593,8 @@
 {"ts":"2026-08-28T21:01:04.891Z","event":"start","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":120,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hubschrauber."}
 {"ts":"2026-08-28T21:01:05.894Z","event":"success","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":121,"kind":"success","file":"helicopter.success.de.wav","bytes":228044,"ms":1002}
 {"ts":"2026-08-28T21:01:07.097Z","event":"item-complete","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":121,"failures":0}
+{"ts":"2026-08-28T21:01:09.702Z","event":"start","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":121,"kind":"question","transcript":"Де собака?"}
+{"ts":"2026-08-28T21:01:10.696Z","event":"success","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":122,"kind":"question","file":"dog.question.ua.wav","bytes":124844,"ms":991}
+{"ts":"2026-08-28T21:01:11.898Z","event":"start","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":122,"kind":"success","transcript":"Сашка, молодець! Це собака."}
+{"ts":"2026-08-28T21:01:12.857Z","event":"success","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":123,"kind":"success","file":"dog.success.ua.wav","bytes":220844,"ms":959}
+{"ts":"2026-08-28T21:01:14.059Z","event":"item-complete","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":123,"failures":0}
