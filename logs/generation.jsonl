@@ -380,3 +380,8 @@
 {"ts":"2026-08-28T20:55:05.765Z","event":"start","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":101,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Auto."}
 {"ts":"2026-08-28T20:55:07.158Z","event":"success","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":102,"kind":"success","file":"car.success.de.wav","bytes":240044,"ms":1391}
 {"ts":"2026-08-28T20:55:08.363Z","event":"item-complete","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"de","audioFiles":102,"failures":0}
+{"ts":"2026-08-28T20:55:11.148Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":102,"kind":"question","transcript":"Wo ist der Bus?"}
+{"ts":"2026-08-28T20:55:12.370Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":103,"kind":"question","file":"bus.question.de.wav","bytes":127244,"ms":1218}
+{"ts":"2026-08-28T20:55:13.572Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":103,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Bus."}
+{"ts":"2026-08-28T20:55:14.546Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":104,"kind":"success","file":"bus.success.de.wav","bytes":208844,"ms":973}
+{"ts":"2026-08-28T20:55:15.750Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":104,"failures":0}
