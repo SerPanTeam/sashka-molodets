@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:30:55.461Z",
+  "ts": "2026-08-28T22:30:57.951Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "pot",
-  "de": "Topf",
+  "id": "pan",
+  "de": "Pfanne",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0

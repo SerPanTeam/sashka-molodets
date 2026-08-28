@@ -1237,3 +1237,6 @@
 {"ts":"2026-08-28T22:30:55.455Z","event":"skip-existing","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":240,"kind":"question","file":"pot.question.de.wav"}
 {"ts":"2026-08-28T22:30:55.459Z","event":"skip-existing","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":240,"kind":"success","file":"pot.success.de.wav"}
 {"ts":"2026-08-28T22:30:55.461Z","event":"item-complete","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:57.945Z","event":"skip-existing","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":240,"kind":"question","file":"pan.question.de.wav"}
+{"ts":"2026-08-28T22:30:57.948Z","event":"skip-existing","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":240,"kind":"success","file":"pan.success.de.wav"}
+{"ts":"2026-08-28T22:30:57.951Z","event":"item-complete","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":240,"failures":0}
