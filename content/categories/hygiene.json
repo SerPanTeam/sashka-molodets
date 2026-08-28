@@ -59,6 +59,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/towel.question.de.wav",
+        "success": "./assets/generated/audio/towel.success.de.wav"
       }
     },
     {

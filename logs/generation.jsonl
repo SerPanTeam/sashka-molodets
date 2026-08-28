@@ -340,3 +340,8 @@
 {"ts":"2026-08-28T20:54:08.408Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":85,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Seife."}
 {"ts":"2026-08-28T20:54:09.481Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":86,"kind":"success","file":"soap.success.de.wav","bytes":240044,"ms":1073}
 {"ts":"2026-08-28T20:54:10.683Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":86,"failures":0}
+{"ts":"2026-08-28T20:54:13.215Z","event":"start","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":86,"kind":"question","transcript":"Wo ist das Handtuch?"}
+{"ts":"2026-08-28T20:54:14.169Z","event":"success","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":87,"kind":"question","file":"towel.question.de.wav","bytes":93644,"ms":951}
+{"ts":"2026-08-28T20:54:15.370Z","event":"start","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":87,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Handtuch."}
+{"ts":"2026-08-28T20:54:16.511Z","event":"success","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":88,"kind":"success","file":"towel.success.de.wav","bytes":256844,"ms":1140}
+{"ts":"2026-08-28T20:54:17.713Z","event":"item-complete","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":88,"failures":0}
