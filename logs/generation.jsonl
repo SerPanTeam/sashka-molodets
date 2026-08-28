@@ -1498,3 +1498,4 @@
 {"ts":"2026-08-28T22:34:55.844Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","imageFiles":32,"file":"carrot.png"}
 {"ts":"2026-08-28T22:34:58.462Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","imageFiles":32,"file":"potato.png"}
 {"ts":"2026-08-28T22:35:00.951Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"corn","de":"Mais","imageFiles":32,"file":"corn.png"}
+{"ts":"2026-08-28T22:35:03.509Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","imageFiles":32,"file":"pepper.png"}
