@@ -135,6 +135,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/bowl.question.de.wav",
         "success": "./assets/generated/audio/bowl.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bowl.question.ua.wav",
+        "success": "./assets/generated/audio/bowl.success.ua.wav"
       }
     },
     {
