@@ -1,133 +1,21 @@
 name: Generate priority learning assets
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
     paths:
       - '.github/workflows/generate-priority-assets.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: generate-priority-assets
   cancel-in-progress: true
 
 jobs:
-  generate:
+  stop:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
-    env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      AI_DEFAULT_PROVIDER: google
-      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
-      GOOGLE_VISION_MODEL: gemini-3.6-flash
-      GOOGLE_TTS_MODEL: gemini-3.1-flash-tts-preview
-      GOOGLE_TTS_VOICE: Kore
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Validate source and secret
-        run: |
-          node --check public/app.js
-          node --check scripts/generate-assets.mjs
-          node --check src/server/providers/google.mjs
-          node scripts/check-content.mjs
-          test -n "$GEMINI_API_KEY" || (echo 'GEMINI_API_KEY secret is missing' && exit 1)
-          echo 'Gemini secret present; source validation passed.'
-
-      - name: Configure Git checkpointing
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
-      - name: Generate and checkpoint German voices by category
-        shell: bash
-        run: |
-          set -u
-          for category in animals vegetables fruits household hygiene transport; do
-            echo "===== DE VOICES: $category ====="
-            node scripts/generate-assets.mjs \
-              --provider=google \
-              --categories="$category" \
-              --per-category=10 \
-              --audio-only \
-              --voice-modes=de \
-              --audio-kinds=question,success \
-              --pause-ms=9000 \
-              --continue-on-error
-            git add public/assets/generated/audio content/categories
-            if git diff --cached --quiet; then
-              echo "CHECKPOINT: no new DE files for $category"
-            else
-              git commit -m "feat: checkpoint Gemini DE voices for $category"
-              git pull --rebase origin main
-              git push origin HEAD:main
-              echo "CHECKPOINT: DE voices for $category persisted to main"
-            fi
-          done
-
-      - name: Generate and checkpoint bilingual voices by category
-        shell: bash
-        run: |
-          set -u
-          for category in animals vegetables fruits household hygiene transport; do
-            echo "===== DE+UA VOICES: $category ====="
-            node scripts/generate-assets.mjs \
-              --provider=google \
-              --categories="$category" \
-              --per-category=10 \
-              --audio-only \
-              --voice-modes=bilingual \
-              --audio-kinds=question,success \
-              --pause-ms=9000 \
-              --continue-on-error
-            git add public/assets/generated/audio content/categories
-            if git diff --cached --quiet; then
-              echo "CHECKPOINT: no new bilingual files for $category"
-            else
-              git commit -m "feat: checkpoint Gemini bilingual voices for $category"
-              git pull --rebase origin main
-              git push origin HEAD:main
-              echo "CHECKPOINT: bilingual voices for $category persisted to main"
-            fi
-          done
-
-      - name: Generate and checkpoint reviewed images by category
-        shell: bash
-        run: |
-          set -u
-          for category in animals vegetables fruits household hygiene transport; do
-            echo "===== REVIEWED IMAGES: $category ====="
-            node scripts/generate-assets.mjs \
-              --provider=google \
-              --categories="$category" \
-              --per-category=10 \
-              --image-attempts=2 \
-              --pause-ms=15000 \
-              --continue-on-error
-            git add public/assets/generated/images content/categories
-            if git diff --cached --quiet; then
-              echo "CHECKPOINT: no new images for $category"
-            else
-              git commit -m "feat: checkpoint reviewed Gemini images for $category"
-              git pull --rebase origin main
-              git push origin HEAD:main
-              echo "CHECKPOINT: images for $category persisted to main"
-            fi
-          done
-
-      - name: Final counts
-        run: |
-          echo "Audio files: $(find public/assets/generated/audio -type f ! -name '.gitkeep' | wc -l)"
-          echo "Image files: $(find public/assets/generated/images -type f ! -name '.gitkeep' | wc -l)"
+      - name: Generation disabled
+        run: echo 'AI generation disabled. No API calls will be made.'
