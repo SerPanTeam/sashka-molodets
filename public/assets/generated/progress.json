@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:31:44.585Z",
+  "ts": "2026-08-28T22:31:47.004Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "truck",
-  "de": "Lastwagen",
+  "id": "tractor",
+  "de": "Traktor",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
