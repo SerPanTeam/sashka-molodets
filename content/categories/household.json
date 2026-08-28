@@ -75,6 +75,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/fork.question.de.wav",
         "success": "./assets/generated/audio/fork.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/fork.question.ua.wav",
+        "success": "./assets/generated/audio/fork.success.ua.wav"
       }
     },
     {
