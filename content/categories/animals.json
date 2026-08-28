@@ -131,7 +131,8 @@
       "article": {
         "de": "das"
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {}
     },
     {
       "id": "horse",
