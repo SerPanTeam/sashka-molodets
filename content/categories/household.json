@@ -11,6 +11,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cup.question.de.wav",
+        "success": "./assets/generated/audio/cup.success.de.wav"
       }
     },
     {

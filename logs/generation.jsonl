@@ -275,3 +275,8 @@
 {"ts":"2026-08-28T20:52:31.977Z","event":"start","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":59,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kiwi."}
 {"ts":"2026-08-28T20:52:33.152Z","event":"success","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":60,"kind":"success","file":"kiwi.success.de.wav","bytes":276044,"ms":1173}
 {"ts":"2026-08-28T20:52:34.354Z","event":"item-complete","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":60,"failures":0}
+{"ts":"2026-08-28T20:52:37.011Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":60,"kind":"question","transcript":"Wo ist die Tasse?"}
+{"ts":"2026-08-28T20:52:37.904Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":61,"kind":"question","file":"cup.question.de.wav","bytes":120044,"ms":890}
+{"ts":"2026-08-28T20:52:39.106Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":61,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Tasse."}
+{"ts":"2026-08-28T20:52:40.320Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":62,"kind":"success","file":"cup.success.de.wav","bytes":249644,"ms":1213}
+{"ts":"2026-08-28T20:52:41.524Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":62,"failures":0}
