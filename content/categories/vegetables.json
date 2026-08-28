@@ -138,7 +138,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/pepper.question.ua.wav",
         "success": "./assets/generated/audio/pepper.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/pepper.png"
     },
     {
       "id": "broccoli",
