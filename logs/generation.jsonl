@@ -1216,3 +1216,6 @@
 {"ts":"2026-08-28T22:30:38.053Z","event":"skip-existing","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":240,"kind":"question","file":"cup.question.de.wav"}
 {"ts":"2026-08-28T22:30:38.057Z","event":"skip-existing","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":240,"kind":"success","file":"cup.success.de.wav"}
 {"ts":"2026-08-28T22:30:38.059Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:40.403Z","event":"skip-existing","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":240,"kind":"question","file":"plate.question.de.wav"}
+{"ts":"2026-08-28T22:30:40.407Z","event":"skip-existing","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":240,"kind":"success","file":"plate.success.de.wav"}
+{"ts":"2026-08-28T22:30:40.410Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":240,"failures":0}
