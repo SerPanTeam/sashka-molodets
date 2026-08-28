@@ -370,3 +370,8 @@
 {"ts":"2026-08-28T20:54:51.177Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":97,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Haarbürste."}
 {"ts":"2026-08-28T20:54:52.386Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":98,"kind":"success","file":"hairbrush.success.de.wav","bytes":266444,"ms":1208}
 {"ts":"2026-08-28T20:54:53.588Z","event":"item-complete","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":98,"failures":0}
+{"ts":"2026-08-28T20:54:56.229Z","event":"start","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":98,"kind":"question","transcript":"Wo ist der Waschlappen?"}
+{"ts":"2026-08-28T20:54:57.309Z","event":"success","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":99,"kind":"question","file":"washcloth.question.de.wav","bytes":148844,"ms":1076}
+{"ts":"2026-08-28T20:54:58.510Z","event":"start","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":99,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Waschlappen."}
+{"ts":"2026-08-28T20:54:59.564Z","event":"success","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":100,"kind":"success","file":"washcloth.success.de.wav","bytes":252044,"ms":1054}
+{"ts":"2026-08-28T20:55:00.768Z","event":"item-complete","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":100,"failures":0}
