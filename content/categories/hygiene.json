@@ -35,6 +35,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toothpaste.question.de.wav",
         "success": "./assets/generated/audio/toothpaste.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/toothpaste.question.ua.wav",
+        "success": "./assets/generated/audio/toothpaste.success.ua.wav"
       }
     },
     {
