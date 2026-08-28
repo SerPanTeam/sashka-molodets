@@ -118,3 +118,8 @@
 {"ts":"2026-08-28T20:46:45.723Z","event":"start","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":14,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Schaf."}
 {"ts":"2026-08-28T20:46:47.133Z","event":"success","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":15,"kind":"success","file":"sheep.success.de.wav","bytes":252044,"ms":1408}
 {"ts":"2026-08-28T20:46:48.335Z","event":"item-complete","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"de","audioFiles":15,"failures":0}
+{"ts":"2026-08-28T20:46:50.941Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":15,"kind":"question","transcript":"Wo ist der Löwe?"}
+{"ts":"2026-08-28T20:46:51.820Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":16,"kind":"question","file":"lion.question.de.wav","bytes":108044,"ms":875}
+{"ts":"2026-08-28T20:46:53.020Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":16,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Löwe."}
+{"ts":"2026-08-28T20:46:54.104Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":17,"kind":"success","file":"lion.success.de.wav","bytes":266444,"ms":1083}
+{"ts":"2026-08-28T20:46:55.307Z","event":"item-complete","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":17,"failures":0}
