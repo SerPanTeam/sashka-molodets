@@ -69,6 +69,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/rabbit.question.de.wav",
         "success": "./assets/generated/audio/rabbit.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/rabbit.question.ua.wav",
+        "success": "./assets/generated/audio/rabbit.success.ua.wav"
       }
     },
     {

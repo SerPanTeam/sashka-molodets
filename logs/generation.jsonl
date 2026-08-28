@@ -603,3 +603,8 @@
 {"ts":"2026-08-28T21:01:18.671Z","event":"start","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":124,"kind":"success","transcript":"Сашка, молодець! Це кіт."}
 {"ts":"2026-08-28T21:01:19.915Z","event":"success","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":125,"kind":"success","file":"cat.success.ua.wav","bytes":204044,"ms":1243}
 {"ts":"2026-08-28T21:01:21.118Z","event":"item-complete","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"ua","audioFiles":125,"failures":0}
+{"ts":"2026-08-28T21:01:23.588Z","event":"start","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":125,"kind":"question","transcript":"Де заєць?"}
+{"ts":"2026-08-28T21:01:24.413Z","event":"success","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":126,"kind":"question","file":"rabbit.question.ua.wav","bytes":144044,"ms":822}
+{"ts":"2026-08-28T21:01:25.614Z","event":"start","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":126,"kind":"success","transcript":"Сашка, молодець! Це заєць."}
+{"ts":"2026-08-28T21:01:26.604Z","event":"success","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":127,"kind":"success","file":"rabbit.success.ua.wav","bytes":189644,"ms":989}
+{"ts":"2026-08-28T21:01:27.808Z","event":"item-complete","provider":"openai","category":"animals","id":"rabbit","de":"Hase","mode":"ua","audioFiles":127,"failures":0}
