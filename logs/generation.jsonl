@@ -525,3 +525,6 @@
 {"ts":"2026-08-28T20:59:59.171Z","event":"skip-existing","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"kind":"question","file":"fridge.question.de.wav"}
 {"ts":"2026-08-28T20:59:59.173Z","event":"skip-existing","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"kind":"success","file":"fridge.success.de.wav"}
 {"ts":"2026-08-28T20:59:59.175Z","event":"item-complete","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:01.541Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":113,"kind":"question","file":"toothbrush.question.de.wav"}
+{"ts":"2026-08-28T21:00:01.544Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":113,"kind":"success","file":"toothbrush.success.de.wav"}
+{"ts":"2026-08-28T21:00:01.546Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":113,"failures":0}
