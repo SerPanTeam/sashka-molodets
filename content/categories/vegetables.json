@@ -212,6 +212,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/onion.question.de.wav",
         "success": "./assets/generated/audio/onion.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/onion.question.ua.wav",
+        "success": "./assets/generated/audio/onion.success.ua.wav"
       }
     },
     {
