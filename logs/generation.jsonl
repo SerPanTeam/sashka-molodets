@@ -647,3 +647,8 @@
 {"ts":"2026-08-28T21:02:46.067Z","event":"start","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"ua","audioFiles":141,"kind":"success","transcript":"Сашка, молодець! Це помідор."}
 {"ts":"2026-08-28T21:02:47.044Z","event":"success","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"ua","audioFiles":142,"kind":"success","file":"tomato.success.ua.wav","bytes":218444,"ms":976}
 {"ts":"2026-08-28T21:02:48.247Z","event":"item-complete","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"ua","audioFiles":142,"failures":0}
+{"ts":"2026-08-28T21:02:50.727Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":142,"kind":"question","transcript":"Де огірок?"}
+{"ts":"2026-08-28T21:02:51.503Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":143,"kind":"question","file":"cucumber.question.ua.wav","bytes":117644,"ms":774}
+{"ts":"2026-08-28T21:02:52.705Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":143,"kind":"success","transcript":"Сашка, молодець! Це огірок."}
+{"ts":"2026-08-28T21:02:53.554Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":144,"kind":"success","file":"cucumber.success.ua.wav","bytes":237644,"ms":848}
+{"ts":"2026-08-28T21:02:54.757Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":144,"failures":0}
