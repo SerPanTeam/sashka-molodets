@@ -628,3 +628,8 @@
 {"ts":"2026-08-28T21:02:22.242Z","event":"start","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":134,"kind":"success","transcript":"Сашка, молодець! Це вівця."}
 {"ts":"2026-08-28T21:02:23.244Z","event":"success","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":135,"kind":"success","file":"sheep.success.ua.wav","bytes":192044,"ms":1002}
 {"ts":"2026-08-28T21:02:24.447Z","event":"item-complete","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":135,"failures":0}
+{"ts":"2026-08-28T21:02:26.830Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":135,"kind":"question","transcript":"Де лев?"}
+{"ts":"2026-08-28T21:02:27.518Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":136,"kind":"question","file":"lion.question.ua.wav","bytes":112844,"ms":685}
+{"ts":"2026-08-28T21:02:28.719Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":136,"kind":"success","transcript":"Сашка, молодець! Це лев."}
+{"ts":"2026-08-28T21:02:29.547Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":137,"kind":"success","file":"lion.success.ua.wav","bytes":158444,"ms":828}
+{"ts":"2026-08-28T21:02:30.749Z","event":"item-complete","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":137,"failures":0}

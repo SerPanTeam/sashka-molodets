@@ -121,6 +121,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/lion.question.de.wav",
         "success": "./assets/generated/audio/lion.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/lion.question.ua.wav",
+        "success": "./assets/generated/audio/lion.success.ua.wav"
       }
     },
     {
