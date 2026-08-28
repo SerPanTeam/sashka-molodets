@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T20:59:28.439Z",
+  "ts": "2026-08-28T20:59:30.671Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "fruits",
-  "id": "watermelon",
-  "de": "Wassermelone",
+  "id": "peach",
+  "de": "Pfirsich",
   "mode": "de",
   "audioFiles": 113,
   "failures": 0
