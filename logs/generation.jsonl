@@ -1324,3 +1324,6 @@
 {"ts":"2026-08-28T22:32:09.131Z","event":"skip-existing","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":240,"kind":"question","file":"sheep.question.ua.wav"}
 {"ts":"2026-08-28T22:32:09.135Z","event":"skip-existing","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":240,"kind":"success","file":"sheep.success.ua.wav"}
 {"ts":"2026-08-28T22:32:09.137Z","event":"item-complete","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:32:11.481Z","event":"skip-existing","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":240,"kind":"question","file":"lion.question.ua.wav"}
+{"ts":"2026-08-28T22:32:11.485Z","event":"skip-existing","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":240,"kind":"success","file":"lion.success.ua.wav"}
+{"ts":"2026-08-28T22:32:11.488Z","event":"item-complete","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":240,"failures":0}
