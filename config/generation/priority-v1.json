@@ -1,41 +1,12 @@
 {
-  "version": 1,
+  "version": 2,
   "categories": {
-    "animals": [
-      "dog",
-      "cat",
-      "rabbit",
-      "cow",
-      "horse",
-      "pig",
-      "sheep",
-      "lion",
-      "elephant",
-      "bear"
-    ],
-    "vegetables": [
-      "tomato",
-      "cucumber",
-      "carrot",
-      "potato",
-      "corn",
-      "pepper",
-      "broccoli",
-      "onion",
-      "eggplant",
-      "garlic"
-    ],
-    "fruits": [
-      "apple",
-      "banana",
-      "orange",
-      "pear",
-      "grapes",
-      "strawberry",
-      "watermelon",
-      "peach",
-      "cherries",
-      "kiwi"
-    ]
-  }
+    "animals": ["dog","cat","rabbit","cow","horse","pig","sheep","lion","elephant","bear"],
+    "vegetables": ["tomato","cucumber","carrot","potato","corn","pepper","broccoli","onion","eggplant","garlic"],
+    "fruits": ["apple","banana","orange","pear","grapes","strawberry","watermelon","peach","cherries","kiwi"],
+    "household": ["cup","plate","spoon","fork","table","glass","bowl","pot","pan","fridge"],
+    "hygiene": ["toothbrush","toothpaste","soap","towel","shampoo","comb","sponge","toilet-paper","hairbrush","washcloth"],
+    "transport": ["car","bus","train","bicycle","airplane","ship","truck","tractor","tram","helicopter"]
+  },
+  "fallbackOrder": ["animals","vegetables","fruits","household","hygiene","transport","colors","numbers","shapes","clothes","body","home"]
 }
