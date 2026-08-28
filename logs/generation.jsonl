@@ -255,3 +255,8 @@
 {"ts":"2026-08-28T20:52:01.213Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":51,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Erdbeere."}
 {"ts":"2026-08-28T20:52:03.150Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":52,"kind":"success","file":"strawberry.success.de.wav","bytes":268844,"ms":1936}
 {"ts":"2026-08-28T20:52:04.352Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":52,"failures":0}
+{"ts":"2026-08-28T20:52:07.948Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":52,"kind":"question","transcript":"Wo ist die Wassermelone?"}
+{"ts":"2026-08-28T20:52:09.066Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":53,"kind":"question","file":"watermelon.question.de.wav","bytes":132044,"ms":1115}
+{"ts":"2026-08-28T20:52:10.268Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":53,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Wassermelone."}
+{"ts":"2026-08-28T20:52:11.542Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":54,"kind":"success","file":"watermelon.success.de.wav","bytes":264044,"ms":1274}
+{"ts":"2026-08-28T20:52:12.744Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"de","audioFiles":54,"failures":0}

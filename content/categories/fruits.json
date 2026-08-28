@@ -156,7 +156,11 @@
           "ua": "зелений"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/watermelon.question.de.wav",
+        "success": "./assets/generated/audio/watermelon.success.de.wav"
+      }
     },
     {
       "id": "peach",
