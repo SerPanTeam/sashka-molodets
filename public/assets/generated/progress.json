@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T20:59:08.555Z",
+  "ts": "2026-08-28T20:59:10.861Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "eggplant",
-  "de": "Aubergine",
+  "id": "garlic",
+  "de": "Knoblauch",
   "mode": "de",
   "audioFiles": 113,
   "failures": 0

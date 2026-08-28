@@ -462,3 +462,6 @@
 {"ts":"2026-08-28T20:59:08.551Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":113,"kind":"question","file":"eggplant.question.de.wav"}
 {"ts":"2026-08-28T20:59:08.553Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":113,"kind":"success","file":"eggplant.success.de.wav"}
 {"ts":"2026-08-28T20:59:08.555Z","event":"item-complete","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:10.856Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"kind":"question","file":"garlic.question.de.wav"}
+{"ts":"2026-08-28T20:59:10.859Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"kind":"success","file":"garlic.success.de.wav"}
+{"ts":"2026-08-28T20:59:10.861Z","event":"item-complete","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"failures":0}
