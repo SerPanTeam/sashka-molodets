@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T21:05:01.452Z",
+  "ts": "2026-08-28T21:05:07.977Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "fruits",
-  "id": "kiwi",
-  "de": "Kiwi",
+  "category": "household",
+  "id": "cup",
+  "de": "Tasse",
   "mode": "ua",
-  "audioFiles": 180,
+  "audioFiles": 182,
   "failures": 0
 }

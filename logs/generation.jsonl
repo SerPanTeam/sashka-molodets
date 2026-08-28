@@ -742,3 +742,8 @@
 {"ts":"2026-08-28T21:04:59.277Z","event":"start","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":179,"kind":"success","transcript":"Сашка, молодець! Це ківі."}
 {"ts":"2026-08-28T21:05:00.246Z","event":"success","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":180,"kind":"success","file":"kiwi.success.ua.wav","bytes":175244,"ms":967}
 {"ts":"2026-08-28T21:05:01.452Z","event":"item-complete","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":180,"failures":0}
+{"ts":"2026-08-28T21:05:03.801Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":180,"kind":"question","transcript":"Де чашка?"}
+{"ts":"2026-08-28T21:05:04.661Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":181,"kind":"question","file":"cup.question.ua.wav","bytes":79244,"ms":858}
+{"ts":"2026-08-28T21:05:05.862Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":181,"kind":"success","transcript":"Сашка, молодець! Це чашка."}
+{"ts":"2026-08-28T21:05:06.775Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":182,"kind":"success","file":"cup.success.ua.wav","bytes":192044,"ms":913}
+{"ts":"2026-08-28T21:05:07.977Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":182,"failures":0}

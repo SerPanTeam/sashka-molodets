@@ -15,6 +15,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/cup.question.de.wav",
         "success": "./assets/generated/audio/cup.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/cup.question.ua.wav",
+        "success": "./assets/generated/audio/cup.success.ua.wav"
       }
     },
     {
