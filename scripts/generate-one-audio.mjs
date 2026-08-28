@@ -12,8 +12,9 @@ const args = Object.fromEntries(process.argv.slice(2).filter(x => x.startsWith("
 }));
 const id=args.id;
 const mode=args.mode || "de";
+const provider=args.provider || process.env.AI_DEFAULT_PROVIDER || "openai";
 const kinds=(args.kinds || "question,success").split(",").map(x=>x.trim()).filter(Boolean);
-const pauseMs=Number(args["pause-ms"] || 7000);
+const pauseMs=Number(args["pause-ms"] || 1500);
 if(!id) throw new Error("--id is required");
 if(!["de","bilingual"].includes(mode)) throw new Error("--mode must be de or bilingual");
 
@@ -37,13 +38,13 @@ const transcript=(kind)=>{
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function emit(event,extra={}){
   const files=await readdir(audioDir).catch(()=>[]);
-  const row={ts:new Date().toISOString(),event,category:item.category,id:item.id,de:item.labels.de,mode,audioFiles:files.filter(x=>x.endsWith(".wav")).length,...extra};
+  const row={ts:new Date().toISOString(),event,provider,category:item.category,id:item.id,de:item.labels.de,mode,audioFiles:files.filter(x=>x.endsWith(".wav")).length,...extra};
   console.log(`[GEN] ${JSON.stringify(row)}`);
   await appendFile(logFile,JSON.stringify(row)+"\n");
   await writeFile(progressFile,JSON.stringify(row,null,2)+"\n");
 }
 async function exists(file){try{await access(file);return true}catch{return false}}
-async function withRetry(fn,label,tries=4){let last;for(let n=1;n<=tries;n++){try{return await fn()}catch(e){last=e;const t=String(e?.message||e);await emit("retry",{kind:label,attempt:n,error:t.slice(0,500)});if(n===tries||!/429|quota|rate|5\d\d|unavailable|temporar/i.test(t))throw e;const m=t.match(/retry in\s+([\d.]+)s/i);const wait=m?Math.ceil(Number(m[1])*1000)+1000:Math.min(60000,8000*n);console.log(`[WAIT] ${wait}ms`);await sleep(wait)}}throw last}
+async function withRetry(fn,label,tries=4){let last;for(let n=1;n<=tries;n++){try{return await fn()}catch(e){last=e;const t=String(e?.message||e);await emit("retry",{kind:label,attempt:n,error:t.slice(0,500)});if(n===tries||!/429|rate|5\d\d|unavailable|temporar/i.test(t))throw e;const m=t.match(/retry in\s+([\d.]+)s/i);const wait=m?Math.ceil(Number(m[1])*1000)+1000:Math.min(60000,3000*n);console.log(`[WAIT] ${wait}ms`);await sleep(wait)}}throw last}
 
 const field=mode==="de"?"generatedAudioDe":"generatedAudio";
 item[field] ||= {};
@@ -61,7 +62,7 @@ for(const kind of kinds){
   const started=Date.now();
   try{
     const language=mode==="de"?"German de-DE only":"German de-DE first, then Ukrainian uk-UA";
-    const result=await withRetry(()=>generateSpeech({provider:"google",text:transcript(kind),language,style:"warm, cheerful, caring preschool educator; native pronunciation; pleasant and encouraging; clear, natural, slightly playful; medium-slow pace; speak only the transcript"}),kind);
+    const result=await withRetry(()=>generateSpeech({provider,text:transcript(kind),language,style:"Warm, cheerful, caring preschool educator. Native pronunciation. Pleasant and encouraging, clear, natural, slightly playful, medium-slow pace. Speak only the transcript."}),kind);
     await writeFile(file,result.buffer);
     item[field][kind]=`./assets/generated/audio/${name}`;
     await saveContentGroups(content);
