@@ -540,3 +540,6 @@
 {"ts":"2026-08-28T21:00:10.755Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":113,"kind":"question","file":"shampoo.question.de.wav"}
 {"ts":"2026-08-28T21:00:10.758Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":113,"kind":"success","file":"shampoo.success.de.wav"}
 {"ts":"2026-08-28T21:00:10.760Z","event":"item-complete","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:13.024Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":113,"kind":"question","file":"comb.question.de.wav"}
+{"ts":"2026-08-28T21:00:13.027Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":113,"kind":"success","file":"comb.success.de.wav"}
+{"ts":"2026-08-28T21:00:13.028Z","event":"item-complete","provider":"openai","category":"hygiene","id":"comb","de":"Kamm","mode":"de","audioFiles":113,"failures":0}
