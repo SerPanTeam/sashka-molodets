@@ -747,3 +747,8 @@
 {"ts":"2026-08-28T21:05:05.862Z","event":"start","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":181,"kind":"success","transcript":"Сашка, молодець! Це чашка."}
 {"ts":"2026-08-28T21:05:06.775Z","event":"success","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":182,"kind":"success","file":"cup.success.ua.wav","bytes":192044,"ms":913}
 {"ts":"2026-08-28T21:05:07.977Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"ua","audioFiles":182,"failures":0}
+{"ts":"2026-08-28T21:05:10.376Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":182,"kind":"question","transcript":"Де тарілка?"}
+{"ts":"2026-08-28T21:05:11.180Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":183,"kind":"question","file":"plate.question.ua.wav","bytes":91244,"ms":801}
+{"ts":"2026-08-28T21:05:12.380Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":183,"kind":"success","transcript":"Сашка, молодець! Це тарілка."}
+{"ts":"2026-08-28T21:05:13.324Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":184,"kind":"success","file":"plate.success.ua.wav","bytes":254444,"ms":943}
+{"ts":"2026-08-28T21:05:14.527Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":184,"failures":0}
