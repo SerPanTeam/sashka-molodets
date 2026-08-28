@@ -1,16 +1,67 @@
 (() => {
   const Ctx = window.AudioContext || window.webkitAudioContext;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  // Real, recognizable animal recordings. These are streamed from Wikimedia
+  // Commons so we do not pretend that oscillator/noise synthesis is a real
+  // animal voice. See animal-sound-sources.html for source/license details.
+  const real = {
+    dog: { file: 'Barking_of_a_dog.ogg', maxMs: 2400 },
+    cat: { file: 'Meow.ogg', maxMs: 1300 },
+    cow: { file: 'Single_Cow_Moo.ogg', maxMs: 2800 },
+    horse: { file: 'Wiehern.ogg', maxMs: 2400 },
+    pig: { file: 'Mudchute_pig_1.ogg', maxMs: 900 },
+    sheep: { file: 'Sheep_bleating.ogg', maxMs: 2600 },
+    lion: { file: 'Lion_raring-sound1TamilNadu178.ogg', maxMs: 2600 },
+    elephant: { file: 'Elephant_voice_-_trumpeting.ogg', maxMs: 1900 },
+    bear: { file: 'Bear_growl.ogg', maxMs: 2400 }
+  };
+  const commons = file => `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(file)}`;
+
+  async function playReal(id) {
+    const spec = real[id];
+    if (!spec || !window.Audio) return false;
+    return new Promise(resolve => {
+      let done = false;
+      let started = false;
+      const a = new Audio(commons(spec.file));
+      a.preload = 'auto';
+      a.volume = 0.92;
+      const finish = ok => {
+        if (done) return;
+        done = true;
+        clearTimeout(startWatch);
+        clearTimeout(stopWatch);
+        try { a.pause(); } catch {}
+        a.onplaying = a.onended = a.onerror = null;
+        resolve(ok);
+      };
+      a.onplaying = () => { started = true; };
+      a.onended = () => finish(true);
+      a.onerror = () => finish(false);
+      const startWatch = setTimeout(() => { if (!started) finish(false); }, 3200);
+      const stopWatch = setTimeout(() => finish(started), spec.maxMs);
+      try {
+        const p = a.play();
+        p?.catch?.(() => finish(false));
+      } catch {
+        finish(false);
+      }
+    });
+  }
+
+  // Offline/network fallback. It is intentionally only a fallback: when the
+  // real recording can be played, the child hears the real animal first.
   if (!Ctx) {
-    window.SashkaSfx = { has: () => false, play: async () => false };
+    window.SashkaSfx = {
+      has: id => Boolean(real[id]),
+      play: async id => playReal(id),
+      isReal: id => Boolean(real[id])
+    };
     return;
   }
 
   let ctx;
-  const supported = new Set([
-    'dog','cat','rabbit','cow','horse','pig','sheep','lion','elephant','bear',
-    'car','bus','train','bicycle','airplane','ship','truck','tractor','tram','helicopter','fridge'
-  ]);
-  const wait = ms => new Promise(r => setTimeout(r, ms));
   const ac = () => {
     ctx ||= new Ctx();
     ctx.resume?.().catch(() => {});
@@ -46,22 +97,23 @@
   function baa(delay = 0) { for(let i=0;i<5;i++) tone(430+i%2*55,.12,{delay:delay+i*.105,to:360,type:'triangle',gain:.1}); }
   function roar(delay = 0) { noise(.75,{delay,freq:230,gain:.22,q:.5}); tone(95,.72,{delay,to:72,type:'sawtooth',gain:.11}); }
   function trumpet(delay = 0) { tone(320,.22,{delay,to:620,type:'sawtooth',gain:.15}); tone(610,.55,{delay:delay+.16,to:430,type:'square',gain:.11}); }
-  function sniff(delay = 0) { noise(.11,{delay,freq:2600,gain:.09,q:1.6}); noise(.11,{delay:delay+.22,freq:2600,gain:.08,q:1.6}); }
   function engine(delay = 0, freq = 70, dur = .9) { tone(freq,dur,{delay,to:freq*1.35,type:'sawtooth',gain:.11}); tone(freq*2.04,dur,{delay,to:freq*2.35,type:'square',gain:.035}); }
   function bell(delay = 0) { tone(1450,.55,{delay,type:'sine',gain:.13}); tone(2180,.42,{delay,type:'sine',gain:.07}); }
   function horn(delay = 0, freq = 155, dur = .7) { tone(freq,dur,{delay,type:'sawtooth',gain:.13}); tone(freq*1.5,dur,{delay,type:'sine',gain:.07}); }
 
-  const players = {
+  const animalFallback = {
     dog: () => { bark(); bark(.34); return 720; },
-    cat: () => { meow(); meow(.68); return 1350; },
-    rabbit: () => { sniff(); return 520; },
+    cat: () => { meow(); return 850; },
     cow: () => { moo(); return 1000; },
     horse: () => { neigh(); return 900; },
-    pig: () => { oink(); oink(.28); oink(.54); return 850; },
+    pig: () => { oink(); oink(.28); return 600; },
     sheep: () => { baa(); return 760; },
     lion: () => { roar(); return 900; },
     elephant: () => { trumpet(); return 900; },
-    bear: () => { roar(); return 900; },
+    bear: () => { roar(); return 900; }
+  };
+
+  const mechanical = {
     car: () => { engine(0,75,1); return 1100; },
     bus: () => { engine(0,58,.8); noise(.32,{delay:.62,freq:1800,gain:.1}); return 1100; },
     train: () => { for(let i=0;i<6;i++){noise(.05,{delay:i*.13,freq:1100,gain:.11}); noise(.04,{delay:i*.13+.06,freq:850,gain:.09});} horn(.18,220,.55); return 1150; },
@@ -76,9 +128,18 @@
   };
 
   window.SashkaSfx = {
-    has: id => supported.has(id),
+    has: id => Boolean(real[id] || mechanical[id]),
+    isReal: id => Boolean(real[id]),
     play: async id => {
-      const fn = players[id];
+      if (real[id]) {
+        try {
+          if (await playReal(id)) return true;
+        } catch {}
+        const fallback = animalFallback[id];
+        if (!fallback) return false;
+        try { const ms = fallback(); await wait(ms); return true; } catch { return false; }
+      }
+      const fn = mechanical[id];
       if (!fn) return false;
       try { const ms = fn(); await wait(ms); return true; } catch { return false; }
     }
