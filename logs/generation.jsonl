@@ -752,3 +752,8 @@
 {"ts":"2026-08-28T21:05:12.380Z","event":"start","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":183,"kind":"success","transcript":"Сашка, молодець! Це тарілка."}
 {"ts":"2026-08-28T21:05:13.324Z","event":"success","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":184,"kind":"success","file":"plate.success.ua.wav","bytes":254444,"ms":943}
 {"ts":"2026-08-28T21:05:14.527Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"ua","audioFiles":184,"failures":0}
+{"ts":"2026-08-28T21:05:17.281Z","event":"start","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"ua","audioFiles":184,"kind":"question","transcript":"Де ложка?"}
+{"ts":"2026-08-28T21:05:17.975Z","event":"success","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"ua","audioFiles":185,"kind":"question","file":"spoon.question.ua.wav","bytes":86444,"ms":691}
+{"ts":"2026-08-28T21:05:19.177Z","event":"start","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"ua","audioFiles":185,"kind":"success","transcript":"Сашка, молодець! Це ложка."}
+{"ts":"2026-08-28T21:05:20.422Z","event":"success","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"ua","audioFiles":186,"kind":"success","file":"spoon.success.ua.wav","bytes":230444,"ms":1244}
+{"ts":"2026-08-28T21:05:21.625Z","event":"item-complete","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"ua","audioFiles":186,"failures":0}

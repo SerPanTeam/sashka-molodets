@@ -55,6 +55,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/spoon.question.de.wav",
         "success": "./assets/generated/audio/spoon.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/spoon.question.ua.wav",
+        "success": "./assets/generated/audio/spoon.success.ua.wav"
       }
     },
     {
