@@ -1246,3 +1246,6 @@
 {"ts":"2026-08-28T22:31:02.885Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":240,"kind":"question","file":"toothbrush.question.de.wav"}
 {"ts":"2026-08-28T22:31:02.888Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":240,"kind":"success","file":"toothbrush.success.de.wav"}
 {"ts":"2026-08-28T22:31:02.891Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:05.716Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"kind":"question","file":"toothpaste.question.de.wav"}
+{"ts":"2026-08-28T22:31:05.720Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"kind":"success","file":"toothpaste.success.de.wav"}
+{"ts":"2026-08-28T22:31:05.722Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"failures":0}
