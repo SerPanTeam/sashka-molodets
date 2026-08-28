@@ -211,6 +211,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/peach.question.de.wav",
         "success": "./assets/generated/audio/peach.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/peach.question.ua.wav",
+        "success": "./assets/generated/audio/peach.success.ua.wav"
       }
     },
     {

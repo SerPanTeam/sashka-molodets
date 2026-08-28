@@ -727,3 +727,8 @@
 {"ts":"2026-08-28T21:04:39.394Z","event":"start","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":173,"kind":"success","transcript":"Сашка, молодець! Це кавун."}
 {"ts":"2026-08-28T21:04:40.313Z","event":"success","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":174,"kind":"success","file":"watermelon.success.ua.wav","bytes":184844,"ms":918}
 {"ts":"2026-08-28T21:04:41.516Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":174,"failures":0}
+{"ts":"2026-08-28T21:04:43.854Z","event":"start","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"ua","audioFiles":174,"kind":"question","transcript":"Де персик?"}
+{"ts":"2026-08-28T21:04:44.815Z","event":"success","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"ua","audioFiles":175,"kind":"question","file":"peach.question.ua.wav","bytes":79244,"ms":958}
+{"ts":"2026-08-28T21:04:46.017Z","event":"start","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"ua","audioFiles":175,"kind":"success","transcript":"Сашка, молодець! Це персик."}
+{"ts":"2026-08-28T21:04:46.827Z","event":"success","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"ua","audioFiles":176,"kind":"success","file":"peach.success.ua.wav","bytes":180044,"ms":810}
+{"ts":"2026-08-28T21:04:48.030Z","event":"item-complete","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"ua","audioFiles":176,"failures":0}
