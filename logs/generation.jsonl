@@ -501,3 +501,6 @@
 {"ts":"2026-08-28T20:59:39.997Z","event":"skip-existing","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":113,"kind":"question","file":"plate.question.de.wav"}
 {"ts":"2026-08-28T20:59:40.000Z","event":"skip-existing","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":113,"kind":"success","file":"plate.success.de.wav"}
 {"ts":"2026-08-28T20:59:40.002Z","event":"item-complete","provider":"openai","category":"household","id":"plate","de":"Teller","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:42.358Z","event":"skip-existing","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":113,"kind":"question","file":"spoon.question.de.wav"}
+{"ts":"2026-08-28T20:59:42.361Z","event":"skip-existing","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":113,"kind":"success","file":"spoon.success.de.wav"}
+{"ts":"2026-08-28T20:59:42.363Z","event":"item-complete","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":113,"failures":0}
