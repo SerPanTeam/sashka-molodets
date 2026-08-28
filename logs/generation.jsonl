@@ -1303,3 +1303,6 @@
 {"ts":"2026-08-28T22:31:52.052Z","event":"skip-existing","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"kind":"question","file":"helicopter.question.de.wav"}
 {"ts":"2026-08-28T22:31:52.055Z","event":"skip-existing","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"kind":"success","file":"helicopter.success.de.wav"}
 {"ts":"2026-08-28T22:31:52.058Z","event":"item-complete","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:54.544Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":240,"kind":"question","file":"dog.question.ua.wav"}
+{"ts":"2026-08-28T22:31:54.547Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":240,"kind":"success","file":"dog.success.ua.wav"}
+{"ts":"2026-08-28T22:31:54.550Z","event":"item-complete","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"ua","audioFiles":240,"failures":0}

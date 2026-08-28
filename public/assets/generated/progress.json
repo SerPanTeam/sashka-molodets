@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T22:31:52.058Z",
+  "ts": "2026-08-28T22:31:54.550Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "transport",
-  "id": "helicopter",
-  "de": "Hubschrauber",
-  "mode": "de",
+  "category": "animals",
+  "id": "dog",
+  "de": "Hund",
+  "mode": "ua",
   "audioFiles": 240,
   "failures": 0
 }
