@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:18.618Z",
+  "ts": "2026-08-28T22:35:21.093Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "fruits",
-  "id": "banana",
-  "de": "Banane",
+  "id": "orange",
+  "de": "Orange",
   "imageFiles": 32,
-  "file": "banana.png"
+  "file": "orange.png"
 }

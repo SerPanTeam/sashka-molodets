@@ -1505,3 +1505,4 @@
 {"ts":"2026-08-28T22:35:13.576Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","imageFiles":32,"file":"garlic.png"}
 {"ts":"2026-08-28T22:35:16.136Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","imageFiles":32,"file":"apple.png"}
 {"ts":"2026-08-28T22:35:18.618Z","event":"skip-existing","provider":"openai","category":"fruits","id":"banana","de":"Banane","imageFiles":32,"file":"banana.png"}
+{"ts":"2026-08-28T22:35:21.093Z","event":"skip-existing","provider":"openai","category":"fruits","id":"orange","de":"Orange","imageFiles":32,"file":"orange.png"}
