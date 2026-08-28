@@ -82,7 +82,19 @@
       return response.json();
     }));
     const allItems = categories.flatMap(category => category.items || []);
-    const readyItems = allItems.filter(isProductionReady);
+    const readyItems = allItems.filter(isProductionReady).map(item => ({
+      ...item,
+      // Existing German success WAVs were generated with the legacy name
+      // "Alexander". OpenAI credits are currently exhausted, so production
+      // must fall back to browser speech for the German praise until those
+      // WAVs can be regenerated. Questions and Ukrainian recordings remain
+      // fully recorded. Remove this override after the refreshed WAV batch is
+      // successfully committed and deployed.
+      generatedAudioDe: {
+        ...(item.generatedAudioDe || {}),
+        success: null
+      }
+    }));
     return {
       schemaVersion: manifest.schemaVersion || 1,
       languages: manifest.languages || ['de-DE', 'uk-UA'],
