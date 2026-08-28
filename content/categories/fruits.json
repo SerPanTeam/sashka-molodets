@@ -278,7 +278,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/kiwi.question.ua.wav",
         "success": "./assets/generated/audio/kiwi.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/kiwi.png"
     }
   ]
 }
