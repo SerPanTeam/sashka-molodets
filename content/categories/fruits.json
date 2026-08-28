@@ -225,7 +225,11 @@
           "ua": "зелений"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/kiwi.question.de.wav",
+        "success": "./assets/generated/audio/kiwi.success.de.wav"
+      }
     }
   ]
 }

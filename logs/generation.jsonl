@@ -270,3 +270,8 @@
 {"ts":"2026-08-28T20:52:24.224Z","event":"start","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":57,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das sind die Kirschen."}
 {"ts":"2026-08-28T20:52:26.081Z","event":"success","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":58,"kind":"success","file":"cherries.success.de.wav","bytes":220844,"ms":1856}
 {"ts":"2026-08-28T20:52:27.283Z","event":"item-complete","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":58,"failures":0}
+{"ts":"2026-08-28T20:52:29.889Z","event":"start","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":58,"kind":"question","transcript":"Wo ist die Kiwi?"}
+{"ts":"2026-08-28T20:52:30.775Z","event":"success","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":59,"kind":"question","file":"kiwi.question.de.wav","bytes":108044,"ms":883}
+{"ts":"2026-08-28T20:52:31.977Z","event":"start","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":59,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kiwi."}
+{"ts":"2026-08-28T20:52:33.152Z","event":"success","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":60,"kind":"success","file":"kiwi.success.de.wav","bytes":276044,"ms":1173}
+{"ts":"2026-08-28T20:52:34.354Z","event":"item-complete","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":60,"failures":0}

@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:52:27.283Z",
+  "ts": "2026-08-28T20:52:34.354Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "fruits",
-  "id": "cherries",
-  "de": "Kirschen",
+  "id": "kiwi",
+  "de": "Kiwi",
   "mode": "de",
-  "audioFiles": 58,
+  "audioFiles": 60,
   "failures": 0
 }
