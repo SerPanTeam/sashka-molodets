@@ -61,7 +61,7 @@
 
   const nativeFetch = window.fetch.bind(window);
 
-  const isProductionReady = item => {
+  const hasRequiredMetadata = item => {
     const de = item?.generatedAudioDe || {};
     const ua = item?.generatedAudioUa || {};
     return Boolean(
@@ -69,6 +69,28 @@
       de.question && de.success &&
       ua.question && ua.success
     );
+  };
+
+  const assetExists = async ref => {
+    if (!ref) return false;
+    try {
+      const response = await nativeFetch(ref, { method: 'HEAD', cache: 'no-store' });
+      return response.ok;
+    } catch {
+      return false;
+    }
+  };
+
+  const physicalAssetsExist = async item => {
+    const refs = [
+      item.generatedImage,
+      item.generatedAudioDe?.question,
+      item.generatedAudioDe?.success,
+      item.generatedAudioUa?.question,
+      item.generatedAudioUa?.success
+    ];
+    const checks = await Promise.all(refs.map(assetExists));
+    return checks.every(Boolean);
   };
 
   async function loadStaticContent() {
@@ -82,7 +104,9 @@
       return response.json();
     }));
     const allItems = categories.flatMap(category => category.items || []);
-    const readyItems = allItems.filter(isProductionReady).map(item => ({
+    const candidates = allItems.filter(hasRequiredMetadata);
+    const checks = await Promise.all(candidates.map(async item => ({ item, ready: await physicalAssetsExist(item) })));
+    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({
       ...item,
       // Existing German success WAVs were generated with the legacy name
       // "Alexander". OpenAI credits are currently exhausted, so production
@@ -106,7 +130,8 @@
     const url = typeof input === 'string' ? input : input?.url;
     if (url === '/api/content') {
       // GitHub Pages has no API backend. Always build fresh content from the
-      // deployed static JSON and expose only cards with image + DE + UA audio.
+      // deployed static JSON and expose only cards whose generated assets
+      // physically exist in the deployed site.
       const content = await loadStaticContent();
       return new Response(JSON.stringify(content), { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } });
     }
