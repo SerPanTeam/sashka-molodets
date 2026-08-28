@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:51:19.417Z",
+  "ts": "2026-08-28T20:51:26.861Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "vegetables",
-  "id": "garlic",
-  "de": "Knoblauch",
+  "category": "fruits",
+  "id": "apple",
+  "de": "Apfel",
   "mode": "de",
-  "audioFiles": 40,
+  "audioFiles": 42,
   "failures": 0
 }

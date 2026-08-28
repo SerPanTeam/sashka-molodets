@@ -225,3 +225,8 @@
 {"ts":"2026-08-28T20:51:17.054Z","event":"start","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":39,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Knoblauch."}
 {"ts":"2026-08-28T20:51:18.214Z","event":"success","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":40,"kind":"success","file":"garlic.success.de.wav","bytes":309644,"ms":1159}
 {"ts":"2026-08-28T20:51:19.417Z","event":"item-complete","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":40,"failures":0}
+{"ts":"2026-08-28T20:51:22.001Z","event":"start","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":40,"kind":"question","transcript":"Wo ist der Apfel?"}
+{"ts":"2026-08-28T20:51:22.939Z","event":"success","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":41,"kind":"question","file":"apple.question.de.wav","bytes":110444,"ms":935}
+{"ts":"2026-08-28T20:51:24.140Z","event":"start","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":41,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Apfel."}
+{"ts":"2026-08-28T20:51:25.658Z","event":"success","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":42,"kind":"success","file":"apple.success.de.wav","bytes":206444,"ms":1518}
+{"ts":"2026-08-28T20:51:26.861Z","event":"item-complete","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":42,"failures":0}
