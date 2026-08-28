@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:22:37.662Z",
+  "ts": "2026-08-28T21:23:18.407Z",
   "event": "success",
   "provider": "openai",
   "category": "fruits",
-  "id": "pear",
-  "de": "Birne",
-  "imageFiles": 24,
-  "file": "pear.png",
-  "bytes": 1163195,
+  "id": "grapes",
+  "de": "Trauben",
+  "imageFiles": 25,
+  "file": "grapes.png",
+  "bytes": 1372839,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 31600
+  "ms": 37885
 }
