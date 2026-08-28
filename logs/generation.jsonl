@@ -265,3 +265,8 @@
 {"ts":"2026-08-28T20:52:17.499Z","event":"start","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":55,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Pfirsich."}
 {"ts":"2026-08-28T20:52:18.484Z","event":"success","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":56,"kind":"success","file":"peach.success.de.wav","bytes":264044,"ms":984}
 {"ts":"2026-08-28T20:52:19.688Z","event":"item-complete","provider":"openai","category":"fruits","id":"peach","de":"Pfirsich","mode":"de","audioFiles":56,"failures":0}
+{"ts":"2026-08-28T20:52:22.216Z","event":"start","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":56,"kind":"question","transcript":"Wo sind die Kirschen?"}
+{"ts":"2026-08-28T20:52:23.022Z","event":"success","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":57,"kind":"question","file":"cherries.question.de.wav","bytes":127244,"ms":803}
+{"ts":"2026-08-28T20:52:24.224Z","event":"start","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":57,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das sind die Kirschen."}
+{"ts":"2026-08-28T20:52:26.081Z","event":"success","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":58,"kind":"success","file":"cherries.success.de.wav","bytes":220844,"ms":1856}
+{"ts":"2026-08-28T20:52:27.283Z","event":"item-complete","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"de","audioFiles":58,"failures":0}

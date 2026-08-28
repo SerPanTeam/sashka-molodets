@@ -202,7 +202,11 @@
           "ua": "червоні"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cherries.question.de.wav",
+        "success": "./assets/generated/audio/cherries.success.de.wav"
+      }
     },
     {
       "id": "kiwi",
