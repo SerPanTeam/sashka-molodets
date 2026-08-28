@@ -1,23 +1,58 @@
 import { expectOk, findBase64Payload, pcm16Mono24kToWav } from "./utils.mjs";
 
 const endpoint = "https://generativelanguage.googleapis.com/v1beta/interactions";
+const headers = () => ({
+  "x-goog-api-key": key(),
+  "Content-Type": "application/json",
+  "Api-Revision": "2026-05-20",
+});
+
 function key() {
   if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is not configured");
   return process.env.GEMINI_API_KEY;
 }
+
+function findText(value) {
+  if (!value || typeof value !== "object") return "";
+  if (value.type === "text" && typeof value.text === "string") return value.text;
+  for (const child of Object.values(value)) {
+    if (child && typeof child === "object") {
+      const found = findText(child);
+      if (found) return found;
+    }
+  }
+  return "";
+}
+
 export function status() {
   return {
     configured: Boolean(process.env.GEMINI_API_KEY),
     imageModel: process.env.GOOGLE_IMAGE_MODEL || "gemini-3.1-flash-image",
-    ttsModel: process.env.GOOGLE_TTS_MODEL || "gemini-3.1-flash-tts-preview"
+    visionModel: process.env.GOOGLE_VISION_MODEL || "gemini-3.6-flash",
+    ttsModel: process.env.GOOGLE_TTS_MODEL || "gemini-3.1-flash-tts-preview",
   };
 }
-export async function generateImage({ prompt, aspectRatio = "1:1", imageSize = "1K", model = process.env.GOOGLE_IMAGE_MODEL || "gemini-3.1-flash-image" }) {
+
+export async function generateImage({
+  prompt,
+  aspectRatio = "1:1",
+  imageSize = "1K",
+  model = process.env.GOOGLE_IMAGE_MODEL || "gemini-3.1-flash-image",
+}) {
   if (!prompt) throw new Error("prompt is required");
   const response = await fetch(endpoint, {
     method: "POST",
-    headers: { "x-goog-api-key": key(), "Content-Type": "application/json" },
-    body: JSON.stringify({ model, input: prompt, response_format: { type: "image", mime_type: "image/png", aspect_ratio: aspectRatio, image_size: imageSize } })
+    headers: headers(),
+    body: JSON.stringify({
+      model,
+      input: prompt,
+      response_format: {
+        type: "image",
+        mime_type: "image/png",
+        aspect_ratio: aspectRatio,
+        image_size: imageSize,
+      },
+    }),
   });
   await expectOk(response, "Google Gemini image");
   const data = await response.json();
@@ -25,14 +60,58 @@ export async function generateImage({ prompt, aspectRatio = "1:1", imageSize = "
   if (!payload) throw new Error("Google image response did not contain image data");
   return { buffer: Buffer.from(payload.data, "base64"), mimeType: payload.mimeType || "image/png" };
 }
-export async function generateSpeech({ text, voice = process.env.GOOGLE_TTS_VOICE || "Kore", language, style = "warm, cheerful, patient teacher speaking clearly to a young child", model = process.env.GOOGLE_TTS_MODEL || "gemini-3.1-flash-tts-preview" }) {
+
+export async function reviewImage({
+  buffer,
+  mimeType = "image/png",
+  expected,
+  model = process.env.GOOGLE_VISION_MODEL || "gemini-3.6-flash",
+}) {
+  if (!buffer?.length) throw new Error("image buffer is required");
+  const instruction = [
+    "You are a strict QA reviewer for picture cards used by young children.",
+    `Expected subject: ${expected}.`,
+    "Check that the image clearly and unmistakably shows the expected subject as the main object.",
+    "It must contain one clear educational subject (natural small groups are allowed only when inherent, e.g. grapes/cherries), the full subject must be visible, with no text, logos, watermarks, confusing extra objects, scary features, anatomical nonsense, or misleading colors/shapes.",
+    "The picture must be immediately recognizable by a child without reading.",
+    "Reply on the first line with exactly PASS or FAIL. On the second line give a very short reason.",
+  ].join(" ");
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify({
+      model,
+      input: [
+        { type: "text", text: instruction },
+        { type: "image", mime_type: mimeType, data: buffer.toString("base64") },
+      ],
+    }),
+  });
+  await expectOk(response, "Google Gemini image QA");
+  const data = await response.json();
+  const text = findText(data).trim();
+  return { pass: /^PASS\b/i.test(text), text };
+}
+
+export async function generateSpeech({
+  text,
+  voice = process.env.GOOGLE_TTS_VOICE || "Kore",
+  language,
+  style = "warm, cheerful, patient preschool teacher; natural, friendly and expressive; clear articulation; relaxed pace; never robotic or exaggerated",
+  model = process.env.GOOGLE_TTS_MODEL || "gemini-3.1-flash-tts-preview",
+}) {
   if (!text) throw new Error("text is required");
   const languageHint = language ? ` Language/locale: ${language}.` : "";
   const input = `Synthesize speech only. Do not read these directions aloud. Voice direction: ${style}.${languageHint}\nTRANSCRIPT:\n${text}`;
   const response = await fetch(endpoint, {
     method: "POST",
-    headers: { "x-goog-api-key": key(), "Content-Type": "application/json" },
-    body: JSON.stringify({ model, input, response_format: { type: "audio" }, generation_config: { speech_config: [{ voice }] } })
+    headers: headers(),
+    body: JSON.stringify({
+      model,
+      input,
+      response_format: { type: "audio" },
+      generation_config: { speech_config: [{ voice }] },
+    }),
   });
   await expectOk(response, "Google Gemini TTS");
   const data = await response.json();
