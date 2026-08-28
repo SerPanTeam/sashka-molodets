@@ -15,6 +15,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toothbrush.question.de.wav",
         "success": "./assets/generated/audio/toothbrush.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/toothbrush.question.ua.wav",
+        "success": "./assets/generated/audio/toothbrush.success.ua.wav"
       }
     },
     {
