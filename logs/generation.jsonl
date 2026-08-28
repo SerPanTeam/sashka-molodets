@@ -564,3 +564,6 @@
 {"ts":"2026-08-28T21:00:29.632Z","event":"skip-existing","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":113,"kind":"question","file":"train.question.de.wav"}
 {"ts":"2026-08-28T21:00:29.634Z","event":"skip-existing","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":113,"kind":"success","file":"train.success.de.wav"}
 {"ts":"2026-08-28T21:00:29.636Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:32.376Z","event":"skip-existing","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":113,"kind":"question","file":"bicycle.question.de.wav"}
+{"ts":"2026-08-28T21:00:32.378Z","event":"skip-existing","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":113,"kind":"success","file":"bicycle.success.de.wav"}
+{"ts":"2026-08-28T21:00:32.380Z","event":"item-complete","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"de","audioFiles":113,"failures":0}
