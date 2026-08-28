@@ -295,3 +295,8 @@
 {"ts":"2026-08-28T20:53:00.411Z","event":"start","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":67,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Gabel."}
 {"ts":"2026-08-28T20:53:01.384Z","event":"success","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":68,"kind":"success","file":"fork.success.de.wav","bytes":252044,"ms":972}
 {"ts":"2026-08-28T20:53:02.586Z","event":"item-complete","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":68,"failures":0}
+{"ts":"2026-08-28T20:53:05.782Z","event":"start","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":68,"kind":"question","transcript":"Wo ist der Tisch?"}
+{"ts":"2026-08-28T20:53:06.886Z","event":"success","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":69,"kind":"question","file":"table.question.de.wav","bytes":117644,"ms":1101}
+{"ts":"2026-08-28T20:53:08.087Z","event":"start","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":69,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Tisch."}
+{"ts":"2026-08-28T20:53:09.120Z","event":"success","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":70,"kind":"success","file":"table.success.de.wav","bytes":244844,"ms":1033}
+{"ts":"2026-08-28T20:53:10.323Z","event":"item-complete","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":70,"failures":0}
