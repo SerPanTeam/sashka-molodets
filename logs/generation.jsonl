@@ -335,3 +335,8 @@
 {"ts":"2026-08-28T20:54:00.907Z","event":"start","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":83,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Zahnpasta."}
 {"ts":"2026-08-28T20:54:01.956Z","event":"success","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":84,"kind":"success","file":"toothpaste.success.de.wav","bytes":228044,"ms":1048}
 {"ts":"2026-08-28T20:54:03.160Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":84,"failures":0}
+{"ts":"2026-08-28T20:54:05.797Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":84,"kind":"question","transcript":"Wo ist die Seife?"}
+{"ts":"2026-08-28T20:54:07.207Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":85,"kind":"question","file":"soap.question.de.wav","bytes":163244,"ms":1407}
+{"ts":"2026-08-28T20:54:08.408Z","event":"start","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":85,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Seife."}
+{"ts":"2026-08-28T20:54:09.481Z","event":"success","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":86,"kind":"success","file":"soap.success.de.wav","bytes":240044,"ms":1073}
+{"ts":"2026-08-28T20:54:10.683Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":86,"failures":0}

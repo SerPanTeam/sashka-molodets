@@ -43,6 +43,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/soap.question.de.wav",
+        "success": "./assets/generated/audio/soap.success.de.wav"
       }
     },
     {
