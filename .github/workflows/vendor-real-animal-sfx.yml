@@ -1,0 +1,101 @@
+name: Vendor real animal SFX
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vendor-real-animal-sfx.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vendor-real-animal-sfx
+  cancel-in-progress: false
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Keep choices inside selected category
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('public/app.js')
+          s = p.read_text(encoding='utf-8')
+          old = 'cats=state.category==="mixed"?enabled():available()'
+          new = 'cats=state.category==="mixed"?enabled():[target.category]'
+          if old in s:
+              s = s.replace(old, new, 1)
+              p.write_text(s, encoding='utf-8')
+          elif new not in s:
+              raise SystemExit('Could not locate category-choice rule in app.js')
+          print('Category purity rule OK')
+          PY
+
+      - name: Download real animal recordings
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/sfx/animals
+          grab() {
+            id="$1"; source="$2"; out="public/assets/sfx/animals/${id}.ogg"
+            echo "Downloading ${id}: ${source}"
+            curl -fL --retry 4 --retry-delay 2 --retry-all-errors \
+              -A 'sashka-molodets educational app/1.0' \
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/${source}" \
+              -o "$out"
+            magic="$(head -c 4 "$out")"
+            test "$magic" = 'OggS' || { echo "ERROR: ${out} is not OGG"; exit 1; }
+            test "$(wc -c < "$out")" -gt 4000 || { echo "ERROR: ${out} is unexpectedly small"; exit 1; }
+          }
+          grab dog 'Barking_of_a_dog.ogg'
+          grab cat 'Meow.ogg'
+          grab cow 'Single_Cow_Moo.ogg'
+          grab horse 'Wiehern.ogg'
+          grab pig 'Mudchute_pig_1.ogg'
+          grab sheep 'Sheep_bleating.ogg'
+          grab lion 'Lion_raring-sound1TamilNadu178.ogg'
+          grab elephant 'Elephant_voice_-_trumpeting.ogg'
+          grab bear 'Bear_growl.ogg'
+          ls -lh public/assets/sfx/animals
+
+      - name: Validate behavior and files
+        run: |
+          set -euo pipefail
+          node --check public/app.js
+          node --check public/object-sfx-local.js
+          grep -Fq 'cats=state.category==="mixed"?enabled():[target.category]' public/app.js
+          grep -Fq "cow: './assets/sfx/animals/cow.ogg'" public/object-sfx-local.js
+          grep -Fq "sheep: './assets/sfx/animals/sheep.ogg'" public/object-sfx-local.js
+          test "$(find public/assets/sfx/animals -maxdepth 1 -type f -name '*.ogg' | wc -l)" -eq 9
+
+      - name: Commit bundled SFX and category rule
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/app.js
+          git add -f public/assets/sfx/animals/*.ogg
+          if git diff --cached --quiet; then
+            echo 'Nothing to commit'
+            exit 0
+          fi
+          git commit -m 'feat: bundle real animal sounds and isolate category choices'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt ${attempt}"
+              exit 0
+            fi
+            echo "Push race on attempt ${attempt}; retrying"
+            sleep $((attempt * 2))
+          done
+          echo 'ERROR: failed to push after retries'
+          exit 1
