@@ -88,3 +88,8 @@
 {"ts":"2026-08-28T20:45:53.930Z","event":"start","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":2,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hund."}
 {"ts":"2026-08-28T20:45:55.617Z","event":"success","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":3,"kind":"success","file":"dog.success.de.wav","bytes":247244,"ms":1686}
 {"ts":"2026-08-28T20:45:56.819Z","event":"item-complete","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":3,"failures":0}
+{"ts":"2026-08-28T20:45:59.331Z","event":"start","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":3,"kind":"question","transcript":"Wo ist die Katze?"}
+{"ts":"2026-08-28T20:46:00.009Z","event":"success","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":4,"kind":"question","file":"cat.question.de.wav","bytes":88844,"ms":675}
+{"ts":"2026-08-28T20:46:01.211Z","event":"start","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":4,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Katze."}
+{"ts":"2026-08-28T20:46:02.921Z","event":"success","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":5,"kind":"success","file":"cat.success.de.wav","bytes":249644,"ms":1709}
+{"ts":"2026-08-28T20:46:04.123Z","event":"item-complete","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":5,"failures":0}
