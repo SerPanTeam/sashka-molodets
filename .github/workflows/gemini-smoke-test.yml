@@ -70,7 +70,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/generated/smoke/tomato.success.de.wav logs/gemini-smoke.log
+          git add public/assets/generated/smoke/tomato.success.de.wav
+          git add -f logs/gemini-smoke.log
           git commit -m 'test: persist successful Gemini TTS smoke asset'
           git pull --rebase origin main
           git push origin HEAD:main
@@ -103,7 +104,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add logs/gemini-smoke.log
+          git add -f logs/gemini-smoke.log
           test ! -f public/assets/generated/smoke/tomato.jpg || git add public/assets/generated/smoke/tomato.jpg
           if git diff --cached --quiet; then
             echo 'No new image/log changes to persist.'
