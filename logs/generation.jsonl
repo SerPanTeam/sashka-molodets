@@ -1501,3 +1501,4 @@
 {"ts":"2026-08-28T22:35:03.509Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","imageFiles":32,"file":"pepper.png"}
 {"ts":"2026-08-28T22:35:06.022Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","imageFiles":32,"file":"broccoli.png"}
 {"ts":"2026-08-28T22:35:08.501Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","imageFiles":32,"file":"onion.png"}
+{"ts":"2026-08-28T22:35:11.078Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","imageFiles":32,"file":"eggplant.png"}
