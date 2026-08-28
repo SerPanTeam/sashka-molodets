@@ -1,4 +1,6 @@
 (() => {
+  const CHILD_NAME_DE = 'Olexander';
+
   // Migrate older saved settings without overwriting an intentional custom category choice.
   try {
     const settingsKey = 'sashka.settings';
@@ -17,6 +19,44 @@
       autoSpeak: saved.autoSpeak !== false,
       categories: looksLikeOldDefault ? newCore : categories
     }));
+  } catch {}
+
+  // Keep the preferred German spelling consistent even in legacy app strings
+  // and browser-speech fallbacks while generated audio is being refreshed.
+  try {
+    const NativeUtterance = window.SpeechSynthesisUtterance;
+    if (NativeUtterance) {
+      const PatchedUtterance = function(text = '') {
+        return new NativeUtterance(String(text).replace(/\bAlexander\b/g, CHILD_NAME_DE));
+      };
+      PatchedUtterance.prototype = NativeUtterance.prototype;
+      window.SpeechSynthesisUtterance = PatchedUtterance;
+    }
+  } catch {}
+
+  const replaceLegacyName = root => {
+    if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      if (node.nodeValue?.includes('Alexander')) {
+        node.nodeValue = node.nodeValue.replace(/\bAlexander\b/g, CHILD_NAME_DE);
+      }
+    }
+  };
+  try {
+    replaceLegacyName(document.body);
+    new MutationObserver(records => {
+      for (const record of records) {
+        for (const node of record.addedNodes) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            if (node.nodeValue?.includes('Alexander')) node.nodeValue = node.nodeValue.replace(/\bAlexander\b/g, CHILD_NAME_DE);
+          } else {
+            replaceLegacyName(node);
+          }
+        }
+      }
+    }).observe(document.body, { childList: true, subtree: true });
   } catch {}
 
   const nativeFetch = window.fetch.bind(window);
