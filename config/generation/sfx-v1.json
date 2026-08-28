@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "modelPreference": ["gemini-omni-1.1-flash", "veo-3.1-lite-generate-preview", "veo-3.1-generate-preview"],
+  "notes": "Generate only child-recognizable object sounds. No music, no speech, no scary intensity. Extract the audio track from the generated short video and keep only the clean SFX asset.",
+  "items": {
+    "dog": "one friendly domestic dog barking twice, clean close sound, no growling",
+    "cat": "one friendly domestic cat meowing twice, clean close sound",
+    "cow": "one calm cow mooing once or twice",
+    "horse": "one horse neighing naturally",
+    "pig": "one farm pig oinking naturally",
+    "sheep": "one sheep baaing naturally",
+    "lion": "one recognizable lion roar, powerful but not frightening for a young child",
+    "elephant": "one elephant trumpeting naturally",
+    "bear": "one low natural brown bear vocalization, calm and not scary",
+    "rabbit": "one rabbit making very soft natural sniffing and movement sounds; subtle, no invented cartoon voice",
+    "car": "ordinary family car engine starting and driving away gently, no horn",
+    "bus": "city bus arriving and doors opening with a soft pneumatic hiss",
+    "train": "passenger train passing with recognizable rail rhythm and a short distant horn",
+    "bicycle": "bicycle bell ringing twice with a little wheel movement",
+    "airplane": "passenger airplane fly-by with clean jet engine sound",
+    "ship": "passenger ship horn sounding once over gentle water",
+    "truck": "cargo truck engine starting and moving slowly",
+    "tractor": "farm tractor engine idling and moving slowly",
+    "tram": "city tram approaching with rail sound and one bell chime",
+    "helicopter": "helicopter rotor sound approaching and passing",
+    "fridge": "household refrigerator compressor starting with a soft steady hum"
+  }
+}
