@@ -1493,3 +1493,4 @@
 {"ts":"2026-08-28T22:34:43.309Z","event":"skip-existing","provider":"openai","category":"animals","id":"lion","de":"Löwe","imageFiles":32,"file":"lion.png"}
 {"ts":"2026-08-28T22:34:45.860Z","event":"skip-existing","provider":"openai","category":"animals","id":"elephant","de":"Elefant","imageFiles":32,"file":"elephant.png"}
 {"ts":"2026-08-28T22:34:48.402Z","event":"skip-existing","provider":"openai","category":"animals","id":"bear","de":"Bär","imageFiles":32,"file":"bear.png"}
+{"ts":"2026-08-28T22:34:50.890Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","imageFiles":32,"file":"tomato.png"}
