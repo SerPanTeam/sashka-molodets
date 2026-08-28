@@ -133,3 +133,7 @@
 {"ts":"2026-08-28T20:47:08.592Z","event":"start","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":20,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Bär."}
 {"ts":"2026-08-28T20:47:09.772Z","event":"success","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":21,"kind":"success","file":"bear.success.de.wav","bytes":244844,"ms":1179}
 {"ts":"2026-08-28T20:47:10.975Z","event":"item-complete","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":21,"failures":0}
+{"ts":"2026-08-28T20:47:13.661Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":21,"kind":"question","file":"tomato.question.de.wav"}
+{"ts":"2026-08-28T20:47:13.665Z","event":"start","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":21,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Tomate."}
+{"ts":"2026-08-28T20:47:14.844Z","event":"success","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":22,"kind":"success","file":"tomato.success.de.wav","bytes":242444,"ms":1179}
+{"ts":"2026-08-28T20:47:16.047Z","event":"item-complete","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":22,"failures":0}

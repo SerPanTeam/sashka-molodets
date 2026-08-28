@@ -20,7 +20,8 @@
       },
       "generatedAudio": {},
       "generatedAudioDe": {
-        "question": "./assets/generated/audio/tomato.question.de.wav"
+        "question": "./assets/generated/audio/tomato.question.de.wav",
+        "success": "./assets/generated/audio/tomato.success.de.wav"
       },
       "generatedImage": "./assets/generated/images/tomato.png"
     },
