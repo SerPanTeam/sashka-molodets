@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:34:33.319Z",
+  "ts": "2026-08-28T22:34:35.876Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "animals",
-  "id": "cow",
-  "de": "Kuh",
+  "id": "horse",
+  "de": "Pferd",
   "imageFiles": 32,
-  "file": "cow.png"
+  "file": "horse.png"
 }
