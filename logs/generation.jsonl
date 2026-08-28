@@ -1225,3 +1225,6 @@
 {"ts":"2026-08-28T22:30:45.465Z","event":"skip-existing","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"kind":"question","file":"fork.question.de.wav"}
 {"ts":"2026-08-28T22:30:45.468Z","event":"skip-existing","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"kind":"success","file":"fork.success.de.wav"}
 {"ts":"2026-08-28T22:30:45.471Z","event":"item-complete","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:47.814Z","event":"skip-existing","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":240,"kind":"question","file":"table.question.de.wav"}
+{"ts":"2026-08-28T22:30:47.818Z","event":"skip-existing","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":240,"kind":"success","file":"table.success.de.wav"}
+{"ts":"2026-08-28T22:30:47.821Z","event":"item-complete","provider":"openai","category":"household","id":"table","de":"Tisch","mode":"de","audioFiles":240,"failures":0}

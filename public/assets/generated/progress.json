@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:30:45.471Z",
+  "ts": "2026-08-28T22:30:47.821Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "fork",
-  "de": "Gabel",
+  "id": "table",
+  "de": "Tisch",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
