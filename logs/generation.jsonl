@@ -1255,3 +1255,6 @@
 {"ts":"2026-08-28T22:31:11.241Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"kind":"question","file":"towel.question.de.wav"}
 {"ts":"2026-08-28T22:31:11.245Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"kind":"success","file":"towel.success.de.wav"}
 {"ts":"2026-08-28T22:31:11.247Z","event":"item-complete","provider":"openai","category":"hygiene","id":"towel","de":"Handtuch","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:13.747Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":240,"kind":"question","file":"shampoo.question.de.wav"}
+{"ts":"2026-08-28T22:31:13.751Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":240,"kind":"success","file":"shampoo.success.de.wav"}
+{"ts":"2026-08-28T22:31:13.753Z","event":"item-complete","provider":"openai","category":"hygiene","id":"shampoo","de":"Shampoo","mode":"de","audioFiles":240,"failures":0}

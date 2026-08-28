@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:31:11.247Z",
+  "ts": "2026-08-28T22:31:13.753Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "towel",
-  "de": "Handtuch",
+  "id": "shampoo",
+  "de": "Shampoo",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
