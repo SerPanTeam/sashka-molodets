@@ -408,3 +408,6 @@
 {"ts":"2026-08-28T20:58:26.363Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"kind":"question","file":"dog.question.de.wav"}
 {"ts":"2026-08-28T20:58:26.366Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"kind":"success","file":"dog.success.de.wav"}
 {"ts":"2026-08-28T20:58:26.368Z","event":"item-complete","provider":"openai","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:58:28.688Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":113,"kind":"question","file":"cat.question.de.wav"}
+{"ts":"2026-08-28T20:58:28.691Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":113,"kind":"success","file":"cat.success.de.wav"}
+{"ts":"2026-08-28T20:58:28.693Z","event":"item-complete","provider":"openai","category":"animals","id":"cat","de":"Katze","mode":"de","audioFiles":113,"failures":0}

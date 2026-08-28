@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T20:58:26.368Z",
+  "ts": "2026-08-28T20:58:28.693Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "animals",
-  "id": "dog",
-  "de": "Hund",
+  "id": "cat",
+  "de": "Katze",
   "mode": "de",
   "audioFiles": 113,
   "failures": 0
