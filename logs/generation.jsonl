@@ -250,3 +250,8 @@
 {"ts":"2026-08-28T20:51:53.634Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":49,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das sind die Trauben."}
 {"ts":"2026-08-28T20:51:54.772Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":50,"kind":"success","file":"grapes.success.de.wav","bytes":276044,"ms":1136}
 {"ts":"2026-08-28T20:51:55.975Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"de","audioFiles":50,"failures":0}
+{"ts":"2026-08-28T20:51:58.512Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":50,"kind":"question","transcript":"Wo ist die Erdbeere?"}
+{"ts":"2026-08-28T20:52:00.012Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":51,"kind":"question","file":"strawberry.question.de.wav","bytes":132044,"ms":1496}
+{"ts":"2026-08-28T20:52:01.213Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":51,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Erdbeere."}
+{"ts":"2026-08-28T20:52:03.150Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":52,"kind":"success","file":"strawberry.success.de.wav","bytes":268844,"ms":1936}
+{"ts":"2026-08-28T20:52:04.352Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"de","audioFiles":52,"failures":0}

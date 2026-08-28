@@ -133,7 +133,11 @@
           "ua": "червона"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/strawberry.question.de.wav",
+        "success": "./assets/generated/audio/strawberry.success.de.wav"
+      }
     },
     {
       "id": "watermelon",
