@@ -222,7 +222,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/onion.question.ua.wav",
         "success": "./assets/generated/audio/onion.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/onion.png"
     },
     {
       "id": "eggplant",

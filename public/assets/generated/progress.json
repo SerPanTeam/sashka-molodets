@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:18:35.829Z",
+  "ts": "2026-08-28T21:19:09.625Z",
   "event": "success",
   "provider": "openai",
   "category": "vegetables",
-  "id": "broccoli",
-  "de": "Brokkoli",
-  "imageFiles": 17,
-  "file": "broccoli.png",
-  "bytes": 1362224,
+  "id": "onion",
+  "de": "Zwiebel",
+  "imageFiles": 18,
+  "file": "onion.png",
+  "bytes": 1117456,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 33526
+  "ms": 31019
 }
