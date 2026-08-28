@@ -166,7 +166,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/strawberry.question.ua.wav",
         "success": "./assets/generated/audio/strawberry.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/strawberry.png"
     },
     {
       "id": "watermelon",

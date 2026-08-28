@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:23:18.407Z",
+  "ts": "2026-08-28T21:23:56.588Z",
   "event": "success",
   "provider": "openai",
   "category": "fruits",
-  "id": "grapes",
-  "de": "Trauben",
-  "imageFiles": 25,
-  "file": "grapes.png",
-  "bytes": 1372839,
+  "id": "strawberry",
+  "de": "Erdbeere",
+  "imageFiles": 26,
+  "file": "strawberry.png",
+  "bytes": 1251601,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 37885
+  "ms": 35195
 }
