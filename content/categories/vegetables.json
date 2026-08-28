@@ -77,6 +77,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/carrot.question.de.wav",
         "success": "./assets/generated/audio/carrot.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/carrot.question.ua.wav",
+        "success": "./assets/generated/audio/carrot.success.ua.wav"
       }
     },
     {

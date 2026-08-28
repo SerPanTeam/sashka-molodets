@@ -652,3 +652,8 @@
 {"ts":"2026-08-28T21:02:52.705Z","event":"start","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":143,"kind":"success","transcript":"Сашка, молодець! Це огірок."}
 {"ts":"2026-08-28T21:02:53.554Z","event":"success","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":144,"kind":"success","file":"cucumber.success.ua.wav","bytes":237644,"ms":848}
 {"ts":"2026-08-28T21:02:54.757Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"ua","audioFiles":144,"failures":0}
+{"ts":"2026-08-28T21:02:57.105Z","event":"start","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":144,"kind":"question","transcript":"Де морква?"}
+{"ts":"2026-08-28T21:02:57.920Z","event":"success","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":145,"kind":"question","file":"carrot.question.ua.wav","bytes":108044,"ms":812}
+{"ts":"2026-08-28T21:02:59.121Z","event":"start","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":145,"kind":"success","transcript":"Сашка, молодець! Це морква."}
+{"ts":"2026-08-28T21:03:00.160Z","event":"success","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":146,"kind":"success","file":"carrot.success.ua.wav","bytes":192044,"ms":1037}
+{"ts":"2026-08-28T21:03:01.364Z","event":"item-complete","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"ua","audioFiles":146,"failures":0}
