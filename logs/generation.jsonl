@@ -1390,3 +1390,6 @@
 {"ts":"2026-08-28T22:33:04.629Z","event":"skip-existing","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"ua","audioFiles":240,"kind":"question","file":"cherries.question.ua.wav"}
 {"ts":"2026-08-28T22:33:04.633Z","event":"skip-existing","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"ua","audioFiles":240,"kind":"success","file":"cherries.success.ua.wav"}
 {"ts":"2026-08-28T22:33:04.635Z","event":"item-complete","provider":"openai","category":"fruits","id":"cherries","de":"Kirschen","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:33:07.298Z","event":"skip-existing","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":240,"kind":"question","file":"kiwi.question.ua.wav"}
+{"ts":"2026-08-28T22:33:07.301Z","event":"skip-existing","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":240,"kind":"success","file":"kiwi.success.ua.wav"}
+{"ts":"2026-08-28T22:33:07.304Z","event":"item-complete","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"ua","audioFiles":240,"failures":0}
