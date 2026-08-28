@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:30.911Z",
+  "ts": "2026-08-28T22:35:33.318Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "fruits",
-  "id": "watermelon",
-  "de": "Wassermelone",
+  "id": "peach",
+  "de": "Pfirsich",
   "imageFiles": 32,
-  "file": "watermelon.png"
+  "file": "peach.png"
 }
