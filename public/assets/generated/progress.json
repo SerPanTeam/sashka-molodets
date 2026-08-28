@@ -1,14 +1,11 @@
 {
-  "ts": "2026-08-28T20:45:49.194Z",
-  "event": "success",
+  "ts": "2026-08-28T20:45:56.819Z",
+  "event": "item-complete",
   "provider": "openai",
-  "category": "vegetables",
-  "id": "tomato",
-  "de": "Tomate",
-  "imageFiles": 1,
-  "file": "tomato.png",
-  "bytes": 1221103,
-  "mimeType": "image/png",
-  "quality": "medium",
-  "ms": 37485
+  "category": "animals",
+  "id": "dog",
+  "de": "Hund",
+  "mode": "de",
+  "audioFiles": 3,
+  "failures": 0
 }
