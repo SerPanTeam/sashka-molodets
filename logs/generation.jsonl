@@ -1503,3 +1503,4 @@
 {"ts":"2026-08-28T22:35:08.501Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","imageFiles":32,"file":"onion.png"}
 {"ts":"2026-08-28T22:35:11.078Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"eggplant","de":"Aubergine","imageFiles":32,"file":"eggplant.png"}
 {"ts":"2026-08-28T22:35:13.576Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","imageFiles":32,"file":"garlic.png"}
+{"ts":"2026-08-28T22:35:16.136Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","imageFiles":32,"file":"apple.png"}
