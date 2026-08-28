@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:14:25.509Z",
+  "ts": "2026-08-28T21:15:00.618Z",
   "event": "success",
   "provider": "openai",
   "category": "animals",
-  "id": "elephant",
-  "de": "Elefant",
-  "imageFiles": 10,
-  "file": "elephant.png",
-  "bytes": 1616355,
+  "id": "bear",
+  "de": "Bär",
+  "imageFiles": 11,
+  "file": "bear.png",
+  "bytes": 1593543,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 43150
+  "ms": 32146
 }

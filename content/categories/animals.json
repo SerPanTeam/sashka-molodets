@@ -97,7 +97,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/bear.question.ua.wav",
         "success": "./assets/generated/audio/bear.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/bear.png"
     },
     {
       "id": "fox",
