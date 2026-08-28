@@ -1459,3 +1459,6 @@
 {"ts":"2026-08-28T22:34:02.719Z","event":"skip-existing","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":240,"kind":"question","file":"bus.question.ua.wav"}
 {"ts":"2026-08-28T22:34:02.723Z","event":"skip-existing","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":240,"kind":"success","file":"bus.success.ua.wav"}
 {"ts":"2026-08-28T22:34:02.725Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:34:05.320Z","event":"skip-existing","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":240,"kind":"question","file":"train.question.ua.wav"}
+{"ts":"2026-08-28T22:34:05.324Z","event":"skip-existing","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":240,"kind":"success","file":"train.success.ua.wav"}
+{"ts":"2026-08-28T22:34:05.326Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":240,"failures":0}
