@@ -1171,3 +1171,6 @@
 {"ts":"2026-08-28T22:30:00.113Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":240,"kind":"question","file":"pepper.question.de.wav"}
 {"ts":"2026-08-28T22:30:00.116Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":240,"kind":"success","file":"pepper.success.de.wav"}
 {"ts":"2026-08-28T22:30:00.119Z","event":"item-complete","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:02.539Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":240,"kind":"question","file":"broccoli.question.de.wav"}
+{"ts":"2026-08-28T22:30:02.543Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":240,"kind":"success","file":"broccoli.success.de.wav"}
+{"ts":"2026-08-28T22:30:02.546Z","event":"item-complete","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":240,"failures":0}
