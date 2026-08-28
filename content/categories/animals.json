@@ -242,7 +242,11 @@
       "article": {
         "de": "der"
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/elephant.question.de.wav",
+        "success": "./assets/generated/audio/elephant.success.de.wav"
+      }
     }
   ]
 }

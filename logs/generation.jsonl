@@ -123,3 +123,8 @@
 {"ts":"2026-08-28T20:46:53.020Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":16,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Löwe."}
 {"ts":"2026-08-28T20:46:54.104Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":17,"kind":"success","file":"lion.success.de.wav","bytes":266444,"ms":1083}
 {"ts":"2026-08-28T20:46:55.307Z","event":"item-complete","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"de","audioFiles":17,"failures":0}
+{"ts":"2026-08-28T20:46:58.004Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":17,"kind":"question","transcript":"Wo ist der Elefant?"}
+{"ts":"2026-08-28T20:46:58.977Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":18,"kind":"question","file":"elephant.question.de.wav","bytes":156044,"ms":969}
+{"ts":"2026-08-28T20:47:00.179Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":18,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Elefant."}
+{"ts":"2026-08-28T20:47:01.416Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":19,"kind":"success","file":"elephant.success.de.wav","bytes":273644,"ms":1236}
+{"ts":"2026-08-28T20:47:02.618Z","event":"item-complete","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"de","audioFiles":19,"failures":0}
