@@ -123,6 +123,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/toilet-paper.question.de.wav",
+        "success": "./assets/generated/audio/toilet-paper.success.de.wav"
       }
     },
     {

@@ -360,3 +360,8 @@
 {"ts":"2026-08-28T20:54:37.040Z","event":"start","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":93,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Schwamm."}
 {"ts":"2026-08-28T20:54:38.128Z","event":"success","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":94,"kind":"success","file":"sponge.success.de.wav","bytes":256844,"ms":1087}
 {"ts":"2026-08-28T20:54:39.333Z","event":"item-complete","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":94,"failures":0}
+{"ts":"2026-08-28T20:54:42.009Z","event":"start","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":94,"kind":"question","transcript":"Wo ist das Toilettenpapier?"}
+{"ts":"2026-08-28T20:54:42.767Z","event":"success","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":95,"kind":"question","file":"toilet-paper.question.de.wav","bytes":156044,"ms":754}
+{"ts":"2026-08-28T20:54:43.970Z","event":"start","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":95,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist das Toilettenpapier."}
+{"ts":"2026-08-28T20:54:45.023Z","event":"success","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":96,"kind":"success","file":"toilet-paper.success.de.wav","bytes":268844,"ms":1052}
+{"ts":"2026-08-28T20:54:46.227Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":96,"failures":0}
