@@ -238,6 +238,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/cherries.question.de.wav",
         "success": "./assets/generated/audio/cherries.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/cherries.question.ua.wav",
+        "success": "./assets/generated/audio/cherries.success.ua.wav"
       }
     },
     {
