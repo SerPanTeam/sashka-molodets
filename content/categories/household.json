@@ -195,6 +195,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/fridge.question.de.wav",
         "success": "./assets/generated/audio/fridge.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/fridge.question.ua.wav",
+        "success": "./assets/generated/audio/fridge.success.ua.wav"
       }
     }
   ]

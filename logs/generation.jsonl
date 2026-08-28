@@ -787,3 +787,8 @@
 {"ts":"2026-08-28T21:05:59.848Z","event":"start","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"ua","audioFiles":197,"kind":"success","transcript":"Сашка, молодець! Це сковорідка."}
 {"ts":"2026-08-28T21:06:00.938Z","event":"success","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"ua","audioFiles":198,"kind":"success","file":"pan.success.ua.wav","bytes":180044,"ms":1090}
 {"ts":"2026-08-28T21:06:02.142Z","event":"item-complete","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"ua","audioFiles":198,"failures":0}
+{"ts":"2026-08-28T21:06:04.516Z","event":"start","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"ua","audioFiles":198,"kind":"question","transcript":"Де холодильник?"}
+{"ts":"2026-08-28T21:06:05.669Z","event":"success","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"ua","audioFiles":199,"kind":"question","file":"fridge.question.ua.wav","bytes":108044,"ms":1149}
+{"ts":"2026-08-28T21:06:06.870Z","event":"start","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"ua","audioFiles":199,"kind":"success","transcript":"Сашка, молодець! Це холодильник."}
+{"ts":"2026-08-28T21:06:07.767Z","event":"success","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"ua","audioFiles":200,"kind":"success","file":"fridge.success.ua.wav","bytes":182444,"ms":896}
+{"ts":"2026-08-28T21:06:08.970Z","event":"item-complete","provider":"openai","category":"household","id":"fridge","de":"Kühlschrank","mode":"ua","audioFiles":200,"failures":0}
