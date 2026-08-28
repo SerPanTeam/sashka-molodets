@@ -101,7 +101,8 @@
       },
       "generatedAudio": {
         "question": "./assets/generated/audio/lion.question.bilingual.wav"
-      }
+      },
+      "generatedAudioDe": {}
     },
     {
       "id": "cow",
