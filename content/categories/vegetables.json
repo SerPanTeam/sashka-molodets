@@ -104,6 +104,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/corn.question.de.wav",
         "success": "./assets/generated/audio/corn.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/corn.question.ua.wav",
+        "success": "./assets/generated/audio/corn.success.ua.wav"
       }
     },
     {
