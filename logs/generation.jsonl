@@ -1471,3 +1471,6 @@
 {"ts":"2026-08-28T22:34:12.862Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":240,"kind":"question","file":"ship.question.ua.wav"}
 {"ts":"2026-08-28T22:34:12.865Z","event":"skip-existing","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":240,"kind":"success","file":"ship.success.ua.wav"}
 {"ts":"2026-08-28T22:34:12.868Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:34:15.425Z","event":"skip-existing","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":240,"kind":"question","file":"truck.question.ua.wav"}
+{"ts":"2026-08-28T22:34:15.429Z","event":"skip-existing","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":240,"kind":"success","file":"truck.success.ua.wav"}
+{"ts":"2026-08-28T22:34:15.431Z","event":"item-complete","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":240,"failures":0}
