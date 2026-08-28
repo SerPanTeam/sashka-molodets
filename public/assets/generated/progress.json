@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:33:34.329Z",
+  "ts": "2026-08-28T22:33:36.915Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "toothbrush",
-  "de": "Zahnbürste",
+  "id": "toothpaste",
+  "de": "Zahnpasta",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
