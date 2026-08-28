@@ -465,3 +465,6 @@
 {"ts":"2026-08-28T20:59:10.856Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"kind":"question","file":"garlic.question.de.wav"}
 {"ts":"2026-08-28T20:59:10.859Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"kind":"success","file":"garlic.success.de.wav"}
 {"ts":"2026-08-28T20:59:10.861Z","event":"item-complete","provider":"openai","category":"vegetables","id":"garlic","de":"Knoblauch","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:13.363Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"kind":"question","file":"apple.question.de.wav"}
+{"ts":"2026-08-28T20:59:13.366Z","event":"skip-existing","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"kind":"success","file":"apple.success.de.wav"}
+{"ts":"2026-08-28T20:59:13.367Z","event":"item-complete","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":113,"failures":0}
