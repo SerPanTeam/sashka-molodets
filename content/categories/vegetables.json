@@ -131,6 +131,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/pepper.question.de.wav",
         "success": "./assets/generated/audio/pepper.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pepper.question.ua.wav",
+        "success": "./assets/generated/audio/pepper.success.ua.wav"
       }
     },
     {

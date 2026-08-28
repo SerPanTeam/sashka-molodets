@@ -667,3 +667,8 @@
 {"ts":"2026-08-28T21:03:13.008Z","event":"start","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":149,"kind":"success","transcript":"Сашка, молодець! Це кукурудза."}
 {"ts":"2026-08-28T21:03:14.682Z","event":"success","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":150,"kind":"success","file":"corn.success.ua.wav","bytes":285644,"ms":1673}
 {"ts":"2026-08-28T21:03:15.884Z","event":"item-complete","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":150,"failures":0}
+{"ts":"2026-08-28T21:03:18.502Z","event":"start","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":150,"kind":"question","transcript":"Де перець?"}
+{"ts":"2026-08-28T21:03:19.134Z","event":"success","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":151,"kind":"question","file":"pepper.question.ua.wav","bytes":74444,"ms":630}
+{"ts":"2026-08-28T21:03:20.335Z","event":"start","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":151,"kind":"success","transcript":"Сашка, молодець! Це перець."}
+{"ts":"2026-08-28T21:03:21.281Z","event":"success","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":152,"kind":"success","file":"pepper.success.ua.wav","bytes":165644,"ms":945}
+{"ts":"2026-08-28T21:03:22.484Z","event":"item-complete","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":152,"failures":0}
