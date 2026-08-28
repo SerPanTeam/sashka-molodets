@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:33:36.915Z",
+  "ts": "2026-08-28T22:33:39.478Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "toothpaste",
-  "de": "Zahnpasta",
+  "id": "soap",
+  "de": "Seife",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
