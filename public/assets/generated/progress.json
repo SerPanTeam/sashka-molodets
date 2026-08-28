@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:35:11.078Z",
+  "ts": "2026-08-28T22:35:13.576Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "vegetables",
-  "id": "eggplant",
-  "de": "Aubergine",
+  "id": "garlic",
+  "de": "Knoblauch",
   "imageFiles": 32,
-  "file": "eggplant.png"
+  "file": "garlic.png"
 }
