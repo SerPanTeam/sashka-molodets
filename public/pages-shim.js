@@ -1,13 +1,18 @@
 (() => {
-  // Bilingual mode is a product rule: every prompt/feedback is spoken
-  // first in German and then in Ukrainian. Keep auto speech enabled by default.
+  // Migrate older saved settings without overwriting an intentional custom category choice.
   try {
     const settingsKey = 'sashka.settings';
     const saved = JSON.parse(localStorage.getItem(settingsKey) || '{}');
+    const oldCore = ['animals', 'vegetables', 'fruits'];
+    const newCore = ['animals', 'vegetables', 'fruits', 'household', 'hygiene', 'transport'];
+    const categories = Array.isArray(saved.categories) ? saved.categories : [];
+    const looksLikeOldDefault = categories.length === 0 || (categories.length === 3 && oldCore.every(x => categories.includes(x)));
     localStorage.setItem(settingsKey, JSON.stringify({
       ...saved,
-      languageMode: 'dual',
-      autoSpeak: true
+      settingsVersion: 2,
+      voiceMode: saved.voiceMode === 'de' ? 'de' : 'dual',
+      autoSpeak: saved.autoSpeak !== false,
+      categories: looksLikeOldDefault ? newCore : categories
     }));
   } catch {}
 
@@ -18,13 +23,11 @@
     if (!manifestResponse.ok) throw new Error('Static content manifest unavailable');
     const manifest = await manifestResponse.json();
     const categoryFiles = Array.isArray(manifest.categoryFiles) ? manifest.categoryFiles : [];
-    const categories = await Promise.all(
-      categoryFiles.map(async path => {
-        const response = await nativeFetch(`./content/${path}`);
-        if (!response.ok) throw new Error(`Content file unavailable: ${path}`);
-        return response.json();
-      })
-    );
+    const categories = await Promise.all(categoryFiles.map(async path => {
+      const response = await nativeFetch(`./content/${path}`, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Content file unavailable: ${path}`);
+      return response.json();
+    }));
     return {
       schemaVersion: manifest.schemaVersion || 1,
       languages: manifest.languages || ['de-DE', 'uk-UA'],
@@ -37,15 +40,10 @@
     if (url === '/api/content') {
       try {
         const response = await nativeFetch(input, init);
-        if (response.ok && (response.headers.get('content-type') || '').includes('application/json')) {
-          return response;
-        }
+        if (response.ok && (response.headers.get('content-type') || '').includes('application/json')) return response;
       } catch {}
       const content = await loadStaticContent();
-      return new Response(JSON.stringify(content), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json; charset=utf-8' }
-      });
+      return new Response(JSON.stringify(content), { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } });
     }
     return nativeFetch(input, init);
   };
@@ -53,8 +51,7 @@
   if ('serviceWorker' in navigator && typeof navigator.serviceWorker.register === 'function') {
     const nativeRegister = navigator.serviceWorker.register.bind(navigator.serviceWorker);
     try {
-      navigator.serviceWorker.register = (scriptURL, options) =>
-        nativeRegister(scriptURL === '/sw.js' ? './sw.js' : scriptURL, options);
+      navigator.serviceWorker.register = (scriptURL, options) => nativeRegister(scriptURL === '/sw.js' ? './sw.js' : scriptURL, options);
     } catch {}
   }
 })();
