@@ -1465,3 +1465,6 @@
 {"ts":"2026-08-28T22:34:07.883Z","event":"skip-existing","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":240,"kind":"question","file":"bicycle.question.ua.wav"}
 {"ts":"2026-08-28T22:34:07.887Z","event":"skip-existing","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":240,"kind":"success","file":"bicycle.success.ua.wav"}
 {"ts":"2026-08-28T22:34:07.889Z","event":"item-complete","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:34:10.385Z","event":"skip-existing","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":240,"kind":"question","file":"airplane.question.ua.wav"}
+{"ts":"2026-08-28T22:34:10.388Z","event":"skip-existing","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":240,"kind":"success","file":"airplane.success.ua.wav"}
+{"ts":"2026-08-28T22:34:10.391Z","event":"item-complete","provider":"openai","category":"transport","id":"airplane","de":"Flugzeug","mode":"ua","audioFiles":240,"failures":0}
