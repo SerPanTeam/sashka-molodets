@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T21:02:17.964Z",
+  "ts": "2026-08-28T21:02:24.447Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "animals",
-  "id": "pig",
-  "de": "Schwein",
+  "id": "sheep",
+  "de": "Schaf",
   "mode": "ua",
-  "audioFiles": 133,
+  "audioFiles": 135,
   "failures": 0
 }

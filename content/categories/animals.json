@@ -209,6 +209,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/sheep.question.de.wav",
         "success": "./assets/generated/audio/sheep.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/sheep.question.ua.wav",
+        "success": "./assets/generated/audio/sheep.success.ua.wav"
       }
     },
     {

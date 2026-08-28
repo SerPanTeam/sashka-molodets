@@ -623,3 +623,8 @@
 {"ts":"2026-08-28T21:02:15.788Z","event":"start","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"ua","audioFiles":132,"kind":"success","transcript":"Сашка, молодець! Це свиня."}
 {"ts":"2026-08-28T21:02:16.762Z","event":"success","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"ua","audioFiles":133,"kind":"success","file":"pig.success.ua.wav","bytes":194444,"ms":973}
 {"ts":"2026-08-28T21:02:17.964Z","event":"item-complete","provider":"openai","category":"animals","id":"pig","de":"Schwein","mode":"ua","audioFiles":133,"failures":0}
+{"ts":"2026-08-28T21:02:20.273Z","event":"start","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":133,"kind":"question","transcript":"Де вівця?"}
+{"ts":"2026-08-28T21:02:21.040Z","event":"success","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":134,"kind":"question","file":"sheep.question.ua.wav","bytes":86444,"ms":765}
+{"ts":"2026-08-28T21:02:22.242Z","event":"start","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":134,"kind":"success","transcript":"Сашка, молодець! Це вівця."}
+{"ts":"2026-08-28T21:02:23.244Z","event":"success","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":135,"kind":"success","file":"sheep.success.ua.wav","bytes":192044,"ms":1002}
+{"ts":"2026-08-28T21:02:24.447Z","event":"item-complete","provider":"openai","category":"animals","id":"sheep","de":"Schaf","mode":"ua","audioFiles":135,"failures":0}
