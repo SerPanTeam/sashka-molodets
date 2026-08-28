@@ -330,3 +330,8 @@
 {"ts":"2026-08-28T20:53:52.528Z","event":"start","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":81,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Zahnbürste."}
 {"ts":"2026-08-28T20:53:53.777Z","event":"success","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":82,"kind":"success","file":"toothbrush.success.de.wav","bytes":264044,"ms":1248}
 {"ts":"2026-08-28T20:53:54.980Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothbrush","de":"Zahnbürste","mode":"de","audioFiles":82,"failures":0}
+{"ts":"2026-08-28T20:53:58.686Z","event":"start","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":82,"kind":"question","transcript":"Wo ist die Zahnpasta?"}
+{"ts":"2026-08-28T20:53:59.706Z","event":"success","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":83,"kind":"question","file":"toothpaste.question.de.wav","bytes":158444,"ms":1017}
+{"ts":"2026-08-28T20:54:00.907Z","event":"start","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":83,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Zahnpasta."}
+{"ts":"2026-08-28T20:54:01.956Z","event":"success","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":84,"kind":"success","file":"toothpaste.success.de.wav","bytes":228044,"ms":1048}
+{"ts":"2026-08-28T20:54:03.160Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":84,"failures":0}

@@ -27,6 +27,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/toothpaste.question.de.wav",
+        "success": "./assets/generated/audio/toothpaste.success.de.wav"
       }
     },
     {
