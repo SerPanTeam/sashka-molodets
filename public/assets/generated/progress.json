@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:32:36.846Z",
+  "ts": "2026-08-28T22:32:39.359Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "onion",
-  "de": "Zwiebel",
+  "id": "eggplant",
+  "de": "Aubergine",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
