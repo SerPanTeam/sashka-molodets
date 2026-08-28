@@ -495,3 +495,6 @@
 {"ts":"2026-08-28T20:59:35.384Z","event":"skip-existing","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":113,"kind":"question","file":"kiwi.question.de.wav"}
 {"ts":"2026-08-28T20:59:35.386Z","event":"skip-existing","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":113,"kind":"success","file":"kiwi.success.de.wav"}
 {"ts":"2026-08-28T20:59:35.388Z","event":"item-complete","provider":"openai","category":"fruits","id":"kiwi","de":"Kiwi","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:37.686Z","event":"skip-existing","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":113,"kind":"question","file":"cup.question.de.wav"}
+{"ts":"2026-08-28T20:59:37.689Z","event":"skip-existing","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":113,"kind":"success","file":"cup.success.de.wav"}
+{"ts":"2026-08-28T20:59:37.691Z","event":"item-complete","provider":"openai","category":"household","id":"cup","de":"Tasse","mode":"de","audioFiles":113,"failures":0}
