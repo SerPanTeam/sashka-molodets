@@ -1153,3 +1153,6 @@
 {"ts":"2026-08-28T22:29:45.114Z","event":"skip-existing","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":240,"kind":"question","file":"bear.question.de.wav"}
 {"ts":"2026-08-28T22:29:45.117Z","event":"skip-existing","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":240,"kind":"success","file":"bear.success.de.wav"}
 {"ts":"2026-08-28T22:29:45.120Z","event":"item-complete","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:29:47.675Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":240,"kind":"question","file":"tomato.question.de.wav"}
+{"ts":"2026-08-28T22:29:47.679Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":240,"kind":"success","file":"tomato.success.de.wav"}
+{"ts":"2026-08-28T22:29:47.682Z","event":"item-complete","provider":"openai","category":"vegetables","id":"tomato","de":"Tomate","mode":"de","audioFiles":240,"failures":0}

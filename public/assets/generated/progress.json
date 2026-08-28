@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:29:45.120Z",
+  "ts": "2026-08-28T22:29:47.682Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "animals",
-  "id": "bear",
-  "de": "Bär",
+  "category": "vegetables",
+  "id": "tomato",
+  "de": "Tomate",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
