@@ -87,7 +87,11 @@
           "ua": "зелена"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pear.question.de.wav",
+        "success": "./assets/generated/audio/pear.success.de.wav"
+      }
     },
     {
       "id": "grapes",

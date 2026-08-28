@@ -240,3 +240,8 @@
 {"ts":"2026-08-28T20:51:39.081Z","event":"start","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":45,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Orange."}
 {"ts":"2026-08-28T20:51:39.972Z","event":"success","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":46,"kind":"success","file":"orange.success.de.wav","bytes":235244,"ms":890}
 {"ts":"2026-08-28T20:51:41.176Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":46,"failures":0}
+{"ts":"2026-08-28T20:51:43.798Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":46,"kind":"question","transcript":"Wo ist die Birne?"}
+{"ts":"2026-08-28T20:51:44.520Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":47,"kind":"question","file":"pear.question.de.wav","bytes":84044,"ms":719}
+{"ts":"2026-08-28T20:51:45.722Z","event":"start","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":47,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Birne."}
+{"ts":"2026-08-28T20:51:47.443Z","event":"success","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":48,"kind":"success","file":"pear.success.de.wav","bytes":228044,"ms":1720}
+{"ts":"2026-08-28T20:51:48.646Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":48,"failures":0}
