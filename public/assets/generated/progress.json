@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:53:47.681Z",
+  "ts": "2026-08-28T20:53:54.980Z",
   "event": "item-complete",
   "provider": "openai",
-  "category": "household",
-  "id": "fridge",
-  "de": "Kühlschrank",
+  "category": "hygiene",
+  "id": "toothbrush",
+  "de": "Zahnbürste",
   "mode": "de",
-  "audioFiles": 80,
+  "audioFiles": 82,
   "failures": 0
 }

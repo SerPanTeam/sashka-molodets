@@ -11,6 +11,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/toothbrush.question.de.wav",
+        "success": "./assets/generated/audio/toothbrush.success.de.wav"
       }
     },
     {
