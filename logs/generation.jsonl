@@ -697,3 +697,8 @@
 {"ts":"2026-08-28T21:03:56.972Z","event":"start","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"ua","audioFiles":161,"kind":"success","transcript":"Сашка, молодець! Це яблуко."}
 {"ts":"2026-08-28T21:03:57.787Z","event":"success","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"ua","audioFiles":162,"kind":"success","file":"apple.success.ua.wav","bytes":172844,"ms":811}
 {"ts":"2026-08-28T21:03:58.991Z","event":"item-complete","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"ua","audioFiles":162,"failures":0}
+{"ts":"2026-08-28T21:04:02.729Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":162,"kind":"question","transcript":"Де банан?"}
+{"ts":"2026-08-28T21:04:03.601Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":163,"kind":"question","file":"banana.question.ua.wav","bytes":74444,"ms":868}
+{"ts":"2026-08-28T21:04:04.802Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":163,"kind":"success","transcript":"Сашка, молодець! Це банан."}
+{"ts":"2026-08-28T21:04:06.014Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":164,"kind":"success","file":"banana.success.ua.wav","bytes":285644,"ms":1210}
+{"ts":"2026-08-28T21:04:07.236Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"ua","audioFiles":164,"failures":0}
