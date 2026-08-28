@@ -633,3 +633,8 @@
 {"ts":"2026-08-28T21:02:28.719Z","event":"start","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":136,"kind":"success","transcript":"Сашка, молодець! Це лев."}
 {"ts":"2026-08-28T21:02:29.547Z","event":"success","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":137,"kind":"success","file":"lion.success.ua.wav","bytes":158444,"ms":828}
 {"ts":"2026-08-28T21:02:30.749Z","event":"item-complete","provider":"openai","category":"animals","id":"lion","de":"Löwe","mode":"ua","audioFiles":137,"failures":0}
+{"ts":"2026-08-28T21:02:33.127Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":137,"kind":"question","transcript":"Де слон?"}
+{"ts":"2026-08-28T21:02:33.897Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":138,"kind":"question","file":"elephant.question.ua.wav","bytes":86444,"ms":768}
+{"ts":"2026-08-28T21:02:35.099Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":138,"kind":"success","transcript":"Сашка, молодець! Це слон."}
+{"ts":"2026-08-28T21:02:35.964Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":139,"kind":"success","file":"elephant.success.ua.wav","bytes":170444,"ms":865}
+{"ts":"2026-08-28T21:02:37.238Z","event":"item-complete","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":139,"failures":0}
