@@ -16,6 +16,10 @@
         "question": "./assets/generated/audio/dog.question.bilingual.wav",
         "success": "./assets/generated/audio/dog.success.bilingual.wav",
         "retry": "./assets/generated/audio/dog.retry.bilingual.wav"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/dog.question.de.wav",
+        "success": "./assets/generated/audio/dog.success.de.wav"
       }
     },
     {

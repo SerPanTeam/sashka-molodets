@@ -1,0 +1,5 @@
+{"ts":"2026-08-28T20:04:43.074Z","event":"start","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":0,"kind":"question","transcript":"Wo ist der Hund?"}
+{"ts":"2026-08-28T20:04:47.573Z","event":"success","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":1,"kind":"question","file":"dog.question.de.wav","bytes":122924,"ms":4496}
+{"ts":"2026-08-28T20:04:54.576Z","event":"start","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":1,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Hund."}
+{"ts":"2026-08-28T20:05:02.023Z","event":"success","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":2,"kind":"success","file":"dog.success.de.wav","bytes":286124,"ms":7446}
+{"ts":"2026-08-28T20:05:09.026Z","event":"item-complete","category":"animals","id":"dog","de":"Hund","mode":"de","audioFiles":2,"failures":0}

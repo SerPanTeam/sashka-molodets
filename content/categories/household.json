@@ -1,15 +1,125 @@
 {
   "category": "household",
   "items": [
-    {"id":"cup","category":"household","emoji":"☕","labels":{"de":"Tasse","ua":"чашка"},"article":{"de":"die"}},
-    {"id":"plate","category":"household","emoji":"🍽️","labels":{"de":"Teller","ua":"тарілка"},"article":{"de":"der"}},
-    {"id":"spoon","category":"household","emoji":"🥄","labels":{"de":"Löffel","ua":"ложка"},"article":{"de":"der"}},
-    {"id":"fork","category":"household","emoji":"🍴","labels":{"de":"Gabel","ua":"виделка"},"article":{"de":"die"}},
-    {"id":"table","category":"household","emoji":"🪵","labels":{"de":"Tisch","ua":"стіл"},"article":{"de":"der"}},
-    {"id":"glass","category":"household","emoji":"🥛","labels":{"de":"Glas","ua":"склянка"},"article":{"de":"das"}},
-    {"id":"bowl","category":"household","emoji":"🥣","labels":{"de":"Schüssel","ua":"миска"},"article":{"de":"die"}},
-    {"id":"pot","category":"household","emoji":"🍲","labels":{"de":"Topf","ua":"каструля"},"article":{"de":"der"}},
-    {"id":"pan","category":"household","emoji":"🍳","labels":{"de":"Pfanne","ua":"сковорідка"},"article":{"de":"die"}},
-    {"id":"fridge","category":"household","emoji":"🧊","labels":{"de":"Kühlschrank","ua":"холодильник"},"article":{"de":"der"}}
+    {
+      "id": "cup",
+      "category": "household",
+      "emoji": "☕",
+      "labels": {
+        "de": "Tasse",
+        "ua": "чашка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "plate",
+      "category": "household",
+      "emoji": "🍽️",
+      "labels": {
+        "de": "Teller",
+        "ua": "тарілка"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "spoon",
+      "category": "household",
+      "emoji": "🥄",
+      "labels": {
+        "de": "Löffel",
+        "ua": "ложка"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "fork",
+      "category": "household",
+      "emoji": "🍴",
+      "labels": {
+        "de": "Gabel",
+        "ua": "виделка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "table",
+      "category": "household",
+      "emoji": "🪵",
+      "labels": {
+        "de": "Tisch",
+        "ua": "стіл"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "glass",
+      "category": "household",
+      "emoji": "🥛",
+      "labels": {
+        "de": "Glas",
+        "ua": "склянка"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "bowl",
+      "category": "household",
+      "emoji": "🥣",
+      "labels": {
+        "de": "Schüssel",
+        "ua": "миска"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "pot",
+      "category": "household",
+      "emoji": "🍲",
+      "labels": {
+        "de": "Topf",
+        "ua": "каструля"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "pan",
+      "category": "household",
+      "emoji": "🍳",
+      "labels": {
+        "de": "Pfanne",
+        "ua": "сковорідка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "fridge",
+      "category": "household",
+      "emoji": "🧊",
+      "labels": {
+        "de": "Kühlschrank",
+        "ua": "холодильник"
+      },
+      "article": {
+        "de": "der"
+      }
+    }
   ]
 }

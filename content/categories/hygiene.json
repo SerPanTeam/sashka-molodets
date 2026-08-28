@@ -1,15 +1,125 @@
 {
   "category": "hygiene",
   "items": [
-    {"id":"toothbrush","category":"hygiene","emoji":"🪥","labels":{"de":"Zahnbürste","ua":"зубна щітка"},"article":{"de":"die"}},
-    {"id":"toothpaste","category":"hygiene","emoji":"🦷","labels":{"de":"Zahnpasta","ua":"зубна паста"},"article":{"de":"die"}},
-    {"id":"soap","category":"hygiene","emoji":"🧼","labels":{"de":"Seife","ua":"мило"},"article":{"de":"die"}},
-    {"id":"towel","category":"hygiene","emoji":"🧻","labels":{"de":"Handtuch","ua":"рушник"},"article":{"de":"das"}},
-    {"id":"shampoo","category":"hygiene","emoji":"🧴","labels":{"de":"Shampoo","ua":"шампунь"},"article":{"de":"das"}},
-    {"id":"comb","category":"hygiene","emoji":"🪮","labels":{"de":"Kamm","ua":"гребінець"},"article":{"de":"der"}},
-    {"id":"sponge","category":"hygiene","emoji":"🧽","labels":{"de":"Schwamm","ua":"губка"},"article":{"de":"der"}},
-    {"id":"toilet-paper","category":"hygiene","emoji":"🧻","labels":{"de":"Toilettenpapier","ua":"туалетний папір"},"article":{"de":"das"}},
-    {"id":"hairbrush","category":"hygiene","emoji":"💇","labels":{"de":"Haarbürste","ua":"щітка для волосся"},"article":{"de":"die"}},
-    {"id":"washcloth","category":"hygiene","emoji":"🫧","labels":{"de":"Waschlappen","ua":"мочалка"},"article":{"de":"der"}}
+    {
+      "id": "toothbrush",
+      "category": "hygiene",
+      "emoji": "🪥",
+      "labels": {
+        "de": "Zahnbürste",
+        "ua": "зубна щітка"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "toothpaste",
+      "category": "hygiene",
+      "emoji": "🦷",
+      "labels": {
+        "de": "Zahnpasta",
+        "ua": "зубна паста"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "soap",
+      "category": "hygiene",
+      "emoji": "🧼",
+      "labels": {
+        "de": "Seife",
+        "ua": "мило"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "towel",
+      "category": "hygiene",
+      "emoji": "🧻",
+      "labels": {
+        "de": "Handtuch",
+        "ua": "рушник"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "shampoo",
+      "category": "hygiene",
+      "emoji": "🧴",
+      "labels": {
+        "de": "Shampoo",
+        "ua": "шампунь"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "comb",
+      "category": "hygiene",
+      "emoji": "🪮",
+      "labels": {
+        "de": "Kamm",
+        "ua": "гребінець"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "sponge",
+      "category": "hygiene",
+      "emoji": "🧽",
+      "labels": {
+        "de": "Schwamm",
+        "ua": "губка"
+      },
+      "article": {
+        "de": "der"
+      }
+    },
+    {
+      "id": "toilet-paper",
+      "category": "hygiene",
+      "emoji": "🧻",
+      "labels": {
+        "de": "Toilettenpapier",
+        "ua": "туалетний папір"
+      },
+      "article": {
+        "de": "das"
+      }
+    },
+    {
+      "id": "hairbrush",
+      "category": "hygiene",
+      "emoji": "💇",
+      "labels": {
+        "de": "Haarbürste",
+        "ua": "щітка для волосся"
+      },
+      "article": {
+        "de": "die"
+      }
+    },
+    {
+      "id": "washcloth",
+      "category": "hygiene",
+      "emoji": "🫧",
+      "labels": {
+        "de": "Waschlappen",
+        "ua": "мочалка"
+      },
+      "article": {
+        "de": "der"
+      }
+    }
   ]
 }
