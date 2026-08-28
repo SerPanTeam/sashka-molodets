@@ -456,3 +456,6 @@
 {"ts":"2026-08-28T20:59:03.900Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":113,"kind":"question","file":"broccoli.question.de.wav"}
 {"ts":"2026-08-28T20:59:03.903Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":113,"kind":"success","file":"broccoli.success.de.wav"}
 {"ts":"2026-08-28T20:59:03.910Z","event":"item-complete","provider":"openai","category":"vegetables","id":"broccoli","de":"Brokkoli","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:59:06.271Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":113,"kind":"question","file":"onion.question.de.wav"}
+{"ts":"2026-08-28T20:59:06.274Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":113,"kind":"success","file":"onion.success.de.wav"}
+{"ts":"2026-08-28T20:59:06.276Z","event":"item-complete","provider":"openai","category":"vegetables","id":"onion","de":"Zwiebel","mode":"de","audioFiles":113,"failures":0}
