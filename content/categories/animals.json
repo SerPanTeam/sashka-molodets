@@ -36,6 +36,10 @@
       "generatedAudio": {
         "question": "./assets/generated/audio/cat.question.bilingual.wav",
         "retry": "./assets/generated/audio/cat.retry.bilingual.wav"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cat.question.de.wav",
+        "success": "./assets/generated/audio/cat.success.de.wav"
       }
     },
     {
