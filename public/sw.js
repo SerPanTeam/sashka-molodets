@@ -1,4 +1,27 @@
-const CACHE="sashka-molodets-v1"; const CORE=["/","/index.html","/styles.css","/app.js","/manifest.webmanifest","/icon.svg"];
-self.addEventListener("install",e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)));self.skipWaiting()});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return; const u=new URL(e.request.url); if(u.pathname.startsWith("/api/")){e.respondWith(fetch(e.request));return;} e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{if(r.ok&&u.origin===location.origin)caches.open(CACHE).then(x=>x.put(e.request,r.clone()));return r}).catch(()=>caches.match("/index.html"))))});
+const CACHE="sashka-molodets-v2";
+const BASE=self.registration.scope;
+const url=path=>new URL(path,BASE).href;
+const CORE=[BASE,url("index.html"),url("styles.css"),url("app.js"),url("pages-shim.js"),url("manifest.webmanifest"),url("icon.svg"),url("content/content.json")];
+
+self.addEventListener("install",event=>{
+  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));
+  self.skipWaiting();
+});
+
+self.addEventListener("activate",event=>{
+  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));
+  self.clients.claim();
+});
+
+self.addEventListener("fetch",event=>{
+  if(event.request.method!=="GET")return;
+  const requestUrl=new URL(event.request.url);
+  event.respondWith(
+    caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
+      if(response.ok&&requestUrl.origin===location.origin){
+        caches.open(CACHE).then(cache=>cache.put(event.request,response.clone()));
+      }
+      return response;
+    }).catch(()=>caches.match(url("index.html"))))
+  );
+});
