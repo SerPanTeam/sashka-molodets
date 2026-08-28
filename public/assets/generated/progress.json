@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T21:07:03.302Z",
+  "ts": "2026-08-28T21:07:09.887Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "toilet-paper",
-  "de": "Toilettenpapier",
+  "id": "hairbrush",
+  "de": "Haarbürste",
   "mode": "ua",
-  "audioFiles": 216,
+  "audioFiles": 218,
   "failures": 0
 }

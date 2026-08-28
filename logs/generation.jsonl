@@ -832,3 +832,8 @@
 {"ts":"2026-08-28T21:07:01.050Z","event":"start","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"ua","audioFiles":215,"kind":"success","transcript":"Сашка, молодець! Це туалетний папір."}
 {"ts":"2026-08-28T21:07:02.099Z","event":"success","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"ua","audioFiles":216,"kind":"success","file":"toilet-paper.success.ua.wav","bytes":211244,"ms":1048}
 {"ts":"2026-08-28T21:07:03.302Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"ua","audioFiles":216,"failures":0}
+{"ts":"2026-08-28T21:07:05.605Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":216,"kind":"question","transcript":"Де щітка для волосся?"}
+{"ts":"2026-08-28T21:07:06.446Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":217,"kind":"question","file":"hairbrush.question.ua.wav","bytes":124844,"ms":839}
+{"ts":"2026-08-28T21:07:07.647Z","event":"start","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":217,"kind":"success","transcript":"Сашка, молодець! Це щітка для волосся."}
+{"ts":"2026-08-28T21:07:08.684Z","event":"success","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":218,"kind":"success","file":"hairbrush.success.ua.wav","bytes":216044,"ms":1037}
+{"ts":"2026-08-28T21:07:09.887Z","event":"item-complete","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"ua","audioFiles":218,"failures":0}
