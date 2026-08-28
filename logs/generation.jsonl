@@ -1484,3 +1484,4 @@
 {"ts":"2026-08-28T22:34:23.144Z","event":"skip-existing","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"ua","audioFiles":240,"kind":"success","file":"helicopter.success.ua.wav"}
 {"ts":"2026-08-28T22:34:23.146Z","event":"item-complete","provider":"openai","category":"transport","id":"helicopter","de":"Hubschrauber","mode":"ua","audioFiles":240,"failures":0}
 {"ts":"2026-08-28T22:34:25.679Z","event":"skip-existing","provider":"openai","category":"animals","id":"dog","de":"Hund","imageFiles":32,"file":"dog.png"}
+{"ts":"2026-08-28T22:34:28.278Z","event":"skip-existing","provider":"openai","category":"animals","id":"cat","de":"Katze","imageFiles":32,"file":"cat.png"}

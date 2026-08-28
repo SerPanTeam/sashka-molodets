@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:34:25.679Z",
+  "ts": "2026-08-28T22:34:28.278Z",
   "event": "skip-existing",
   "provider": "openai",
   "category": "animals",
-  "id": "dog",
-  "de": "Hund",
+  "id": "cat",
+  "de": "Katze",
   "imageFiles": 32,
-  "file": "dog.png"
+  "file": "cat.png"
 }
