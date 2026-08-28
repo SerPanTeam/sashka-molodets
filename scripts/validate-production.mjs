@@ -46,12 +46,18 @@ if (/\bAlexander,\s*(?:super|noch nicht)/.test(app)) errors.push('app.js still c
 if (!app.includes('Olexander, super!')) errors.push('app.js missing Olexander success praise');
 if (!app.includes('await playApplause()')) errors.push('correct-answer flow does not await applause');
 if (!app.includes('await window.SashkaSfx.play(t.id)')) errors.push('correct-answer flow does not await object SFX');
+if (app.includes('state.wrong>=3')) errors.push('wrong-answer flow still auto-advances after repeated misses');
+if (!app.includes('state.locked=true;state.wrong++')) errors.push('wrong-answer audio is not protected from rapid-tap interruption');
+if (!app.includes('kind==="retry"?item?.generatedAudioUa?.question:null')) errors.push('retry flow lacks recorded Ukrainian fallback');
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
 if (!index.includes('audio-bridge.js')) errors.push('index.html does not load audio-bridge.js');
+if (!index.includes('animal-sound-sources.html')) errors.push('animal sound attribution link missing');
 if (!shim.includes("voiceMode: oldSettingsVersion < 3 ? 'dual'")) errors.push('bilingual settings migration missing');
 if (!shim.includes('physicalAssetsExist')) errors.push('production shim does not verify physical asset existence');
 if (!bridge.includes('window.Audio = BridgedAudio')) errors.push('shared recorded-audio bridge missing');
 if (!sfx.includes('window.SashkaSfx')) errors.push('object SFX runtime missing');
+if (!sfx.includes('Barking_of_a_dog.ogg') || !sfx.includes('Elephant_voice_-_trumpeting.ogg')) errors.push('real animal recording map missing');
+if (!sfx.includes('Special:Redirect/file')) errors.push('real animal recording loader missing');
 if (ids.length !== 60) errors.push(`priority list expected 60 items, got ${ids.length}`);
 if (readyCount < 1) errors.push('no production-ready priority cards remain');
 
@@ -68,4 +74,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: safe filtering, Olexander, bilingual migration, shared audio bridge, applause → SFX sequencing.');
+console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, DE→UA retry protection, real animal recordings, shared audio bridge, applause → SFX sequencing.');
