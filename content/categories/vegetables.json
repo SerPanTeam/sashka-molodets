@@ -239,6 +239,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/eggplant.question.de.wav",
         "success": "./assets/generated/audio/eggplant.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/eggplant.question.ua.wav",
+        "success": "./assets/generated/audio/eggplant.success.ua.wav"
       }
     },
     {
