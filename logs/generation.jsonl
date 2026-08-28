@@ -1249,3 +1249,6 @@
 {"ts":"2026-08-28T22:31:05.716Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"kind":"question","file":"toothpaste.question.de.wav"}
 {"ts":"2026-08-28T22:31:05.720Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"kind":"success","file":"toothpaste.success.de.wav"}
 {"ts":"2026-08-28T22:31:05.722Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toothpaste","de":"Zahnpasta","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:08.321Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"kind":"question","file":"soap.question.de.wav"}
+{"ts":"2026-08-28T22:31:08.325Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"kind":"success","file":"soap.success.de.wav"}
+{"ts":"2026-08-28T22:31:08.327Z","event":"item-complete","provider":"openai","category":"hygiene","id":"soap","de":"Seife","mode":"de","audioFiles":240,"failures":0}
