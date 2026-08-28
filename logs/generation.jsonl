@@ -717,3 +717,8 @@
 {"ts":"2026-08-28T21:04:24.782Z","event":"start","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":169,"kind":"success","transcript":"Сашка, молодець! Це виноград."}
 {"ts":"2026-08-28T21:04:26.026Z","event":"success","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":170,"kind":"success","file":"grapes.success.ua.wav","bytes":208844,"ms":1244}
 {"ts":"2026-08-28T21:04:27.231Z","event":"item-complete","provider":"openai","category":"fruits","id":"grapes","de":"Trauben","mode":"ua","audioFiles":170,"failures":0}
+{"ts":"2026-08-28T21:04:29.675Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":170,"kind":"question","transcript":"Де полуниця?"}
+{"ts":"2026-08-28T21:04:30.723Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":171,"kind":"question","file":"strawberry.question.ua.wav","bytes":96044,"ms":1046}
+{"ts":"2026-08-28T21:04:31.925Z","event":"start","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":171,"kind":"success","transcript":"Сашка, молодець! Це полуниця."}
+{"ts":"2026-08-28T21:04:32.873Z","event":"success","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":172,"kind":"success","file":"strawberry.success.ua.wav","bytes":192044,"ms":947}
+{"ts":"2026-08-28T21:04:34.076Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":172,"failures":0}

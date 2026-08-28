@@ -157,6 +157,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/strawberry.question.de.wav",
         "success": "./assets/generated/audio/strawberry.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/strawberry.question.ua.wav",
+        "success": "./assets/generated/audio/strawberry.success.ua.wav"
       }
     },
     {
