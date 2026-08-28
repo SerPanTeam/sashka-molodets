@@ -2,79 +2,13 @@ name: Gemini TTS smoke test
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/gemini-smoke-test.yml'
 
 permissions:
-  contents: write
-
-concurrency:
-  group: gemini-smoke-test
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  smoke:
+  disabled:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
-    env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GOOGLE_TTS_MODEL: gemini-3.1-flash-tts-preview
-      GOOGLE_TTS_VOICE: Kore
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Verify secret presence
-        run: |
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo 'FAIL: GEMINI_API_KEY is missing'
-            exit 1
-          fi
-          echo 'OK: GEMINI_API_KEY is present (value hidden)'
-
-      - name: Call Gemini TTS once
-        run: |
-          mkdir -p public/assets/generated/audio
-          node --input-type=module <<'NODE'
-          import { writeFile } from 'node:fs/promises';
-          import { generateSpeech } from './src/server/providers/google.mjs';
-          const started = Date.now();
-          console.log('SMOKE: calling Gemini TTS model...');
-          try {
-            const result = await generateSpeech({
-              text: 'Alexander, super! Gut gemacht!',
-              language: 'German de-DE only',
-              style: 'warm, cheerful, caring preschool educator; clear native German pronunciation; speak only the transcript'
-            });
-            console.log(`SMOKE: API returned ${result.buffer.length} bytes as ${result.mimeType} in ${Date.now()-started} ms`);
-            if (!result.buffer?.length || result.buffer.length < 1000) throw new Error('Returned audio is unexpectedly small');
-            await writeFile('public/assets/generated/audio/smoke.gemini.de.wav', result.buffer);
-            console.log('SMOKE: WAV written successfully');
-          } catch (error) {
-            console.error('SMOKE_FAIL:', error?.stack || error);
-            process.exit(1);
-          }
-          NODE
-          ls -lh public/assets/generated/audio/smoke.gemini.de.wav
-
-      - name: Persist proof in main
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin main
-          git add public/assets/generated/audio/smoke.gemini.de.wav
-          if git diff --cached --quiet; then
-            echo 'Smoke WAV already exists; API call still succeeded.'
-          else
-            git commit -m 'test: persist successful Gemini TTS smoke audio'
-            git push origin HEAD:main
-          fi
+      - name: Smoke test disabled
+        run: echo 'Gemini smoke test is disabled until GEMINI_API_KEY is replaced with the intended paid-account key.'
