@@ -11,6 +11,11 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudio": {
+        "question": "./assets/generated/audio/dog.question.bilingual.wav",
+        "success": "./assets/generated/audio/dog.success.bilingual.wav",
+        "retry": "./assets/generated/audio/dog.retry.bilingual.wav"
       }
     },
     {
@@ -23,6 +28,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudio": {
+        "question": "./assets/generated/audio/cat.question.bilingual.wav",
+        "retry": "./assets/generated/audio/cat.retry.bilingual.wav"
       }
     },
     {
@@ -35,6 +44,11 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudio": {
+        "question": "./assets/generated/audio/rabbit.question.bilingual.wav",
+        "success": "./assets/generated/audio/rabbit.success.bilingual.wav",
+        "retry": "./assets/generated/audio/rabbit.retry.bilingual.wav"
       }
     },
     {
@@ -47,7 +61,8 @@
       },
       "article": {
         "de": "der"
-      }
+      },
+      "generatedAudio": {}
     },
     {
       "id": "fox",
@@ -71,6 +86,9 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudio": {
+        "question": "./assets/generated/audio/lion.question.bilingual.wav"
       }
     },
     {
@@ -83,6 +101,10 @@
       },
       "article": {
         "de": "die"
+      },
+      "generatedAudio": {
+        "success": "./assets/generated/audio/cow.success.bilingual.wav",
+        "retry": "./assets/generated/audio/cow.retry.bilingual.wav"
       }
     },
     {
@@ -95,7 +117,8 @@
       },
       "article": {
         "de": "das"
-      }
+      },
+      "generatedAudio": {}
     },
     {
       "id": "horse",
@@ -107,6 +130,10 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudio": {
+        "question": "./assets/generated/audio/horse.question.bilingual.wav",
+        "success": "./assets/generated/audio/horse.success.bilingual.wav"
       }
     },
     {
@@ -119,6 +146,9 @@
       },
       "article": {
         "de": "das"
+      },
+      "generatedAudio": {
+        "retry": "./assets/generated/audio/sheep.retry.bilingual.wav"
       }
     },
     {
@@ -179,7 +209,8 @@
       },
       "article": {
         "de": "der"
-      }
+      },
+      "generatedAudio": {}
     }
   ]
 }
