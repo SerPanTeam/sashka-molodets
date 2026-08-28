@@ -441,3 +441,6 @@
 {"ts":"2026-08-28T20:58:52.432Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":113,"kind":"question","file":"cucumber.question.de.wav"}
 {"ts":"2026-08-28T20:58:52.435Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":113,"kind":"success","file":"cucumber.success.de.wav"}
 {"ts":"2026-08-28T20:58:52.437Z","event":"item-complete","provider":"openai","category":"vegetables","id":"cucumber","de":"Gurke","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T20:58:54.710Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":113,"kind":"question","file":"carrot.question.de.wav"}
+{"ts":"2026-08-28T20:58:54.713Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":113,"kind":"success","file":"carrot.success.de.wav"}
+{"ts":"2026-08-28T20:58:54.715Z","event":"item-complete","provider":"openai","category":"vegetables","id":"carrot","de":"Karotte","mode":"de","audioFiles":113,"failures":0}
