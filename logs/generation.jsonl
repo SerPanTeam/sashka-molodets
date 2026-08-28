@@ -1348,3 +1348,6 @@
 {"ts":"2026-08-28T22:32:29.117Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":240,"kind":"question","file":"corn.question.ua.wav"}
 {"ts":"2026-08-28T22:32:29.120Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":240,"kind":"success","file":"corn.success.ua.wav"}
 {"ts":"2026-08-28T22:32:29.123Z","event":"item-complete","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:32:31.660Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":240,"kind":"question","file":"pepper.question.ua.wav"}
+{"ts":"2026-08-28T22:32:31.663Z","event":"skip-existing","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":240,"kind":"success","file":"pepper.success.ua.wav"}
+{"ts":"2026-08-28T22:32:31.666Z","event":"item-complete","provider":"openai","category":"vegetables","id":"pepper","de":"Paprika","mode":"ua","audioFiles":240,"failures":0}
