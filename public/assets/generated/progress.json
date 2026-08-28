@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:53:25.259Z",
+  "ts": "2026-08-28T20:53:32.405Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "bowl",
-  "de": "Schüssel",
+  "id": "pot",
+  "de": "Topf",
   "mode": "de",
-  "audioFiles": 74,
+  "audioFiles": 76,
   "failures": 0
 }

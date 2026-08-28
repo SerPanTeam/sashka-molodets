@@ -123,6 +123,10 @@
       },
       "article": {
         "de": "der"
+      },
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/pot.question.de.wav",
+        "success": "./assets/generated/audio/pot.success.de.wav"
       }
     },
     {

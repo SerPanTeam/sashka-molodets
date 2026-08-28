@@ -310,3 +310,8 @@
 {"ts":"2026-08-28T20:53:23.008Z","event":"start","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":73,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Schüssel."}
 {"ts":"2026-08-28T20:53:24.056Z","event":"success","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":74,"kind":"success","file":"bowl.success.de.wav","bytes":230444,"ms":1048}
 {"ts":"2026-08-28T20:53:25.259Z","event":"item-complete","provider":"openai","category":"household","id":"bowl","de":"Schüssel","mode":"de","audioFiles":74,"failures":0}
+{"ts":"2026-08-28T20:53:27.890Z","event":"start","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":74,"kind":"question","transcript":"Wo ist der Topf?"}
+{"ts":"2026-08-28T20:53:28.947Z","event":"success","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":75,"kind":"question","file":"pot.question.de.wav","bytes":108044,"ms":1054}
+{"ts":"2026-08-28T20:53:30.148Z","event":"start","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":75,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Topf."}
+{"ts":"2026-08-28T20:53:31.202Z","event":"success","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":76,"kind":"success","file":"pot.success.de.wav","bytes":216044,"ms":1054}
+{"ts":"2026-08-28T20:53:32.405Z","event":"item-complete","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":76,"failures":0}
