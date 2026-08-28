@@ -315,3 +315,8 @@
 {"ts":"2026-08-28T20:53:30.148Z","event":"start","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":75,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Topf."}
 {"ts":"2026-08-28T20:53:31.202Z","event":"success","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":76,"kind":"success","file":"pot.success.de.wav","bytes":216044,"ms":1054}
 {"ts":"2026-08-28T20:53:32.405Z","event":"item-complete","provider":"openai","category":"household","id":"pot","de":"Topf","mode":"de","audioFiles":76,"failures":0}
+{"ts":"2026-08-28T20:53:35.117Z","event":"start","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":76,"kind":"question","transcript":"Wo ist die Pfanne?"}
+{"ts":"2026-08-28T20:53:36.496Z","event":"success","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":77,"kind":"question","file":"pan.question.de.wav","bytes":129644,"ms":1375}
+{"ts":"2026-08-28T20:53:37.697Z","event":"start","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":77,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Pfanne."}
+{"ts":"2026-08-28T20:53:38.869Z","event":"success","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":78,"kind":"success","file":"pan.success.de.wav","bytes":264044,"ms":1171}
+{"ts":"2026-08-28T20:53:40.072Z","event":"item-complete","provider":"openai","category":"household","id":"pan","de":"Pfanne","mode":"de","audioFiles":78,"failures":0}
