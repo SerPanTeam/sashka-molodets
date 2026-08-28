@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:33:54.942Z",
+  "ts": "2026-08-28T22:33:57.729Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "hygiene",
-  "id": "hairbrush",
-  "de": "Haarbürste",
+  "id": "washcloth",
+  "de": "Waschlappen",
   "mode": "ua",
   "audioFiles": 240,
   "failures": 0
