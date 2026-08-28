@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T20:50:34.359Z",
+  "ts": "2026-08-28T20:50:43.026Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "potato",
-  "de": "Kartoffel",
+  "id": "corn",
+  "de": "Mais",
   "mode": "de",
-  "audioFiles": 28,
+  "audioFiles": 30,
   "failures": 0
 }

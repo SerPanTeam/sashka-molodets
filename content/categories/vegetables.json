@@ -88,7 +88,11 @@
           "ua": "жовта"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/corn.question.de.wav",
+        "success": "./assets/generated/audio/corn.success.de.wav"
+      }
     },
     {
       "id": "pepper",

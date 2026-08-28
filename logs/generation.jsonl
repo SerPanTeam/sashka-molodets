@@ -195,3 +195,8 @@
 {"ts":"2026-08-28T20:50:31.470Z","event":"start","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":27,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Kartoffel."}
 {"ts":"2026-08-28T20:50:33.156Z","event":"success","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":28,"kind":"success","file":"potato.success.de.wav","bytes":285644,"ms":1685}
 {"ts":"2026-08-28T20:50:34.359Z","event":"item-complete","provider":"openai","category":"vegetables","id":"potato","de":"Kartoffel","mode":"de","audioFiles":28,"failures":0}
+{"ts":"2026-08-28T20:50:36.827Z","event":"start","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":28,"kind":"question","transcript":"Wo ist der Mais?"}
+{"ts":"2026-08-28T20:50:39.232Z","event":"success","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":29,"kind":"question","file":"corn.question.de.wav","bytes":115244,"ms":2402}
+{"ts":"2026-08-28T20:50:40.433Z","event":"start","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":29,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Mais."}
+{"ts":"2026-08-28T20:50:41.823Z","event":"success","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":30,"kind":"success","file":"corn.success.de.wav","bytes":208844,"ms":1389}
+{"ts":"2026-08-28T20:50:43.026Z","event":"item-complete","provider":"openai","category":"vegetables","id":"corn","de":"Mais","mode":"de","audioFiles":30,"failures":0}
