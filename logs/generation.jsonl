@@ -230,3 +230,8 @@
 {"ts":"2026-08-28T20:51:24.140Z","event":"start","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":41,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Apfel."}
 {"ts":"2026-08-28T20:51:25.658Z","event":"success","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":42,"kind":"success","file":"apple.success.de.wav","bytes":206444,"ms":1518}
 {"ts":"2026-08-28T20:51:26.861Z","event":"item-complete","provider":"openai","category":"fruits","id":"apple","de":"Apfel","mode":"de","audioFiles":42,"failures":0}
+{"ts":"2026-08-28T20:51:29.543Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":42,"kind":"question","transcript":"Wo ist die Banane?"}
+{"ts":"2026-08-28T20:51:30.286Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":43,"kind":"question","file":"banana.question.de.wav","bytes":136844,"ms":740}
+{"ts":"2026-08-28T20:51:31.488Z","event":"start","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":43,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist die Banane."}
+{"ts":"2026-08-28T20:51:32.401Z","event":"success","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":44,"kind":"success","file":"banana.success.de.wav","bytes":252044,"ms":913}
+{"ts":"2026-08-28T20:51:33.604Z","event":"item-complete","provider":"openai","category":"fruits","id":"banana","de":"Banane","mode":"de","audioFiles":44,"failures":0}

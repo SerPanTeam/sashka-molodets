@@ -41,7 +41,11 @@
           "ua": "жовтий"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/banana.question.de.wav",
+        "success": "./assets/generated/audio/banana.success.de.wav"
+      }
     },
     {
       "id": "orange",
