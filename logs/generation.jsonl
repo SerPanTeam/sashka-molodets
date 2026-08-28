@@ -552,3 +552,6 @@
 {"ts":"2026-08-28T21:00:20.015Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":113,"kind":"question","file":"hairbrush.question.de.wav"}
 {"ts":"2026-08-28T21:00:20.018Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":113,"kind":"success","file":"hairbrush.success.de.wav"}
 {"ts":"2026-08-28T21:00:20.020Z","event":"item-complete","provider":"openai","category":"hygiene","id":"hairbrush","de":"Haarbürste","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:22.456Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":113,"kind":"question","file":"washcloth.question.de.wav"}
+{"ts":"2026-08-28T21:00:22.459Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":113,"kind":"success","file":"washcloth.success.de.wav"}
+{"ts":"2026-08-28T21:00:22.460Z","event":"item-complete","provider":"openai","category":"hygiene","id":"washcloth","de":"Waschlappen","mode":"de","audioFiles":113,"failures":0}
