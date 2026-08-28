@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:30:02.546Z",
+  "ts": "2026-08-28T22:30:04.950Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "vegetables",
-  "id": "broccoli",
-  "de": "Brokkoli",
+  "id": "onion",
+  "de": "Zwiebel",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
