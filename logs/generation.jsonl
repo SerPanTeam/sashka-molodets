@@ -385,3 +385,8 @@
 {"ts":"2026-08-28T20:55:13.572Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":103,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Bus."}
 {"ts":"2026-08-28T20:55:14.546Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":104,"kind":"success","file":"bus.success.de.wav","bytes":208844,"ms":973}
 {"ts":"2026-08-28T20:55:15.750Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"de","audioFiles":104,"failures":0}
+{"ts":"2026-08-28T20:55:18.747Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":104,"kind":"question","transcript":"Wo ist der Zug?"}
+{"ts":"2026-08-28T20:55:19.431Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":105,"kind":"question","file":"train.question.de.wav","bytes":81644,"ms":680}
+{"ts":"2026-08-28T20:55:20.633Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":105,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Zug."}
+{"ts":"2026-08-28T20:55:21.826Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":106,"kind":"success","file":"train.success.de.wav","bytes":266444,"ms":1192}
+{"ts":"2026-08-28T20:55:23.029Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"de","audioFiles":106,"failures":0}
