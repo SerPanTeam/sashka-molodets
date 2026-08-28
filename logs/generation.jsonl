@@ -857,3 +857,8 @@
 {"ts":"2026-08-28T21:07:34.740Z","event":"start","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":225,"kind":"success","transcript":"Сашка, молодець! Це поїзд."}
 {"ts":"2026-08-28T21:07:35.546Z","event":"success","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":226,"kind":"success","file":"train.success.ua.wav","bytes":168044,"ms":805}
 {"ts":"2026-08-28T21:07:36.749Z","event":"item-complete","provider":"openai","category":"transport","id":"train","de":"Zug","mode":"ua","audioFiles":226,"failures":0}
+{"ts":"2026-08-28T21:07:40.137Z","event":"start","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":226,"kind":"question","transcript":"Де велосипед?"}
+{"ts":"2026-08-28T21:07:40.754Z","event":"success","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":227,"kind":"question","file":"bicycle.question.ua.wav","bytes":100844,"ms":615}
+{"ts":"2026-08-28T21:07:41.956Z","event":"start","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":227,"kind":"success","transcript":"Сашка, молодець! Це велосипед."}
+{"ts":"2026-08-28T21:07:43.001Z","event":"success","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":228,"kind":"success","file":"bicycle.success.ua.wav","bytes":196844,"ms":1045}
+{"ts":"2026-08-28T21:07:44.205Z","event":"item-complete","provider":"openai","category":"transport","id":"bicycle","de":"Fahrrad","mode":"ua","audioFiles":228,"failures":0}
