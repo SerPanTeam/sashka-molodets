@@ -222,7 +222,8 @@
       "generatedAudioUa": {
         "question": "./assets/generated/audio/peach.question.ua.wav",
         "success": "./assets/generated/audio/peach.success.ua.wav"
-      }
+      },
+      "generatedImage": "./assets/generated/images/peach.png"
     },
     {
       "id": "cherries",

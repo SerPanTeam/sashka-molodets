@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:24:33.478Z",
+  "ts": "2026-08-28T21:25:07.544Z",
   "event": "success",
   "provider": "openai",
   "category": "fruits",
-  "id": "watermelon",
-  "de": "Wassermelone",
-  "imageFiles": 27,
-  "file": "watermelon.png",
-  "bytes": 1712010,
+  "id": "peach",
+  "de": "Pfirsich",
+  "imageFiles": 28,
+  "file": "peach.png",
+  "bytes": 1473505,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 34078
+  "ms": 31234
 }
