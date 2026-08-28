@@ -1,4 +1,4 @@
-name: Gemini smoke test
+name: Gemini image model probe
 
 on:
   workflow_dispatch:
@@ -20,9 +20,6 @@ jobs:
     timeout-minutes: 10
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GOOGLE_TTS_MODEL: gemini-3.1-flash-tts-preview
-      GOOGLE_TTS_VOICE: Sulafat
-      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
     steps:
       - name: ① Checkout
         uses: actions/checkout@v6
@@ -40,77 +37,52 @@ jobs:
           test -n "$GEMINI_API_KEY" || (echo 'ERROR: GEMINI_API_KEY is missing' && exit 1)
           echo 'OK: GEMINI_API_KEY is present (value hidden)'
 
-      - name: ④ Generate ONE German TTS
+      - name: ④ Probe 4 Gemini image models
         run: |
           set -o pipefail
-          mkdir -p public/assets/generated/smoke logs
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] START TTS: tomato success de' | tee logs/gemini-smoke.log
-          node --input-type=module 2>&1 <<'NODE' | tee -a logs/gemini-smoke.log
-          import { writeFile, stat } from 'node:fs/promises';
-          import { generateSpeech } from './src/server/providers/google.mjs';
-          const started = Date.now();
-          try {
-            const result = await generateSpeech({
-              text: 'Alexander, super! Gut gemacht! Das ist die Tomate.',
-              language: 'German de-DE only',
-              style: 'warm, cheerful, caring preschool educator; clear native German pronunciation; pleasant and encouraging; medium-slow pace; speak only the transcript'
-            });
-            const file = 'public/assets/generated/smoke/tomato.success.de.wav';
-            await writeFile(file, result.buffer);
-            const s = await stat(file);
-            console.log(`[TTS SUCCESS] file=${file} bytes=${s.size} ms=${Date.now()-started}`);
-          } catch (error) {
-            console.error('[TTS ERROR]', error?.stack || error);
-            process.exit(1);
-          }
-          NODE
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] SUCCESS TTS' | tee -a logs/gemini-smoke.log
-
-      - name: ⑤ Persist TTS proof immediately
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/generated/smoke/tomato.success.de.wav
-          git add -f logs/gemini-smoke.log
-          git commit -m 'test: persist successful Gemini TTS smoke asset'
-          git pull --rebase origin main
-          git push origin HEAD:main
-          echo 'TTS PROOF SAVED TO MAIN'
-
-      - name: ⑥ Generate ONE tomato image
-        run: |
-          set -o pipefail
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] START IMAGE: tomato' | tee -a logs/gemini-smoke.log
-          node --input-type=module 2>&1 <<'NODE' | tee -a logs/gemini-smoke.log
+          mkdir -p public/assets/generated/probes logs
+          : > logs/image-model-probe.log
+          node --input-type=module 2>&1 <<'NODE' | tee -a logs/image-model-probe.log
           import { writeFile, stat } from 'node:fs/promises';
           import { generateImage } from './src/server/providers/google.mjs';
-          const started = Date.now();
-          const prompt = 'Create a premium educational picture card for a child aged 3–7. SUBJECT: one ripe red tomato with green calyx. Exactly one tomato, centered, large, complete object visible, square 1:1, very light warm cream background. Polished friendly high-quality 3D children educational illustration, believable real tomato shape and natural bright colors, soft studio light, subtle contact shadow. No face, eyes, mouth, arms, legs, text, letters, labels, border, logo, watermark, people, hands, props, duplicate objects or confusing extras.';
-          try {
-            const result = await generateImage({ prompt, aspectRatio: '1:1', imageSize: '1K' });
-            const file = 'public/assets/generated/smoke/tomato.jpg';
-            await writeFile(file, result.buffer);
-            const s = await stat(file);
-            console.log(`[IMAGE SUCCESS] file=${file} bytes=${s.size} mime=${result.mimeType} ms=${Date.now()-started}`);
-          } catch (error) {
-            console.error('[IMAGE ERROR]', error?.stack || error);
-            process.exit(1);
+
+          const models = [
+            'gemini-3.1-flash-lite-image',
+            'gemini-3.1-flash-image',
+            'gemini-3-pro-image',
+            'gemini-2.5-flash-image',
+          ];
+          const prompt = 'Create a premium educational picture card for a child aged 3–7. SUBJECT: one ripe red tomato with green calyx. Exactly one tomato, centered, large, complete object visible, square 1:1, very light warm cream background. Polished friendly high-quality 3D children educational illustration, believable real tomato shape and natural bright colors, soft studio light, subtle contact shadow. No face, eyes, mouth, arms, legs, text, labels, border, logo, watermark, people, hands, props, duplicate objects or confusing extras.';
+
+          for (const model of models) {
+            const started = Date.now();
+            console.log(`\n[PROBE START] model=${model} at=${new Date().toISOString()}`);
+            try {
+              const result = await generateImage({ prompt, aspectRatio: '1:1', imageSize: '1K', model });
+              const file = `public/assets/generated/probes/${model}.jpg`;
+              await writeFile(file, result.buffer);
+              const s = await stat(file);
+              console.log(`[PROBE SUCCESS] model=${model} file=${file} bytes=${s.size} mime=${result.mimeType} ms=${Date.now()-started}`);
+            } catch (error) {
+              const text = String(error?.message || error).replace(/\s+/g, ' ').slice(0, 1800);
+              console.log(`[PROBE ERROR] model=${model} ms=${Date.now()-started} error=${text}`);
+            }
+            await new Promise(r => setTimeout(r, 2500));
           }
           NODE
-          date -u '+[%Y-%m-%dT%H:%M:%SZ] SUCCESS IMAGE' | tee -a logs/gemini-smoke.log
 
-      - name: ⑦ Persist image/log result
+      - name: ⑤ Persist probe results
         if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -f logs/gemini-smoke.log
-          test ! -f public/assets/generated/smoke/tomato.jpg || git add public/assets/generated/smoke/tomato.jpg
+          git add -f logs/image-model-probe.log
+          git add public/assets/generated/probes/*.jpg 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo 'No new image/log changes to persist.'
+            echo 'No probe results to persist.'
             exit 0
           fi
-          git commit -m 'test: persist Gemini image smoke result'
+          git commit -m 'test: persist Gemini image model probe results'
           git pull --rebase origin main
           git push origin HEAD:main
-          echo 'IMAGE/LOG RESULT SAVED TO MAIN'
+          echo 'IMAGE MODEL PROBE RESULTS SAVED TO MAIN'
