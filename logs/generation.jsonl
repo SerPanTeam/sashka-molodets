@@ -1381,3 +1381,6 @@
 {"ts":"2026-08-28T22:32:57.069Z","event":"skip-existing","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":240,"kind":"question","file":"strawberry.question.ua.wav"}
 {"ts":"2026-08-28T22:32:57.073Z","event":"skip-existing","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":240,"kind":"success","file":"strawberry.success.ua.wav"}
 {"ts":"2026-08-28T22:32:57.075Z","event":"item-complete","provider":"openai","category":"fruits","id":"strawberry","de":"Erdbeere","mode":"ua","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:32:59.561Z","event":"skip-existing","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":240,"kind":"question","file":"watermelon.question.ua.wav"}
+{"ts":"2026-08-28T22:32:59.564Z","event":"skip-existing","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":240,"kind":"success","file":"watermelon.success.ua.wav"}
+{"ts":"2026-08-28T22:32:59.567Z","event":"item-complete","provider":"openai","category":"fruits","id":"watermelon","de":"Wassermelone","mode":"ua","audioFiles":240,"failures":0}
