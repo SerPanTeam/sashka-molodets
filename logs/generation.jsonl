@@ -1297,3 +1297,6 @@
 {"ts":"2026-08-28T22:31:46.998Z","event":"skip-existing","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":240,"kind":"question","file":"tractor.question.de.wav"}
 {"ts":"2026-08-28T22:31:47.001Z","event":"skip-existing","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":240,"kind":"success","file":"tractor.success.de.wav"}
 {"ts":"2026-08-28T22:31:47.004Z","event":"item-complete","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:31:49.615Z","event":"skip-existing","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"kind":"question","file":"tram.question.de.wav"}
+{"ts":"2026-08-28T22:31:49.618Z","event":"skip-existing","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"kind":"success","file":"tram.success.de.wav"}
+{"ts":"2026-08-28T22:31:49.620Z","event":"item-complete","provider":"openai","category":"transport","id":"tram","de":"Straßenbahn","mode":"de","audioFiles":240,"failures":0}
