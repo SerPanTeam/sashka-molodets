@@ -1,10 +1,14 @@
 {
-  "ts": "2026-08-28T20:37:08.328Z",
-  "event": "item-complete-with-errors",
-  "category": "animals",
-  "id": "lion",
-  "de": "Löwe",
-  "mode": "de",
-  "audioFiles": 6,
-  "failures": 2
+  "ts": "2026-08-28T20:45:49.194Z",
+  "event": "success",
+  "provider": "openai",
+  "category": "vegetables",
+  "id": "tomato",
+  "de": "Tomate",
+  "imageFiles": 1,
+  "file": "tomato.png",
+  "bytes": 1221103,
+  "mimeType": "image/png",
+  "quality": "medium",
+  "ms": 37485
 }

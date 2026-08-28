@@ -18,7 +18,11 @@
           "ua": "червоний"
         }
       },
-      "generatedAudio": {}
+      "generatedAudio": {},
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/tomato.question.de.wav"
+      },
+      "generatedImage": "./assets/generated/images/tomato.png"
     },
     {
       "id": "cucumber",
