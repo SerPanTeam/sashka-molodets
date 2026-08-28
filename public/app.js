@@ -20,21 +20,40 @@ const plural=new Set(["grapes","cherries"]);const article=x=>x.article?.de||"die
 function promptFor(x,color){return color?{de:`Wo ist ${article(x)} ${x.attributes.color.de}e ${x.labels.de}?`,ua:`Де ${x.attributes.color.ua} ${x.labels.ua}?`}:{de:deQuestion(x),ua:`Де ${x.labels.ua}?`}}
 function render(){const{prompt,choices}=state.current;$("#question").innerHTML=`<div class="question-primary">${esc(prompt.de)}</div><div class="question-secondary">${esc(prompt.ua)}</div>`;const cards=$("#cards");cards.innerHTML="";for(const x of choices){const b=document.createElement("button");b.className="choice-card";b.dataset.id=x.id;b.innerHTML=(x.generatedImage?`<img class="choice-image" src="${esc(resolveAsset(x.generatedImage))}" alt="">`:`<div class="choice-emoji">${x.emoji}</div>`)+(state.settings.showLabels?`<div class="choice-label">${esc(x.labels.de)}</div><div class="choice-sub">${esc(x.labels.ua)}</div>`:"");b.setAttribute("aria-label",`${x.labels.de} — ${x.labels.ua}`);b.onclick=()=>choose(x,b);cards.append(b)}}
 function choose(x,b){if(state.locked)return;stopVoice();const t=state.current.target;if(x.id===t.id){state.locked=true;b.classList.add("correct");record(t.id,true);state.score++;const f=good(t);feedback(f,true);confetti(38);$("#progress").style.width=`${state.round/state.roundLimit*100}%`;$("#stars").textContent=stars();(async()=>{await playApplause();if(window.SashkaSfx?.has?.(t.id))await window.SashkaSfx.play(t.id);await playItemVoice(t,"success",f);if(state.route==="game"&&state.locked)setTimeout(next,250)})();return}state.locked=true;state.wrong++;record(t.id,false);b.classList.add("wrong");b.disabled=true;const f=bad(x,t,state.wrong);feedback(f,false);if(state.wrong>=2)document.querySelector(`.choice-card[data-id="${CSS.escape(t.id)}"]`)?.classList.add("hint");(async()=>{await playItemVoice(t,"retry",f);if(state.route==="game"&&state.current?.target?.id===t.id)state.locked=false})()}
-const good=t=>({de:`Olexander, super! Gut gemacht! ${deThis(t)}`,ua:`Сашка, молодець! Це ${t.labels.ua}.`});
-function bad(x,t,n){if(n===1)return{de:`Olexander, noch nicht. ${deThis(x)} Suche ${article(t)} ${t.labels.de}.`,ua:`Сашка, ще ні. Це ${x.labels.ua}. Знайди ${t.labels.ua}.`};if(t.attributes?.color)return{de:`Schau genau: ${t.labels.de} ist ${t.attributes.color.de}. Versuch es noch einmal.`,ua:`Подивись уважно: ${t.labels.ua} — ${t.attributes.color.ua}. Спробуй ще раз.`};return{de:`Schau genau hin. Suche ${article(t)} ${t.labels.de}.`,ua:`Подивись уважно. Знайди ${t.labels.ua}.`}}
+const colorDe=x=>x?.attributes?.color?.de||"",colorUa=x=>x?.attributes?.color?.ua||"";
+const deAccArticle=x=>plural.has(x.id)?"die":article(x)==="der"?"den":article(x);
+function deAdj(color,ending){if(!color)return"";if(color==="orange"||color==="rosa")return color;return `${color}${ending}`}
+function deNamed(x,acc=false){const c=colorDe(x);if(!c)return `${acc?deAccArticle(x):article(x)} ${x.labels.de}`;const pl=plural.has(x.id),a=acc?deAccArticle(x):article(x),ending=pl||acc&&article(x)==="der"?"en":"e";return `${a} ${deAdj(c,ending)} ${x.labels.de}`}
+const uaNamed=x=>colorUa(x)?`${colorUa(x)} ${x.labels.ua}`:x.labels.ua;
+const good=t=>({de:`Olexander, super! Genau richtig. Das ist ${deNamed(t)}. Gut aufgepasst!`,ua:`Сашка, молодець! Саме так. Це ${uaNamed(t)}. Ти чудово придивився!`});
+function bad(x,t,n){
+  const xc=colorDe(x),tc=colorDe(t),xu=colorUa(x),tu=colorUa(t);
+  if(n===1)return{de:`Das ist ${deNamed(x)}. Wir suchen aber ${deNamed(t,true)}. Schau noch einmal genau hin, Olexander.`,ua:`Це ${uaNamed(x)}. А ось що нам потрібно знайти: ${uaNamed(t)}. Подумай ще, друже.`};
+  if(xc&&tc&&xc!==tc)return{de:`Achte auf die Farbe: ${x.labels.de} ist ${xc}, aber ${t.labels.de} ist ${tc}. Welche Karte passt besser?`,ua:`Подивись на колір: ${x.labels.ua} — ${xu}, а ${t.labels.ua} — ${tu}. Яка картинка підходить краще?`};
+  if(tc)return{de:`Kleiner Tipp: Wir suchen ${deNamed(t,true)}. Die Farbe ${tc} hilft dir. Lass dir Zeit und schau noch einmal.`,ua:`Маленька підказка: потрібний предмет має колір ${tu}. Не поспішай і подивись ще раз.`};
+  return{de:`Fast! Das hier ist ${article(x)} ${x.labels.de}. Gesucht ist ${article(t)} ${t.labels.de}. Vergleiche die Bilder noch einmal in Ruhe.`,ua:`Майже! На цій картинці — ${x.labels.ua}, а нам потрібен інший предмет: ${t.labels.ua}. Спокійно порівняй картинки ще раз.`};
+}
 function record(id,ok){const p=state.progress[id]||{seen:0,correct:0,wrong:0,mastery:0};p.seen++;if(ok){p.correct++;p.mastery=Math.min(1,p.mastery+.14)}else{p.wrong++;p.mastery=Math.max(0,p.mastery-.05)}p.lastSeen=Date.now();state.progress[id]=p;save()}
 function feedback(p,ok){clearTimeout(state.timer);document.querySelector(".feedback-bubble")?.remove();const e=document.createElement("div");e.className=`feedback-bubble ${ok?"good":""}`;e.innerHTML=`<div>${esc(p.de)}</div>`+(state.settings.voiceMode==="de"?"":`<div style="opacity:.78;font-size:.78em;margin-top:3px">${esc(p.ua)}</div>`);document.body.append(e);state.timer=setTimeout(()=>e.remove(),5200)}
 function resolveAsset(src){if(!src)return"";return new URL(src.startsWith("/")?`.${src}`:src,document.baseURI).href}
 function stopVoice(){if(state.voiceAudio){state.voiceAudio.pause();state.voiceAudio.currentTime=0;state.voiceAudio=null}if("speechSynthesis"in window)speechSynthesis.cancel()}
 function playRecorded(src){return new Promise(resolve=>{if(!src)return resolve(false);stopVoice();const a=new Audio(resolveAsset(src));state.voiceAudio=a;a.volume=1;a.onended=()=>{if(state.voiceAudio===a)state.voiceAudio=null;resolve(true)};a.onerror=()=>{if(state.voiceAudio===a)state.voiceAudio=null;resolve(false)};a.play().catch(()=>resolve(false))})}
 async function playItemVoice(item,kind,fallback){
+  // Questions keep the clean recorded voice. Explanations are built
+  // from the actual chosen/target cards, so they are spoken live.
+  if(kind!=="question"){
+    const parts=[{text:fallback.de,lang:"de-DE"}];
+    if(state.settings.voiceMode!=="de")parts.push({text:fallback.ua,lang:"uk-UA"});
+    await speakSeq(parts);
+    return true;
+  }
   if(state.settings.voiceMode==="de"){
-    const src=item?.generatedAudioDe?.[kind];
+    const src=item?.generatedAudioDe?.question;
     if(src&&await playRecorded(src))return true;
     await speakSeq([{text:fallback.de,lang:"de-DE"}]);
     return false;
   }
-  const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.generatedAudioUa?.[kind]||(kind==="retry"?item?.generatedAudioUa?.question:null);
+  const deSrc=item?.generatedAudioDe?.question,uaSrc=item?.generatedAudioUa?.question;
   let deOk=false,uaOk=false;
   if(deSrc)deOk=await playRecorded(deSrc);
   if(!deOk)await speakSeq([{text:fallback.de,lang:"de-DE"}]);
@@ -44,7 +63,8 @@ async function playItemVoice(item,kind,fallback){
 }
 const speakCurrent=()=>state.current?playItemVoice(state.current.target,"question",state.current.prompt):Promise.resolve();
 function speakPair(p){const parts=[{text:p.de,lang:"de-DE"}];if(state.settings.voiceMode!=="de")parts.push({text:p.ua,lang:"uk-UA"});return speakSeq(parts)}
-function speakSeq(parts){return new Promise(resolve=>{if(!("speechSynthesis"in window))return resolve();speechSynthesis.cancel();let i=0;const next=()=>{if(i>=parts.length)return resolve();const x=parts[i++],u=new SpeechSynthesisUtterance(x.text);u.lang=x.lang;u.rate=.86;u.pitch=1.02;u.onend=next;u.onerror=next;speechSynthesis.speak(u)};next()})}
+function preferredVoice(lang){if(!("speechSynthesis"in window))return null;const prefix=lang.slice(0,2).toLowerCase(),voices=speechSynthesis.getVoices().filter(v=>String(v.lang||"").toLowerCase().startsWith(prefix));const score=v=>/natural|neural|premium|enhanced|google|microsoft|online/i.test(v.name||"")?2:v.localService?1:0;return voices.sort((a,b)=>score(b)-score(a))[0]||null}
+function speakSeq(parts){return new Promise(resolve=>{if(!("speechSynthesis"in window))return resolve();speechSynthesis.cancel();let i=0;const next=()=>{if(i>=parts.length)return resolve();const x=parts[i++],u=new SpeechSynthesisUtterance(x.text),v=preferredVoice(x.lang);u.lang=x.lang;if(v)u.voice=v;u.rate=.9;u.pitch=1;u.onend=next;u.onerror=next;speechSynthesis.speak(u)};next()})}
 function playApplause(){return new Promise(resolve=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return resolve(false);const ctx=state.audioContext||(state.audioContext=new C());ctx.resume?.().catch(()=>{});const master=ctx.createGain();master.gain.value=.72;master.connect(ctx.destination);const start=ctx.currentTime+.01;for(let i=0;i<30;i++){const d=.07+Math.random()*.04,l=Math.max(1,Math.floor(ctx.sampleRate*d)),buf=ctx.createBuffer(1,l,ctx.sampleRate),data=buf.getChannelData(0);for(let j=0;j<l;j++){const q=1-j/l;data[j]=(Math.random()*2-1)*q*q}const src=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain(),t=start+i*.032+Math.random()*.13;src.buffer=buf;filter.type="bandpass";filter.frequency.value=900+Math.random()*1500;gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(.3+Math.random()*.2,t+.006);gain.gain.exponentialRampToValueAtTime(.0001,t+d);src.connect(filter);filter.connect(gain);gain.connect(master);src.start(t);src.stop(t+d+.01)}setTimeout(()=>{try{master.disconnect()}catch{}resolve(true)},1250)}catch{resolve(false)}})}
 function stars(){const r=state.round?state.score/state.round:0;return r>=.85?"★ ★ ★":r>=.6?"★ ★ ☆":state.score?"★ ☆ ☆":"☆ ☆ ☆"}
 function finish(){stopVoice();sound.style.visibility="hidden";const r=state.score/state.roundLimit,s=r>=.85?"★★★":r>=.6?"★★☆":r>=.35?"★☆☆":"☆☆☆";main.innerHTML=`<section class="home"><div class="hero"><div class="mascot">🏆</div><h1>${s}</h1><p><strong>${esc(state.settings.childName)}</strong>, ${state.score} / ${state.roundLimit} · Sehr gut! · Молодець!</p><button class="big-play" id="again">Ще раз · Nochmal</button></div></section>`;$("#again").onclick=()=>start(state.category);confetti(44)}
