@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-28T22:30:47.821Z",
+  "ts": "2026-08-28T22:30:50.239Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "household",
-  "id": "table",
-  "de": "Tisch",
+  "id": "glass",
+  "de": "Glas",
   "mode": "de",
   "audioFiles": 240,
   "failures": 0
