@@ -1222,3 +1222,6 @@
 {"ts":"2026-08-28T22:30:43.012Z","event":"skip-existing","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":240,"kind":"question","file":"spoon.question.de.wav"}
 {"ts":"2026-08-28T22:30:43.016Z","event":"skip-existing","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":240,"kind":"success","file":"spoon.success.de.wav"}
 {"ts":"2026-08-28T22:30:43.019Z","event":"item-complete","provider":"openai","category":"household","id":"spoon","de":"Löffel","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:45.465Z","event":"skip-existing","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"kind":"question","file":"fork.question.de.wav"}
+{"ts":"2026-08-28T22:30:45.468Z","event":"skip-existing","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"kind":"success","file":"fork.success.de.wav"}
+{"ts":"2026-08-28T22:30:45.471Z","event":"item-complete","provider":"openai","category":"household","id":"fork","de":"Gabel","mode":"de","audioFiles":240,"failures":0}
