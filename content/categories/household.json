@@ -175,6 +175,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/pan.question.de.wav",
         "success": "./assets/generated/audio/pan.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/pan.question.ua.wav",
+        "success": "./assets/generated/audio/pan.success.ua.wav"
       }
     },
     {
