@@ -546,3 +546,6 @@
 {"ts":"2026-08-28T21:00:15.340Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":113,"kind":"question","file":"sponge.question.de.wav"}
 {"ts":"2026-08-28T21:00:15.342Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":113,"kind":"success","file":"sponge.success.de.wav"}
 {"ts":"2026-08-28T21:00:15.344Z","event":"item-complete","provider":"openai","category":"hygiene","id":"sponge","de":"Schwamm","mode":"de","audioFiles":113,"failures":0}
+{"ts":"2026-08-28T21:00:17.646Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":113,"kind":"question","file":"toilet-paper.question.de.wav"}
+{"ts":"2026-08-28T21:00:17.649Z","event":"skip-existing","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":113,"kind":"success","file":"toilet-paper.success.de.wav"}
+{"ts":"2026-08-28T21:00:17.650Z","event":"item-complete","provider":"openai","category":"hygiene","id":"toilet-paper","de":"Toilettenpapier","mode":"de","audioFiles":113,"failures":0}
