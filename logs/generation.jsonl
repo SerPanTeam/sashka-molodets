@@ -578,3 +578,8 @@
 {"ts":"2026-08-28T21:00:42.817Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":114,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Lastwagen."}
 {"ts":"2026-08-28T21:00:44.190Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":115,"kind":"success","file":"truck.success.de.wav","bytes":261644,"ms":1372}
 {"ts":"2026-08-28T21:00:45.393Z","event":"item-complete","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"de","audioFiles":115,"failures":0}
+{"ts":"2026-08-28T21:00:47.898Z","event":"start","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":115,"kind":"question","transcript":"Wo ist der Traktor?"}
+{"ts":"2026-08-28T21:00:48.789Z","event":"success","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":116,"kind":"question","file":"tractor.question.de.wav","bytes":96044,"ms":888}
+{"ts":"2026-08-28T21:00:49.990Z","event":"start","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":116,"kind":"success","transcript":"Alexander, super! Gut gemacht! Das ist der Traktor."}
+{"ts":"2026-08-28T21:00:51.157Z","event":"success","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":117,"kind":"success","file":"tractor.success.de.wav","bytes":240044,"ms":1165}
+{"ts":"2026-08-28T21:00:52.359Z","event":"item-complete","provider":"openai","category":"transport","id":"tractor","de":"Traktor","mode":"de","audioFiles":117,"failures":0}
