@@ -18,14 +18,21 @@ const categoriesArg = value("categories", "animals,vegetables,fruits");
 const categories = categoriesArg === "all" ? null : categoriesArg.split(",").map(x => x.trim()).filter(Boolean);
 const perCategory = Number(value("per-category", "10"));
 const kinds = new Set(value("audio-kinds", "question,success,retry").split(",").map(x => x.trim()).filter(Boolean));
+const voiceModes = new Set(value("voice-modes", "bilingual").split(",").map(x => x.trim()).filter(Boolean));
 const doImages = !flag("audio-only");
 const doAudio = flag("audio") || flag("audio-only");
 const qa = !flag("no-qa") && provider === "google";
 const maxImageAttempts = Number(value("image-attempts", "3"));
-const pauseMs = Number(value("pause-ms", "650"));
+const pauseMs = Number(value("pause-ms", "1200"));
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-async function withRetry(fn, label, tries = 5) {
+function retryDelay(text, attempt) {
+  const seconds = text.match(/retry in\s+([\d.]+)s/i)?.[1];
+  if (seconds) return Math.min(65000, Math.ceil(Number(seconds) * 1000) + 750);
+  if (/\(429\)|rate|quota/i.test(text)) return Math.max(6500, Math.min(65000, 6500 * attempt));
+  return Math.min(20000, 1800 * 2 ** (attempt - 1));
+}
+async function withRetry(fn, label, tries = 4) {
   let last;
   for (let attempt = 1; attempt <= tries; attempt++) {
     try { return await fn(); }
@@ -34,8 +41,8 @@ async function withRetry(fn, label, tries = 5) {
       const text = String(error?.message || error);
       const retryable = /\(429\)|\(5\d\d\)|rate|quota|temporar|unavailable/i.test(text);
       if (!retryable || attempt === tries) throw error;
-      const wait = Math.min(20000, 1800 * 2 ** (attempt - 1));
-      console.warn(`[retry ${attempt}/${tries}] ${label}: ${text.slice(0, 180)}; waiting ${wait}ms`);
+      const wait = retryDelay(text, attempt);
+      console.warn(`[retry ${attempt}/${tries}] ${label}; waiting ${wait}ms`);
       await sleep(wait);
     }
   }
@@ -43,8 +50,7 @@ async function withRetry(fn, label, tries = 5) {
 }
 
 const content = await loadContent(root);
-const priorityPath = path.join(root, "config/generation/priority-v1.json");
-const priority = JSON.parse(await readFile(priorityPath, "utf8"));
+const priority = JSON.parse(await readFile(path.join(root, "config/generation/priority-v1.json"), "utf8"));
 const imageDir = path.join(root, "public/assets/generated/images");
 const audioDir = path.join(root, "public/assets/generated/audio");
 await mkdir(imageDir, { recursive: true });
@@ -55,173 +61,103 @@ const requestedCategories = categories || Object.keys(priority.categories);
 const selected = [];
 for (const category of requestedCategories) {
   const ids = priority.categories[category] || content.items.filter(x => x.category === category).map(x => x.id);
-  const items = ids.map(id => allById.get(id)).filter(Boolean).slice(0, perCategory);
-  selected.push(...items);
+  selected.push(...ids.map(id => allById.get(id)).filter(Boolean).slice(0, perCategory));
 }
 
 const subjectDescriptions = {
-  dog: "one friendly domestic dog, whole body, natural canine anatomy",
-  cat: "one friendly domestic cat, whole body, natural feline anatomy",
-  rabbit: "one rabbit, whole body, long ears, natural anatomy",
-  cow: "one black-and-white dairy cow, whole body, natural anatomy",
-  horse: "one brown horse, whole body, natural anatomy",
-  pig: "one pink farm pig, whole body, natural anatomy",
-  sheep: "one white woolly sheep, whole body, natural anatomy",
-  lion: "one adult lion with a clear mane, whole body, natural anatomy, friendly neutral expression",
-  elephant: "one gray elephant, whole body, trunk and large ears clearly visible, natural anatomy",
-  bear: "one brown bear, whole body, natural anatomy, calm neutral expression",
-  tomato: "one ripe red tomato with a small green calyx",
-  cucumber: "one fresh dark-green cucumber, elongated shape",
-  carrot: "one orange carrot with a short fresh green leafy top",
-  potato: "one ordinary light-brown potato tuber",
-  corn: "one yellow ear of sweet corn with a little green husk",
-  pepper: "one fresh green bell pepper, classic blocky bell-pepper shape",
-  broccoli: "one green broccoli head with a short thick stalk",
-  onion: "one golden-yellow onion bulb with papery skin",
-  eggplant: "one glossy deep-purple eggplant with green calyx",
-  garlic: "one white garlic bulb with distinct cloves under the skin",
-  apple: "one ripe red apple with a small stem and one green leaf",
-  banana: "one ripe yellow banana, gently curved",
-  orange: "one whole ripe orange citrus fruit",
-  pear: "one ripe green pear with classic pear shape and a small stem",
-  grapes: "one small bunch of purple grapes on a stem",
-  strawberry: "one ripe red strawberry with green leafy cap and visible seeds",
-  watermelon: "one whole green striped watermelon, round-to-oval shape",
-  peach: "one ripe peach with soft orange-pink skin and a small leaf",
-  cherries: "a natural pair of ripe red cherries joined by stems",
-  kiwi: "one whole brown fuzzy kiwi fruit, oval shape"
+  dog:"one friendly domestic dog, whole body", cat:"one friendly domestic cat, whole body", rabbit:"one rabbit, whole body, long ears", cow:"one black-and-white dairy cow, whole body", horse:"one brown horse, whole body", pig:"one pink farm pig, whole body", sheep:"one white woolly sheep, whole body", lion:"one adult lion with a clear mane, whole body", elephant:"one gray elephant, whole body, trunk and large ears visible", bear:"one brown bear, whole body, calm expression",
+  tomato:"one ripe red tomato with green calyx", cucumber:"one dark-green cucumber", carrot:"one orange carrot with green leafy top", potato:"one light-brown potato", corn:"one yellow ear of corn with a little green husk", pepper:"one green bell pepper", broccoli:"one green broccoli head", onion:"one golden-yellow onion bulb", eggplant:"one glossy purple eggplant", garlic:"one white garlic bulb",
+  apple:"one ripe red apple", banana:"one ripe yellow banana", orange:"one whole orange citrus fruit", pear:"one green pear", grapes:"one small bunch of purple grapes", strawberry:"one ripe red strawberry", watermelon:"one whole green striped watermelon", peach:"one ripe peach", cherries:"a natural pair of red cherries joined by stems", kiwi:"one whole brown fuzzy kiwi",
+  cup:"one simple ceramic drinking cup with handle", plate:"one simple round dinner plate", spoon:"one metal eating spoon", fork:"one metal table fork", table:"one simple four-legged dining table", glass:"one clear empty drinking glass", bowl:"one simple eating bowl", pot:"one cooking pot with two handles and no food", pan:"one frying pan with handle and no food", fridge:"one closed household refrigerator",
+  toothbrush:"one child toothbrush", toothpaste:"one toothpaste tube", soap:"one bar of soap", towel:"one neatly folded bath towel", shampoo:"one shampoo bottle", comb:"one simple hair comb", sponge:"one yellow cleaning sponge", "toilet-paper":"one roll of toilet paper", hairbrush:"one hair brush", washcloth:"one soft washcloth",
+  car:"one ordinary family car", bus:"one city bus", train:"one passenger train locomotive/front car", bicycle:"one standard bicycle", airplane:"one passenger airplane", ship:"one simple passenger ship", truck:"one cargo truck", tractor:"one farm tractor", tram:"one city tram", helicopter:"one helicopter"
 };
 
 function imagePrompt(item, correction = "") {
   const subject = subjectDescriptions[item.id] || `${item.labels.de} / ${item.labels.ua}`;
-  const produce = ["vegetables", "fruits"].includes(item.category);
+  const animal = item.category === "animals";
   return [
-    "Create a premium educational picture card for a child aged about 3–7.",
+    "Create a premium educational picture card for a child aged 3–7.",
     `SUBJECT: ${subject}.`,
-    "The subject must be instantly recognizable without any text.",
-    "Visual style: polished friendly high-quality 3D children's illustration, believable natural proportions and textures, bright clean colors, soft studio light, subtle soft contact shadow.",
-    "Composition: exactly one main subject centered, large, full subject visible, comfortable margin, square 1:1, very light warm cream background, no scene and no horizon.",
-    produce ? "For food/produce: absolutely no cartoon face, eyes, mouth, arms or legs; keep the real characteristic shape and natural color." : "For animals: natural species anatomy, four limbs only when appropriate, normal eyes, no clothing, no human pose, no exaggerated cartoon anatomy.",
-    "No text, letters, numbers, labels, border, logo, watermark, hands, people, toys, tableware, extra food, decorative props, duplicate subject, or confusing objects.",
-    "Optimize for visual discrimination in a preschool matching game: clear silhouette, distinctive defining features, uncluttered image.",
-    correction ? `Previous QA correction to address: ${correction}` : ""
+    "It must be instantly recognizable by a young child without reading.",
+    "Style: polished friendly high-quality 3D children's illustration, believable proportions and textures, bright natural colors, soft studio light, subtle contact shadow.",
+    "Composition: exactly one main subject, centered, large, complete object visible, square 1:1, very light warm cream background, no scene or horizon.",
+    animal ? "Animal must have correct natural species anatomy, normal eyes, no clothes, no human pose." : "Keep the object's real characteristic shape and color; no cartoon face, eyes, mouth, arms or legs.",
+    "No text, letters, numbers, labels, border, logo, watermark, people, hands, decorative props, duplicate objects, confusing extras or scary details.",
+    correction ? `Fix this QA issue: ${correction}` : ""
   ].filter(Boolean).join(" ");
 }
 
 const pluralGerman = new Set(["grapes", "cherries"]);
-function deQuestion(item) {
-  return pluralGerman.has(item.id) ? `Wo sind die ${item.labels.de}?` : `Wo ist ${item.article?.de || "die"} ${item.labels.de}?`;
-}
-function deThisIs(item) {
-  return pluralGerman.has(item.id) ? `Das sind die ${item.labels.de}.` : `Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
-}
-function questionText(item) {
-  return `${deQuestion(item)}\nДе ${item.labels.ua}?`;
-}
-function successText(item) {
-  return `[excited] Alexander, super! Gut gemacht! ${deThisIs(item)}\n[excited] Сашка, молодець! Це ${item.labels.ua}.`;
-}
-function retryText(item) {
-  const de = pluralGerman.has(item.id) ? `Noch nicht. Suche die ${item.labels.de}.` : `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.`;
-  return `${de}\nЩе ні. Знайди ${item.labels.ua}.`;
-}
-function audioText(item, kind) {
-  if (kind === "success") return successText(item);
-  if (kind === "retry") return retryText(item);
-  return questionText(item);
+const deQuestion = item => pluralGerman.has(item.id) ? `Wo sind die ${item.labels.de}?` : `Wo ist ${item.article?.de || "die"} ${item.labels.de}?`;
+const deThisIs = item => pluralGerman.has(item.id) ? `Das sind die ${item.labels.de}.` : `Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
+function deRetry(item) { return pluralGerman.has(item.id) ? `Noch nicht. Suche die ${item.labels.de}.` : `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.`; }
+function audioText(item, kind, mode) {
+  const de = kind === "success" ? `Alexander, super! Gut gemacht! ${deThisIs(item)}` : kind === "retry" ? deRetry(item) : deQuestion(item);
+  if (mode === "de") return de;
+  const ua = kind === "success" ? `Сашка, молодець! Це ${item.labels.ua}.` : kind === "retry" ? `Ще ні. Знайди ${item.labels.ua}.` : `Де ${item.labels.ua}?`;
+  return `${de}\n${ua}`;
 }
 
-console.log(`Selected ${selected.length} items: ${requestedCategories.join(", ")} (${perCategory}/category)`);
-console.log(`Images=${doImages} Audio=${doAudio} QA=${qa} Provider=${provider} Dry=${dry} ContinueOnError=${continueOnError}`);
-
-let imageCount = 0;
-let audioCount = 0;
-let qaRejected = 0;
-let failures = 0;
+console.log(`Selected ${selected.length}: ${requestedCategories.join(", ")} (${perCategory}/category)`);
+console.log(`Images=${doImages} Audio=${doAudio} VoiceModes=${[...voiceModes]} QA=${qa} Provider=${provider}`);
+let imageCount=0,audioCount=0,qaRejected=0,failures=0;
 
 for (const item of selected) {
   if (doImages) {
     try {
-      const file = path.join(imageDir, `${item.id}.png`);
-      let exists = false;
-      try { await access(file); exists = true; } catch {}
+      const fileName = `${item.id}.jpg`;
+      const file = path.join(imageDir, fileName);
+      let exists=false; try { await access(file); exists=true; } catch {}
       if (!exists || force) {
         console.log(`[image:${provider}] ${item.category}/${item.id}`);
         if (!dry) {
-          let correction = "";
-          let accepted = null;
-          for (let attempt = 1; attempt <= maxImageAttempts; attempt++) {
-            const generated = await withRetry(() => generateImage({
-              provider,
-              prompt: imagePrompt(item, correction),
-              aspectRatio: "1:1",
-              imageSize: "1K",
-              size: "1024x1024"
-            }), `image ${item.id}`);
-            if (!qa) { accepted = generated; break; }
-            const review = await withRetry(() => reviewImage({
-              provider,
-              buffer: generated.buffer,
-              mimeType: generated.mimeType,
-              expected: `${subjectDescriptions[item.id] || item.labels.de}; German label ${item.labels.de}; Ukrainian label ${item.labels.ua}`
-            }), `qa ${item.id}`);
-            console.log(`  QA attempt ${attempt}: ${review.text.replace(/\s+/g, " ").slice(0, 220)}`);
-            if (review.pass) { accepted = generated; break; }
-            qaRejected++;
-            correction = review.text;
-            await sleep(pauseMs);
+          let correction="", accepted=null;
+          for (let attempt=1; attempt<=maxImageAttempts; attempt++) {
+            const generated = await withRetry(() => generateImage({provider,prompt:imagePrompt(item,correction),aspectRatio:"1:1",imageSize:"1K"}), `image ${item.id}`);
+            if (!qa) { accepted=generated; break; }
+            const review = await withRetry(() => reviewImage({provider,buffer:generated.buffer,mimeType:generated.mimeType,expected:`${subjectDescriptions[item.id] || item.labels.de}; ${item.labels.de}; ${item.labels.ua}`}), `qa ${item.id}`);
+            console.log(`  QA ${attempt}: ${review.text.replace(/\s+/g," ").slice(0,200)}`);
+            if (review.pass) { accepted=generated; break; }
+            qaRejected++; correction=review.text; await sleep(pauseMs);
           }
-          if (accepted) {
-            await writeFile(file, accepted.buffer);
-            item.generatedImage = `./assets/generated/images/${item.id}.png`;
-            imageCount++;
-          } else {
-            console.warn(`  SKIP ${item.id}: image failed QA after ${maxImageAttempts} attempts; emoji fallback will remain.`);
-          }
+          if (accepted) { await writeFile(file,accepted.buffer); item.generatedImage=`./assets/generated/images/${fileName}`; imageCount++; }
         }
-        await sleep(pauseMs);
-      } else if (!item.generatedImage) {
-        item.generatedImage = `./assets/generated/images/${item.id}.png`;
-      }
-    } catch (error) {
-      failures++;
-      console.error(`[image failed] ${item.id}: ${String(error?.message || error).slice(0, 900)}`);
-      if (!continueOnError) throw error;
+      } else item.generatedImage=`./assets/generated/images/${fileName}`;
+      await sleep(pauseMs);
+    } catch(error) {
+      failures++; console.error(`[image failed] ${item.id}: ${String(error?.message||error).slice(0,800)}`); if(!continueOnError) throw error;
     }
   }
 
   if (doAudio) {
-    item.generatedAudio ||= {};
-    for (const kind of kinds) {
-      try {
-        const fileName = `${item.id}.${kind}.bilingual.wav`;
-        const file = path.join(audioDir, fileName);
-        let exists = false;
-        try { await access(file); exists = true; } catch {}
-        if (!exists || force) {
-          console.log(`[audio:${provider}] ${item.category}/${item.id} ${kind}`);
-          if (!dry) {
-            const result = await withRetry(() => generateSpeech({
-              provider,
-              text: audioText(item, kind),
-              language: "German de-DE first, then Ukrainian uk-UA",
-              style: "warm, cheerful, caring preschool educator; native-sounding pronunciation in each language; clear and natural; slightly playful but not theatrical; medium-slow pace; pause naturally at the line break before switching languages; speak only the requested phrases"
-            }), `audio ${item.id}/${kind}`);
-            await writeFile(file, result.buffer);
-            audioCount++;
+    for (const mode of voiceModes) {
+      const field = mode === "de" ? "generatedAudioDe" : "generatedAudio";
+      item[field] ||= {};
+      for (const kind of kinds) {
+        try {
+          const suffix = mode === "de" ? "de" : "bilingual";
+          const fileName = `${item.id}.${kind}.${suffix}.wav`;
+          const file = path.join(audioDir,fileName);
+          let exists=false; try { await access(file); exists=true; } catch {}
+          if (!exists || force) {
+            console.log(`[audio:${provider}] ${item.category}/${item.id} ${kind}/${mode}`);
+            if (!dry) {
+              const language = mode === "de" ? "German de-DE only" : "German de-DE first, then Ukrainian uk-UA";
+              const result = await withRetry(() => generateSpeech({provider,text:audioText(item,kind,mode),language,style:"warm, cheerful, caring preschool educator; native pronunciation; clear, natural, slightly playful; medium-slow pace; speak only the transcript"}), `audio ${item.id}/${kind}/${mode}`);
+              await writeFile(file,result.buffer); audioCount++;
+            }
           }
+          item[field][kind]=`./assets/generated/audio/${fileName}`;
           await sleep(pauseMs);
+        } catch(error) {
+          failures++; console.error(`[audio failed] ${item.id}/${kind}/${mode}: ${String(error?.message||error).slice(0,800)}`); if(!continueOnError) throw error;
         }
-        item.generatedAudio[kind] = `./assets/generated/audio/${fileName}`;
-      } catch (error) {
-        failures++;
-        console.error(`[audio failed] ${item.id}/${kind}: ${String(error?.message || error).slice(0, 900)}`);
-        if (!continueOnError) throw error;
       }
     }
   }
 }
 
 if (!dry) await saveContentGroups(content);
-console.log(`Done. New images=${imageCount}; new audio=${audioCount}; QA rejections/regenerations=${qaRejected}; failures=${failures}.`);
-if (dry) console.log("Dry run: no API calls or files were written. Remove --dry-run to generate assets.");
+console.log(`Done. images=${imageCount}; audio=${audioCount}; QA retries=${qaRejected}; failures=${failures}`);
+if (dry) console.log("Dry run: no API calls or files were written.");
