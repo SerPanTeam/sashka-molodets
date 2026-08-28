@@ -1,6 +1,6 @@
 # Сашка молодец — Production Guardrails
 
-Этот файл фиксирует решения, которые нельзя случайно сломать в следующих итерациях проекта.
+Этот файл фиксирует решения, которые нельзя случайно сломать в следующих итерациях проекта. Эти правила стоит применять и к другим приложениям с AI-generation + GitHub Actions + static production deploy.
 
 ## 1. Прод проверяется отдельно от `main`
 
@@ -50,28 +50,46 @@ SFX должны быть короткими, узнаваемыми, детск
 
 - generated image;
 - German question + success metadata;
-- Ukrainian question + success metadata.
+- Ukrainian question + success metadata;
+- физические файлы по всем этим references реально существуют в production artifact.
 
-Незавершённые карточки нельзя отдавать в игровой пул.
+Незавершённые карточки нельзя отдавать в игровой пул. Production shim обязан проверять физическое наличие assets, а не доверять только JSON metadata.
 
 ## 6. Generation / billing resilience
 
 Перед массовой генерацией делать smoke gate. Ошибка `credit_balance_exhausted` / `insufficient_quota` — внешний blocker, а не повод удалять рабочие assets.
 
-Нельзя сначала удалять рабочие production WAV, а потом пытаться их регенерировать без подтверждённого API balance. Новая схема должна быть atomic: генерировать во временный путь/новое имя, проверить полный batch, затем переключить references.
+Нельзя сначала удалять рабочие production WAV, а потом пытаться их регенерировать без подтверждённого API balance. Перед batch regeneration нужен preflight на одном asset. Новые файлы нельзя считать готовыми, пока они не существуют, не имеют ненулевой размер и не попали под Git tracking.
 
-## 7. Definition of Done
+## 7. Главный урок из потерянных 28 PNG
+
+Старый `generate-category-images.sh` делал `generator || status=error`, но после этого продолжал цикл и возвращал exit code 0. Поэтому GitHub Actions показывал зелёные image stages, хотя 28 поздних PNG никогда не были закоммичены. Аналогичный риск был в audio script.
+
+Правило для всех следующих приложений:
+
+- `green workflow` не является доказательством результата сам по себе;
+- после каждого AI generation шага проверять ожидаемый файл (`-s` / size > 0);
+- после checkpoint проверять, что файл tracked (`git ls-files` или эквивалент);
+- push делать с retry/rebase, а не одним хрупким `git push`;
+- накопить `failures` и завершить job non-zero, если хотя бы один обязательный asset не получен;
+- финальный validator должен независимо пересчитать физические assets, а не читать только status генератора;
+- если incomplete assets допустимы временно, runtime обязан безопасно отфильтровать их, а CI отдельно показать `ready/target`.
+
+## 8. Definition of Done
 
 Нельзя говорить пользователю «готово на проде», пока не выполнено всё:
 
 - код/контент физически в `main`;
 - syntax/static checks прошли;
+- независимый validator посчитал реально существующие assets;
 - Pages workflow завершён `success`;
 - prod использует свежий runtime (cache bust применён);
 - bilingual path работает DE → UA;
 - правильный ответ ждёт applause → SFX → praise;
 - нет видимых/озвученных legacy `Alexander` там, где ожидается `Olexander`.
 
-## 8. Current external blocker
+## 9. Current state / external blocker
 
-OpenAI API на последней проверке вернул `credit_balance_exhausted`. Поэтому новый recorded German success batch с `Olexander` нельзя завершить до пополнения API credits. Все остальные runtime-исправления должны работать без дополнительных API расходов.
+Независимая production validation подтверждает **32/60** priority cards с физическими image + DE/UA audio assets. Для остальных 28 отсутствуют PNG, которые старый workflow ошибочно посчитал успешными и не сохранил в Git.
+
+OpenAI API на последней проверке вернул `credit_balance_exhausted`. Поэтому недостающие 28 изображения и новый recorded German success batch с `Olexander` нельзя безопасно перегенерировать через OpenAI до появления credits. Живой production при этом должен оставаться рабочим: показывать только физически готовые карточки, использовать browser TTS для German success с `Olexander` и recorded UA success.
