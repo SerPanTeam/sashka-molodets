@@ -1,4 +1,4 @@
-# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:40Z
+# manual trigger after OPENAI_API_KEY update: 2026-08-28T20:47Z
 name: Generate priority learning assets
 
 on:
@@ -59,7 +59,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/generated/audio public/assets/generated/images public/assets/generated/progress.json content/categories
+          git add -f public/assets/generated/audio public/assets/generated/images
+          git add public/assets/generated/progress.json content/categories
           test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
           if git diff --cached --quiet; then
             echo 'Smoke assets already existed; nothing new to commit.'
