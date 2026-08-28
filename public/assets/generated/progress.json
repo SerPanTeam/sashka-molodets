@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-28T21:26:54.797Z",
+  "ts": "2026-08-28T21:27:28.413Z",
   "event": "success",
   "provider": "openai",
   "category": "household",
-  "id": "cup",
-  "de": "Tasse",
-  "imageFiles": 31,
-  "file": "cup.png",
-  "bytes": 1203311,
+  "id": "plate",
+  "de": "Teller",
+  "imageFiles": 32,
+  "file": "plate.png",
+  "bytes": 921061,
   "mimeType": "image/png",
   "quality": "medium",
-  "ms": 32992
+  "ms": 30868
 }
