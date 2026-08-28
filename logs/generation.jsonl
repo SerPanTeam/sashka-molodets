@@ -638,3 +638,8 @@
 {"ts":"2026-08-28T21:02:35.099Z","event":"start","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":138,"kind":"success","transcript":"Сашка, молодець! Це слон."}
 {"ts":"2026-08-28T21:02:35.964Z","event":"success","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":139,"kind":"success","file":"elephant.success.ua.wav","bytes":170444,"ms":865}
 {"ts":"2026-08-28T21:02:37.238Z","event":"item-complete","provider":"openai","category":"animals","id":"elephant","de":"Elefant","mode":"ua","audioFiles":139,"failures":0}
+{"ts":"2026-08-28T21:02:39.658Z","event":"start","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"ua","audioFiles":139,"kind":"question","transcript":"Де ведмідь?"}
+{"ts":"2026-08-28T21:02:40.360Z","event":"success","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"ua","audioFiles":140,"kind":"question","file":"bear.question.ua.wav","bytes":110444,"ms":700}
+{"ts":"2026-08-28T21:02:41.562Z","event":"start","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"ua","audioFiles":140,"kind":"success","transcript":"Сашка, молодець! Це ведмідь."}
+{"ts":"2026-08-28T21:02:42.422Z","event":"success","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"ua","audioFiles":141,"kind":"success","file":"bear.success.ua.wav","bytes":180044,"ms":859}
+{"ts":"2026-08-28T21:02:43.625Z","event":"item-complete","provider":"openai","category":"animals","id":"bear","de":"Bär","mode":"ua","audioFiles":141,"failures":0}

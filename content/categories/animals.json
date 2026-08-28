@@ -90,6 +90,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/bear.question.de.wav",
         "success": "./assets/generated/audio/bear.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bear.question.ua.wav",
+        "success": "./assets/generated/audio/bear.success.ua.wav"
       }
     },
     {
