@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-28T21:34:30.211Z",
+  "ts": "2026-08-28T21:34:50.989Z",
   "event": "error",
   "provider": "openai",
   "category": "transport",
-  "id": "bus",
-  "de": "Bus",
+  "id": "train",
+  "de": "Zug",
   "imageFiles": 32,
   "quality": "medium",
   "error": "OpenAI image request failed (429): {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}",
-  "ms": 18575
+  "ms": 18421
 }
