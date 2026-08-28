@@ -135,6 +135,10 @@
       "generatedAudioDe": {
         "question": "./assets/generated/audio/truck.question.de.wav",
         "success": "./assets/generated/audio/truck.success.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/truck.question.ua.wav",
+        "success": "./assets/generated/audio/truck.success.ua.wav"
       }
     },
     {

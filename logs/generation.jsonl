@@ -872,3 +872,8 @@
 {"ts":"2026-08-28T21:07:55.714Z","event":"start","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":231,"kind":"success","transcript":"Сашка, молодець! Це корабель."}
 {"ts":"2026-08-28T21:07:56.750Z","event":"success","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":232,"kind":"success","file":"ship.success.ua.wav","bytes":213644,"ms":1035}
 {"ts":"2026-08-28T21:07:57.953Z","event":"item-complete","provider":"openai","category":"transport","id":"ship","de":"Schiff","mode":"ua","audioFiles":232,"failures":0}
+{"ts":"2026-08-28T21:08:00.375Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":232,"kind":"question","transcript":"Де вантажівка?"}
+{"ts":"2026-08-28T21:08:01.429Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":233,"kind":"question","file":"truck.question.ua.wav","bytes":115244,"ms":1052}
+{"ts":"2026-08-28T21:08:02.631Z","event":"start","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":233,"kind":"success","transcript":"Сашка, молодець! Це вантажівка."}
+{"ts":"2026-08-28T21:08:03.855Z","event":"success","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":234,"kind":"success","file":"truck.success.ua.wav","bytes":225644,"ms":1223}
+{"ts":"2026-08-28T21:08:05.056Z","event":"item-complete","provider":"openai","category":"transport","id":"truck","de":"Lastwagen","mode":"ua","audioFiles":234,"failures":0}
