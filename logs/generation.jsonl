@@ -847,3 +847,8 @@
 {"ts":"2026-08-28T21:07:21.207Z","event":"start","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"ua","audioFiles":221,"kind":"success","transcript":"Сашка, молодець! Це автомобіль."}
 {"ts":"2026-08-28T21:07:22.586Z","event":"success","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"ua","audioFiles":222,"kind":"success","file":"car.success.ua.wav","bytes":249644,"ms":1378}
 {"ts":"2026-08-28T21:07:23.789Z","event":"item-complete","provider":"openai","category":"transport","id":"car","de":"Auto","mode":"ua","audioFiles":222,"failures":0}
+{"ts":"2026-08-28T21:07:26.146Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":222,"kind":"question","transcript":"Де автобус?"}
+{"ts":"2026-08-28T21:07:26.996Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":223,"kind":"question","file":"bus.question.ua.wav","bytes":158444,"ms":847}
+{"ts":"2026-08-28T21:07:28.198Z","event":"start","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":223,"kind":"success","transcript":"Сашка, молодець! Це автобус."}
+{"ts":"2026-08-28T21:07:29.298Z","event":"success","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":224,"kind":"success","file":"bus.success.ua.wav","bytes":256844,"ms":1099}
+{"ts":"2026-08-28T21:07:30.501Z","event":"item-complete","provider":"openai","category":"transport","id":"bus","de":"Bus","mode":"ua","audioFiles":224,"failures":0}

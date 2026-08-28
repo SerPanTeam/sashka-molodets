@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-28T21:07:23.789Z",
+  "ts": "2026-08-28T21:07:30.501Z",
   "event": "item-complete",
   "provider": "openai",
   "category": "transport",
-  "id": "car",
-  "de": "Auto",
+  "id": "bus",
+  "de": "Bus",
   "mode": "ua",
-  "audioFiles": 222,
+  "audioFiles": 224,
   "failures": 0
 }
