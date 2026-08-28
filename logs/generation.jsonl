@@ -1192,3 +1192,6 @@
 {"ts":"2026-08-28T22:30:18.733Z","event":"skip-existing","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":240,"kind":"question","file":"orange.question.de.wav"}
 {"ts":"2026-08-28T22:30:18.736Z","event":"skip-existing","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":240,"kind":"success","file":"orange.success.de.wav"}
 {"ts":"2026-08-28T22:30:18.739Z","event":"item-complete","provider":"openai","category":"fruits","id":"orange","de":"Orange","mode":"de","audioFiles":240,"failures":0}
+{"ts":"2026-08-28T22:30:21.244Z","event":"skip-existing","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":240,"kind":"question","file":"pear.question.de.wav"}
+{"ts":"2026-08-28T22:30:21.247Z","event":"skip-existing","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":240,"kind":"success","file":"pear.success.de.wav"}
+{"ts":"2026-08-28T22:30:21.250Z","event":"item-complete","provider":"openai","category":"fruits","id":"pear","de":"Birne","mode":"de","audioFiles":240,"failures":0}
