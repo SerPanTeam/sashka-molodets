@@ -93,7 +93,7 @@ const deQuestion = item => pluralGerman.has(item.id) ? `Wo sind die ${item.label
 const deThisIs = item => pluralGerman.has(item.id) ? `Das sind die ${item.labels.de}.` : `Das ist ${item.article?.de || "die"} ${item.labels.de}.`;
 function deRetry(item) { return pluralGerman.has(item.id) ? `Noch nicht. Suche die ${item.labels.de}.` : `Noch nicht. Suche ${item.article?.de || "die"} ${item.labels.de}.`; }
 function audioText(item, kind, mode) {
-  const de = kind === "success" ? `Alexander, super! Gut gemacht! ${deThisIs(item)}` : kind === "retry" ? deRetry(item) : deQuestion(item);
+  const de = kind === "success" ? `Olexander, super! Gut gemacht! ${deThisIs(item)}` : kind === "retry" ? deRetry(item) : deQuestion(item);
   if (mode === "de") return de;
   const ua = kind === "success" ? `Сашка, молодець! Це ${item.labels.ua}.` : kind === "retry" ? `Ще ні. Знайди ${item.labels.ua}.` : `Де ${item.labels.ua}?`;
   return `${de}\n${ua}`;
