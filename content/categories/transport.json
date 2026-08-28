@@ -1,125 +1,15 @@
 {
   "category": "transport",
   "items": [
-    {
-      "id": "car",
-      "category": "transport",
-      "emoji": "🚗",
-      "labels": {
-        "de": "Auto",
-        "ua": "автомобіль"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "bus",
-      "category": "transport",
-      "emoji": "🚌",
-      "labels": {
-        "de": "Bus",
-        "ua": "автобус"
-      },
-      "article": {
-        "de": "der"
-      }
-    },
-    {
-      "id": "train",
-      "category": "transport",
-      "emoji": "🚆",
-      "labels": {
-        "de": "Zug",
-        "ua": "поїзд"
-      },
-      "article": {
-        "de": "der"
-      }
-    },
-    {
-      "id": "tram",
-      "category": "transport",
-      "emoji": "🚋",
-      "labels": {
-        "de": "Straßenbahn",
-        "ua": "трамвай"
-      },
-      "article": {
-        "de": "die"
-      }
-    },
-    {
-      "id": "bicycle",
-      "category": "transport",
-      "emoji": "🚲",
-      "labels": {
-        "de": "Fahrrad",
-        "ua": "велосипед"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "motorcycle",
-      "category": "transport",
-      "emoji": "🏍️",
-      "labels": {
-        "de": "Motorrad",
-        "ua": "мотоцикл"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "airplane",
-      "category": "transport",
-      "emoji": "✈️",
-      "labels": {
-        "de": "Flugzeug",
-        "ua": "літак"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "ship",
-      "category": "transport",
-      "emoji": "🚢",
-      "labels": {
-        "de": "Schiff",
-        "ua": "корабель"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "tractor",
-      "category": "transport",
-      "emoji": "🚜",
-      "labels": {
-        "de": "Traktor",
-        "ua": "трактор"
-      },
-      "article": {
-        "de": "der"
-      }
-    },
-    {
-      "id": "ambulance",
-      "category": "transport",
-      "emoji": "🚑",
-      "labels": {
-        "de": "Krankenwagen",
-        "ua": "швидка допомога"
-      },
-      "article": {
-        "de": "der"
-      }
-    }
+    {"id":"car","category":"transport","emoji":"🚗","labels":{"de":"Auto","ua":"автомобіль"},"article":{"de":"das"}},
+    {"id":"bus","category":"transport","emoji":"🚌","labels":{"de":"Bus","ua":"автобус"},"article":{"de":"der"}},
+    {"id":"train","category":"transport","emoji":"🚆","labels":{"de":"Zug","ua":"поїзд"},"article":{"de":"der"}},
+    {"id":"bicycle","category":"transport","emoji":"🚲","labels":{"de":"Fahrrad","ua":"велосипед"},"article":{"de":"das"}},
+    {"id":"airplane","category":"transport","emoji":"✈️","labels":{"de":"Flugzeug","ua":"літак"},"article":{"de":"das"}},
+    {"id":"ship","category":"transport","emoji":"🚢","labels":{"de":"Schiff","ua":"корабель"},"article":{"de":"das"}},
+    {"id":"truck","category":"transport","emoji":"🚚","labels":{"de":"Lastwagen","ua":"вантажівка"},"article":{"de":"der"}},
+    {"id":"tractor","category":"transport","emoji":"🚜","labels":{"de":"Traktor","ua":"трактор"},"article":{"de":"der"}},
+    {"id":"tram","category":"transport","emoji":"🚋","labels":{"de":"Straßenbahn","ua":"трамвай"},"article":{"de":"die"}},
+    {"id":"helicopter","category":"transport","emoji":"🚁","labels":{"de":"Hubschrauber","ua":"гелікоптер"},"article":{"de":"der"}}
   ]
 }
