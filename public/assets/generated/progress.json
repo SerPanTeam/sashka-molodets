@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-29T02:37:34.517Z",
+  "ts": "2026-08-29T07:11:51.713Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "soap",
-  "de": "Seife",
+  "id": "toothbrush",
+  "de": "Zahnbürste",
   "mode": "ua",
   "force": true,
   "audioFiles": 480,
