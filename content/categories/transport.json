@@ -239,11 +239,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/helicopter.question.de.wav",
-        "success": "./assets/generated/audio/helicopter.success.de.wav"
+        "success": "./assets/generated/audio/helicopter.success.de.wav",
+        "wrong": "./assets/generated/audio/helicopter.wrong.de.wav",
+        "retry": "./assets/generated/audio/helicopter.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/helicopter.question.ua.wav",
-        "success": "./assets/generated/audio/helicopter.success.ua.wav"
+        "success": "./assets/generated/audio/helicopter.success.ua.wav",
+        "wrong": "./assets/generated/audio/helicopter.wrong.ua.wav",
+        "retry": "./assets/generated/audio/helicopter.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/helicopter.png"
     }
