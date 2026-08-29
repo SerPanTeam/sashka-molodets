@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:59:22.247Z",
+  "ts": "2026-08-29T01:00:14.652Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "pot",
-  "de": "Topf",
+  "id": "pan",
+  "de": "Pfanne",
   "mode": "ua",
   "force": true,
-  "audioFiles": 392,
+  "audioFiles": 396,
   "failures": 0
 }
