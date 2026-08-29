@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:46:07.483Z",
+  "ts": "2026-08-29T00:47:06.037Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "fruits",
-  "id": "pear",
-  "de": "Birne",
+  "id": "grapes",
+  "de": "Trauben",
   "mode": "ua",
   "force": true,
-  "audioFiles": 336,
+  "audioFiles": 340,
   "failures": 0
 }
