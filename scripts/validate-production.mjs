@@ -24,8 +24,12 @@ for (const id of ids) {
     ['image', item.generatedImage],
     ['DE question', item.generatedAudioDe?.question],
     ['DE success', item.generatedAudioDe?.success],
+    ['DE wrong', item.generatedAudioDe?.wrong],
+    ['DE retry', item.generatedAudioDe?.retry],
     ['UA question', item.generatedAudioUa?.question],
-    ['UA success', item.generatedAudioUa?.success]
+    ['UA success', item.generatedAudioUa?.success],
+    ['UA wrong', item.generatedAudioUa?.wrong],
+    ['UA retry', item.generatedAudioUa?.retry]
   ];
   let ready = true;
   for (const [label, ref] of required) {

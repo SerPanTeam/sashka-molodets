@@ -66,8 +66,8 @@
     const ua = item?.generatedAudioUa || {};
     return Boolean(
       item?.generatedImage &&
-      de.question && de.success &&
-      ua.question && ua.success
+      de.question && de.success && de.wrong && de.retry &&
+      ua.question && ua.success && ua.wrong && ua.retry
     );
   };
 
@@ -86,8 +86,12 @@
       item.generatedImage,
       item.generatedAudioDe?.question,
       item.generatedAudioDe?.success,
+      item.generatedAudioDe?.wrong,
+      item.generatedAudioDe?.retry,
       item.generatedAudioUa?.question,
-      item.generatedAudioUa?.success
+      item.generatedAudioUa?.success,
+      item.generatedAudioUa?.wrong,
+      item.generatedAudioUa?.retry
     ];
     const checks = await Promise.all(refs.map(assetExists));
     return checks.every(Boolean);
@@ -106,19 +110,7 @@
     const allItems = categories.flatMap(category => category.items || []);
     const candidates = allItems.filter(hasRequiredMetadata);
     const checks = await Promise.all(candidates.map(async item => ({ item, ready: await physicalAssetsExist(item) })));
-    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({
-      ...item,
-      // Existing German success WAVs were generated with the legacy name
-      // "Alexander". OpenAI credits are currently exhausted, so production
-      // must fall back to browser speech for the German praise until those
-      // WAVs can be regenerated. Questions and Ukrainian recordings remain
-      // fully recorded. Remove this override after the refreshed WAV batch is
-      // successfully committed and deployed.
-      generatedAudioDe: {
-        ...(item.generatedAudioDe || {}),
-        success: null
-      }
-    }));
+    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);
     return {
       schemaVersion: manifest.schemaVersion || 1,
       languages: manifest.languages || ['de-DE', 'uk-UA'],
