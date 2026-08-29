@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:48:55.667Z",
+  "ts": "2026-08-29T00:49:49.286Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "fruits",
-  "id": "watermelon",
-  "de": "Wassermelone",
+  "id": "peach",
+  "de": "Pfirsich",
   "mode": "ua",
   "force": true,
-  "audioFiles": 348,
+  "audioFiles": 352,
   "failures": 0
 }
