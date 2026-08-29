@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T01:34:37.921Z",
+  "ts": "2026-08-29T01:35:31.801Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "towel",
-  "de": "Handtuch",
+  "id": "shampoo",
+  "de": "Shampoo",
   "mode": "ua",
   "force": true,
-  "audioFiles": 456,
+  "audioFiles": 460,
   "failures": 0
 }

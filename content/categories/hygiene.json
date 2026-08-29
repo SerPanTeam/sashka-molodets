@@ -114,11 +114,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/shampoo.question.de.wav",
-        "success": "./assets/generated/audio/shampoo.success.de.wav"
+        "success": "./assets/generated/audio/shampoo.success.de.wav",
+        "wrong": "./assets/generated/audio/shampoo.wrong.de.wav",
+        "retry": "./assets/generated/audio/shampoo.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/shampoo.question.ua.wav",
-        "success": "./assets/generated/audio/shampoo.success.ua.wav"
+        "success": "./assets/generated/audio/shampoo.success.ua.wav",
+        "wrong": "./assets/generated/audio/shampoo.wrong.ua.wav",
+        "retry": "./assets/generated/audio/shampoo.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/shampoo.png"
     },
