@@ -214,11 +214,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/tram.question.de.wav",
-        "success": "./assets/generated/audio/tram.success.de.wav"
+        "success": "./assets/generated/audio/tram.success.de.wav",
+        "wrong": "./assets/generated/audio/tram.wrong.de.wav",
+        "retry": "./assets/generated/audio/tram.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/tram.question.ua.wav",
-        "success": "./assets/generated/audio/tram.success.ua.wav"
+        "success": "./assets/generated/audio/tram.success.ua.wav",
+        "wrong": "./assets/generated/audio/tram.wrong.ua.wav",
+        "retry": "./assets/generated/audio/tram.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/tram.png"
     },
