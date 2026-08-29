@@ -31,7 +31,7 @@ const subjects={
   tomato:"one juicy ripe bright-red tomato with fresh green calyx",cucumber:"one fresh glossy dark-green cucumber",carrot:"one vivid orange carrot with fresh green leafy top",potato:"one clean light-brown potato with natural shape",corn:"one sunny yellow ear of corn with a little fresh green husk",pepper:"one glossy vivid green bell pepper",broccoli:"one fresh rich-green broccoli head",onion:"one golden-yellow onion bulb",eggplant:"one glossy deep-purple eggplant with green cap",garlic:"one clean white garlic bulb",
   apple:"one juicy shiny red apple with a small green leaf",banana:"one ripe cheerful yellow banana",orange:"one juicy whole bright-orange citrus fruit",pear:"one fresh green pear",grapes:"one compact natural bunch of juicy purple grapes",strawberry:"one juicy bright-red strawberry with green leaves",watermelon:"one whole rich-green striped watermelon",peach:"one velvety ripe peach with warm peach-orange color",cherries:"a natural pair of shiny red cherries joined by stems",kiwi:"one whole brown fuzzy kiwi fruit",
   cup:"one clean ceramic drinking cup with handle",plate:"one clean simple round dinner plate",spoon:"one shiny metal eating spoon",fork:"one shiny metal table fork",table:"one simple sturdy four-legged wooden dining table",glass:"one clean clear empty drinking glass",bowl:"one simple clean eating bowl",pot:"one clean cooking pot with two handles and lid, no food",pan:"one clean frying pan with handle, no food",fridge:"one modern closed household refrigerator, front view",
-  toothbrush:"one colorful child toothbrush",toothpaste:"one friendly colorful toothpaste tube, no readable brand text",soap:"one clean colorful bar of soap",towel:"one soft neatly folded bath towel",shampoo:"one colorful shampoo bottle with no readable brand text",comb:"one simple colorful hair comb",sponge:"one bright yellow cleaning sponge","toilet-paper":"one clean white roll of toilet paper",hairbrush:"one simple colorful hair brush",washcloth:"one soft colorful washcloth",
+  toothbrush:"one colorful child toothbrush",toothpaste:"one unmistakable classic toothpaste tube lying slightly diagonal, crimped sealed flat end at one side and a small white screw-cap/nozzle at the other, familiar toothpaste packaging proportions, clean white tube with simple blue and red curved graphic stripes but absolutely no readable words or logo; it must clearly look like toothpaste, not lotion, sunscreen, paint, cream or soap",soap:"one clean colorful bar of soap",towel:"one soft neatly folded bath towel",shampoo:"one colorful shampoo bottle with no readable brand text",comb:"one simple colorful hair comb",sponge:"one bright yellow cleaning sponge","toilet-paper":"one clean white roll of toilet paper",hairbrush:"one simple colorful hair brush",washcloth:"one soft colorful washcloth",
   car:"one bright modern family car, three-quarter view",bus:"one bright city bus, three-quarter view",train:"one modern passenger train front car, clearly recognizable",bicycle:"one standard colorful bicycle, side view",airplane:"one modern passenger airplane, whole aircraft visible",ship:"one friendly simple passenger ship, whole ship visible",truck:"one bright cargo truck, three-quarter view",tractor:"one bright farm tractor, three-quarter view",tram:"one modern city tram, three-quarter view",helicopter:"one modern helicopter, whole aircraft visible"
 };
 
@@ -79,7 +79,7 @@ const started=Date.now();
 try{
   let accepted=null,qaText="QA disabled";
   let correction="";
-  for(let artAttempt=1;artAttempt<=2;artAttempt++){
+  for(let artAttempt=1;artAttempt<=3;artAttempt++){
     const result=await withRetry(()=>generateImage({provider,prompt:prompt(correction),aspectRatio:"1:1",imageSize:"1K",size:"1024x1024",quality}));
     if(!qa){accepted=result;break;}
     const review=await withRetry(()=>reviewImage({provider,buffer:result.buffer,mimeType:result.mimeType,expected:subjects[item.id]||item.labels.de}),3);
@@ -88,7 +88,7 @@ try{
     if(review.pass){accepted=result;break;}
     correction=`Previous attempt was rejected by child-card QA: ${review.text}. Fix those problems decisively while preserving the requested subject and clean premium style.`;
   }
-  if(!accepted) throw new Error(`Image failed strict QA after 2 art attempts: ${qaText}`);
+  if(!accepted) throw new Error(`Image failed strict QA after 3 art attempts: ${qaText}`);
   await writeFile(file,accepted.buffer);
   item.generatedImage=`./assets/generated/images/${name}`;
   await saveContentGroups(content);
