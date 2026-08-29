@@ -1,7 +1,6 @@
 (() => {
   const CHILD_NAME_DE = 'Olexander';
 
-  // Migrate older saved settings without overwriting an intentional custom category choice.
   try {
     const settingsKey = 'sashka.settings';
     const saved = JSON.parse(localStorage.getItem(settingsKey) || '{}');
@@ -13,16 +12,12 @@
     localStorage.setItem(settingsKey, JSON.stringify({
       ...saved,
       settingsVersion: 3,
-      // v3 fixes stale clients that remained locked in German-only mode from
-      // an older build. Migrate once to DE → UA, then preserve future choices.
       voiceMode: oldSettingsVersion < 3 ? 'dual' : (saved.voiceMode === 'de' ? 'de' : 'dual'),
       autoSpeak: saved.autoSpeak !== false,
       categories: looksLikeOldDefault ? newCore : categories
     }));
   } catch {}
 
-  // Keep the preferred German spelling consistent even in legacy app strings
-  // and browser-speech fallbacks while generated audio is being refreshed.
   try {
     const NativeUtterance = window.SpeechSynthesisUtterance;
     if (NativeUtterance) {
@@ -39,9 +34,7 @@
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     let node;
     while ((node = walker.nextNode())) {
-      if (node.nodeValue?.includes('Alexander')) {
-        node.nodeValue = node.nodeValue.replace(/\bAlexander\b/g, CHILD_NAME_DE);
-      }
+      if (node.nodeValue?.includes('Alexander')) node.nodeValue = node.nodeValue.replace(/\bAlexander\b/g, CHILD_NAME_DE);
     }
   };
   try {
@@ -51,9 +44,7 @@
         for (const node of record.addedNodes) {
           if (node.nodeType === Node.TEXT_NODE) {
             if (node.nodeValue?.includes('Alexander')) node.nodeValue = node.nodeValue.replace(/\bAlexander\b/g, CHILD_NAME_DE);
-          } else {
-            replaceLegacyName(node);
-          }
+          } else replaceLegacyName(node);
         }
       }
     }).observe(document.body, { childList: true, subtree: true });
@@ -71,32 +62,6 @@
     );
   };
 
-  const assetExists = async ref => {
-    if (!ref) return false;
-    try {
-      const response = await nativeFetch(ref, { method: 'HEAD', cache: 'no-store' });
-      return response.ok;
-    } catch {
-      return false;
-    }
-  };
-
-  const physicalAssetsExist = async item => {
-    const refs = [
-      item.generatedImage,
-      item.generatedAudioDe?.question,
-      item.generatedAudioDe?.success,
-      item.generatedAudioDe?.wrong,
-      item.generatedAudioDe?.retry,
-      item.generatedAudioUa?.question,
-      item.generatedAudioUa?.success,
-      item.generatedAudioUa?.wrong,
-      item.generatedAudioUa?.retry
-    ];
-    const checks = await Promise.all(refs.map(assetExists));
-    return checks.every(Boolean);
-  };
-
   async function loadStaticContent() {
     const manifestResponse = await nativeFetch('./content/content.json', { cache: 'no-store' });
     if (!manifestResponse.ok) throw new Error('Static content manifest unavailable');
@@ -107,25 +72,22 @@
       if (!response.ok) throw new Error(`Content file unavailable: ${path}`);
       return response.json();
     }));
-    const allItems = categories.flatMap(category => category.items || []);
-    const candidates = allItems.filter(hasRequiredMetadata);
-    const checks = await Promise.all(candidates.map(async item => ({ item, ready: await physicalAssetsExist(item) })));
-    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);
+    const items = categories.flatMap(category => category.items || []).filter(hasRequiredMetadata);
     return {
       schemaVersion: manifest.schemaVersion || 1,
       languages: manifest.languages || ['de-DE', 'uk-UA'],
-      items: readyItems
+      items
     };
   }
 
   window.fetch = async (input, init) => {
     const url = typeof input === 'string' ? input : input?.url;
     if (url === '/api/content') {
-      // GitHub Pages has no API backend. Always build fresh content from the
-      // deployed static JSON and expose only cards whose generated assets
-      // physically exist in the deployed site.
       const content = await loadStaticContent();
-      return new Response(JSON.stringify(content), { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } });
+      return new Response(JSON.stringify(content), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
     }
     return nativeFetch(input, init);
   };
