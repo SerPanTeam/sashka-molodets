@@ -1,4 +1,4 @@
-const CACHE="sashka-molodets-v21";
+const CACHE="sashka-molodets-v26";
 const BASE=self.registration.scope;
 const url=path=>new URL(path,BASE).href;
 const CORE=[BASE,url("index.html"),url("styles.css"),url("enhancements.css"),url("admin-status.css"),url("app.js"),url("admin-status.js"),url("pages-shim.js"),url("audio-bridge.js"),url("object-sfx.js"),url("object-sfx-local.js"),url("manifest.webmanifest"),url("icon.svg"),url("content/content.json")];
@@ -18,7 +18,7 @@ const isMutable=requestUrl=>{
   return p.includes("/content/") ||
     p.includes("/assets/generated/") ||
     p.includes("/assets/sfx/") ||
-    /\/(?:index\.html|app\.js|pages-shim\.js|audio-bridge\.js|object-sfx\.js|object-sfx-local\.js|admin-status\.js|sw\.js)$/.test(p);
+    /\/(?:index\.html|styles\.css|enhancements\.css|admin-status\.css|app\.js|pages-shim\.js|audio-bridge\.js|object-sfx\.js|object-sfx-local\.js|admin-status\.js|sw\.js)$/.test(p);
 };
 
 async function networkFirst(request){
