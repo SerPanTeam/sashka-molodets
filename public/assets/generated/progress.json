@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:56:44.668Z",
+  "ts": "2026-08-29T00:57:37.010Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "table",
-  "de": "Tisch",
+  "id": "glass",
+  "de": "Glas",
   "mode": "ua",
   "force": true,
-  "audioFiles": 380,
+  "audioFiles": 384,
   "failures": 0
 }
