@@ -23,7 +23,6 @@ jobs:
       AI_DEFAULT_PROVIDER: google-cloud
       GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
       GOOGLE_IMAGE_LOCATION: global
-      GOOGLE_TTS_LOCATION: global
       GOOGLE_VISION_LOCATION: global
       GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
       GOOGLE_VISION_MODEL: gemini-3.5-flash
@@ -74,6 +73,18 @@ jobs:
           set -euo pipefail
           node scripts/generate-one-audio.mjs --provider=google-cloud --id=tomato --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=300
           for k in question success wrong retry; do test -s "public/assets/generated/audio/tomato.${k}.ua.wav"; done
+
+      - name: Validate WAVs are short child-game clips
+        run: |
+          python3 - <<'PY'
+          import glob, wave
+          for f in glob.glob('public/assets/generated/audio/tomato.*.wav'):
+              with wave.open(f, 'rb') as w:
+                  seconds = w.getnframes() / w.getframerate()
+              print(f'{f}: {seconds:.2f}s')
+              if seconds <= 0 or seconds > 12:
+                  raise SystemExit(f'BAD DURATION: {f} = {seconds:.2f}s')
+          PY
 
       - name: Smoke summary
         if: always()
