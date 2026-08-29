@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:25:04.246Z",
+  "ts": "2026-08-29T00:25:56.223Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "animals",
-  "id": "cat",
-  "de": "Katze",
+  "id": "rabbit",
+  "de": "Hase",
   "mode": "ua",
   "force": true,
-  "audioFiles": 248,
+  "audioFiles": 252,
   "failures": 0
 }
