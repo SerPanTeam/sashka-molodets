@@ -19,11 +19,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/dog.question.de.wav",
-        "success": "./assets/generated/audio/dog.success.de.wav"
+        "success": "./assets/generated/audio/dog.success.de.wav",
+        "wrong": "./assets/generated/audio/dog.wrong.de.wav",
+        "retry": "./assets/generated/audio/dog.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/dog.question.ua.wav",
-        "success": "./assets/generated/audio/dog.success.ua.wav"
+        "success": "./assets/generated/audio/dog.success.ua.wav",
+        "wrong": "./assets/generated/audio/dog.wrong.ua.wav",
+        "retry": "./assets/generated/audio/dog.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/dog.png"
     },
