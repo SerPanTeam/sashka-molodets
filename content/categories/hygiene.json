@@ -89,11 +89,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/towel.question.de.wav",
-        "success": "./assets/generated/audio/towel.success.de.wav"
+        "success": "./assets/generated/audio/towel.success.de.wav",
+        "wrong": "./assets/generated/audio/towel.wrong.de.wav",
+        "retry": "./assets/generated/audio/towel.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/towel.question.ua.wav",
-        "success": "./assets/generated/audio/towel.success.ua.wav"
+        "success": "./assets/generated/audio/towel.success.ua.wav",
+        "wrong": "./assets/generated/audio/towel.wrong.ua.wav",
+        "retry": "./assets/generated/audio/towel.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/towel.png"
     },
