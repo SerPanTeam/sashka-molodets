@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-29T07:16:22.557Z",
+  "ts": "2026-08-29T07:17:14.485Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "comb",
-  "de": "Kamm",
+  "id": "sponge",
+  "de": "Schwamm",
   "mode": "ua",
   "force": true,
   "audioFiles": 480,
