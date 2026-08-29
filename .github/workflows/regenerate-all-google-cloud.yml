@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/regenerate-all-google-cloud.yml'
+      - 'scripts/generate-one-image.mjs'
 
 permissions:
   contents: write
