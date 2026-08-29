@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T01:00:14.652Z",
+  "ts": "2026-08-29T01:01:11.821Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "pan",
-  "de": "Pfanne",
+  "id": "fridge",
+  "de": "Kühlschrank",
   "mode": "ua",
   "force": true,
-  "audioFiles": 396,
+  "audioFiles": 400,
   "failures": 0
 }

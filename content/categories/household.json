@@ -239,11 +239,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/fridge.question.de.wav",
-        "success": "./assets/generated/audio/fridge.success.de.wav"
+        "success": "./assets/generated/audio/fridge.success.de.wav",
+        "wrong": "./assets/generated/audio/fridge.wrong.de.wav",
+        "retry": "./assets/generated/audio/fridge.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/fridge.question.ua.wav",
-        "success": "./assets/generated/audio/fridge.success.ua.wav"
+        "success": "./assets/generated/audio/fridge.success.ua.wav",
+        "wrong": "./assets/generated/audio/fridge.wrong.ua.wav",
+        "retry": "./assets/generated/audio/fridge.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/fridge.png"
     }
