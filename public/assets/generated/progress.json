@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:31:16.667Z",
+  "ts": "2026-08-29T00:32:07.351Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "animals",
-  "id": "elephant",
-  "de": "Elefant",
+  "id": "bear",
+  "de": "Bär",
   "mode": "ua",
   "force": true,
-  "audioFiles": 276,
+  "audioFiles": 280,
   "failures": 0
 }
