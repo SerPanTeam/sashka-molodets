@@ -49,8 +49,10 @@ if (!app.includes('await playApplause()')) errors.push('correct-answer flow does
 if (!app.includes('await window.SashkaSfx.play(t.id)')) errors.push('correct-answer flow does not await object SFX');
 if (app.includes('state.wrong>=3')) errors.push('wrong-answer flow still auto-advances after repeated misses');
 if (!app.includes('state.locked=true;state.wrong++')) errors.push('wrong-answer audio is not protected from rapid-tap interruption');
-if (!app.includes('if(kind!=="question")')) errors.push('dynamic feedback voice path missing');
-if (!app.includes('parts.push({text:fallback.ua,lang:"uk-UA"})')) errors.push('dynamic feedback does not guarantee Ukrainian after German');
+if (!app.includes('playWrongVoice(x,t,f)')) errors.push('wrong-answer flow does not use recorded contextual teaching clips');
+if (!app.includes('generatedAudioDe?.wrong') || !app.includes('generatedAudioDe?.retry')) errors.push('recorded German wrong/retry path missing');
+if (!app.includes('generatedAudioUa?.wrong') || !app.includes('generatedAudioUa?.retry')) errors.push('recorded Ukrainian wrong/retry path missing');
+if (!app.includes('const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.generatedAudioUa?.[kind]')) errors.push('success/question recorded-first voice path missing');
 if (!app.includes('Подумай ще, друже')) errors.push('contextual Ukrainian first-miss explanation missing');
 if (!app.includes('Achte auf die Farbe')) errors.push('attribute-comparison feedback missing');
 if (!app.includes('preferredVoice')) errors.push('preferred natural browser voice selection missing');
@@ -71,16 +73,16 @@ if (successFlowStart < 0 || successFlowEnd < 0) {
   }
 }
 
-// The dynamic success path must construct German first and append Ukrainian second.
-const dynamicVoiceStart = app.indexOf('if(kind!=="question")');
-const dynamicVoiceEnd = dynamicVoiceStart >= 0 ? app.indexOf('return true;', dynamicVoiceStart) : -1;
-if (dynamicVoiceStart < 0 || dynamicVoiceEnd < 0) {
-  errors.push('dynamic success/retry voice block not found');
+// Recorded wrong-answer teaching must preserve German first, then Ukrainian.
+const recordedWrongStart = app.indexOf('async function playWrongVoice');
+const recordedWrongEnd = recordedWrongStart >= 0 ? app.indexOf('const speakCurrent=', recordedWrongStart) : -1;
+if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
+  errors.push('recorded wrong-answer voice block not found');
 } else {
-  const flow = app.slice(dynamicVoiceStart, dynamicVoiceEnd);
-  const dePos = flow.indexOf('{text:fallback.de,lang:"de-DE"}');
-  const uaPos = flow.indexOf('parts.push({text:fallback.ua,lang:"uk-UA"})');
-  if (!(dePos >= 0 && uaPos > dePos)) errors.push('dynamic praise order must remain German → Ukrainian');
+  const flow = app.slice(recordedWrongStart, recordedWrongEnd);
+  const dePos = flow.indexOf('deWrong&&deRetry');
+  const uaPos = flow.indexOf('uaWrong&&uaRetry', dePos + 1);
+  if (!(dePos >= 0 && uaPos > dePos)) errors.push('recorded wrong-answer order must remain German → Ukrainian');
 }
 
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
@@ -113,4 +115,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, strict applause → SFX → DE→UA praise sequencing.');
+console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, recorded-first contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, strict applause → SFX → DE→UA praise sequencing.');

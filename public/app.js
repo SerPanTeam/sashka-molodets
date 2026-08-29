@@ -19,7 +19,7 @@ function distractors(t,pool,n){let a=pool.filter(x=>x.id!==t.id);if(+state.setti
 const plural=new Set(["grapes","cherries"]);const article=x=>x.article?.de||"die",deQuestion=x=>plural.has(x.id)?`Wo sind die ${x.labels.de}?`:`Wo ist ${article(x)} ${x.labels.de}?`,deThis=x=>plural.has(x.id)?`Das sind die ${x.labels.de}.`:`Das ist ${article(x)} ${x.labels.de}.`;
 function promptFor(x,color){return color?{de:`Wo ist ${article(x)} ${x.attributes.color.de}e ${x.labels.de}?`,ua:`Де ${x.attributes.color.ua} ${x.labels.ua}?`}:{de:deQuestion(x),ua:`Де ${x.labels.ua}?`}}
 function render(){const{prompt,choices}=state.current;$("#question").innerHTML=`<div class="question-primary">${esc(prompt.de)}</div><div class="question-secondary">${esc(prompt.ua)}</div>`;const cards=$("#cards");cards.innerHTML="";for(const x of choices){const b=document.createElement("button");b.className="choice-card";b.dataset.id=x.id;b.innerHTML=(x.generatedImage?`<img class="choice-image" src="${esc(resolveAsset(x.generatedImage))}" alt="">`:`<div class="choice-emoji">${x.emoji}</div>`)+(state.settings.showLabels?`<div class="choice-label">${esc(x.labels.de)}</div><div class="choice-sub">${esc(x.labels.ua)}</div>`:"");b.setAttribute("aria-label",`${x.labels.de} — ${x.labels.ua}`);b.onclick=()=>choose(x,b);cards.append(b)}}
-function choose(x,b){if(state.locked)return;stopVoice();const t=state.current.target;if(x.id===t.id){state.locked=true;b.classList.add("correct");record(t.id,true);state.score++;const f=good(t);feedback(f,true);confetti(38);$("#progress").style.width=`${state.round/state.roundLimit*100}%`;$("#stars").textContent=stars();(async()=>{await playApplause();if(window.SashkaSfx?.has?.(t.id))await window.SashkaSfx.play(t.id);await playItemVoice(t,"success",f);if(state.route==="game"&&state.locked)setTimeout(next,250)})();return}state.locked=true;state.wrong++;record(t.id,false);b.classList.add("wrong");b.disabled=true;const f=bad(x,t,state.wrong);feedback(f,false);if(state.wrong>=2)document.querySelector(`.choice-card[data-id="${CSS.escape(t.id)}"]`)?.classList.add("hint");(async()=>{await playItemVoice(t,"retry",f);if(state.route==="game"&&state.current?.target?.id===t.id)state.locked=false})()}
+function choose(x,b){if(state.locked)return;stopVoice();const t=state.current.target;if(x.id===t.id){state.locked=true;b.classList.add("correct");record(t.id,true);state.score++;const f=good(t);feedback(f,true);confetti(38);$("#progress").style.width=`${state.round/state.roundLimit*100}%`;$("#stars").textContent=stars();(async()=>{await playApplause();if(window.SashkaSfx?.has?.(t.id))await window.SashkaSfx.play(t.id);await playItemVoice(t,"success",f);if(state.route==="game"&&state.locked)setTimeout(next,250)})();return}state.locked=true;state.wrong++;record(t.id,false);b.classList.add("wrong");b.disabled=true;const f=bad(x,t,state.wrong);feedback(f,false);if(state.wrong>=2)document.querySelector(`.choice-card[data-id="${CSS.escape(t.id)}"]`)?.classList.add("hint");(async()=>{await playWrongVoice(x,t,f);if(state.route==="game"&&state.current?.target?.id===t.id)state.locked=false})()}
 const colorDe=x=>x?.attributes?.color?.de||"",colorUa=x=>x?.attributes?.color?.ua||"";
 const deAccArticle=x=>plural.has(x.id)?"die":article(x)==="der"?"den":article(x);
 function deAdj(color,ending){if(!color)return"";if(color==="orange"||color==="rosa")return color;return `${color}${ending}`}
@@ -39,26 +39,31 @@ function resolveAsset(src){if(!src)return"";return new URL(src.startsWith("/")?`
 function stopVoice(){if(state.voiceAudio){state.voiceAudio.pause();state.voiceAudio.currentTime=0;state.voiceAudio=null}if("speechSynthesis"in window)speechSynthesis.cancel()}
 function playRecorded(src){return new Promise(resolve=>{if(!src)return resolve(false);stopVoice();const a=new Audio(resolveAsset(src));state.voiceAudio=a;a.volume=1;a.onended=()=>{if(state.voiceAudio===a)state.voiceAudio=null;resolve(true)};a.onerror=()=>{if(state.voiceAudio===a)state.voiceAudio=null;resolve(false)};a.play().catch(()=>resolve(false))})}
 async function playItemVoice(item,kind,fallback){
-  // Questions keep the clean recorded voice. Explanations are built
-  // from the actual chosen/target cards, so they are spoken live.
-  if(kind!=="question"){
-    const parts=[{text:fallback.de,lang:"de-DE"}];
-    if(state.settings.voiceMode!=="de")parts.push({text:fallback.ua,lang:"uk-UA"});
-    await speakSeq(parts);
-    return true;
-  }
+  const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.generatedAudioUa?.[kind];
   if(state.settings.voiceMode==="de"){
-    const src=item?.generatedAudioDe?.question;
-    if(src&&await playRecorded(src))return true;
+    if(deSrc&&await playRecorded(deSrc))return true;
     await speakSeq([{text:fallback.de,lang:"de-DE"}]);
     return false;
   }
-  const deSrc=item?.generatedAudioDe?.question,uaSrc=item?.generatedAudioUa?.question;
   let deOk=false,uaOk=false;
   if(deSrc)deOk=await playRecorded(deSrc);
   if(!deOk)await speakSeq([{text:fallback.de,lang:"de-DE"}]);
   if(uaSrc)uaOk=await playRecorded(uaSrc);
   if(!uaOk)await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
+  return deOk&&uaOk;
+}
+async function playWrongVoice(selected,target,fallback){
+  const deWrong=selected?.generatedAudioDe?.wrong,deRetry=target?.generatedAudioDe?.retry;
+  const uaWrong=selected?.generatedAudioUa?.wrong,uaRetry=target?.generatedAudioUa?.retry;
+  if(state.settings.voiceMode==="de"){
+    if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);return true}
+    await speakSeq([{text:fallback.de,lang:"de-DE"}]);return false;
+  }
+  let deOk=false,uaOk=false;
+  if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);deOk=true}
+  else await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+  if(uaWrong&&uaRetry){await playRecorded(uaWrong);await playRecorded(uaRetry);uaOk=true}
+  else await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
   return deOk&&uaOk;
 }
 const speakCurrent=()=>state.current?playItemVoice(state.current.target,"question",state.current.prompt):Promise.resolve();
