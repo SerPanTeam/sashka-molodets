@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-29T07:19:35.047Z",
+  "ts": "2026-08-29T07:20:44.405Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "hairbrush",
-  "de": "Haarbürste",
+  "id": "washcloth",
+  "de": "Waschlappen",
   "mode": "ua",
   "force": true,
   "audioFiles": 480,
