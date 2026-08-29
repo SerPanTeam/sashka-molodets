@@ -1,0 +1,137 @@
+name: Upgrade runtime to recorded Google voices
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/upgrade-recorded-google-voices.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upgrade-recorded-google-voices
+  cancel-in-progress: true
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Patch runtime to recorded-first DE → UA
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const p='public/app.js';
+          let s=fs.readFileSync(p,'utf8');
+          const oldCall='await playItemVoice(t,"retry",f);';
+          if(!s.includes(oldCall)) throw new Error('wrong-answer voice call not found');
+          s=s.replace(oldCall,'await playWrongVoice(x,t,f);');
+
+          const start=s.indexOf('async function playItemVoice(item,kind,fallback){');
+          const end=s.indexOf('const speakCurrent=',start);
+          if(start<0||end<0) throw new Error('playItemVoice block not found');
+          const block=`async function playItemVoice(item,kind,fallback){
+            const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.generatedAudioUa?.[kind];
+            if(state.settings.voiceMode==="de"){
+              if(deSrc&&await playRecorded(deSrc))return true;
+              await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+              return false;
+            }
+            let deOk=false,uaOk=false;
+            if(deSrc)deOk=await playRecorded(deSrc);
+            if(!deOk)await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+            if(uaSrc)uaOk=await playRecorded(uaSrc);
+            if(!uaOk)await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
+            return deOk&&uaOk;
+          }
+          async function playWrongVoice(selected,target,fallback){
+            const deWrong=selected?.generatedAudioDe?.wrong,deRetry=target?.generatedAudioDe?.retry;
+            const uaWrong=selected?.generatedAudioUa?.wrong,uaRetry=target?.generatedAudioUa?.retry;
+            if(state.settings.voiceMode==="de"){
+              if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);return true}
+              await speakSeq([{text:fallback.de,lang:"de-DE"}]);return false;
+            }
+            let deOk=false,uaOk=false;
+            if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);deOk=true}
+            else await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+            if(uaWrong&&uaRetry){await playRecorded(uaWrong);await playRecorded(uaRetry);uaOk=true}
+            else await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
+            return deOk&&uaOk;
+          }
+          `;
+          s=s.slice(0,start)+block+s.slice(end);
+          fs.writeFileSync(p,s);
+          NODE
+          node --check public/app.js
+          grep -q 'playWrongVoice(x,t,f)' public/app.js
+          grep -q 'generatedAudioDe?.wrong' public/app.js
+          grep -q 'generatedAudioUa?.retry' public/app.js
+
+      - name: Update production validator for recorded teaching clips
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/validate-production.mjs')
+          s=p.read_text()
+          old='''if (!app.includes('if(kind!=="question")')) errors.push('dynamic feedback voice path missing');
+          if (!app.includes('parts.push({text:fallback.ua,lang:"uk-UA"})')) errors.push('dynamic feedback does not guarantee Ukrainian after German');'''
+          new='''if (!app.includes('playWrongVoice(x,t,f)')) errors.push('wrong-answer flow does not use recorded contextual teaching clips');
+          if (!app.includes('generatedAudioDe?.wrong') || !app.includes('generatedAudioDe?.retry')) errors.push('recorded German wrong/retry path missing');
+          if (!app.includes('generatedAudioUa?.wrong') || !app.includes('generatedAudioUa?.retry')) errors.push('recorded Ukrainian wrong/retry path missing');
+          if (!app.includes('const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.generatedAudioUa?.[kind]')) errors.push('success/question recorded-first voice path missing');'''
+          if old not in s: raise SystemExit('old dynamic validator checks not found')
+          s=s.replace(old,new)
+          a=s.index('// The dynamic success path must construct German first and append Ukrainian second.')
+          b=s.index("if (!index.includes('object-sfx.js'))",a)
+          repl='''// Recorded wrong-answer teaching must preserve German first, then Ukrainian.
+          const recordedWrongStart = app.indexOf('async function playWrongVoice');
+          const recordedWrongEnd = recordedWrongStart >= 0 ? app.indexOf('const speakCurrent=', recordedWrongStart) : -1;
+          if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
+            errors.push('recorded wrong-answer voice block not found');
+          } else {
+            const flow = app.slice(recordedWrongStart, recordedWrongEnd);
+            const dePos = flow.indexOf('deWrong&&deRetry');
+            const uaPos = flow.indexOf('uaWrong&&uaRetry', dePos + 1);
+            if (!(dePos >= 0 && uaPos > dePos)) errors.push('recorded wrong-answer order must remain German → Ukrainian');
+          }
+
+          '''
+          s=s[:a]+repl+s[b:]
+          s=s.replace('contextual DE→UA teaching feedback','recorded-first contextual DE→UA teaching feedback')
+          p.write_text(s)
+          PY
+          node --check scripts/validate-production.mjs
+          node scripts/validate-production.mjs
+
+      - name: Rotate PWA cache
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          p=Path('public/index.html'); s=p.read_text()
+          nums=[int(x) for x in re.findall(r'\?v=(\d+)',s)]
+          n=(max(nums) if nums else 18)+1
+          s=re.sub(r'\?v=\d+',f'?v={n}',s); p.write_text(s)
+          p=Path('public/sw.js'); s=p.read_text()
+          s=re.sub(r'sashka-molodets-v\d+',f'sashka-molodets-v{n}',s); p.write_text(s)
+          print(f'PWA cache version -> {n}')
+          PY
+
+      - name: Commit runtime upgrade
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/app.js public/index.html public/sw.js scripts/validate-production.mjs
+          git commit -m 'feat: use recorded Google voices for child feedback'
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt*2))
+          done
+          exit 2
