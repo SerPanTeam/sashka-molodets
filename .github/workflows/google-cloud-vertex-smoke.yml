@@ -1,0 +1,85 @@
+name: Google Cloud Vertex smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/google-cloud-vertex-smoke.yml'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: google-cloud-vertex-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      AI_DEFAULT_PROVIDER: google-cloud
+      GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+      GOOGLE_IMAGE_LOCATION: global
+      GOOGLE_TTS_LOCATION: global
+      GOOGLE_VISION_LOCATION: global
+      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
+      GOOGLE_VISION_MODEL: gemini-3.5-flash
+      GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
+      GOOGLE_TTS_VOICE_DE: Leda
+      GOOGLE_TTS_VOICE_UA: Leda
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - id: auth
+        name: Authenticate to Google Cloud with GitHub OIDC
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+
+      - name: Syntax check
+        run: |
+          node --check src/server/providers/google-cloud.mjs
+          node --check scripts/generate-one-image.mjs
+          node --check scripts/generate-one-audio.mjs
+
+      - name: Generate vivid tomato image + strict QA
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-one-image.mjs --provider=google-cloud --id=tomato --force=true --qa=true
+          test -s public/assets/generated/images/tomato.png
+          file public/assets/generated/images/tomato.png
+
+      - name: Generate playful German voice set
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-one-audio.mjs --provider=google-cloud --id=tomato --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=300
+          for k in question success wrong retry; do test -s "public/assets/generated/audio/tomato.${k}.de.wav"; done
+
+      - name: Generate playful Ukrainian voice set
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-one-audio.mjs --provider=google-cloud --id=tomato --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=300
+          for k in question success wrong retry; do test -s "public/assets/generated/audio/tomato.${k}.ua.wav"; done
+
+      - name: Smoke summary
+        if: always()
+        run: |
+          echo '=== GOOGLE CLOUD SMOKE FILES ==='
+          ls -lh public/assets/generated/images/tomato.png 2>/dev/null || true
+          ls -lh public/assets/generated/audio/tomato.*.wav 2>/dev/null || true
+          echo '=== LAST GENERATION EVENTS ==='
+          tail -n 30 logs/generation.jsonl 2>/dev/null || true
