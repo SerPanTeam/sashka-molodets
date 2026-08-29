@@ -39,11 +39,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toothpaste.question.de.wav",
-        "success": "./assets/generated/audio/toothpaste.success.de.wav"
+        "success": "./assets/generated/audio/toothpaste.success.de.wav",
+        "wrong": "./assets/generated/audio/toothpaste.wrong.de.wav",
+        "retry": "./assets/generated/audio/toothpaste.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/toothpaste.question.ua.wav",
-        "success": "./assets/generated/audio/toothpaste.success.ua.wav"
+        "success": "./assets/generated/audio/toothpaste.success.ua.wav",
+        "wrong": "./assets/generated/audio/toothpaste.wrong.ua.wav",
+        "retry": "./assets/generated/audio/toothpaste.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/toothpaste.png"
     },
