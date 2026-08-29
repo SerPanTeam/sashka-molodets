@@ -14,11 +14,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/car.question.de.wav",
-        "success": "./assets/generated/audio/car.success.de.wav"
+        "success": "./assets/generated/audio/car.success.de.wav",
+        "wrong": "./assets/generated/audio/car.wrong.de.wav",
+        "retry": "./assets/generated/audio/car.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/car.question.ua.wav",
-        "success": "./assets/generated/audio/car.success.ua.wav"
+        "success": "./assets/generated/audio/car.success.ua.wav",
+        "wrong": "./assets/generated/audio/car.wrong.ua.wav",
+        "retry": "./assets/generated/audio/car.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/car.png"
     },
