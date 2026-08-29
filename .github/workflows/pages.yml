@@ -39,6 +39,20 @@ jobs:
           cp -R content/. _site/content/
           touch _site/.nojekyll
 
+      - name: Browser smoke test local build
+        run: |
+          python3 -m http.server 4173 --directory _site >/tmp/sashka-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 1
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=10000 --dump-dom "http://127.0.0.1:4173/index.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-dom.html
+          grep -q 'Сашко, граємо?' /tmp/sashka-local-dom.html
+          grep -q 'class="big-play"' /tmp/sashka-local-dom.html
+          grep -q 'class="category-button"' /tmp/sashka-local-dom.html
+          grep -q '>Tiere<' /tmp/sashka-local-dom.html
+
       - name: Configure and enable GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -52,3 +66,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Browser smoke test deployed Pages
+        run: |
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME"
+          URL="${{ steps.deployment.outputs.page_url }}"
+          test -n "$URL"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=12000 --dump-dom "${URL}?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-dom.html
+          grep -q 'Сашко, граємо?' /tmp/sashka-prod-dom.html
+          grep -q 'class="big-play"' /tmp/sashka-prod-dom.html
+          grep -q 'class="category-button"' /tmp/sashka-prod-dom.html
+          grep -q '>Tiere<' /tmp/sashka-prod-dom.html
