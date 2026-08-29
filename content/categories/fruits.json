@@ -85,11 +85,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/orange.question.de.wav",
-        "success": "./assets/generated/audio/orange.success.de.wav"
+        "success": "./assets/generated/audio/orange.success.de.wav",
+        "wrong": "./assets/generated/audio/orange.wrong.de.wav",
+        "retry": "./assets/generated/audio/orange.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/orange.question.ua.wav",
-        "success": "./assets/generated/audio/orange.success.ua.wav"
+        "success": "./assets/generated/audio/orange.success.ua.wav",
+        "wrong": "./assets/generated/audio/orange.wrong.ua.wav",
+        "retry": "./assets/generated/audio/orange.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/orange.png"
     },
