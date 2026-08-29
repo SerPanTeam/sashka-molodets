@@ -70,7 +70,7 @@ jobs:
           service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
           token_format: access_token
 
-      - name: Regenerate every object and checkpoint immediately
+      - name: Resume incomplete objects and checkpoint immediately
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
           CATEGORY: ${{ matrix.category }}
@@ -81,6 +81,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           failures=0
           completed=0
+          skipped=0
           total=$(wc -w <<<"$IDS")
 
           push_checkpoint() {
@@ -90,6 +91,24 @@ jobs:
               sleep $((attempt*3))
             done
             return 1
+          }
+
+          is_complete() {
+            node - "$1" <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const id=process.argv[2];
+          const manifest=JSON.parse(fs.readFileSync('content/content.json','utf8'));
+          const groups=manifest.categoryFiles.map(p=>JSON.parse(fs.readFileSync(path.join('content',p),'utf8')));
+          const x=groups.flatMap(g=>g.items||[]).find(x=>x.id===id);
+          if(!x) process.exit(1);
+          const refs=[x.generatedImage,...['question','success','wrong','retry'].flatMap(k=>[x.generatedAudioDe?.[k],x.generatedAudioUa?.[k]])];
+          if(refs.some(r=>!r)) process.exit(1);
+          for(const ref of refs){
+            const f=path.join('public',String(ref).replace(/^\.\//,''));
+            if(!fs.existsSync(f)||fs.statSync(f).size<1000) process.exit(1);
+          }
+          process.exit(0);
+          NODE
           }
 
           validate_wavs() {
@@ -117,7 +136,15 @@ jobs:
           for id in $IDS; do
             completed=$((completed+1))
             echo "::group::[GOOGLE CLOUD $CATEGORY $completed/$total] $id"
-            date -u "+[%Y-%m-%dT%H:%M:%SZ] FULL REGEN START category=$CATEGORY id=$id"
+
+            if is_complete "$id"; then
+              skipped=$((skipped+1))
+              echo "[CHECKPOINT] already complete; preserving existing Google assets category=$CATEGORY id=$id"
+              echo "::endgroup::"
+              continue
+            fi
+
+            date -u "+[%Y-%m-%dT%H:%M:%SZ] RESUME REGEN START category=$CATEGORY id=$id"
             status=success
 
             node scripts/generate-one-image.mjs --provider=google-cloud --id="$id" --force=true --qa=true || status=error
@@ -127,13 +154,13 @@ jobs:
             test -s "public/assets/generated/images/$id.png" || status=error
             validate_wavs "$id" || status=error
 
-            git add -f "public/assets/generated/images/$id.png"
-            git add -f public/assets/generated/audio/"$id".*.wav
+            test ! -f "public/assets/generated/images/$id.png" || git add -f "public/assets/generated/images/$id.png"
+            compgen -G "public/assets/generated/audio/$id.*.wav" >/dev/null && git add -f public/assets/generated/audio/"$id".*.wav || true
             git add public/assets/generated/progress.json content/categories
             test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
 
             if ! git diff --cached --quiet; then
-              git commit -m "feat: Google Cloud regenerate $CATEGORY/$id [$status]"
+              git commit -m "feat: Google Cloud resume $CATEGORY/$id [$status]"
               if push_checkpoint; then
                 echo "[CHECKPOINT] category=$CATEGORY id=$id status=$status progress=$completed/$total"
               else
@@ -145,12 +172,12 @@ jobs:
             fi
 
             if [[ "$status" != success ]]; then failures=$((failures+1)); fi
-            date -u "+[%Y-%m-%dT%H:%M:%SZ] FULL REGEN END category=$CATEGORY id=$id status=$status"
+            date -u "+[%Y-%m-%dT%H:%M:%SZ] RESUME REGEN END category=$CATEGORY id=$id status=$status"
             echo "::endgroup::"
             sleep 1
           done
 
-          echo "CATEGORY SUMMARY $CATEGORY: completed=$completed/$total failures=$failures"
+          echo "CATEGORY SUMMARY $CATEGORY: scanned=$completed/$total skipped_complete=$skipped failures=$failures"
           if (( failures > 0 )); then exit 2; fi
 
   finalize:
@@ -220,9 +247,10 @@ jobs:
                 item.generatedAudioUa?.wrong,
                 item.generatedAudioUa?.retry''')
           start=s.index('    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({')
-          end=s.index('    return {',start)
-          if start < 0 or end < 0: raise SystemExit('legacy success override block not found')
-          s=s[:start]+'    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);\n'+s[end:]
+          if start >= 0:
+              end=s.index('    return {',start)
+              if end < 0: raise SystemExit('legacy success override block end not found')
+              s=s[:start]+'    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);\n'+s[end:]
           p.write_text(s)
 
           p=Path('scripts/validate-production.mjs'); s=p.read_text()
@@ -238,8 +266,7 @@ jobs:
               ['UA success', item.generatedAudioUa?.success],
               ['UA wrong', item.generatedAudioUa?.wrong],
               ['UA retry', item.generatedAudioUa?.retry]"""
-          if old not in s: raise SystemExit('validator required-assets block not found')
-          s=s.replace(old,new)
+          if old in s: s=s.replace(old,new)
           p.write_text(s)
           PY
           node --check public/pages-shim.js
