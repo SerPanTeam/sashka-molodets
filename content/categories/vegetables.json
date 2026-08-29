@@ -245,11 +245,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/onion.question.de.wav",
-        "success": "./assets/generated/audio/onion.success.de.wav"
+        "success": "./assets/generated/audio/onion.success.de.wav",
+        "wrong": "./assets/generated/audio/onion.wrong.de.wav",
+        "retry": "./assets/generated/audio/onion.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/onion.question.ua.wav",
-        "success": "./assets/generated/audio/onion.success.ua.wav"
+        "success": "./assets/generated/audio/onion.success.ua.wav",
+        "wrong": "./assets/generated/audio/onion.wrong.ua.wav",
+        "retry": "./assets/generated/audio/onion.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/onion.png"
     },

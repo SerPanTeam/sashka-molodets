@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:39:06.080Z",
+  "ts": "2026-08-29T00:40:08.955Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "broccoli",
-  "de": "Brokkoli",
+  "id": "onion",
+  "de": "Zwiebel",
   "mode": "ua",
   "force": true,
-  "audioFiles": 308,
+  "audioFiles": 312,
   "failures": 0
 }
