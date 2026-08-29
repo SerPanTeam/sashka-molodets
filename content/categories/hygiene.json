@@ -189,11 +189,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toilet-paper.question.de.wav",
-        "success": "./assets/generated/audio/toilet-paper.success.de.wav"
+        "success": "./assets/generated/audio/toilet-paper.success.de.wav",
+        "wrong": "./assets/generated/audio/toilet-paper.wrong.de.wav",
+        "retry": "./assets/generated/audio/toilet-paper.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/toilet-paper.question.ua.wav",
-        "success": "./assets/generated/audio/toilet-paper.success.ua.wav"
+        "success": "./assets/generated/audio/toilet-paper.success.ua.wav",
+        "wrong": "./assets/generated/audio/toilet-paper.wrong.ua.wav",
+        "retry": "./assets/generated/audio/toilet-paper.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/toilet-paper.png"
     },
