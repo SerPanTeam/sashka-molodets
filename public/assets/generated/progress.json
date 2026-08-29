@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:53:11.426Z",
+  "ts": "2026-08-29T00:54:02.413Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "cup",
-  "de": "Tasse",
+  "id": "plate",
+  "de": "Teller",
   "mode": "ua",
   "force": true,
-  "audioFiles": 364,
+  "audioFiles": 368,
   "failures": 0
 }
