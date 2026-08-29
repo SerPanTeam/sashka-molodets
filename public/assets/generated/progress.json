@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:26:53.817Z",
+  "ts": "2026-08-29T00:27:45.410Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "animals",
-  "id": "cow",
-  "de": "Kuh",
+  "id": "horse",
+  "de": "Pferd",
   "mode": "ua",
   "force": true,
-  "audioFiles": 256,
+  "audioFiles": 260,
   "failures": 0
 }
