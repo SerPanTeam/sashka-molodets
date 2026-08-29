@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:42:08.946Z",
+  "ts": "2026-08-29T00:43:21.422Z",
   "event": "item-complete",
   "provider": "google-cloud",
-  "category": "vegetables",
-  "id": "garlic",
-  "de": "Knoblauch",
+  "category": "fruits",
+  "id": "apple",
+  "de": "Apfel",
   "mode": "ua",
   "force": true,
-  "audioFiles": 320,
+  "audioFiles": 324,
   "failures": 0
 }
