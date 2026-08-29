@@ -1,0 +1,292 @@
+name: Regenerate all 60 with Google Cloud
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/regenerate-all-google-cloud.yml'
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+concurrency:
+  group: google-cloud-full-regeneration
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    name: Regenerate ${{ matrix.category }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - category: animals
+            ids: "dog cat rabbit cow horse pig sheep lion elephant bear"
+          - category: vegetables
+            ids: "tomato cucumber carrot potato corn pepper broccoli onion eggplant garlic"
+          - category: fruits
+            ids: "apple banana orange pear grapes strawberry watermelon peach cherries kiwi"
+          - category: household
+            ids: "cup plate spoon fork table glass bowl pot pan fridge"
+          - category: hygiene
+            ids: "toothbrush toothpaste soap towel shampoo comb sponge toilet-paper hairbrush washcloth"
+          - category: transport
+            ids: "car bus train bicycle airplane ship truck tractor tram helicopter"
+
+    env:
+      AI_DEFAULT_PROVIDER: google-cloud
+      GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+      GOOGLE_IMAGE_LOCATION: global
+      GOOGLE_VISION_LOCATION: global
+      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
+      GOOGLE_VISION_MODEL: gemini-3.5-flash
+      GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
+      GOOGLE_TTS_VOICE_DE: Leda
+      GOOGLE_TTS_VOICE_UA: Leda
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Sync latest generated checkpoints
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+
+      - id: auth
+        name: Authenticate to Google Cloud with GitHub OIDC
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+
+      - name: Regenerate every object and checkpoint immediately
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          CATEGORY: ${{ matrix.category }}
+          IDS: ${{ matrix.ids }}
+        run: |
+          set -u
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          failures=0
+          completed=0
+          total=$(wc -w <<<"$IDS")
+
+          push_checkpoint() {
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin main && git push origin HEAD:main; then return 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((attempt*3))
+            done
+            return 1
+          }
+
+          validate_wavs() {
+            local id="$1"
+            python3 - "$id" <<'PY'
+          import sys, wave
+          from pathlib import Path
+          item=sys.argv[1]
+          for lang in ('de','ua'):
+              for kind in ('question','success','wrong','retry'):
+                  p=Path(f'public/assets/generated/audio/{item}.{kind}.{lang}.wav')
+                  if not p.exists() or p.stat().st_size < 1000:
+                      raise SystemExit(f'missing/empty {p}')
+                  try:
+                      with wave.open(str(p),'rb') as w:
+                          seconds=w.getnframes()/w.getframerate()
+                  except Exception as e:
+                      raise SystemExit(f'invalid WAV {p}: {e}')
+                  print(f'[WAV] {p.name} {seconds:.2f}s {p.stat().st_size} bytes')
+                  if not (0.3 <= seconds <= 12.0):
+                      raise SystemExit(f'bad duration {p}: {seconds:.2f}s')
+          PY
+          }
+
+          for id in $IDS; do
+            completed=$((completed+1))
+            echo "::group::[GOOGLE CLOUD $CATEGORY $completed/$total] $id"
+            date -u "+[%Y-%m-%dT%H:%M:%SZ] FULL REGEN START category=$CATEGORY id=$id"
+            status=success
+
+            node scripts/generate-one-image.mjs --provider=google-cloud --id="$id" --force=true --qa=true || status=error
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=250 || status=error
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=250 || status=error
+
+            test -s "public/assets/generated/images/$id.png" || status=error
+            validate_wavs "$id" || status=error
+
+            git add -f "public/assets/generated/images/$id.png"
+            git add -f public/assets/generated/audio/"$id".*.wav
+            git add public/assets/generated/progress.json content/categories
+            test ! -f logs/generation.jsonl || git add -f logs/generation.jsonl
+
+            if ! git diff --cached --quiet; then
+              git commit -m "feat: Google Cloud regenerate $CATEGORY/$id [$status]"
+              if push_checkpoint; then
+                echo "[CHECKPOINT] category=$CATEGORY id=$id status=$status progress=$completed/$total"
+              else
+                echo "ERROR: push failed category=$CATEGORY id=$id"
+                status=error
+              fi
+            else
+              echo "[CHECKPOINT] no changes category=$CATEGORY id=$id status=$status"
+            fi
+
+            if [[ "$status" != success ]]; then failures=$((failures+1)); fi
+            date -u "+[%Y-%m-%dT%H:%M:%SZ] FULL REGEN END category=$CATEGORY id=$id status=$status"
+            echo "::endgroup::"
+            sleep 1
+          done
+
+          echo "CATEGORY SUMMARY $CATEGORY: completed=$completed/$total failures=$failures"
+          if (( failures > 0 )); then exit 2; fi
+
+  finalize:
+    name: Verify 60/60 and deploy
+    needs: regenerate
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout final main
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Sync all generated checkpoints
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+
+      - name: Require all 60 Google-generation asset sets
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const priority=JSON.parse(fs.readFileSync('config/generation/priority-v1.json','utf8'));
+          const manifest=JSON.parse(fs.readFileSync('content/content.json','utf8'));
+          const groups=manifest.categoryFiles.map(p=>JSON.parse(fs.readFileSync(path.join('content',p),'utf8')));
+          const items=groups.flatMap(x=>x.items||[]),byId=new Map(items.map(x=>[x.id,x]));
+          const ids=Object.values(priority.categories).flat();
+          const missing=[];
+          for(const id of ids){
+            const x=byId.get(id); if(!x){missing.push(`${id}:content`);continue}
+            const refs=[
+              ['image',x.generatedImage],
+              ...['question','success','wrong','retry'].flatMap(k=>[[`de.${k}`,x.generatedAudioDe?.[k]],[`ua.${k}`,x.generatedAudioUa?.[k]]])
+            ];
+            for(const [label,ref] of refs){
+              if(!ref){missing.push(`${id}:${label}:ref`);continue}
+              const f=path.join('public',String(ref).replace(/^\.\//,''));
+              if(!fs.existsSync(f)||fs.statSync(f).size<1000)missing.push(`${id}:${label}:file`);
+            }
+          }
+          console.log(`FULL GOOGLE ASSET CHECK: ${ids.length-(new Set(missing.map(x=>x.split(':')[0]))).size}/${ids.length} cards complete`);
+          if(missing.length){console.error(missing.join('\n'));process.exit(2)}
+          console.log('FULL GOOGLE ASSET CHECK: 60/60 PASS');
+          NODE
+
+      - name: Enable complete recorded-audio production mode
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('public/pages-shim.js'); s=p.read_text()
+          s=s.replace('''      de.question && de.success &&
+                ua.question && ua.success''','''      de.question && de.success && de.wrong && de.retry &&
+                ua.question && ua.success && ua.wrong && ua.retry''')
+          s=s.replace('''      item.generatedAudioDe?.question,
+                item.generatedAudioDe?.success,
+                item.generatedAudioUa?.question,
+                item.generatedAudioUa?.success''','''      item.generatedAudioDe?.question,
+                item.generatedAudioDe?.success,
+                item.generatedAudioDe?.wrong,
+                item.generatedAudioDe?.retry,
+                item.generatedAudioUa?.question,
+                item.generatedAudioUa?.success,
+                item.generatedAudioUa?.wrong,
+                item.generatedAudioUa?.retry''')
+          start=s.index('    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({')
+          end=s.index('    return {',start)
+          if start < 0 or end < 0: raise SystemExit('legacy success override block not found')
+          s=s[:start]+'    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);\n'+s[end:]
+          p.write_text(s)
+
+          p=Path('scripts/validate-production.mjs'); s=p.read_text()
+          old="""    ['DE question', item.generatedAudioDe?.question],
+              ['DE success', item.generatedAudioDe?.success],
+              ['UA question', item.generatedAudioUa?.question],
+              ['UA success', item.generatedAudioUa?.success]"""
+          new="""    ['DE question', item.generatedAudioDe?.question],
+              ['DE success', item.generatedAudioDe?.success],
+              ['DE wrong', item.generatedAudioDe?.wrong],
+              ['DE retry', item.generatedAudioDe?.retry],
+              ['UA question', item.generatedAudioUa?.question],
+              ['UA success', item.generatedAudioUa?.success],
+              ['UA wrong', item.generatedAudioUa?.wrong],
+              ['UA retry', item.generatedAudioUa?.retry]"""
+          if old not in s: raise SystemExit('validator required-assets block not found')
+          s=s.replace(old,new)
+          p.write_text(s)
+          PY
+          node --check public/pages-shim.js
+          node --check scripts/validate-production.mjs
+          node scripts/validate-production.mjs
+
+      - name: Rotate final PWA cache
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          p=Path('public/index.html'); s=p.read_text()
+          nums=[int(x) for x in re.findall(r'\?v=(\d+)',s)]
+          n=(max(nums) if nums else 19)+1
+          s=re.sub(r'\?v=\d+',f'?v={n}',s); p.write_text(s)
+          p=Path('public/sw.js'); s=p.read_text(); s=re.sub(r'sashka-molodets-v\d+',f'sashka-molodets-v{n}',s); p.write_text(s)
+          print(f'FINAL PWA CACHE={n}')
+          PY
+
+      - name: Persist final production switch
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/pages-shim.js public/index.html public/sw.js scripts/validate-production.mjs
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat: activate 60/60 Google Cloud production assets'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Prepare static site
+        run: |
+          rm -rf _site
+          mkdir -p _site/content
+          cp -R public/. _site/
+          cp -R content/. _site/content/
+          touch _site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
