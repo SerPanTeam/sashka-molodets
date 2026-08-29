@@ -62,6 +62,32 @@
     );
   };
 
+  // Optional production diagnostic. It deliberately does NOT run during app startup.
+  // Build-time validation already checks all 60 production cards on every deploy.
+  async function physicalAssetsExist(item) {
+    const refs = [
+      item?.generatedImage,
+      item?.generatedAudioDe?.question,
+      item?.generatedAudioDe?.success,
+      item?.generatedAudioDe?.wrong,
+      item?.generatedAudioDe?.retry,
+      item?.generatedAudioUa?.question,
+      item?.generatedAudioUa?.success,
+      item?.generatedAudioUa?.wrong,
+      item?.generatedAudioUa?.retry
+    ].filter(Boolean);
+    for (const ref of refs) {
+      try {
+        const response = await nativeFetch(ref, { method: 'HEAD', cache: 'no-store' });
+        if (!response.ok) return false;
+      } catch {
+        return false;
+      }
+    }
+    return refs.length === 9;
+  }
+  window.SashkaVerifyItemAssets = physicalAssetsExist;
+
   async function loadStaticContent() {
     const manifestResponse = await nativeFetch('./content/content.json', { cache: 'no-store' });
     if (!manifestResponse.ok) throw new Error('Static content manifest unavailable');
