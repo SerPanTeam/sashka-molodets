@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:32:07.351Z",
+  "ts": "2026-08-29T00:33:19.678Z",
   "event": "item-complete",
   "provider": "google-cloud",
-  "category": "animals",
-  "id": "bear",
-  "de": "Bär",
+  "category": "vegetables",
+  "id": "tomato",
+  "de": "Tomate",
   "mode": "ua",
   "force": true,
-  "audioFiles": 280,
+  "audioFiles": 284,
   "failures": 0
 }

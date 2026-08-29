@@ -21,12 +21,16 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/tomato.question.de.wav",
-        "success": "./assets/generated/audio/tomato.success.de.wav"
+        "success": "./assets/generated/audio/tomato.success.de.wav",
+        "wrong": "./assets/generated/audio/tomato.wrong.de.wav",
+        "retry": "./assets/generated/audio/tomato.retry.de.wav"
       },
       "generatedImage": "./assets/generated/images/tomato.png",
       "generatedAudioUa": {
         "question": "./assets/generated/audio/tomato.question.ua.wav",
-        "success": "./assets/generated/audio/tomato.success.ua.wav"
+        "success": "./assets/generated/audio/tomato.success.ua.wav",
+        "wrong": "./assets/generated/audio/tomato.wrong.ua.wav",
+        "retry": "./assets/generated/audio/tomato.retry.ua.wav"
       }
     },
     {
