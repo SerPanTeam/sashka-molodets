@@ -53,11 +53,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/banana.question.de.wav",
-        "success": "./assets/generated/audio/banana.success.de.wav"
+        "success": "./assets/generated/audio/banana.success.de.wav",
+        "wrong": "./assets/generated/audio/banana.wrong.de.wav",
+        "retry": "./assets/generated/audio/banana.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/banana.question.ua.wav",
-        "success": "./assets/generated/audio/banana.success.ua.wav"
+        "success": "./assets/generated/audio/banana.success.ua.wav",
+        "wrong": "./assets/generated/audio/banana.wrong.ua.wav",
+        "retry": "./assets/generated/audio/banana.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/banana.png"
     },
