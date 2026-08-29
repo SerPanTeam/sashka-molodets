@@ -114,11 +114,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/airplane.question.de.wav",
-        "success": "./assets/generated/audio/airplane.success.de.wav"
+        "success": "./assets/generated/audio/airplane.success.de.wav",
+        "wrong": "./assets/generated/audio/airplane.wrong.de.wav",
+        "retry": "./assets/generated/audio/airplane.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/airplane.question.ua.wav",
-        "success": "./assets/generated/audio/airplane.success.ua.wav"
+        "success": "./assets/generated/audio/airplane.success.ua.wav",
+        "wrong": "./assets/generated/audio/airplane.wrong.ua.wav",
+        "retry": "./assets/generated/audio/airplane.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/airplane.png"
     },
