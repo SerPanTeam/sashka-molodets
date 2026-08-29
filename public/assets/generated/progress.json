@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-29T01:40:19.882Z",
+  "ts": "2026-08-29T02:37:34.517Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "washcloth",
-  "de": "Waschlappen",
+  "id": "soap",
+  "de": "Seife",
   "mode": "ua",
   "force": true,
   "audioFiles": 480,
