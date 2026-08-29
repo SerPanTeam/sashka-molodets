@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:57:37.010Z",
+  "ts": "2026-08-29T00:58:30.672Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "glass",
-  "de": "Glas",
+  "id": "bowl",
+  "de": "Schüssel",
   "mode": "ua",
   "force": true,
-  "audioFiles": 384,
+  "audioFiles": 388,
   "failures": 0
 }

@@ -164,11 +164,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/bowl.question.de.wav",
-        "success": "./assets/generated/audio/bowl.success.de.wav"
+        "success": "./assets/generated/audio/bowl.success.de.wav",
+        "wrong": "./assets/generated/audio/bowl.wrong.de.wav",
+        "retry": "./assets/generated/audio/bowl.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/bowl.question.ua.wav",
-        "success": "./assets/generated/audio/bowl.success.ua.wav"
+        "success": "./assets/generated/audio/bowl.success.ua.wav",
+        "wrong": "./assets/generated/audio/bowl.wrong.ua.wav",
+        "retry": "./assets/generated/audio/bowl.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/bowl.png"
     },
