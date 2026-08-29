@@ -164,11 +164,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/truck.question.de.wav",
-        "success": "./assets/generated/audio/truck.success.de.wav"
+        "success": "./assets/generated/audio/truck.success.de.wav",
+        "wrong": "./assets/generated/audio/truck.wrong.de.wav",
+        "retry": "./assets/generated/audio/truck.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/truck.question.ua.wav",
-        "success": "./assets/generated/audio/truck.success.ua.wav"
+        "success": "./assets/generated/audio/truck.success.ua.wav",
+        "wrong": "./assets/generated/audio/truck.wrong.ua.wav",
+        "retry": "./assets/generated/audio/truck.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/truck.png"
     },
