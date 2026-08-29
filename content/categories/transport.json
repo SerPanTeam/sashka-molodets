@@ -89,11 +89,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/bicycle.question.de.wav",
-        "success": "./assets/generated/audio/bicycle.success.de.wav"
+        "success": "./assets/generated/audio/bicycle.success.de.wav",
+        "wrong": "./assets/generated/audio/bicycle.wrong.de.wav",
+        "retry": "./assets/generated/audio/bicycle.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/bicycle.question.ua.wav",
-        "success": "./assets/generated/audio/bicycle.success.ua.wav"
+        "success": "./assets/generated/audio/bicycle.success.ua.wav",
+        "wrong": "./assets/generated/audio/bicycle.wrong.ua.wav",
+        "retry": "./assets/generated/audio/bicycle.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/bicycle.png"
     },
