@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:54:02.413Z",
+  "ts": "2026-08-29T00:54:55.792Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "household",
-  "id": "plate",
-  "de": "Teller",
+  "id": "spoon",
+  "de": "Löffel",
   "mode": "ua",
   "force": true,
-  "audioFiles": 368,
+  "audioFiles": 372,
   "failures": 0
 }
