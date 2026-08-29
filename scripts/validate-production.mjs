@@ -54,6 +54,35 @@ if (!app.includes('parts.push({text:fallback.ua,lang:"uk-UA"})')) errors.push('d
 if (!app.includes('Подумай ще, друже')) errors.push('contextual Ukrainian first-miss explanation missing');
 if (!app.includes('Achte auf die Farbe')) errors.push('attribute-comparison feedback missing');
 if (!app.includes('preferredVoice')) errors.push('preferred natural browser voice selection missing');
+
+// Guard the exact success-path ordering, not merely the presence of each call.
+// This catches accidental refactors that would speak praise before applause/SFX.
+const successFlowStart = app.indexOf('(async()=>{await playApplause()');
+const successFlowEnd = successFlowStart >= 0 ? app.indexOf('})();return}', successFlowStart) : -1;
+if (successFlowStart < 0 || successFlowEnd < 0) {
+  errors.push('correct-answer async success flow not found');
+} else {
+  const flow = app.slice(successFlowStart, successFlowEnd);
+  const applausePos = flow.indexOf('await playApplause()');
+  const sfxPos = flow.indexOf('await window.SashkaSfx.play(t.id)');
+  const praisePos = flow.indexOf('await playItemVoice(t,"success",f)');
+  if (!(applausePos >= 0 && sfxPos > applausePos && praisePos > sfxPos)) {
+    errors.push('correct-answer sequence must be applause → object SFX (when available) → DE→UA praise');
+  }
+}
+
+// The dynamic success path must construct German first and append Ukrainian second.
+const dynamicVoiceStart = app.indexOf('if(kind!=="question")');
+const dynamicVoiceEnd = dynamicVoiceStart >= 0 ? app.indexOf('return true;', dynamicVoiceStart) : -1;
+if (dynamicVoiceStart < 0 || dynamicVoiceEnd < 0) {
+  errors.push('dynamic success/retry voice block not found');
+} else {
+  const flow = app.slice(dynamicVoiceStart, dynamicVoiceEnd);
+  const dePos = flow.indexOf('{text:fallback.de,lang:"de-DE"}');
+  const uaPos = flow.indexOf('parts.push({text:fallback.ua,lang:"uk-UA"})');
+  if (!(dePos >= 0 && uaPos > dePos)) errors.push('dynamic praise order must remain German → Ukrainian');
+}
+
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
 if (!index.includes('object-sfx-local.js')) errors.push('index.html does not load local animal SFX override');
 if (!index.includes('audio-bridge.js')) errors.push('index.html does not load audio-bridge.js');
@@ -84,4 +113,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, applause → SFX sequencing.');
+console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, strict applause → SFX → DE→UA praise sequencing.');
