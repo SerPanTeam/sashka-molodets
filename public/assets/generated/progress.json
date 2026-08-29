@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:33:19.678Z",
+  "ts": "2026-08-29T00:34:11.588Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "tomato",
-  "de": "Tomate",
+  "id": "cucumber",
+  "de": "Gurke",
   "mode": "ua",
   "force": true,
-  "audioFiles": 284,
+  "audioFiles": 288,
   "failures": 0
 }
