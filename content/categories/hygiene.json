@@ -214,11 +214,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/hairbrush.question.de.wav",
-        "success": "./assets/generated/audio/hairbrush.success.de.wav"
+        "success": "./assets/generated/audio/hairbrush.success.de.wav",
+        "wrong": "./assets/generated/audio/hairbrush.wrong.de.wav",
+        "retry": "./assets/generated/audio/hairbrush.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/hairbrush.question.ua.wav",
-        "success": "./assets/generated/audio/hairbrush.success.ua.wav"
+        "success": "./assets/generated/audio/hairbrush.success.ua.wav",
+        "wrong": "./assets/generated/audio/hairbrush.wrong.ua.wav",
+        "retry": "./assets/generated/audio/hairbrush.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/hairbrush.png"
     },

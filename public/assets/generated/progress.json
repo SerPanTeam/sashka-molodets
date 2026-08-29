@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T01:38:18.404Z",
+  "ts": "2026-08-29T01:39:12.565Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "toilet-paper",
-  "de": "Toilettenpapier",
+  "id": "hairbrush",
+  "de": "Haarbürste",
   "mode": "ua",
   "force": true,
-  "audioFiles": 472,
+  "audioFiles": 476,
   "failures": 0
 }
