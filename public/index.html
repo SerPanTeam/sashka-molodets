@@ -3,34 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-  <meta name="theme-color" content="#7ec8ff">
+  <meta name="theme-color" content="#d9f5ff">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Сашка молодец</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=22">
-  <link rel="stylesheet" href="./enhancements.css?v=22">
-  <link rel="stylesheet" href="./admin-status.css?v=22">
+  <link rel="stylesheet" href="./styles.css?v=23">
+  <link rel="stylesheet" href="./enhancements.css?v=23">
+  <link rel="stylesheet" href="./admin-status.css?v=23">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <button id="brandButton" class="brand" aria-label="Удерживайте для настроек"><span class="brand-star">★</span><span>Сашка молодец</span></button>
+      <button id="brandButton" class="brand" aria-label="Удерживайте для настроек"><span class="brand-star"></span><span>Сашка молодец</span></button>
       <div class="top-actions">
-        <button id="voiceModeButton" class="voice-mode-button" aria-label="Переключить языки голоса" aria-pressed="false">🇩🇪+🇺🇦</button>
-        <button id="soundButton" class="round-button" aria-label="Повторить">🔊</button>
-        <button id="fullscreenButton" class="round-button" aria-label="Полный экран">⛶</button>
+        <button id="voiceModeButton" class="voice-mode-button" aria-label="Переключить языки голоса" aria-pressed="false">DE + UA</button>
+        <button id="soundButton" class="round-button" aria-label="Повторить">Повторить</button>
+        <button id="fullscreenButton" class="round-button" aria-label="Полный экран">Экран</button>
       </div>
     </header>
     <main id="main" class="main"></main>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
   </div>
-
   <dialog id="parentDialog" class="parent-dialog">
     <form method="dialog" class="parent-panel">
-      <div class="parent-header"><div><div class="eyebrow">Режим взрослого</div><h2>Настройки</h2></div><button class="round-button" value="cancel">✕</button></div>
+      <div class="parent-header"><div><div class="eyebrow">Режим взрослого</div><h2>Настройки</h2></div><button class="secondary-button" value="cancel">Закрыть</button></div>
       <label>Имя ребёнка<input id="childNameInput" maxlength="24" autocomplete="off"></label>
       <label>Голос<select id="languageModeInput"><option value="dual">Немецкий → украинский</option><option value="de">Только немецкий</option></select></label>
       <label>Уровень<select id="difficultyInput"><option value="1">1 — 2 картинки</option><option value="2">2 — 4 картинки</option><option value="3">3 — 6 картинок</option><option value="4">4 — похожие варианты</option><option value="5">5 — цвет + предмет</option></select></label>
@@ -38,14 +37,14 @@
       <label class="checkline"><input id="autoSpeakInput" type="checkbox"><span>Автоматически озвучивать</span></label>
       <label>Категории для режима «Всё вперемешку»<div id="categorySettings" class="category-settings"></div></label>
       <div class="parent-actions"><button id="resetProgressButton" type="button" class="secondary-button">Сбросить прогресс</button><button id="saveSettingsButton" type="button" class="primary-button">Сохранить</button></div>
-      <div class="parent-note">Кнопка 🇩🇪+🇺🇦 / 🇩🇪 сверху мгновенно переключает озвучку. После ошибки вопрос остаётся тем же, пока ребёнок не выберет правильную картинку. Подсказка объясняет, что ребёнок выбрал, сравнивает признаки и мягко ведёт к правильному ответу. В выбранной категории варианты ответа остаются внутри этой же категории. Для животных используются локально сохранённые реальные записи. <a href="./animal-sound-sources.html" target="_blank" rel="noopener">Источники звуков</a>. Для блокировки выхода установите PWA и включите App pinning на Android.</div>
+      <div class="parent-note">Кнопка DE + UA / DE сверху мгновенно переключает озвучку. После ошибки вопрос остаётся тем же, пока ребёнок не выберет правильную картинку. Для блокировки выхода установите PWA и включите App pinning на Android.</div>
     </form>
   </dialog>
-  <script src="./pages-shim.js?v=22"></script>
-  <script src="./audio-bridge.js?v=22"></script>
-  <script src="./object-sfx.js?v=22"></script>
-  <script src="./object-sfx-local.js?v=22"></script>
-  <script src="./admin-status.js?v=22"></script>
-  <script type="module" src="./app.js?v=22"></script>
+  <script src="./pages-shim.js?v=23"></script>
+  <script src="./audio-bridge.js?v=23"></script>
+  <script src="./object-sfx.js?v=23"></script>
+  <script src="./object-sfx-local.js?v=23"></script>
+  <script src="./admin-status.js?v=23"></script>
+  <script type="module" src="./app.js?v=23"></script>
 </body>
 </html>
