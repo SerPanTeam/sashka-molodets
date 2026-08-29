@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:37:12.561Z",
+  "ts": "2026-08-29T00:38:02.673Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "corn",
-  "de": "Mais",
+  "id": "pepper",
+  "de": "Paprika",
   "mode": "ua",
   "force": true,
-  "audioFiles": 300,
+  "audioFiles": 304,
   "failures": 0
 }
