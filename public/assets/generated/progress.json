@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:29:33.709Z",
+  "ts": "2026-08-29T00:30:24.061Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "animals",
-  "id": "sheep",
-  "de": "Schaf",
+  "id": "lion",
+  "de": "Löwe",
   "mode": "ua",
   "force": true,
-  "audioFiles": 268,
+  "audioFiles": 272,
   "failures": 0
 }
