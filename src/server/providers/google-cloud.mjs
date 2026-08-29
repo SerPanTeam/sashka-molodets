@@ -1,8 +1,7 @@
-import { expectOk, findBase64Payload, pcm16Mono24kToWav } from "./utils.mjs";
+import { expectOk, findBase64Payload } from "./utils.mjs";
 
 const project = () => process.env.GOOGLE_CLOUD_PROJECT || "project-a095a9ee-fc31-43e4-9f8";
 const imageLocation = () => process.env.GOOGLE_IMAGE_LOCATION || "global";
-const ttsLocation = () => process.env.GOOGLE_TTS_LOCATION || "global";
 const visionLocation = () => process.env.GOOGLE_VISION_LOCATION || "global";
 
 function token() {
@@ -101,8 +100,8 @@ export async function reviewImage({
 }
 
 function languageCode(language = "") {
-  const text = String(language).toLowerCase();
-  if (text.includes("uk") || text.includes("ukrain")) return "uk-UA";
+  const value = String(language).toLowerCase();
+  if (value.includes("uk") || value.includes("ukrain")) return "uk-UA";
   return "de-DE";
 }
 
@@ -115,33 +114,28 @@ export async function generateSpeech({
 }) {
   if (!text) throw new Error("text is required");
   const locale = languageCode(language);
-  const direction = [
-    "Speak only the transcript; do not add or remove words.",
-    `Voice direction: ${style}.`,
-    "Imagine you are playing a favorite little game with one child and genuinely enjoying their progress.",
+  const prompt = [
+    `Speak the supplied text as a ${style}.`,
+    "Imagine you are playing a favorite little picture game with one child and genuinely enjoying their progress.",
     locale === "uk-UA" ? "Use natural native Ukrainian pronunciation." : "Use natural native German pronunciation.",
-    `TRANSCRIPT: ${text}`,
+    "Do not add, omit, paraphrase or repeat any words. Keep it brisk and natural for a small child.",
   ].join(" ");
-  const response = await fetch(modelUrl({ model, location: ttsLocation(), apiVersion: "v1beta1" }), {
+
+  const response = await fetch("https://texttospeech.googleapis.com/v1/text:synthesize", {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify({
-      contents: [{ role: "user", parts: [{ text: direction }] }],
-      generationConfig: {
-        responseModalities: ["AUDIO"],
-        speechConfig: {
-          languageCode: locale,
-          voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } },
-        },
+      input: { prompt, text },
+      voice: {
+        languageCode: locale,
+        name: voice,
+        modelName: model,
       },
+      audioConfig: { audioEncoding: "LINEAR16" },
     }),
   });
   await expectOk(response, "Google Cloud Gemini TTS");
   const data = await response.json();
-  const payload = findBase64Payload(data, "audio");
-  if (!payload) throw new Error(`Vertex TTS response did not contain audio data: ${JSON.stringify(data).slice(0, 900)}`);
-  const raw = Buffer.from(payload.data, "base64");
-  const mime = String(payload.mimeType || "").toLowerCase();
-  if (mime.includes("wav")) return { buffer: raw, mimeType: "audio/wav", source: "vertex-ai" };
-  return { buffer: pcm16Mono24kToWav(raw), mimeType: "audio/wav", source: "vertex-ai" };
+  if (!data.audioContent) throw new Error(`Cloud TTS response did not contain audioContent: ${JSON.stringify(data).slice(0, 900)}`);
+  return { buffer: Buffer.from(data.audioContent, "base64"), mimeType: "audio/wav", source: "cloud-tts" };
 }
