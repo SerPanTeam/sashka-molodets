@@ -1,8 +1,9 @@
 import * as google from "./google.mjs";
+import * as googleCloud from "./google-cloud.mjs";
 import * as openai from "./openai.mjs";
 import { normalizeProvider } from "./utils.mjs";
 
-const providers = { google, openai };
+const providers = { google, "google-cloud": googleCloud, googlecloud: googleCloud, vertex: googleCloud, openai };
 
 function get(name) {
   const normalized = normalizeProvider(name);
@@ -12,7 +13,7 @@ function get(name) {
 }
 
 export function getProviderStatus() {
-  return { default: normalizeProvider(), google: google.status(), openai: openai.status() };
+  return { default: normalizeProvider(), google: google.status(), googleCloud: googleCloud.status(), openai: openai.status() };
 }
 
 export async function generateImage(options = {}) {
