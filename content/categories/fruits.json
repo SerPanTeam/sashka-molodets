@@ -181,11 +181,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/strawberry.question.de.wav",
-        "success": "./assets/generated/audio/strawberry.success.de.wav"
+        "success": "./assets/generated/audio/strawberry.success.de.wav",
+        "wrong": "./assets/generated/audio/strawberry.wrong.de.wav",
+        "retry": "./assets/generated/audio/strawberry.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/strawberry.question.ua.wav",
-        "success": "./assets/generated/audio/strawberry.success.ua.wav"
+        "success": "./assets/generated/audio/strawberry.success.ua.wav",
+        "wrong": "./assets/generated/audio/strawberry.wrong.ua.wav",
+        "retry": "./assets/generated/audio/strawberry.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/strawberry.png"
     },
