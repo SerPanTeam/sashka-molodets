@@ -239,11 +239,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/washcloth.question.de.wav",
-        "success": "./assets/generated/audio/washcloth.success.de.wav"
+        "success": "./assets/generated/audio/washcloth.success.de.wav",
+        "wrong": "./assets/generated/audio/washcloth.wrong.de.wav",
+        "retry": "./assets/generated/audio/washcloth.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/washcloth.question.ua.wav",
-        "success": "./assets/generated/audio/washcloth.success.ua.wav"
+        "success": "./assets/generated/audio/washcloth.success.ua.wav",
+        "wrong": "./assets/generated/audio/washcloth.wrong.ua.wav",
+        "retry": "./assets/generated/audio/washcloth.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/washcloth.png"
     }
