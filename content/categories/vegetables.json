@@ -85,11 +85,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/carrot.question.de.wav",
-        "success": "./assets/generated/audio/carrot.success.de.wav"
+        "success": "./assets/generated/audio/carrot.success.de.wav",
+        "wrong": "./assets/generated/audio/carrot.wrong.de.wav",
+        "retry": "./assets/generated/audio/carrot.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/carrot.question.ua.wav",
-        "success": "./assets/generated/audio/carrot.success.ua.wav"
+        "success": "./assets/generated/audio/carrot.success.ua.wav",
+        "wrong": "./assets/generated/audio/carrot.wrong.ua.wav",
+        "retry": "./assets/generated/audio/carrot.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/carrot.png"
     },
