@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:38:02.673Z",
+  "ts": "2026-08-29T00:39:06.080Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "pepper",
-  "de": "Paprika",
+  "id": "broccoli",
+  "de": "Brokkoli",
   "mode": "ua",
   "force": true,
-  "audioFiles": 304,
+  "audioFiles": 308,
   "failures": 0
 }

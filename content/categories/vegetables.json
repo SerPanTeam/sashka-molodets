@@ -181,11 +181,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/broccoli.question.de.wav",
-        "success": "./assets/generated/audio/broccoli.success.de.wav"
+        "success": "./assets/generated/audio/broccoli.success.de.wav",
+        "wrong": "./assets/generated/audio/broccoli.wrong.de.wav",
+        "retry": "./assets/generated/audio/broccoli.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/broccoli.question.ua.wav",
-        "success": "./assets/generated/audio/broccoli.success.ua.wav"
+        "success": "./assets/generated/audio/broccoli.success.ua.wav",
+        "wrong": "./assets/generated/audio/broccoli.wrong.ua.wav",
+        "retry": "./assets/generated/audio/broccoli.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/broccoli.png"
     },
