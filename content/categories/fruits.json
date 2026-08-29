@@ -309,11 +309,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/kiwi.question.de.wav",
-        "success": "./assets/generated/audio/kiwi.success.de.wav"
+        "success": "./assets/generated/audio/kiwi.success.de.wav",
+        "wrong": "./assets/generated/audio/kiwi.wrong.de.wav",
+        "retry": "./assets/generated/audio/kiwi.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/kiwi.question.ua.wav",
-        "success": "./assets/generated/audio/kiwi.success.ua.wav"
+        "success": "./assets/generated/audio/kiwi.success.ua.wav",
+        "wrong": "./assets/generated/audio/kiwi.wrong.ua.wav",
+        "retry": "./assets/generated/audio/kiwi.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/kiwi.png"
     }
