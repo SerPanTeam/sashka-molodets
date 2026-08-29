@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:52:00.281Z",
+  "ts": "2026-08-29T00:53:11.426Z",
   "event": "item-complete",
   "provider": "google-cloud",
-  "category": "fruits",
-  "id": "kiwi",
-  "de": "Kiwi",
+  "category": "household",
+  "id": "cup",
+  "de": "Tasse",
   "mode": "ua",
   "force": true,
-  "audioFiles": 360,
+  "audioFiles": 364,
   "failures": 0
 }

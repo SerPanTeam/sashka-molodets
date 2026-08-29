@@ -14,11 +14,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/cup.question.de.wav",
-        "success": "./assets/generated/audio/cup.success.de.wav"
+        "success": "./assets/generated/audio/cup.success.de.wav",
+        "wrong": "./assets/generated/audio/cup.wrong.de.wav",
+        "retry": "./assets/generated/audio/cup.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/cup.question.ua.wav",
-        "success": "./assets/generated/audio/cup.success.ua.wav"
+        "success": "./assets/generated/audio/cup.success.ua.wav",
+        "wrong": "./assets/generated/audio/cup.wrong.ua.wav",
+        "retry": "./assets/generated/audio/cup.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/cup.png"
     },
