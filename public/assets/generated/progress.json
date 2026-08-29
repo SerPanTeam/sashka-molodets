@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:41:05.252Z",
+  "ts": "2026-08-29T00:42:08.946Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "eggplant",
-  "de": "Aubergine",
+  "id": "garlic",
+  "de": "Knoblauch",
   "mode": "ua",
   "force": true,
-  "audioFiles": 316,
+  "audioFiles": 320,
   "failures": 0
 }
