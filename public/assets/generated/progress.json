@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:40:08.955Z",
+  "ts": "2026-08-29T00:41:05.252Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "onion",
-  "de": "Zwiebel",
+  "id": "eggplant",
+  "de": "Aubergine",
   "mode": "ua",
   "force": true,
-  "audioFiles": 312,
+  "audioFiles": 316,
   "failures": 0
 }
