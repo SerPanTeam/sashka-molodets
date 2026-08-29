@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T01:01:11.821Z",
+  "ts": "2026-08-29T01:02:31.652Z",
   "event": "item-complete",
   "provider": "google-cloud",
-  "category": "household",
-  "id": "fridge",
-  "de": "Kühlschrank",
+  "category": "hygiene",
+  "id": "toothbrush",
+  "de": "Zahnbürste",
   "mode": "ua",
   "force": true,
-  "audioFiles": 400,
+  "audioFiles": 404,
   "failures": 0
 }

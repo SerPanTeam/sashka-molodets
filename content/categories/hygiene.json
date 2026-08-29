@@ -14,11 +14,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/toothbrush.question.de.wav",
-        "success": "./assets/generated/audio/toothbrush.success.de.wav"
+        "success": "./assets/generated/audio/toothbrush.success.de.wav",
+        "wrong": "./assets/generated/audio/toothbrush.wrong.de.wav",
+        "retry": "./assets/generated/audio/toothbrush.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/toothbrush.question.ua.wav",
-        "success": "./assets/generated/audio/toothbrush.success.ua.wav"
+        "success": "./assets/generated/audio/toothbrush.success.ua.wav",
+        "wrong": "./assets/generated/audio/toothbrush.wrong.ua.wav",
+        "retry": "./assets/generated/audio/toothbrush.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/toothbrush.png"
     },
