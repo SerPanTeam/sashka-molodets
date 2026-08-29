@@ -247,9 +247,9 @@ jobs:
                 item.generatedAudioUa?.success,
                 item.generatedAudioUa?.wrong,
                 item.generatedAudioUa?.retry''')
-          start=s.index('    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({')
+          start=s.find('    const readyItems = checks.filter(x => x.ready).map(({ item }) => ({')
           if start >= 0:
-              end=s.index('    return {',start)
+              end=s.find('    return {',start)
               if end < 0: raise SystemExit('legacy success override block end not found')
               s=s[:start]+'    const readyItems = checks.filter(x => x.ready).map(({ item }) => item);\n'+s[end:]
           p.write_text(s)
