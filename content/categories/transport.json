@@ -189,11 +189,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/tractor.question.de.wav",
-        "success": "./assets/generated/audio/tractor.success.de.wav"
+        "success": "./assets/generated/audio/tractor.success.de.wav",
+        "wrong": "./assets/generated/audio/tractor.wrong.de.wav",
+        "retry": "./assets/generated/audio/tractor.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/tractor.question.ua.wav",
-        "success": "./assets/generated/audio/tractor.success.ua.wav"
+        "success": "./assets/generated/audio/tractor.success.ua.wav",
+        "wrong": "./assets/generated/audio/tractor.wrong.ua.wav",
+        "retry": "./assets/generated/audio/tractor.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/tractor.png"
     },
