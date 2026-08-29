@@ -39,11 +39,15 @@
       },
       "generatedAudioDe": {
         "question": "./assets/generated/audio/bus.question.de.wav",
-        "success": "./assets/generated/audio/bus.success.de.wav"
+        "success": "./assets/generated/audio/bus.success.de.wav",
+        "wrong": "./assets/generated/audio/bus.wrong.de.wav",
+        "retry": "./assets/generated/audio/bus.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/bus.question.ua.wav",
-        "success": "./assets/generated/audio/bus.success.ua.wav"
+        "success": "./assets/generated/audio/bus.success.ua.wav",
+        "wrong": "./assets/generated/audio/bus.wrong.ua.wav",
+        "retry": "./assets/generated/audio/bus.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/bus.png"
     },
