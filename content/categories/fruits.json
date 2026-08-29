@@ -277,11 +277,15 @@
       "generatedAudio": {},
       "generatedAudioDe": {
         "question": "./assets/generated/audio/cherries.question.de.wav",
-        "success": "./assets/generated/audio/cherries.success.de.wav"
+        "success": "./assets/generated/audio/cherries.success.de.wav",
+        "wrong": "./assets/generated/audio/cherries.wrong.de.wav",
+        "retry": "./assets/generated/audio/cherries.retry.de.wav"
       },
       "generatedAudioUa": {
         "question": "./assets/generated/audio/cherries.question.ua.wav",
-        "success": "./assets/generated/audio/cherries.success.ua.wav"
+        "success": "./assets/generated/audio/cherries.success.ua.wav",
+        "wrong": "./assets/generated/audio/cherries.wrong.ua.wav",
+        "retry": "./assets/generated/audio/cherries.retry.ua.wav"
       },
       "generatedImage": "./assets/generated/images/cherries.png"
     },

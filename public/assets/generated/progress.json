@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:49:49.286Z",
+  "ts": "2026-08-29T00:50:45.226Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "fruits",
-  "id": "peach",
-  "de": "Pfirsich",
+  "id": "cherries",
+  "de": "Kirschen",
   "mode": "ua",
   "force": true,
-  "audioFiles": 352,
+  "audioFiles": 356,
   "failures": 0
 }
