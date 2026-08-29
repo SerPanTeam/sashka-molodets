@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T00:35:02.684Z",
+  "ts": "2026-08-29T00:36:15.333Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "vegetables",
-  "id": "carrot",
-  "de": "Karotte",
+  "id": "potato",
+  "de": "Kartoffel",
   "mode": "ua",
   "force": true,
-  "audioFiles": 292,
+  "audioFiles": 296,
   "failures": 0
 }
