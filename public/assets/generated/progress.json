@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-29T01:35:31.801Z",
+  "ts": "2026-08-29T01:36:24.008Z",
   "event": "item-complete",
   "provider": "google-cloud",
   "category": "hygiene",
-  "id": "shampoo",
-  "de": "Shampoo",
+  "id": "comb",
+  "de": "Kamm",
   "mode": "ua",
   "force": true,
-  "audioFiles": 460,
+  "audioFiles": 464,
   "failures": 0
 }
