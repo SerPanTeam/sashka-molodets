@@ -1,0 +1,100 @@
+name: Fix natural Ukrainian voice and applause
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-natural-audio.yml'
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: fix-natural-audio
+  cancel-in-progress: true
+
+jobs:
+  fix-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      AI_DEFAULT_PROVIDER: google-cloud
+      GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+      GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
+      GOOGLE_TTS_VOICE_DE: Leda
+      GOOGLE_TTS_VOICE_UA: Sulafat
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Add short natural applause recording
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/sfx
+          curl -L --fail --retry 4 --retry-delay 3 \
+            'https://upload.wikimedia.org/wikipedia/commons/5/5b/Applause_i.ogg' \
+            -o /tmp/applause-source.ogg
+          ffmpeg -y -hide_banner -loglevel error \
+            -ss 0.15 -t 1.65 -i /tmp/applause-source.ogg \
+            -af 'afade=t=in:st=0:d=0.04,afade=t=out:st=1.35:d=0.30,volume=0.62' \
+            -ar 44100 -ac 2 -c:a libvorbis -q:a 5 \
+            public/assets/sfx/applause.ogg
+          test -s public/assets/sfx/applause.ogg
+
+      - name: Replace synthetic applause player
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('public/app.js')
+          s=p.read_text()
+          pattern=r'function playApplause\(\)\{.*?\}\nfunction stars\(\)'
+          replacement='''function playApplause(){return new Promise(resolve=>{try{const a=new Audio(resolveAsset("./assets/sfx/applause.ogg"));a.preload="auto";a.volume=.72;let settled=false;const done=ok=>{if(settled)return;settled=true;resolve(ok)};a.onended=()=>done(true);a.onerror=()=>done(false);a.play().catch(()=>done(false))}catch{resolve(false)}})}\nfunction stars()'''
+          out,n=re.subn(pattern,replacement,s,count=1,flags=re.S)
+          if n!=1:
+              raise SystemExit(f'playApplause patch count={n}')
+          p.write_text(out)
+          PY
+
+      - name: Regenerate all Ukrainian voice files with stable warm voice
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          mapfile -t IDS < <(find content/categories -name '*.json' -print0 | xargs -0 jq -r '.items[]? | select(.generatedImage != null) | .id' | sort -u)
+          echo "Regenerating Ukrainian audio for ${#IDS[@]} live cards"
+          for id in "${IDS[@]}"; do
+            echo "[UA] $id"
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=700
+            sleep 2
+          done
+
+      - name: Publish audio fix
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/app.js public/assets/sfx/applause.ogg
+          git add -f public/assets/generated/audio/*.ua.wav
+          git add content/categories/*.json
+          git commit -m 'fix: natural applause and stable Ukrainian voice'
+          git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
+          git clean -f gha-creds-*.json 2>/dev/null || true
+          git pull --rebase origin main
+          git push origin HEAD:main
