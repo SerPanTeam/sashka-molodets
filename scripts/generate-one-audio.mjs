@@ -96,15 +96,16 @@ for(const kind of kinds){
     const language=mode==="de"?"German de-DE":mode==="ua"?"Ukrainian uk-UA":"German de-DE first, then Ukrainian uk-UA";
     const googleProvider=/google|vertex/i.test(provider);
     const voice=googleProvider
-      ? (mode==="ua"?(process.env.GOOGLE_TTS_VOICE_UA||process.env.GOOGLE_TTS_VOICE||"Leda"):(process.env.GOOGLE_TTS_VOICE_DE||process.env.GOOGLE_TTS_VOICE||"Leda"))
+      ? (mode==="ua"?(process.env.GOOGLE_TTS_VOICE_UA||process.env.GOOGLE_TTS_VOICE||"Sulafat"):(process.env.GOOGLE_TTS_VOICE_DE||process.env.GOOGLE_TTS_VOICE||"Leda"))
       : (mode==="ua"?(process.env.OPENAI_TTS_VOICE_UA||process.env.OPENAI_TTS_VOICE||"coral"):(process.env.OPENAI_TTS_VOICE||"coral"));
     const moods={
       question:"curious, inviting and playful; sound like a fun little treasure hunt; smiling voice",
-      success:"genuinely delighted and celebratory; a tiny happy laugh in the energy, but do not add words; make the child feel proud",
+      success:"genuinely delighted and celebratory; make the child feel proud, but keep the pitch steady",
       wrong:"gentle, amused and playful, never scolding; smiling as if this is part of the game",
-      retry:"warm, encouraging and conspiratorial, like giving a friendly little clue; calm confidence",
+      retry:"warm, encouraging and calm, like giving a friendly little clue",
     };
-    const style=`${moods[kind]||moods.question}; affectionate preschool game host; natural ${mode==="ua"?"Ukrainian":"German"} speech; expressive, lively, clear and human; never robotic, never patronizing, never shouting`;
+    const uaStability=mode==="ua"?"; steady natural pitch and volume; no vibrato, no trembling, no quivering, no breathy wobble, no theatrical voice acting; relaxed native Ukrainian pronunciation; short clean phrases with gentle pauses":"";
+    const style=`${moods[kind]||moods.question}; affectionate preschool game host; natural ${mode==="ua"?"Ukrainian":"German"} speech; clear and human; never robotic, never patronizing, never shouting${uaStability}`;
     const result=await withRetry(()=>generateSpeech({provider,text:transcript(kind),language,voice,style}),kind);
     await writeFile(file,result.buffer);
     item[field][kind]=`./assets/generated/audio/${name}`;
