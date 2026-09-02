@@ -5,29 +5,101 @@
       "id": "number-1",
       "category": "numbers",
       "emoji": "1",
-      "labels": { "de": "Eins", "ua": "один" },
-      "article": { "de": "die" }
+      "labels": {
+        "de": "Eins",
+        "ua": "один"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/number-1.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/number-1.question.de.wav",
+        "success": "./assets/generated/audio/number-1.success.de.wav",
+        "wrong": "./assets/generated/audio/number-1.wrong.de.wav",
+        "retry": "./assets/generated/audio/number-1.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/number-1.question.ua.wav",
+        "success": "./assets/generated/audio/number-1.success.ua.wav",
+        "wrong": "./assets/generated/audio/number-1.wrong.ua.wav",
+        "retry": "./assets/generated/audio/number-1.retry.ua.wav"
+      }
     },
     {
       "id": "number-2",
       "category": "numbers",
       "emoji": "2",
-      "labels": { "de": "Zwei", "ua": "два" },
-      "article": { "de": "die" }
+      "labels": {
+        "de": "Zwei",
+        "ua": "два"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/number-2.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/number-2.question.de.wav",
+        "success": "./assets/generated/audio/number-2.success.de.wav",
+        "wrong": "./assets/generated/audio/number-2.wrong.de.wav",
+        "retry": "./assets/generated/audio/number-2.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/number-2.question.ua.wav",
+        "success": "./assets/generated/audio/number-2.success.ua.wav",
+        "wrong": "./assets/generated/audio/number-2.wrong.ua.wav",
+        "retry": "./assets/generated/audio/number-2.retry.ua.wav"
+      }
     },
     {
       "id": "number-3",
       "category": "numbers",
       "emoji": "3",
-      "labels": { "de": "Drei", "ua": "три" },
-      "article": { "de": "die" }
+      "labels": {
+        "de": "Drei",
+        "ua": "три"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/number-3.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/number-3.question.de.wav",
+        "success": "./assets/generated/audio/number-3.success.de.wav",
+        "wrong": "./assets/generated/audio/number-3.wrong.de.wav",
+        "retry": "./assets/generated/audio/number-3.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/number-3.question.ua.wav",
+        "success": "./assets/generated/audio/number-3.success.ua.wav",
+        "wrong": "./assets/generated/audio/number-3.wrong.ua.wav",
+        "retry": "./assets/generated/audio/number-3.retry.ua.wav"
+      }
     },
     {
       "id": "number-4",
       "category": "numbers",
       "emoji": "4",
-      "labels": { "de": "Vier", "ua": "чотири" },
-      "article": { "de": "die" }
+      "labels": {
+        "de": "Vier",
+        "ua": "чотири"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/number-4.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/number-4.question.de.wav",
+        "success": "./assets/generated/audio/number-4.success.de.wav",
+        "wrong": "./assets/generated/audio/number-4.wrong.de.wav",
+        "retry": "./assets/generated/audio/number-4.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/number-4.question.ua.wav",
+        "success": "./assets/generated/audio/number-4.success.ua.wav",
+        "wrong": "./assets/generated/audio/number-4.wrong.ua.wav",
+        "retry": "./assets/generated/audio/number-4.retry.ua.wav"
+      }
     }
   ]
 }
