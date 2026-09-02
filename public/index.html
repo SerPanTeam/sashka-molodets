@@ -9,9 +9,15 @@
   <title>Сашка молодец</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=30">
-  <link rel="stylesheet" href="./enhancements.css?v=30">
-  <link rel="stylesheet" href="./admin-status.css?v=30">
+  <link rel="stylesheet" href="./styles.css?v=31">
+  <link rel="stylesheet" href="./enhancements.css?v=31">
+  <link rel="stylesheet" href="./admin-status.css?v=31">
+  <style>
+    .repeat-question-button{border:0;height:48px;min-width:162px;border-radius:24px;background:#fff;box-shadow:0 7px 18px rgba(49,69,107,.12);color:#253455;font-weight:900;font-size:14px;padding:0 16px;display:grid;place-items:center;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+    .repeat-question-button:active{transform:scale(.97)}
+    @media(max-width:760px){.repeat-question-button{min-width:132px;padding:0 11px;font-size:12px}}
+    @media(max-width:560px){.repeat-question-button{min-width:50px;width:50px;padding:0;font-size:0}.repeat-question-button:after{content:'🔊';font-size:22px}}
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -19,7 +25,7 @@
       <button id="brandButton" class="brand" aria-label="Удерживайте для настроек"><span class="brand-star"></span><span>Сашка молодец</span></button>
       <div class="top-actions">
         <button id="voiceModeButton" class="voice-mode-button" aria-label="Переключить языки голоса" aria-pressed="false">DE + UA</button>
-        <button id="soundButton" class="round-button" aria-label="Повторить">Повторить</button>
+        <button id="soundButton" class="repeat-question-button" aria-label="Повторить вопрос голосом" title="Повторить вопрос голосом">🔊 Повторить вопрос</button>
         <button id="fullscreenButton" class="round-button" aria-label="Полный экран">Экран</button>
       </div>
     </header>
@@ -40,11 +46,11 @@
       <div class="parent-note">Кнопка DE + UA / DE сверху мгновенно переключает озвучку. После ошибки вопрос остаётся тем же, пока ребёнок не выберет правильную картинку. Для животных используются локально сохранённые реальные записи. <a href="./animal-sound-sources.html" target="_blank" rel="noopener">Источники звуков животных</a>. Для блокировки выхода установите PWA и включите App pinning на Android.</div>
     </form>
   </dialog>
-  <script src="./pages-shim.js?v=30"></script>
-  <script src="./audio-bridge.js?v=30"></script>
-  <script src="./object-sfx.js?v=30"></script>
-  <script src="./object-sfx-local.js?v=30"></script>
-  <script src="./admin-status.js?v=30"></script>
-  <script type="module" src="./app.js?v=30"></script>
+  <script src="./pages-shim.js?v=31"></script>
+  <script src="./audio-bridge.js?v=31"></script>
+  <script src="./object-sfx.js?v=31"></script>
+  <script src="./object-sfx-local.js?v=31"></script>
+  <script src="./admin-status.js?v=31"></script>
+  <script type="module" src="./app.js?v=31"></script>
 </body>
 </html>
