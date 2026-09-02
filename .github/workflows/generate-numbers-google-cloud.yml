@@ -1,0 +1,65 @@
+name: Generate numbers 1-4 with Google Cloud
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/generate-numbers-google-cloud.yml'
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: google-cloud-numbers-1-4
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      AI_DEFAULT_PROVIDER: google-cloud
+      GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+      GOOGLE_IMAGE_LOCATION: global
+      GOOGLE_VISION_LOCATION: global
+      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
+      GOOGLE_VISION_MODEL: gemini-3.5-flash
+      GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
+      GOOGLE_TTS_VOICE_DE: Leda
+      GOOGLE_TTS_VOICE_UA: Leda
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+      - name: Generate 1-4 images and voices
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          for id in number-1 number-2 number-3 number-4; do
+            node scripts/generate-one-image.mjs --provider=google-cloud --id="$id" --force=true --qa=true
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=250
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=250
+          done
+      - name: Verify and publish
+        run: |
+          set -euo pipefail
+          for id in number-1 number-2 number-3 number-4; do
+            test -s "public/assets/generated/images/$id.png"
+            for lang in de ua; do for kind in question success wrong retry; do test -s "public/assets/generated/audio/$id.$kind.$lang.wav"; done; done
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f public/assets/generated/images/number-*.png public/assets/generated/audio/number-*.wav
+          git add content/categories/numbers.json
+          git commit -m 'feat: publish Google Cloud numbers 1-4'
+          git pull --rebase origin main
+          git push origin HEAD:main
