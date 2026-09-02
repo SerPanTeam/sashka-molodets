@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: google-cloud-numbers-1-4
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   generate:
@@ -39,15 +39,16 @@ jobs:
           workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
           service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
           token_format: access_token
-      - name: Generate 1-4 images and voices
+      - name: Generate 1-4 exact-count images and voices
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
         run: |
           set -euo pipefail
           for id in number-1 number-2 number-3 number-4; do
-            node scripts/generate-one-image.mjs --provider=google-cloud --id="$id" --force=true --qa=true
-            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=250
-            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=250
+            node scripts/generate-number-image.mjs --provider=google-cloud --id="$id"
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=1000
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=1000
+            sleep 5
           done
       - name: Verify and publish
         run: |
