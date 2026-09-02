@@ -15,8 +15,11 @@
   <style>
     .repeat-question-button{border:0;height:48px;min-width:162px;border-radius:24px;background:#fff;box-shadow:0 7px 18px rgba(49,69,107,.12);color:#253455;font-weight:900;font-size:14px;padding:0 16px;display:grid;place-items:center;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
     .repeat-question-button:active{transform:scale(.97)}
+    .category-button:nth-child(7):before{background-image:url('./assets/generated/images/number-4.png?v=apples-1')}
+    @media(min-width:821px){.category-strip{grid-template-columns:repeat(7,minmax(100px,1fr))}.category-button{min-height:160px;padding-top:108px}.category-button:before{height:99px}}
+    @media(max-width:820px){.category-strip{grid-template-columns:repeat(4,minmax(0,1fr))}.category-button{min-height:132px;padding-top:84px}.category-button:before{height:76px}}
     @media(max-width:760px){.repeat-question-button{min-width:132px;padding:0 11px;font-size:12px}}
-    @media(max-width:560px){.repeat-question-button{min-width:50px;width:50px;padding:0;font-size:0}.repeat-question-button:after{content:'🔊';font-size:22px}}
+    @media(max-width:560px){.repeat-question-button{min-width:50px;width:50px;padding:0;font-size:0}.repeat-question-button:after{content:'🔊';font-size:22px}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.category-button{min-height:116px;padding:72px 4px 7px;font-size:13px;border-radius:18px}.category-button:before{height:65px;inset:5px 5px auto;border-radius:14px}.category-button .small{font-size:10px}}
   </style>
 </head>
 <body>
