@@ -12,7 +12,7 @@
       "article": {
         "de": "die"
       },
-      "generatedImage": "./assets/generated/images/number-1.png",
+      "generatedImage": "./assets/generated/images/number-1.png?v=apple-v1",
       "generatedAudioDe": {
         "question": "./assets/generated/audio/number-1.question.de.wav",
         "success": "./assets/generated/audio/number-1.success.de.wav",
@@ -37,7 +37,7 @@
       "article": {
         "de": "die"
       },
-      "generatedImage": "./assets/generated/images/number-2.png",
+      "generatedImage": "./assets/generated/images/number-2.png?v=apple-v1",
       "generatedAudioDe": {
         "question": "./assets/generated/audio/number-2.question.de.wav",
         "success": "./assets/generated/audio/number-2.success.de.wav",
@@ -62,7 +62,7 @@
       "article": {
         "de": "die"
       },
-      "generatedImage": "./assets/generated/images/number-3.png",
+      "generatedImage": "./assets/generated/images/number-3.png?v=apple-v1",
       "generatedAudioDe": {
         "question": "./assets/generated/audio/number-3.question.de.wav",
         "success": "./assets/generated/audio/number-3.success.de.wav",
@@ -87,7 +87,7 @@
       "article": {
         "de": "die"
       },
-      "generatedImage": "./assets/generated/images/number-4.png",
+      "generatedImage": "./assets/generated/images/number-4.png?v=apple-v1",
       "generatedAudioDe": {
         "question": "./assets/generated/audio/number-4.question.de.wav",
         "success": "./assets/generated/audio/number-4.success.de.wav",
