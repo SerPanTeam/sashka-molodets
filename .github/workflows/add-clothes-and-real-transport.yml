@@ -52,14 +52,27 @@ jobs:
             node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=700
             sleep 8
           done
+      - name: Verify clothes files before publish
+        run: |
+          set -euo pipefail
+          IDS='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
+          for id in $IDS; do
+            test -s "public/assets/generated/images/$id.png"
+            for lang in de ua; do
+              for kind in question success wrong retry; do
+                test -s "public/assets/generated/audio/$id.$kind.$lang.wav"
+              done
+            done
+          done
       - name: Publish clothes first
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content/categories/clothes.json public/assets/generated/images
+          git add content/categories/clothes.json
+          git add -f public/assets/generated/images/*.png
           git add -f public/assets/generated/audio/*.wav
-          git commit -m 'feat: publish colored clothes cards' || true
+          git commit -m 'feat: publish colored clothes cards with images' || true
           git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
           git clean -f gha-creds-*.json 2>/dev/null || true
           git pull --rebase origin main
