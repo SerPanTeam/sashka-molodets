@@ -32,10 +32,19 @@ const subjects={
   apple:"one juicy shiny red apple with a small green leaf",banana:"one ripe cheerful yellow banana",orange:"one juicy whole bright-orange citrus fruit",pear:"one fresh green pear",grapes:"one compact natural bunch of juicy purple grapes",strawberry:"one juicy bright-red strawberry with green leaves",watermelon:"one whole rich-green striped watermelon",peach:"one velvety ripe peach with warm peach-orange color",cherries:"a natural pair of shiny red cherries joined by stems",kiwi:"one whole brown fuzzy kiwi fruit",
   cup:"one clean ceramic drinking cup with handle",plate:"one clean simple round dinner plate",spoon:"one shiny metal eating spoon",fork:"one shiny metal table fork",table:"one simple sturdy four-legged wooden dining table",glass:"one clean clear empty drinking glass",bowl:"one simple clean eating bowl",pot:"one clean cooking pot with two handles and lid, no food",pan:"one clean frying pan with handle, no food",fridge:"one modern closed household refrigerator, front view",
   toothbrush:"one colorful child toothbrush",toothpaste:"one unmistakable classic toothpaste tube lying slightly diagonal, crimped sealed flat end at one side and a small white screw-cap/nozzle at the other, familiar toothpaste packaging proportions, clean white tube with simple blue and red curved graphic stripes but absolutely no readable words or logo; it must clearly look like toothpaste, not lotion, sunscreen, paint, cream or soap",soap:"one unmistakable bath bar of soap: a single pale aqua oval-rectangular soap bar with softly rounded beveled edges, slightly translucent creamy soap material, a shallow curved soap-groove molded into the surface with absolutely no letters or words, and a few tiny clean soap bubbles physically clinging to the bar itself; clearly soap, not candy, taffy, food, an eraser, sponge or toy",towel:"one soft neatly folded bath towel",shampoo:"one colorful shampoo bottle with no readable brand text",comb:"one simple colorful hair comb",sponge:"one bright yellow cleaning sponge","toilet-paper":"one unmistakable standard household toilet paper roll: soft matte pure-white tissue paper wound loosely around a visible brown cardboard tube, viewed three-quarter front, with one broad loose sheet hanging naturally down from the front edge and a subtle perforation line across the hanging sheet; clearly soft toilet tissue, not adhesive tape, bandage, ribbon or kitchen roll; no colored paper, no rainbow lighting, no decorative pattern",hairbrush:"one simple colorful hair brush",washcloth:"one soft colorful washcloth",
-  car:"one bright modern family car, three-quarter view",bus:"one bright city bus, three-quarter view",train:"one modern passenger train front car, clearly recognizable",bicycle:"one standard colorful bicycle, side view",airplane:"one modern passenger airplane, whole aircraft visible",ship:"one friendly simple passenger ship, whole ship visible",truck:"one bright cargo truck, three-quarter view",tractor:"one bright farm tractor, three-quarter view",tram:"one modern city tram, three-quarter view",helicopter:"one modern helicopter, whole aircraft visible"
+  car:"one bright modern family car, three-quarter view",bus:"one bright city bus, three-quarter view",train:"one modern passenger train front car, clearly recognizable",bicycle:"one standard colorful bicycle, side view",airplane:"one modern passenger airplane, whole aircraft visible",ship:"one friendly simple passenger ship, whole ship visible",truck:"one bright cargo truck, three-quarter view",tractor:"one bright farm tractor, three-quarter view",tram:"one modern city tram, three-quarter view",helicopter:"one modern helicopter, whole aircraft visible",
+  "white-shirt":"one plain WHITE short-sleeve T-shirt, pure white fabric, no colored panels, no print, no logo",
+  "black-pants":"one pair of plain BLACK trousers/pants, solid black fabric, clearly clothing, NOT a garden hose",
+  "red-dress":"one plain RED child's dress, solid vivid red fabric, clearly a dress",
+  "blue-shoe":"one single BLUE child sneaker/shoe, solid vivid blue upper, clearly footwear",
+  "green-hat":"one GREEN knitted beanie/hat, solid vivid green, clearly headwear",
+  "yellow-jacket":"one YELLOW child jacket, solid bright yellow outer fabric, clearly a jacket",
+  "orange-sweater":"one ORANGE knitted pullover/sweater, solid bright orange, clearly clothing",
+  "purple-skirt":"one PURPLE skirt, solid vivid purple fabric, clearly a skirt, NOT a rock or stone",
+  "brown-boots":"one pair of BROWN ankle boots, solid warm brown leather, clearly footwear"
 };
 
-const palettes={animals:"warm sunlit natural colors",vegetables:"fresh garden colors that look crisp and delicious",fruits:"juicy saturated natural fruit colors",household:"clean warm cheerful home colors",hygiene:"fresh playful aqua, coral and sunshine accents",transport:"bold cheerful primary colors with realistic materials"};
+const palettes={animals:"warm sunlit natural colors",vegetables:"fresh garden colors that look crisp and delicious",fruits:"juicy saturated natural fruit colors",household:"clean warm cheerful home colors",hygiene:"fresh playful aqua, coral and sunshine accents",transport:"bold cheerful primary colors with realistic materials",clothes:"use the exact requested garment color as the dominant solid color; do not substitute another color"};
 function prompt(extra=""){
   const subject=subjects[item.id] || `${item.labels.de} / ${item.labels.ua}`;
   const animal=item.category==="animals";
@@ -82,7 +91,8 @@ try{
   for(let artAttempt=1;artAttempt<=3;artAttempt++){
     const result=await withRetry(()=>generateImage({provider,prompt:prompt(correction),aspectRatio:"1:1",imageSize:"1K",size:"1024x1024",quality}));
     if(!qa){accepted=result;break;}
-    const review=await withRetry(()=>reviewImage({provider,buffer:result.buffer,mimeType:result.mimeType,expected:subjects[item.id]||item.labels.de}),3);
+    const expected=subjects[item.id] || item.labels.de;
+    const review=await withRetry(()=>reviewImage({provider,buffer:result.buffer,mimeType:result.mimeType,expected}),3);
     qaText=review.text;
     await emit("qa",{artAttempt,pass:review.pass,review:review.text.slice(0,700),bytes:result.buffer.length});
     if(review.pass){accepted=result;break;}
