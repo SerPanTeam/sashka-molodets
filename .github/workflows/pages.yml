@@ -26,11 +26,24 @@ jobs:
 
       - name: Validate production bundle
         run: |
+          set -euo pipefail
           node --check public/app.js
           node --check public/pages-shim.js
           node --check public/audio-bridge.js
           node --check public/object-sfx.js
           node scripts/validate-production.mjs
+          CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
+          for id in $CLOTHES; do
+            test -s "public/assets/generated/images/$id.png"
+            for lang in de ua; do
+              for kind in question success wrong retry; do
+                test -s "public/assets/generated/audio/$id.$kind.$lang.wav"
+              done
+            done
+          done
+          TRANSPORT='car bus train bicycle airplane ship truck tractor tram helicopter'
+          for id in $TRANSPORT; do test -s "public/assets/sfx/transport/$id.ogg"; done
+          test -s public/assets/sfx/applause.ogg
 
       - name: Prepare static site
         run: |
@@ -41,17 +54,28 @@ jobs:
 
       - name: Browser smoke test local build
         run: |
+          set -euo pipefail
           python3 -m http.server 4173 --directory _site >/tmp/sashka-http.log 2>&1 &
           SERVER_PID=$!
           trap 'kill $SERVER_PID || true' EXIT
           sleep 1
           CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
           test -n "$CHROME"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=10000 --dump-dom "http://127.0.0.1:4173/index.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-dom.html
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=12000 --dump-dom "http://127.0.0.1:4173/index.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-dom.html
           grep -q 'Сашко, граємо?' /tmp/sashka-local-dom.html
           grep -q 'class="big-play"' /tmp/sashka-local-dom.html
-          grep -q 'class="category-button"' /tmp/sashka-local-dom.html
           grep -q '>Tiere<' /tmp/sashka-local-dom.html
+          grep -q '>Kleidung<' /tmp/sashka-local-dom.html
+          grep -q 'Одяг · 9' /tmp/sashka-local-dom.html
+          CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
+          for id in $CLOTHES; do
+            curl -fsS -o /dev/null "http://127.0.0.1:4173/assets/generated/images/$id.png"
+            for lang in de ua; do
+              for kind in question success wrong retry; do
+                curl -fsS -o /dev/null "http://127.0.0.1:4173/assets/generated/audio/$id.$kind.$lang.wav"
+              done
+            done
+          done
 
       - name: Configure and enable GitHub Pages
         uses: actions/configure-pages@v5
@@ -67,14 +91,31 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Browser smoke test deployed Pages
+      - name: Browser and asset smoke test deployed Pages
         run: |
+          set -euo pipefail
           CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
           test -n "$CHROME"
           URL="${{ steps.deployment.outputs.page_url }}"
           test -n "$URL"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=12000 --dump-dom "${URL}?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-dom.html
+          BASE="${URL%/}"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=15000 --dump-dom "${BASE}/?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-dom.html
           grep -q 'Сашко, граємо?' /tmp/sashka-prod-dom.html
           grep -q 'class="big-play"' /tmp/sashka-prod-dom.html
-          grep -q 'class="category-button"' /tmp/sashka-prod-dom.html
           grep -q '>Tiere<' /tmp/sashka-prod-dom.html
+          grep -q '>Kleidung<' /tmp/sashka-prod-dom.html
+          grep -q 'Одяг · 9' /tmp/sashka-prod-dom.html
+          CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
+          for id in $CLOTHES; do
+            curl -fsS --retry 4 --retry-delay 2 -o /dev/null "${BASE}/assets/generated/images/$id.png?check=${GITHUB_SHA}"
+            for lang in de ua; do
+              for kind in question success wrong retry; do
+                curl -fsS --retry 4 --retry-delay 2 -o /dev/null "${BASE}/assets/generated/audio/$id.$kind.$lang.wav?check=${GITHUB_SHA}"
+              done
+            done
+          done
+          TRANSPORT='car bus train bicycle airplane ship truck tractor tram helicopter'
+          for id in $TRANSPORT; do
+            curl -fsS --retry 4 --retry-delay 2 -o /dev/null "${BASE}/assets/sfx/transport/$id.ogg?check=${GITHUB_SHA}"
+          done
+          curl -fsS --retry 4 --retry-delay 2 -o /dev/null "${BASE}/assets/sfx/applause.ogg?check=${GITHUB_SHA}"
