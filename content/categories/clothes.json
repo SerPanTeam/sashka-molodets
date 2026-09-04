@@ -1,77 +1,14 @@
 {
   "category": "clothes",
   "items": [
-    {
-      "id": "shirt",
-      "category": "clothes",
-      "emoji": "👕",
-      "labels": {
-        "de": "T-Shirt",
-        "ua": "футболка"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "pants",
-      "category": "clothes",
-      "emoji": "👖",
-      "labels": {
-        "de": "Hose",
-        "ua": "штани"
-      },
-      "article": {
-        "de": "die"
-      }
-    },
-    {
-      "id": "dress",
-      "category": "clothes",
-      "emoji": "👗",
-      "labels": {
-        "de": "Kleid",
-        "ua": "сукня"
-      },
-      "article": {
-        "de": "das"
-      }
-    },
-    {
-      "id": "shoe",
-      "category": "clothes",
-      "emoji": "👟",
-      "labels": {
-        "de": "Schuh",
-        "ua": "черевик"
-      },
-      "article": {
-        "de": "der"
-      }
-    },
-    {
-      "id": "hat",
-      "category": "clothes",
-      "emoji": "🧢",
-      "labels": {
-        "de": "Mütze",
-        "ua": "кепка"
-      },
-      "article": {
-        "de": "die"
-      }
-    },
-    {
-      "id": "jacket",
-      "category": "clothes",
-      "emoji": "🧥",
-      "labels": {
-        "de": "Jacke",
-        "ua": "куртка"
-      },
-      "article": {
-        "de": "die"
-      }
-    }
+    {"id":"white-shirt","category":"clothes","emoji":"👕","labels":{"de":"T-Shirt","ua":"футболка"},"article":{"de":"das"},"attributes":{"color":{"de":"weiß","ua":"біла"}}},
+    {"id":"black-pants","category":"clothes","emoji":"👖","labels":{"de":"Hose","ua":"штани"},"article":{"de":"die"},"attributes":{"color":{"de":"schwarz","ua":"чорні"}}},
+    {"id":"red-dress","category":"clothes","emoji":"👗","labels":{"de":"Kleid","ua":"сукня"},"article":{"de":"das"},"attributes":{"color":{"de":"rot","ua":"червона"}}},
+    {"id":"blue-shoe","category":"clothes","emoji":"👟","labels":{"de":"Schuh","ua":"черевик"},"article":{"de":"der"},"attributes":{"color":{"de":"blau","ua":"синій"}}},
+    {"id":"green-hat","category":"clothes","emoji":"🧢","labels":{"de":"Mütze","ua":"кепка"},"article":{"de":"die"},"attributes":{"color":{"de":"grün","ua":"зелена"}}},
+    {"id":"yellow-jacket","category":"clothes","emoji":"🧥","labels":{"de":"Jacke","ua":"куртка"},"article":{"de":"die"},"attributes":{"color":{"de":"gelb","ua":"жовта"}}},
+    {"id":"orange-sweater","category":"clothes","emoji":"🧶","labels":{"de":"Pullover","ua":"светр"},"article":{"de":"der"},"attributes":{"color":{"de":"orange","ua":"помаранчевий"}}},
+    {"id":"purple-skirt","category":"clothes","emoji":"👗","labels":{"de":"Rock","ua":"спідниця"},"article":{"de":"der"},"attributes":{"color":{"de":"lila","ua":"фіолетова"}}},
+    {"id":"brown-boots","category":"clothes","emoji":"🥾","labels":{"de":"Stiefel","ua":"чоботи"},"article":{"de":"die"},"attributes":{"color":{"de":"braun","ua":"коричневі"}}}
   ]
 }
