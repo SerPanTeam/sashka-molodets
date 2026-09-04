@@ -52,31 +52,48 @@ jobs:
             node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=700
             sleep 8
           done
-      - name: Download real transport recordings
-        run: |
-          set -euo pipefail
-          mkdir -p public/assets/sfx/transport
-          fetch(){ name="$1"; file="$2"; start="$3"; dur="$4"; curl -L --fail --retry 4 "https://commons.wikimedia.org/wiki/Special:Redirect/file/${file// /%20}" -o /tmp/src.ogg; ffmpeg -y -hide_banner -loglevel error -ss "$start" -t "$dur" -i /tmp/src.ogg -af 'afade=t=in:st=0:d=.03,afade=t=out:st=1.8:d=.25,volume=.72' -ar 44100 -ac 2 -c:a libvorbis -q:a 4 "public/assets/sfx/transport/$name.ogg"; }
-          fetch car '5 cylinder engine sound.ogg' 2 2.1
-          fetch bus 'Motor.ogg' 2 2.1
-          fetch train 'Prime PM-920.ogg' 1 2.1
-          fetch bicycle 'Bicycle-bell-1.wav' 0 2.1 || true
-          fetch airplane 'Airplane flyby.ogg' 0 2.1 || true
-          fetch ship 'Ship horn.ogg' 0 2.1 || true
-          fetch truck 'M57.ogg' 2 2.1
-          fetch tractor 'WWS SoloEngine.ogg' 8 2.1
-          fetch tram 'Tram bell.ogg' 0 2.1 || true
-          fetch helicopter 'Helicopter.ogg' 0 2.1 || true
-          for id in bicycle airplane ship tram helicopter; do test -s "public/assets/sfx/transport/$id.ogg" || cp public/assets/sfx/transport/car.ogg "public/assets/sfx/transport/$id.ogg"; done
-      - name: Publish
+      - name: Publish clothes first
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content/categories/clothes.json public/assets/sfx/transport public/assets/generated/images
+          git add content/categories/clothes.json public/assets/generated/images
           git add -f public/assets/generated/audio/*.wav
-          git commit -m 'feat: colored clothes and real transport recordings' || true
+          git commit -m 'feat: publish colored clothes cards' || true
           git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
+          git clean -f gha-creds-*.json 2>/dev/null || true
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Download verified real transport recordings and longer applause
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/sfx/transport public/assets/sfx
+          fetch(){
+            name="$1"; file="$2"; start="$3"; dur="$4"
+            encoded="${file// /%20}"
+            curl -L --fail --retry 4 --retry-delay 2 "https://commons.wikimedia.org/wiki/Special:Redirect/file/$encoded" -o /tmp/src
+            ffmpeg -y -hide_banner -loglevel error -ss "$start" -t "$dur" -i /tmp/src -af 'afade=t=in:st=0:d=0.03,afade=t=out:st=1.75:d=0.30,volume=0.78' -ar 44100 -ac 2 -c:a libvorbis -q:a 5 "public/assets/sfx/transport/$name.ogg"
+            test -s "public/assets/sfx/transport/$name.ogg"
+          }
+          fetch car '5 cylinder engine sound.ogg' 2 2.1
+          fetch bus 'WWS CityBusMANSG220engine.ogg' 5 2.1
+          fetch train 'WWS Signalhorntrainhorn.ogg' 0 2.1
+          fetch bicycle 'Ding Dong Bicycle Bell A.ogg' 0 2.1
+          fetch airplane 'Jet airliner overhead.ogg' 8 2.1
+          fetch ship 'Cruise ship Albatros ship horn.ogg' 1 2.1
+          fetch truck 'Deutz 260 F8L413F.Ogg' 0 2.1
+          fetch tractor 'WWS TractorUrsusC342engine.ogg' 4 2.1
+          fetch tram 'Sydney tram 18 - 2016-02-14-2.ogg' 0 2.1
+          fetch helicopter 'Helicopter over quiet n.ogg' 8 2.1
+          curl -L --fail --retry 4 --retry-delay 2 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Applause_i.ogg' -o /tmp/applause-source.ogg
+          ffmpeg -y -hide_banner -loglevel error -ss 0.15 -t 3.20 -i /tmp/applause-source.ogg -af 'afade=t=in:st=0:d=0.04,afade=t=out:st=2.75:d=0.45,volume=0.62' -ar 44100 -ac 2 -c:a libvorbis -q:a 5 public/assets/sfx/applause.ogg
+          test -s public/assets/sfx/applause.ogg
+          test "$(find public/assets/sfx/transport -maxdepth 1 -name '*.ogg' -type f -size +100c | wc -l)" -eq 10
+      - name: Publish natural sounds
+        run: |
+          set -euo pipefail
+          git add -f public/assets/sfx/applause.ogg public/assets/sfx/transport/*.ogg
+          git commit -m 'feat: publish real transport sounds and longer applause' || true
           git clean -f gha-creds-*.json 2>/dev/null || true
           git pull --rebase origin main
           git push origin HEAD:main
