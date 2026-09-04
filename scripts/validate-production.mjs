@@ -17,20 +17,22 @@ const errors = [];
 const incomplete = [];
 let readyCount = 0;
 
+const requiredRefs = item => [
+  ['image', item.generatedImage],
+  ['DE question', item.generatedAudioDe?.question],
+  ['DE success', item.generatedAudioDe?.success],
+  ['DE wrong', item.generatedAudioDe?.wrong],
+  ['DE retry', item.generatedAudioDe?.retry],
+  ['UA question', item.generatedAudioUa?.question],
+  ['UA success', item.generatedAudioUa?.success],
+  ['UA wrong', item.generatedAudioUa?.wrong],
+  ['UA retry', item.generatedAudioUa?.retry]
+];
+
 for (const id of ids) {
   const item = byId.get(id);
   if (!item) { incomplete.push(`${id}: missing content item`); continue; }
-  const required = [
-    ['image', item.generatedImage],
-    ['DE question', item.generatedAudioDe?.question],
-    ['DE success', item.generatedAudioDe?.success],
-    ['DE wrong', item.generatedAudioDe?.wrong],
-    ['DE retry', item.generatedAudioDe?.retry],
-    ['UA question', item.generatedAudioUa?.question],
-    ['UA success', item.generatedAudioUa?.success],
-    ['UA wrong', item.generatedAudioUa?.wrong],
-    ['UA retry', item.generatedAudioUa?.retry]
-  ];
+  const required = requiredRefs(item);
   let ready = true;
   for (const [label, ref] of required) {
     if (!ref) { incomplete.push(`${id}: missing ${label} reference`); ready = false; continue; }
@@ -38,6 +40,22 @@ for (const id of ids) {
     if (!(await exists(file))) { incomplete.push(`${id}: missing ${label} file ${file}`); ready = false; }
   }
   if (ready) readyCount++;
+}
+
+// Any card that advertises generated production assets must have ALL 9 physical files.
+// This prevents metadata-only cards from reaching GitHub Pages with broken images/audio.
+for (const item of items) {
+  const refs = requiredRefs(item);
+  const advertisesGeneratedAssets = refs.some(([, ref]) => Boolean(ref));
+  if (!advertisesGeneratedAssets) continue;
+  for (const [label, ref] of refs) {
+    if (!ref) {
+      errors.push(`${item.id}: generated card missing ${label} reference`);
+      continue;
+    }
+    const file = path.posix.join('public', stripDot(ref));
+    if (!(await exists(file))) errors.push(`${item.id}: referenced ${label} file does not exist: ${file}`);
+  }
 }
 
 const app = await readFile(path.join(root, 'public/app.js'), 'utf8');
@@ -61,8 +79,6 @@ if (!app.includes('Подумай ще, друже')) errors.push('contextual Uk
 if (!app.includes('Achte auf die Farbe')) errors.push('attribute-comparison feedback missing');
 if (!app.includes('preferredVoice')) errors.push('preferred natural browser voice selection missing');
 
-// Guard the exact success-path ordering, not merely the presence of each call.
-// This catches accidental refactors that would speak praise before applause/SFX.
 const successFlowStart = app.indexOf('(async()=>{await playApplause()');
 const successFlowEnd = successFlowStart >= 0 ? app.indexOf('})();return}', successFlowStart) : -1;
 if (successFlowStart < 0 || successFlowEnd < 0) {
@@ -77,7 +93,6 @@ if (successFlowStart < 0 || successFlowEnd < 0) {
   }
 }
 
-// Recorded wrong-answer teaching must preserve German first, then Ukrainian.
 const recordedWrongStart = app.indexOf('async function playWrongVoice');
 const recordedWrongEnd = recordedWrongStart >= 0 ? app.indexOf('const speakCurrent=', recordedWrongStart) : -1;
 if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
@@ -103,6 +118,11 @@ for (const id of ['dog','cat','cow','horse','pig','sheep','lion','elephant','bea
   if (!(await exists(`public/assets/sfx/animals/${id}.ogg`))) errors.push(`missing local real animal SFX: ${id}.ogg`);
 }
 
+for (const id of ['car','bus','train','bicycle','airplane','ship','truck','tractor','tram','helicopter']) {
+  if (!(await exists(`public/assets/sfx/transport/${id}.ogg`))) errors.push(`missing local real transport SFX: ${id}.ogg`);
+}
+if (!(await exists('public/assets/sfx/applause.ogg'))) errors.push('missing natural applause.ogg');
+
 if (ids.length !== 60) errors.push(`priority list expected 60 items, got ${ids.length}`);
 if (readyCount < 1) errors.push('no production-ready priority cards remain');
 
@@ -119,4 +139,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: safe filtering, Olexander, persistent questions, recorded-first contextual DE→UA teaching feedback, local real animal recordings, shared audio bridge, strict applause → SFX → DE→UA praise sequencing.');
+console.log('Production runtime validation OK: all referenced generated files exist; local animal/transport recordings and natural applause exist; strict applause → SFX → DE→UA praise sequencing preserved.');
