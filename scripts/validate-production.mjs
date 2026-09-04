@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const json = async p => JSON.parse(await readFile(path.join(root, p), 'utf8'));
 const exists = async p => { try { await access(path.join(root, p)); return true; } catch { return false; } };
-const stripDot = p => String(p || '').replace(/^\.\//, '');
+const stripDot = p => String(p || '').replace(/^\.\//, '').split(/[?#]/, 1)[0];
 
 const manifest = await json('content/content.json');
 const groups = await Promise.all(manifest.categoryFiles.map(p => json(`content/${p}`)));
@@ -42,8 +42,6 @@ for (const id of ids) {
   if (ready) readyCount++;
 }
 
-// Any card that advertises generated production assets must have ALL 9 physical files.
-// This prevents metadata-only cards from reaching GitHub Pages with broken images/audio.
 for (const item of items) {
   const refs = requiredRefs(item);
   const advertisesGeneratedAssets = refs.some(([, ref]) => Boolean(ref));
