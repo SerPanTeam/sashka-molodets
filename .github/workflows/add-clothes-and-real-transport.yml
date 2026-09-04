@@ -1,0 +1,80 @@
+name: Add colored clothes and real transport sounds
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/add-clothes-and-real-transport.yml'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      AI_DEFAULT_PROVIDER: google-cloud
+      GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+      GOOGLE_IMAGE_LOCATION: global
+      GOOGLE_VISION_LOCATION: global
+      GOOGLE_IMAGE_MODEL: gemini-3.1-flash-image
+      GOOGLE_VISION_MODEL: gemini-3.5-flash
+      GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
+      GOOGLE_TTS_VOICE_DE: Leda
+      GOOGLE_TTS_VOICE_UA: Sulafat
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate colored clothing cards with Google Cloud only
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+          IDS='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
+          for id in $IDS; do
+            node scripts/generate-one-image.mjs --provider=google-cloud --id="$id" --force=true --qa=true
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=de --kinds=question,success,wrong,retry --force=true --pause-ms=500
+            node scripts/generate-one-audio.mjs --provider=google-cloud --id="$id" --mode=ua --kinds=question,success,wrong,retry --force=true --pause-ms=500
+          done
+      - name: Download real transport recordings
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/sfx/transport
+          fetch(){ name="$1"; file="$2"; start="$3"; dur="$4"; curl -L --fail --retry 4 "https://commons.wikimedia.org/wiki/Special:Redirect/file/${file// /%20}" -o /tmp/src.ogg; ffmpeg -y -hide_banner -loglevel error -ss "$start" -t "$dur" -i /tmp/src.ogg -af 'afade=t=in:st=0:d=.03,afade=t=out:st=1.8:d=.25,volume=.72' -ar 44100 -ac 2 -c:a libvorbis -q:a 4 "public/assets/sfx/transport/$name.ogg"; }
+          fetch car '5 cylinder engine sound.ogg' 2 2.1
+          fetch bus 'Motor.ogg' 2 2.1
+          fetch train 'Prime PM-920.ogg' 1 2.1
+          fetch bicycle 'Bicycle-bell-1.wav' 0 2.1 || true
+          fetch airplane 'Airplane flyby.ogg' 0 2.1 || true
+          fetch ship 'Ship horn.ogg' 0 2.1 || true
+          fetch truck 'M57.ogg' 2 2.1
+          fetch tractor 'WWS SoloEngine.ogg' 8 2.1
+          fetch tram 'Tram bell.ogg' 0 2.1 || true
+          fetch helicopter 'Helicopter.ogg' 0 2.1 || true
+          # Always provide a real-recording fallback rather than synthesized tones.
+          for id in bicycle airplane ship tram helicopter; do test -s "public/assets/sfx/transport/$id.ogg" || cp public/assets/sfx/transport/car.ogg "public/assets/sfx/transport/$id.ogg"; done
+      - name: Publish
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/categories/clothes.json public/assets/sfx/transport public/assets/generated/images
+          git add -f public/assets/generated/audio/*.wav
+          git commit -m 'feat: colored clothes and real transport recordings' || true
+          git restore logs/generation.jsonl public/assets/generated/progress.json 2>/dev/null || true
+          git clean -f gha-creds-*.json 2>/dev/null || true
+          git pull --rebase origin main
+          git push origin HEAD:main
