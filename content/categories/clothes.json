@@ -1,14 +1,284 @@
 {
   "category": "clothes",
   "items": [
-    {"id":"white-shirt","category":"clothes","emoji":"👕","labels":{"de":"T-Shirt","ua":"футболка"},"article":{"de":"das"},"attributes":{"color":{"de":"weiß","ua":"біла"}}},
-    {"id":"black-pants","category":"clothes","emoji":"👖","labels":{"de":"Hose","ua":"штани"},"article":{"de":"die"},"attributes":{"color":{"de":"schwarz","ua":"чорні"}}},
-    {"id":"red-dress","category":"clothes","emoji":"👗","labels":{"de":"Kleid","ua":"сукня"},"article":{"de":"das"},"attributes":{"color":{"de":"rot","ua":"червона"}}},
-    {"id":"blue-shoe","category":"clothes","emoji":"👟","labels":{"de":"Schuh","ua":"черевик"},"article":{"de":"der"},"attributes":{"color":{"de":"blau","ua":"синій"}}},
-    {"id":"green-hat","category":"clothes","emoji":"🧢","labels":{"de":"Mütze","ua":"кепка"},"article":{"de":"die"},"attributes":{"color":{"de":"grün","ua":"зелена"}}},
-    {"id":"yellow-jacket","category":"clothes","emoji":"🧥","labels":{"de":"Jacke","ua":"куртка"},"article":{"de":"die"},"attributes":{"color":{"de":"gelb","ua":"жовта"}}},
-    {"id":"orange-sweater","category":"clothes","emoji":"🧶","labels":{"de":"Pullover","ua":"светр"},"article":{"de":"der"},"attributes":{"color":{"de":"orange","ua":"помаранчевий"}}},
-    {"id":"purple-skirt","category":"clothes","emoji":"👗","labels":{"de":"Rock","ua":"спідниця"},"article":{"de":"der"},"attributes":{"color":{"de":"lila","ua":"фіолетова"}}},
-    {"id":"brown-boots","category":"clothes","emoji":"🥾","labels":{"de":"Stiefel","ua":"чоботи"},"article":{"de":"die"},"attributes":{"color":{"de":"braun","ua":"коричневі"}}}
+    {
+      "id": "white-shirt",
+      "category": "clothes",
+      "emoji": "👕",
+      "labels": {
+        "de": "T-Shirt",
+        "ua": "футболка"
+      },
+      "article": {
+        "de": "das"
+      },
+      "attributes": {
+        "color": {
+          "de": "weiß",
+          "ua": "біла"
+        }
+      },
+      "generatedImage": "./assets/generated/images/white-shirt.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/white-shirt.question.de.wav",
+        "success": "./assets/generated/audio/white-shirt.success.de.wav",
+        "wrong": "./assets/generated/audio/white-shirt.wrong.de.wav",
+        "retry": "./assets/generated/audio/white-shirt.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/white-shirt.question.ua.wav",
+        "success": "./assets/generated/audio/white-shirt.success.ua.wav",
+        "wrong": "./assets/generated/audio/white-shirt.wrong.ua.wav",
+        "retry": "./assets/generated/audio/white-shirt.retry.ua.wav"
+      }
+    },
+    {
+      "id": "black-pants",
+      "category": "clothes",
+      "emoji": "👖",
+      "labels": {
+        "de": "Hose",
+        "ua": "штани"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "schwarz",
+          "ua": "чорні"
+        }
+      },
+      "generatedImage": "./assets/generated/images/black-pants.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/black-pants.question.de.wav",
+        "success": "./assets/generated/audio/black-pants.success.de.wav",
+        "wrong": "./assets/generated/audio/black-pants.wrong.de.wav",
+        "retry": "./assets/generated/audio/black-pants.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/black-pants.question.ua.wav",
+        "success": "./assets/generated/audio/black-pants.success.ua.wav",
+        "wrong": "./assets/generated/audio/black-pants.wrong.ua.wav",
+        "retry": "./assets/generated/audio/black-pants.retry.ua.wav"
+      }
+    },
+    {
+      "id": "red-dress",
+      "category": "clothes",
+      "emoji": "👗",
+      "labels": {
+        "de": "Kleid",
+        "ua": "сукня"
+      },
+      "article": {
+        "de": "das"
+      },
+      "attributes": {
+        "color": {
+          "de": "rot",
+          "ua": "червона"
+        }
+      },
+      "generatedImage": "./assets/generated/images/red-dress.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/red-dress.question.de.wav",
+        "success": "./assets/generated/audio/red-dress.success.de.wav",
+        "wrong": "./assets/generated/audio/red-dress.wrong.de.wav",
+        "retry": "./assets/generated/audio/red-dress.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/red-dress.question.ua.wav",
+        "success": "./assets/generated/audio/red-dress.success.ua.wav",
+        "wrong": "./assets/generated/audio/red-dress.wrong.ua.wav",
+        "retry": "./assets/generated/audio/red-dress.retry.ua.wav"
+      }
+    },
+    {
+      "id": "blue-shoe",
+      "category": "clothes",
+      "emoji": "👟",
+      "labels": {
+        "de": "Schuh",
+        "ua": "черевик"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "blau",
+          "ua": "синій"
+        }
+      },
+      "generatedImage": "./assets/generated/images/blue-shoe.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/blue-shoe.question.de.wav",
+        "success": "./assets/generated/audio/blue-shoe.success.de.wav",
+        "wrong": "./assets/generated/audio/blue-shoe.wrong.de.wav",
+        "retry": "./assets/generated/audio/blue-shoe.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/blue-shoe.question.ua.wav",
+        "success": "./assets/generated/audio/blue-shoe.success.ua.wav",
+        "wrong": "./assets/generated/audio/blue-shoe.wrong.ua.wav",
+        "retry": "./assets/generated/audio/blue-shoe.retry.ua.wav"
+      }
+    },
+    {
+      "id": "green-hat",
+      "category": "clothes",
+      "emoji": "🧢",
+      "labels": {
+        "de": "Mütze",
+        "ua": "кепка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "grün",
+          "ua": "зелена"
+        }
+      },
+      "generatedImage": "./assets/generated/images/green-hat.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/green-hat.question.de.wav",
+        "success": "./assets/generated/audio/green-hat.success.de.wav",
+        "wrong": "./assets/generated/audio/green-hat.wrong.de.wav",
+        "retry": "./assets/generated/audio/green-hat.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/green-hat.question.ua.wav",
+        "success": "./assets/generated/audio/green-hat.success.ua.wav",
+        "wrong": "./assets/generated/audio/green-hat.wrong.ua.wav",
+        "retry": "./assets/generated/audio/green-hat.retry.ua.wav"
+      }
+    },
+    {
+      "id": "yellow-jacket",
+      "category": "clothes",
+      "emoji": "🧥",
+      "labels": {
+        "de": "Jacke",
+        "ua": "куртка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "gelb",
+          "ua": "жовта"
+        }
+      },
+      "generatedImage": "./assets/generated/images/yellow-jacket.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/yellow-jacket.question.de.wav",
+        "success": "./assets/generated/audio/yellow-jacket.success.de.wav",
+        "wrong": "./assets/generated/audio/yellow-jacket.wrong.de.wav",
+        "retry": "./assets/generated/audio/yellow-jacket.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/yellow-jacket.question.ua.wav",
+        "success": "./assets/generated/audio/yellow-jacket.success.ua.wav",
+        "wrong": "./assets/generated/audio/yellow-jacket.wrong.ua.wav",
+        "retry": "./assets/generated/audio/yellow-jacket.retry.ua.wav"
+      }
+    },
+    {
+      "id": "orange-sweater",
+      "category": "clothes",
+      "emoji": "🧶",
+      "labels": {
+        "de": "Pullover",
+        "ua": "светр"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "orange",
+          "ua": "помаранчевий"
+        }
+      },
+      "generatedImage": "./assets/generated/images/orange-sweater.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/orange-sweater.question.de.wav",
+        "success": "./assets/generated/audio/orange-sweater.success.de.wav",
+        "wrong": "./assets/generated/audio/orange-sweater.wrong.de.wav",
+        "retry": "./assets/generated/audio/orange-sweater.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/orange-sweater.question.ua.wav",
+        "success": "./assets/generated/audio/orange-sweater.success.ua.wav",
+        "wrong": "./assets/generated/audio/orange-sweater.wrong.ua.wav",
+        "retry": "./assets/generated/audio/orange-sweater.retry.ua.wav"
+      }
+    },
+    {
+      "id": "purple-skirt",
+      "category": "clothes",
+      "emoji": "👗",
+      "labels": {
+        "de": "Rock",
+        "ua": "спідниця"
+      },
+      "article": {
+        "de": "der"
+      },
+      "attributes": {
+        "color": {
+          "de": "lila",
+          "ua": "фіолетова"
+        }
+      },
+      "generatedImage": "./assets/generated/images/purple-skirt.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/purple-skirt.question.de.wav",
+        "success": "./assets/generated/audio/purple-skirt.success.de.wav",
+        "wrong": "./assets/generated/audio/purple-skirt.wrong.de.wav",
+        "retry": "./assets/generated/audio/purple-skirt.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/purple-skirt.question.ua.wav",
+        "success": "./assets/generated/audio/purple-skirt.success.ua.wav",
+        "wrong": "./assets/generated/audio/purple-skirt.wrong.ua.wav",
+        "retry": "./assets/generated/audio/purple-skirt.retry.ua.wav"
+      }
+    },
+    {
+      "id": "brown-boots",
+      "category": "clothes",
+      "emoji": "🥾",
+      "labels": {
+        "de": "Stiefel",
+        "ua": "чоботи"
+      },
+      "article": {
+        "de": "die"
+      },
+      "attributes": {
+        "color": {
+          "de": "braun",
+          "ua": "коричневі"
+        }
+      },
+      "generatedImage": "./assets/generated/images/brown-boots.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/brown-boots.question.de.wav",
+        "success": "./assets/generated/audio/brown-boots.success.de.wav",
+        "wrong": "./assets/generated/audio/brown-boots.wrong.de.wav",
+        "retry": "./assets/generated/audio/brown-boots.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/brown-boots.question.ua.wav",
+        "success": "./assets/generated/audio/brown-boots.success.ua.wav",
+        "wrong": "./assets/generated/audio/brown-boots.wrong.ua.wav",
+        "retry": "./assets/generated/audio/brown-boots.retry.ua.wav"
+      }
+    }
   ]
 }
