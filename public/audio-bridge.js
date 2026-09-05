@@ -3,14 +3,14 @@
   if (!NativeAudio || window.__sashkaAudioBridgeInstalled) return;
 
   window.__sashkaAudioBridgeInstalled = true;
+  window.__SashkaNativeAudio = NativeAudio;
 
   // Keep one playback element so DE -> UA remains reliable on tablets.
   const shared = new NativeAudio();
   shared.preload = 'auto';
+  shared.muted = false;
+  shared.volume = 1;
 
-  // Warm every recorded voice clip into the browser/SW cache as soon as the
-  // static content is available. This prevents first-tap network stalls that
-  // can make short praise/question clips sound torn or startling.
   const warmed = new Set();
   async function warmUrl(src) {
     if (!src || warmed.has(src)) return;
@@ -35,8 +35,6 @@
           for (const kind of ['question', 'success', 'wrong', 'retry']) if (group[kind]) urls.push(group[kind]);
         }
       }
-      // Small parallel batches: fast enough to warm the game without flooding
-      // a tablet/Wi-Fi connection and competing with the first visible screen.
       for (let i = 0; i < urls.length; i += 8) {
         await Promise.all(urls.slice(i, i + 8).map(warmUrl));
       }
@@ -45,9 +43,12 @@
   }
 
   function BridgedAudio(src) {
+    // Safety: a previous autoplay-unlock attempt must never leave the shared
+    // production voice element muted.
+    shared.muted = false;
+    shared.volume = 1;
     if (src !== undefined && src !== null) {
       const value = String(src);
-      // Start fetching immediately even if the global warm-up has not reached it yet.
       warmUrl(value);
       shared.src = value;
       shared.load();
