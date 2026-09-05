@@ -67,6 +67,8 @@ jobs:
           grep -q '>Tiere<' /tmp/sashka-local-dom.html
           grep -q '>Kleidung<' /tmp/sashka-local-dom.html
           grep -q 'Одяг · 9' /tmp/sashka-local-dom.html
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --autoplay-policy=no-user-gesture-required --virtual-time-budget=5000 --dump-dom "http://127.0.0.1:4173/audio-smoke.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-audio.html
+          grep -q 'AUDIO_OK' /tmp/sashka-local-audio.html
           CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
           for id in $CLOTHES; do
             curl -fsS -o /dev/null "http://127.0.0.1:4173/assets/generated/images/$id.png"
@@ -105,6 +107,8 @@ jobs:
           grep -q '>Tiere<' /tmp/sashka-prod-dom.html
           grep -q '>Kleidung<' /tmp/sashka-prod-dom.html
           grep -q 'Одяг · 9' /tmp/sashka-prod-dom.html
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --autoplay-policy=no-user-gesture-required --virtual-time-budget=5000 --dump-dom "${BASE}/audio-smoke.html?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-audio.html
+          grep -q 'AUDIO_OK' /tmp/sashka-prod-audio.html
           CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
           for id in $CLOTHES; do
             curl -fsS --retry 4 --retry-delay 2 -o /dev/null "${BASE}/assets/generated/images/$id.png?check=${GITHUB_SHA}"
