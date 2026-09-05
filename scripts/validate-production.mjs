@@ -104,11 +104,12 @@ if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
 
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
 if (!index.includes('object-sfx-local.js')) errors.push('index.html does not load local animal SFX override');
-if (!index.includes('audio-bridge.js')) errors.push('index.html does not load audio-bridge.js');
+if (!index.includes('audio-bridge.js')) errors.push('index.html does not load audio preload helper');
 if (!index.includes('animal-sound-sources.html')) errors.push('animal sound attribution link missing');
 if (!shim.includes("voiceMode: oldSettingsVersion < 3 ? 'dual'")) errors.push('bilingual settings migration missing');
 if (!shim.includes('physicalAssetsExist')) errors.push('production shim does not verify physical asset existence');
-if (!bridge.includes('window.Audio = BridgedAudio')) errors.push('shared recorded-audio bridge missing');
+if (bridge.includes('window.Audio =')) errors.push('audio preload helper must not replace native window.Audio');
+if (!bridge.includes('warmContentAudio')) errors.push('audio preload helper missing content warm-up');
 if (!sfx.includes('window.SashkaSfx')) errors.push('object SFX runtime missing');
 if (!localSfx.includes("'./assets/sfx/animals/dog.ogg'") || !localSfx.includes("'./assets/sfx/animals/sheep.ogg'")) errors.push('local real animal recording map missing');
 
@@ -137,4 +138,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Production runtime validation OK: all referenced generated files exist; local animal/transport recordings and natural applause exist; strict applause → SFX → DE→UA praise sequencing preserved.');
+console.log('Production runtime validation OK: all referenced generated files exist; native browser Audio remains intact; local animal/transport recordings and natural applause exist; strict applause → SFX → DE→UA praise sequencing preserved.');
