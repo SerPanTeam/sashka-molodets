@@ -4,8 +4,25 @@
   const commons=file=>`https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(file)}`;
   const local=id=>new URL(`./assets/sfx/transport/${id}.ogg`,document.baseURI).href;
   async function playUrl(url,maxMs=2600){return new Promise(resolve=>{let done=false,started=false;const a=new Audio(url);a.preload='auto';a.muted=false;a.volume=.9;const finish=ok=>{if(done)return;done=true;clearTimeout(startWatch);clearTimeout(stopWatch);try{a.pause()}catch{}resolve(ok)};a.onplaying=()=>started=true;a.onended=()=>finish(true);a.onerror=()=>finish(false);const startWatch=setTimeout(()=>{if(!started)finish(false)},3000),stopWatch=setTimeout(()=>finish(started),maxMs);try{a.play()?.catch?.(()=>finish(false))}catch{finish(false)}})}
-  const unlock=()=>{try{const NativeAudio=window.__SashkaNativeAudio;if(!NativeAudio)return;const a=new NativeAudio();a.muted=true;a.volume=0;const p=a.play();p?.catch?.(()=>{});setTimeout(()=>{try{a.pause();a.removeAttribute('src');a.load()}catch{}},0)}catch{}};
+
+  // Tiny silent WAV used only during a real pointer gesture to unlock media
+  // playback on Android tablets. It uses a native Audio element and never
+  // touches the production voice/SFX players.
+  const SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+  let unlocked=false;
+  const unlock=()=>{
+    if(unlocked)return;
+    try{
+      const a=new Audio(SILENT);
+      a.preload='auto';
+      a.muted=false;
+      a.volume=.01;
+      const p=a.play();
+      if(p?.then)p.then(()=>{unlocked=true;try{a.pause()}catch{}}).catch(()=>{});
+    }catch{}
+  };
   document.addEventListener('pointerdown',unlock,{capture:true,passive:true});
+
   window.SashkaSfx={
     has:id=>Boolean(animal[id]||transport.has(id)),
     isReal:id=>Boolean(animal[id]||transport.has(id)),
