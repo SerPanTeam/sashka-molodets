@@ -1,7 +1,10 @@
 .env
+.env.*
+!.env.example
 .DS_Store
 node_modules/
 *.log
+logs/
 public/assets/generated/images/*
 !public/assets/generated/images/.gitkeep
 public/assets/generated/audio/*
