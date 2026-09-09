@@ -61,12 +61,16 @@ jobs:
           sleep 1
           CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
           test -n "$CHROME"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=12000 --dump-dom "http://127.0.0.1:4173/index.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-dom.html
-          grep -q 'Сашко, граємо?' /tmp/sashka-local-dom.html
-          grep -q 'class="big-play"' /tmp/sashka-local-dom.html
-          grep -q '>Tiere<' /tmp/sashka-local-dom.html
-          grep -q '>Kleidung<' /tmp/sashka-local-dom.html
-          grep -q 'Одяг · 9' /tmp/sashka-local-dom.html
+          for size in 390,844 768,1024 1366,768; do
+            OUT="/tmp/sashka-local-${size//,/-}.html"
+            "$CHROME" --headless=new --no-sandbox --disable-gpu --window-size="$size" --virtual-time-budget=12000 --dump-dom "http://127.0.0.1:4173/index.html?smoke=${GITHUB_SHA}&viewport=$size" > "$OUT"
+            grep -q 'Сашко, граємо?' "$OUT"
+            grep -q 'class="big-play"' "$OUT"
+            grep -q '>Tiere<' "$OUT"
+            grep -q '>Kleidung<' "$OUT"
+            grep -q 'Одяг · 9' "$OUT"
+            grep -q '>Повторить<' "$OUT"
+          done
           "$CHROME" --headless=new --no-sandbox --disable-gpu --autoplay-policy=no-user-gesture-required --virtual-time-budget=5000 --dump-dom "http://127.0.0.1:4173/audio-smoke.html?smoke=${GITHUB_SHA}" > /tmp/sashka-local-audio.html
           grep -q 'AUDIO_OK' /tmp/sashka-local-audio.html
           CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
@@ -101,12 +105,16 @@ jobs:
           URL="${{ steps.deployment.outputs.page_url }}"
           test -n "$URL"
           BASE="${URL%/}"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=15000 --dump-dom "${BASE}/?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-dom.html
-          grep -q 'Сашко, граємо?' /tmp/sashka-prod-dom.html
-          grep -q 'class="big-play"' /tmp/sashka-prod-dom.html
-          grep -q '>Tiere<' /tmp/sashka-prod-dom.html
-          grep -q '>Kleidung<' /tmp/sashka-prod-dom.html
-          grep -q 'Одяг · 9' /tmp/sashka-prod-dom.html
+          for size in 390,844 768,1024 1366,768; do
+            OUT="/tmp/sashka-prod-${size//,/-}.html"
+            "$CHROME" --headless=new --no-sandbox --disable-gpu --window-size="$size" --virtual-time-budget=15000 --dump-dom "${BASE}/?smoke=${GITHUB_SHA}&viewport=$size" > "$OUT"
+            grep -q 'Сашко, граємо?' "$OUT"
+            grep -q 'class="big-play"' "$OUT"
+            grep -q '>Tiere<' "$OUT"
+            grep -q '>Kleidung<' "$OUT"
+            grep -q 'Одяг · 9' "$OUT"
+            grep -q '>Повторить<' "$OUT"
+          done
           "$CHROME" --headless=new --no-sandbox --disable-gpu --autoplay-policy=no-user-gesture-required --virtual-time-budget=5000 --dump-dom "${BASE}/audio-smoke.html?smoke=${GITHUB_SHA}" > /tmp/sashka-prod-audio.html
           grep -q 'AUDIO_OK' /tmp/sashka-prod-audio.html
           CLOTHES='white-shirt black-pants red-dress blue-shoe green-hat yellow-jacket orange-sweater purple-skirt brown-boots'
