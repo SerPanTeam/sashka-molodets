@@ -8,7 +8,7 @@
 
 The goal was simple: create a child-friendly learning game that works reliably on a tablet, keeps the interface focused, and helps a child connect spoken German with familiar Ukrainian support.
 
-Instead of putting a live AI model between the child and the app, the production runtime uses **pre-generated and validated media**. That keeps playback fast, predictable, privacy-friendly and suitable for offline/PWA use.
+The production runtime uses **pre-generated and validated media** instead of generating content during play. That keeps the experience fast, predictable, privacy-friendly and suitable for offline/PWA use.
 
 ## What it demonstrates
 
@@ -94,9 +94,9 @@ The production GitHub Pages build is static and does **not** require API credent
 
 - No child account is required.
 - Progress and preferences are stored locally in the browser.
-- The production app does not send a child's answers to a live AI service.
+- The production app does not send a child's answers to external generation services.
 - Secrets and generation logs are intentionally excluded from the public release.
-- Cloud content-generation workflows are not published as runnable GitHub Actions jobs.
+- Internal content-production workflows are not published as runnable GitHub Actions jobs.
 
 See [SECURITY.md](SECURITY.md) for the public-release rules.
 
@@ -122,7 +122,7 @@ The Pages workflow verifies, among other things:
 
 - JavaScript syntax;
 - production content completeness;
-- generated image and voice files;
+- image and voice files;
 - transport and applause recordings;
 - rendering in multiple viewport sizes;
 - successful browser audio playback;
@@ -133,8 +133,6 @@ This is important for the project because mobile audio, caching and tablet brows
 ## Technology
 
 **JavaScript · HTML · CSS · PWA · Service Worker · Web Audio / HTMLMediaElement · JSON content architecture · GitHub Actions · GitHub Pages**
-
-Content-authoring tools can optionally use cloud AI services during development, but those credentials are not required by the public production app.
 
 ## Background
 
