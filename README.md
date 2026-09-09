@@ -1,195 +1,159 @@
 # Sashka Molodets
 
-**A bilingual German–Ukrainian learning PWA for children.**
+**A bilingual German–Ukrainian learning PWA for children, built as a production-ready portfolio project.**
 
-Sashka Molodets is a touch-first educational web app built for real use on tablets and phones. Children listen to a question, identify the correct object, receive immediate spoken feedback and continue learning through short, repeatable rounds.
-
-The project combines child-friendly UX, offline-capable PWA architecture, pre-generated media, adaptive repetition, real-world sound effects and production CI checks.
-
-**Live demo:** https://serpanteam.github.io/sashka-molodets/
-
----
+[Live demo](https://serpanteam.github.io/sashka-molodets/) · [GitHub repository](https://github.com/SerPanTeam/sashka-molodets)
 
 ## Why this project exists
 
-Language-learning apps often become too busy for young children: too much text, too many controls and too much navigation. This project takes the opposite approach.
+The goal was simple: create a child-friendly learning game that works reliably on a tablet, keeps the interface focused, and helps a child connect spoken German with familiar Ukrainian support.
 
-The child sees a small number of large visual choices, hears the question in German and Ukrainian, taps one card and gets immediate feedback. The main game stays predictable and simple while the content and difficulty can grow independently.
+Instead of putting a live AI model between the child and the app, the production runtime uses **pre-generated and validated media**. That keeps playback fast, predictable, privacy-friendly and suitable for offline/PWA use.
 
-The original use case was German vocabulary practice with Ukrainian support, but the architecture is intentionally reusable for other languages, categories and learning sets.
+## What it demonstrates
 
-## Product highlights
+This repository is more than a vocabulary game. It is a compact product case study covering:
 
-- **German → Ukrainian learning flow** with recorded speech and browser-voice fallback.
-- **60 production-ready learning cards** with images and bilingual audio assets.
-- **Adaptive repetition** that gives weaker words more practice.
-- **Five difficulty levels**, including attribute-based tasks such as colors.
-- **Real animal and transport recordings** plus natural feedback sounds.
-- **Large touch targets** designed for children and tablet use.
-- **Responsive zero-scroll game screen** for portrait and landscape layouts.
-- **Parent settings** for language mode, difficulty, labels and learning categories.
-- **Local progress storage** without requiring an account.
-- **Installable PWA** with service worker caching and offline-friendly behavior.
-- **GitHub Pages deployment** with automated validation and browser smoke tests.
-- **Real browser audio playback checks** in CI before a production deployment is accepted.
+- responsive front-end architecture for phone, tablet and desktop;
+- touch-first UX designed for children;
+- Progressive Web App behaviour and service-worker caching;
+- bilingual German → Ukrainian audio playback;
+- adaptive repetition based on local progress;
+- pre-generated visual and voice assets;
+- real object / animal / transport sound effects;
+- production validation for content completeness;
+- GitHub Actions deployment to GitHub Pages;
+- browser smoke tests, including real audio playback;
+- privacy-conscious architecture with no child account required.
 
-## Engineering approach
+## Product behaviour
 
-A core design decision is simple:
+A round presents a spoken and written prompt such as:
 
-> **AI can help produce content, but the child-facing runtime must remain deterministic.**
+> Wo ist die Tomate?  
+> Де помідор?
 
-Images and voice assets are generated ahead of time, reviewed and stored as normal production files. The game does not depend on a live AI request while a child is playing.
+The child chooses one of several illustrated cards. Correct answers play feedback in a strict sequence:
 
-That keeps the runtime fast, predictable, inexpensive and much easier to test.
+**applause → object sound when available → German praise → Ukrainian praise**
 
-### Architecture
+Wrong answers keep the current question active and provide contextual hints rather than simply moving on.
+
+## Current learning content
+
+The production build contains the core learning set used by the app today, including:
+
+- animals;
+- vegetables;
+- fruit;
+- household objects;
+- hygiene;
+- transport;
+- numbers 1–4;
+- coloured clothing.
+
+The content model is data-driven, so categories and cards can be extended without rewriting the game engine.
+
+## Responsive UX
+
+The interface is designed to behave consistently across common device sizes. CI currently verifies the public UI at representative phone, tablet and desktop viewports:
+
+- 390 × 844;
+- 768 × 1024;
+- 1366 × 768.
+
+The game screen keeps all answer cards visible without scrolling. Artwork uses `object-fit: contain` so the main subject is not cropped.
+
+## Architecture
 
 ```text
-Content JSON
-    │
-    ├── learning metadata
-    ├── image references
-    └── DE / UA audio references
-            │
-            ▼
-Static PWA runtime
-    │
-    ├── adaptive learning logic
-    ├── touch-first game UI
-    ├── audio + real SFX
-    ├── local progress
-    └── service worker cache
-            │
-            ▼
+content/*.json
+     │
+     ▼
+pages-shim / static content loader
+     │
+     ▼
+   app.js
+     │
+     ├── local progress + adaptive repetition
+     ├── bilingual recorded voice playback
+     ├── real SFX / applause
+     └── responsive child UI
+
 GitHub Actions
-    │
-    ├── production asset validation
-    ├── JavaScript syntax checks
-    ├── local Chrome smoke test
-    ├── GitHub Pages deployment
-    └── deployed browser + audio verification
+     │
+     ├── production content validation
+     ├── local browser smoke tests
+     ├── real browser audio smoke test
+     └── GitHub Pages deployment + production smoke test
 ```
 
-## Tech stack
+The production GitHub Pages build is static and does **not** require API credentials.
 
-**Frontend:** Vanilla JavaScript, HTML5, modern CSS  
-**PWA:** Service Worker, Web App Manifest, local storage  
-**Media:** pre-generated PNG / WAV / OGG assets  
-**Automation:** Node.js scripts, GitHub Actions  
-**Hosting:** GitHub Pages  
-**Generation pipeline:** Google Cloud / Vertex-based asset generation workflows
+## Privacy and safety by design
 
-The public runtime intentionally has very few moving parts and does not require a frontend framework.
+- No child account is required.
+- Progress and preferences are stored locally in the browser.
+- The production app does not send a child's answers to a live AI service.
+- Secrets and generation logs are intentionally excluded from the public release.
+- Cloud content-generation workflows are not published as runnable GitHub Actions jobs.
 
-## Responsive UI
-
-The interface is designed around a strict child-use constraint: the active game should stay usable without scrolling.
-
-- Desktop and landscape tablet: up to six answer cards in a **3 × 2** grid.
-- Portrait tablet and phone: up to six answer cards in a **2 × 3** grid.
-- Artwork uses `object-fit: contain` to protect important visual content from cropping.
-- Controls scale down for low-height landscape screens.
-- Safe-area insets are respected on mobile devices.
-- Motion is reduced automatically when the OS requests reduced motion.
-
-## Learning flow
-
-1. The app chooses a target using adaptive weighting.
-2. The child hears the question.
-3. The child selects one of the large image cards.
-4. A wrong answer keeps the same target and adds contextual guidance.
-5. A correct answer plays feedback in a strict sequence:
-   - natural applause;
-   - object sound when available;
-   - German praise;
-   - Ukrainian praise.
-6. Progress is stored locally and influences later rounds.
-
-## Content model
-
-Learning data lives in category JSON files instead of being hard-coded into the interface. A card can define:
-
-- German and Ukrainian labels;
-- grammatical article;
-- image asset;
-- question / success / wrong / retry audio in both languages;
-- optional attributes such as color;
-- category membership.
-
-This makes the project suitable as a reusable base for other vocabulary sets or language combinations.
+See [SECURITY.md](SECURITY.md) for the public-release rules.
 
 ## Run locally
 
-Node.js 20+ is recommended.
+A recent Node.js version is recommended.
 
 ```bash
-git clone https://github.com/SerPanTeam/sashka-molodets.git
-cd sashka-molodets
 node server.mjs
 ```
 
-Open:
+Then open:
 
 ```text
 http://localhost:4173
 ```
 
-For a simple static preview you can also serve the `public/` directory with any local HTTP server.
+The published app itself is static and can also be served directly from `public/` together with the `content/` directory.
 
 ## Production quality checks
 
-The Pages workflow does more than upload static files. A deployment is rejected if important production requirements are broken.
+The Pages workflow verifies, among other things:
 
-Checks include:
+- JavaScript syntax;
+- production content completeness;
+- generated image and voice files;
+- transport and applause recordings;
+- rendering in multiple viewport sizes;
+- successful browser audio playback;
+- the deployed GitHub Pages build after publication.
 
-- referenced production images and bilingual audio files exist;
-- natural animal / transport recordings exist;
-- applause exists;
-- JavaScript parses successfully;
-- correct-answer audio order remains intact;
-- the local build renders in headless Chrome;
-- the deployed GitHub Pages version renders correctly;
-- critical production assets return successfully;
-- a real audio file starts playback in the browser.
+This is important for the project because mobile audio, caching and tablet browser behaviour were treated as production concerns rather than demo-only details.
 
-This was added after real tablet audio regressions exposed a class of bugs that simple file-existence tests could not detect.
+## Technology
 
-## Project structure
+**JavaScript · HTML · CSS · PWA · Service Worker · Web Audio / HTMLMediaElement · JSON content architecture · GitHub Actions · GitHub Pages**
 
-```text
-public/                 child-facing PWA runtime
-content/                reusable learning content
-scripts/                generation and validation tooling
-config/                 generation configuration
-docs/                   architecture and operational notes
-.github/workflows/       generation, QA and deployment automation
-server.mjs              lightweight local server / API layer
-```
+Content-authoring tools can optionally use cloud AI services during development, but those credentials are not required by the public production app.
 
-## Privacy and child safety
+## Background
 
-The learning game does not require a child account. Progress is stored locally in the browser. The production game uses pre-generated content instead of sending a child's interaction to a live AI model.
+This started as a practical learning tool for a real child and gradually became a production-focused engineering exercise: content pipelines, multilingual audio, cache invalidation, touch behaviour, CI validation and cross-device testing all had to work together.
 
-For Android kiosk-style use, install the PWA and combine it with the operating system's **App pinning** feature.
+That constraint is what makes the project useful as a portfolio piece: it solves a small real-world problem end to end instead of stopping at a visual prototype.
 
-## Languages
+## Deutsch
 
-The current learning experience is built for:
+**Sashka Molodets** ist eine zweisprachige Lern-PWA für Kinder. Sie verbindet deutsche Lernfragen mit ukrainischer Unterstützung, vorproduzierter Sprachausgabe, echten Geräuschen, lokalem Lernfortschritt und einer für Touch-Geräte optimierten Oberfläche.
 
-- **Deutsch** — primary learning language
-- **Українська** — support language
+Der produktive Build läuft statisch auf GitHub Pages und benötigt keine API-Schlüssel.
 
-The content-driven architecture can be extended to additional language pairs.
+## Українською
 
-## Short description in German
+**Sashka Molodets** — двомовна навчальна PWA для дітей: німецькі завдання, українська підтримка, заздалегідь підготовлена озвучка, реальні звуки, локальний прогрес і простий сенсорний інтерфейс.
 
-**Sashka Molodets ist eine zweisprachige Lern-PWA für Kinder.** Die Anwendung kombiniert Deutsch und Ukrainisch, große Touch-Flächen, adaptive Wiederholungen, vorproduzierte Sprachaufnahmen, echte Geräusche, Offline-Unterstützung und automatisierte Production-Tests.
-
-## Коротко українською
-
-**Sashka Molodets — двомовний навчальний PWA-застосунок для дітей.** Він поєднує німецьку й українську мови, великі сенсорні елементи, адаптивне повторення, заздалегідь підготовлені голосові записи, реальні звуки та офлайн-режим.
+Продакшн-версія працює статично на GitHub Pages і не потребує API-ключів.
 
 ---
 
-Built as a real-world product and portfolio case covering **frontend engineering, PWA architecture, content automation, AI-assisted media pipelines, CI/CD and production QA**.
+Built by **Serhii Panchenko** as a practical web-development and automation portfolio project.
