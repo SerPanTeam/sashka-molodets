@@ -5,6 +5,7 @@
 node_modules/
 *.log
 logs/
+visual-qa/
 public/assets/generated/images/*
 !public/assets/generated/images/.gitkeep
 public/assets/generated/audio/*
