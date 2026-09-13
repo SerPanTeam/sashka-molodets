@@ -1,0 +1,50 @@
+{
+  "category": "letters",
+  "items": [
+    {
+      "id": "letter-a",
+      "category": "letters",
+      "emoji": "A",
+      "labels": {"de": "A", "ua": "A"},
+      "letter": "A",
+      "anchor": {"de": "Apfel", "ua": "яблуко", "sourceId": "apple"},
+      "learning": {"stage": 1, "kind": "vowel", "sound": "a", "phraseDe": "A wie Apfel."}
+    },
+    {
+      "id": "letter-e",
+      "category": "letters",
+      "emoji": "E",
+      "labels": {"de": "E", "ua": "E"},
+      "letter": "E",
+      "anchor": {"de": "Ente", "ua": "качка", "sourceId": "duck"},
+      "learning": {"stage": 1, "kind": "vowel", "sound": "e", "phraseDe": "E wie Ente."}
+    },
+    {
+      "id": "letter-i",
+      "category": "letters",
+      "emoji": "I",
+      "labels": {"de": "I", "ua": "I"},
+      "letter": "I",
+      "anchor": {"de": "Igel", "ua": "їжак", "sourceId": "hedgehog"},
+      "learning": {"stage": 1, "kind": "vowel", "sound": "i", "phraseDe": "I wie Igel."}
+    },
+    {
+      "id": "letter-o",
+      "category": "letters",
+      "emoji": "O",
+      "labels": {"de": "O", "ua": "O"},
+      "letter": "O",
+      "anchor": {"de": "Orange", "ua": "апельсин", "sourceId": "orange"},
+      "learning": {"stage": 1, "kind": "vowel", "sound": "o", "phraseDe": "O wie Orange."}
+    },
+    {
+      "id": "letter-u",
+      "category": "letters",
+      "emoji": "U",
+      "labels": {"de": "U", "ua": "U"},
+      "letter": "U",
+      "anchor": {"de": "Uhu", "ua": "пугач", "sourceId": "owl"},
+      "learning": {"stage": 1, "kind": "vowel", "sound": "u", "phraseDe": "U wie Uhu."}
+    }
+  ]
+}
