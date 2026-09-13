@@ -1,0 +1,21 @@
+/* Final vowel visual polish */
+body.letters-mode .topbar{display:none!important}
+body.letters-mode .main{padding-top:max(8px,env(safe-area-inset-top))}
+
+@media(min-width:981px){
+  .category-strip:has(.letters-entry){grid-template-columns:repeat(10,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important}
+  .category-strip:has(.letters-entry)>.category-button{grid-column:span 2}
+  .category-strip:has(.letters-entry)>.category-button:nth-child(6){grid-column:2 / span 2}
+  .category-strip:has(.letters-entry)>.category-button:nth-child(7){grid-column:4 / span 2}
+  .category-strip:has(.letters-entry)>.category-button:nth-child(8){grid-column:6 / span 2}
+  .category-strip:has(.letters-entry)>.category-button:nth-child(9){grid-column:8 / span 2}
+}
+
+@media(max-width:700px){
+  body.letters-mode .main{padding-top:max(6px,env(safe-area-inset-top))}
+  .letters-title h1{white-space:nowrap}
+}
+
+@media(orientation:landscape) and (max-height:650px){
+  body.letters-mode .main{padding-top:4px}
+}
