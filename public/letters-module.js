@@ -1,0 +1,33 @@
+(() => {
+  const STORE = 'sashka.letters.v1';
+  const FALLBACK = [
+    ['A','Apfel','яблуко','./assets/generated/images/apple.png'],
+    ['E','Elefant','слон','./assets/generated/images/elephant.png'],
+    ['I','Igel','їжак','./assets/generated/images/igel.png'],
+    ['O','Orange','апельсин','./assets/generated/images/orange.png'],
+    ['U','Uhu','пугач','./assets/generated/images/uhu.png']
+  ].map(([letter,word,ua,image]) => ({letter,labels:{de:letter,ua:letter},anchor:{de:word,ua,image},audio:{prompt:`./assets/generated/audio/letter-${letter.toLowerCase()}.prompt.de.wav`,success:`./assets/generated/audio/letter-${letter.toLowerCase()}.success.de.wav`,retry:`./assets/generated/audio/letter-${letter.toLowerCase()}.retry.de.wav`}}));
+  let items = FALLBACK;
+  let target = null;
+  let locked = false;
+  let roundTimer = 0;
+  let activeAudio = null;
+  const progress = (() => { try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch { return {}; } })();
+  const save = () => localStorage.setItem(STORE, JSON.stringify(progress));
+  const shuffle = a => { a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+  const masteredCount = () => items.filter(x => (progress[x.letter]?.correct || 0) >= 3).length;
+  const visibleCount = () => Math.min(items.length, Math.max(2, masteredCount()+2));
+  const pool = () => items.slice(0, visibleCount());
+  function stopAudio(){ if(activeAudio){activeAudio.pause();activeAudio.currentTime=0;activeAudio=null;} if('speechSynthesis' in window) speechSynthesis.cancel(); }
+  function speakFallback(text){ if(!('speechSynthesis' in window)) return; const u=new SpeechSynthesisUtterance(text); u.lang='de-DE'; u.rate=.82; u.pitch=.95; const voices=speechSynthesis.getVoices(); const de=voices.find(v=>/^de(-|_)/i.test(v.lang)&&/natural|premium|enhanced|google|microsoft/i.test(v.name))||voices.find(v=>/^de(-|_)/i.test(v.lang)); if(de)u.voice=de; speechSynthesis.speak(u); }
+  async function play(src,fallback){ stopAudio(); if(src){ const ok=await new Promise(resolve=>{const a=new Audio(src);activeAudio=a;a.onended=()=>resolve(true);a.onerror=()=>resolve(false);a.play().then(()=>{}).catch(()=>resolve(false));}); if(ok){activeAudio=null;return;} } speakFallback(fallback); }
+  async function load(){ try{const r=await fetch('./content/categories/letters.json',{cache:'no-store'}); if(r.ok){const data=await r.json(); if(Array.isArray(data.items)&&data.items.length) items=data.items;}}catch{} }
+  function makeTile(){ const main=document.getElementById('main'); if(!main||main.querySelector('[data-letters-entry]'))return; const strip=main.querySelector('.category-strip'); if(!strip)return; const b=document.createElement('button'); b.type='button'; b.dataset.lettersEntry='1'; b.className='category-button letters-entry'; b.innerHTML='<span class="letters-entry-mark">A E I O U</span><span class="letters-entry-title">Buchstaben</span><span class="small">Букви · 5</span>'; b.onclick=mount; strip.appendChild(b); }
+  function watchHome(){ const main=document.getElementById('main'); if(!main)return; const obs=new MutationObserver(makeTile); obs.observe(main,{childList:true,subtree:true}); makeTile(); }
+  function mount(){ clearTimeout(roundTimer); stopAudio(); const main=document.getElementById('main'); main.innerHTML='<section class="letters-game"><header class="letters-head"><button type="button" class="letters-back">Zurück</button><div class="letters-heading"><span>Deutsche Vokale</span><h1>Hören. Erkennen. Merken.</h1></div><button type="button" class="letters-repeat">Noch einmal</button></header><div class="letters-progress"><span>Heute</span><div class="letters-progress-track"><i></i></div><strong id="lettersLevel"></strong></div><div class="letters-prompt"><span>Hör gut zu</span><strong id="lettersPrompt"></strong></div><div id="lettersChoices" class="letters-choices"></div><div id="lettersAnchor" class="letters-anchor" aria-live="polite"></div></section>'; main.querySelector('.letters-back').onclick=()=>location.reload(); main.querySelector('.letters-repeat').onclick=()=>target&&play(target.audio?.prompt,`${target.letter}. Finde ${target.letter}.`); next(); }
+  function updateProgress(){ const count=visibleCount(); const total=items.length; const pct=Math.round(((count-2)/(total-2))*100); const track=document.querySelector('.letters-progress-track i'); if(track)track.style.width=`${Math.max(0,pct)}%`; const label=document.getElementById('lettersLevel'); if(label)label.textContent=`${count} / ${total}`; }
+  function pickTarget(){ const p=pool(); const weighted=[]; for(const x of p){const c=progress[x.letter]?.correct||0; const copies=Math.max(1,4-c); for(let i=0;i<copies;i++)weighted.push(x);} return weighted[Math.floor(Math.random()*weighted.length)]; }
+  function next(){ locked=false; target=pickTarget(); updateProgress(); const prompt=document.getElementById('lettersPrompt'); const choices=document.getElementById('lettersChoices'); const anchor=document.getElementById('lettersAnchor'); if(!prompt||!choices||!anchor)return; prompt.textContent=`Finde ${target.letter}`; anchor.innerHTML=''; choices.innerHTML=''; for(const item of shuffle(pool())){const b=document.createElement('button');b.type='button';b.className='letter-choice';b.textContent=item.letter;b.setAttribute('aria-label',`Buchstabe ${item.letter}`);b.onclick=()=>choose(item,b);choices.appendChild(b);} roundTimer=setTimeout(()=>play(target.audio?.prompt,`${target.letter}. Finde ${target.letter}.`),180); }
+  function choose(item,button){ if(locked)return; if(item.letter!==target.letter){ const p=progress[target.letter]||{correct:0,wrong:0}; p.wrong++; progress[target.letter]=p; save(); button.classList.add('is-wrong'); play(target.audio?.retry,`Noch einmal. Finde ${target.letter}.`); setTimeout(()=>button.classList.remove('is-wrong'),650); return; } locked=true; const p=progress[target.letter]||{correct:0,wrong:0}; p.correct++; progress[target.letter]=p; save(); button.classList.add('is-correct'); const anchor=document.getElementById('lettersAnchor'); anchor.innerHTML=`<div class="letters-anchor-picture"><img src="${target.anchor.image}" alt="${target.anchor.de}"><span>${target.letter}</span></div><div class="letters-anchor-copy"><strong>${target.letter} wie ${target.anchor.de}</strong><span>${target.anchor.de} · ${target.anchor.ua}</span></div>`; const img=anchor.querySelector('img'); img.onerror=()=>{img.remove();anchor.querySelector('.letters-anchor-picture span').style.display='grid';}; play(target.audio?.success,`${target.letter}. ${target.letter} wie ${target.anchor.de}.`); roundTimer=setTimeout(next,2200); }
+  load().finally(watchHome);
+})();
