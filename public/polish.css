@@ -1,0 +1,41 @@
+/* Final visual polish v43 — cleaner controls, truthful progress, stable responsive geometry */
+.voice-mode-button{font-size:0!important;white-space:nowrap}
+.voice-mode-button:after{content:'DE + UA';font-size:12px;font-weight:900;letter-spacing:.02em}
+.voice-mode-button[aria-pressed="true"]:after{content:'DE'}
+
+/* The previous 3 / 3 badge was decorative, not real progress. Keep one honest progress indicator. */
+.stars{display:none!important}
+.game-header{grid-template-columns:48px minmax(0,1fr)!important}
+
+/* Keep controls visually calm and readable. */
+.repeat-question-button{white-space:nowrap}
+.question-card{overflow:hidden}
+.choice-card{isolation:isolate}
+.choice-image{object-position:center}
+.category-button{isolation:isolate}
+
+/* Parent dialog: always fit inside the viewport and scroll only inside the panel when needed. */
+.parent-dialog{max-height:min(88dvh,760px);overflow:hidden}
+.parent-panel{max-height:min(88dvh,760px);overflow:auto;overscroll-behavior:contain}
+.parent-header{gap:12px}
+.parent-header h2{line-height:1.05}
+.parent-note{line-height:1.45}
+
+@media(max-width:700px){
+  .voice-mode-button:after{font-size:10px}
+  .repeat-question-button{width:58px!important;min-width:58px!important;font-size:0!important}
+  .repeat-question-button:after{content:'Noch'!important;font-size:10px!important;font-weight:900!important;letter-spacing:.01em!important}
+  .game-header{grid-template-columns:41px minmax(0,1fr)!important}
+  .parent-dialog{width:min(94vw,720px);max-height:90dvh}
+  .parent-panel{padding:16px;max-height:90dvh;gap:12px}
+  .parent-header h2{font-size:24px}
+  .parent-actions{gap:8px}
+}
+
+@media(orientation:landscape) and (max-height:650px){
+  .game-header{grid-template-columns:37px minmax(0,1fr)!important}
+  .parent-dialog{max-height:94dvh}
+  .parent-panel{max-height:94dvh;padding:14px;gap:9px}
+  .parent-header h2{font-size:22px}
+  .parent-note{font-size:11px}
+}
