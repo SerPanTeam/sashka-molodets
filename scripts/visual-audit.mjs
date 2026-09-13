@@ -37,6 +37,7 @@ try {
     const gotoHome = async () => {
       await page.goto(`${base}?visual=${Date.now()}`, { waitUntil: 'networkidle', timeout: 30000 });
       await page.locator('.home').waitFor({ state: 'visible', timeout: 15000 });
+      await page.locator('.letters-entry').waitFor({ state: 'visible', timeout: 5000 });
       await page.waitForTimeout(250);
     };
     const measure = async label => {
@@ -64,41 +65,41 @@ try {
     await boundsCheck('.topbar button,.big-play,.category-button', 'home-controls');
     await page.screenshot({ path: path.join(outDir, `${name}-home.png`), fullPage: false });
 
-    // Try the real long-press first. If headless mouse timing does not trigger it,
-    // open the native dialog directly so the visual QA still validates its layout.
     const brand = page.locator('#brandButton');
     const bb = await brand.boundingBox();
     const dialog = page.locator('#parentDialog');
     if (bb) {
       await page.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2);
-      await page.mouse.down();
-      await page.waitForTimeout(900);
-      await page.mouse.up();
-      await page.waitForTimeout(100);
+      await page.mouse.down(); await page.waitForTimeout(900); await page.mouse.up(); await page.waitForTimeout(100);
     }
     let dialogOpen = await dialog.evaluate(el => el.open);
-    if (!dialogOpen) {
-      await dialog.evaluate(el => { if (!el.open) el.showModal(); });
-      dialogOpen = await dialog.evaluate(el => el.open);
-    }
+    if (!dialogOpen) { await dialog.evaluate(el => { if (!el.open) el.showModal(); }); dialogOpen = await dialog.evaluate(el => el.open); }
     if (dialogOpen) {
       await boundsCheck('#parentDialog', 'parent-dialog');
       await page.screenshot({ path: path.join(outDir, `${name}-settings.png`), fullPage: false });
       await page.keyboard.press('Escape');
-    } else {
-      failures.push(`${name}/settings: dialog could not be opened for visual QA`);
-    }
+    } else failures.push(`${name}/settings: dialog could not be opened for visual QA`);
+
+    // Vowel module is tested as its own screen on every viewport.
+    await gotoHome();
+    await page.locator('.letters-entry').click();
+    await page.locator('.letters-game').waitFor({ state: 'visible', timeout: 10000 });
+    await page.waitForTimeout(250);
+    const lettersMetrics = await measure('letters');
+    await boundsCheck('.letters-head button,.vowel-chip,.letters-task,.letter-choice,.letters-anchor', 'letters-controls');
+    await page.screenshot({ path: path.join(outDir, `${name}-letters.png`), fullPage: false });
 
     await gotoHome();
-    const count = await page.locator('.category-button').count();
+    const regularButtons = page.locator('.category-button:not(.letters-entry)');
+    const count = await regularButtons.count();
     const categories = [];
-    for (let i = 0; i < count; i++) categories.push((await page.locator('.category-button').nth(i).innerText()).split('\n')[0].trim());
+    for (let i = 0; i < count; i++) categories.push((await regularButtons.nth(i).innerText()).split('\n')[0].trim());
 
     const indices = name === 'tablet' ? [...Array(count).keys()] : [0];
     const gameMetrics = [];
     for (const i of indices) {
       await gotoHome();
-      const buttons = page.locator('.category-button');
+      const buttons = page.locator('.category-button:not(.letters-entry)');
       const title = ((await buttons.nth(i).innerText()).split('\n')[0] || `cat-${i+1}`).trim();
       await buttons.nth(i).click();
       await page.locator('.game').waitFor({ state: 'visible', timeout: 10000 });
@@ -109,7 +110,7 @@ try {
     }
 
     if (errors.length) failures.push(...errors.map(e => `${name}: ${e}`));
-    report.viewports[name] = { width, height, homeMetrics, categories, gameMetrics, errors };
+    report.viewports[name] = { width, height, homeMetrics, lettersMetrics, categories, gameMetrics, errors };
     await context.close();
   }
 } finally {
@@ -117,5 +118,5 @@ try {
 }
 
 await fs.writeFile(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2));
-console.log(`VISUAL_AUDIT screenshots=${Object.values(report.viewports).reduce((n,v)=>n+1+v.gameMetrics.length,0)} failures=${failures.length}`);
+console.log(`VISUAL_AUDIT screens=${Object.values(report.viewports).reduce((n,v)=>n+2+v.gameMetrics.length,0)} failures=${failures.length}`);
 for (const f of failures) console.log(`VISUAL_FAIL ${f}`);
