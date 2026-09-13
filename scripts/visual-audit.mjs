@@ -70,7 +70,7 @@ try {
     const dialog = page.locator('#parentDialog');
     if (bb) {
       await page.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2);
-      await page.mouse.down(); await page.waitForTimeout(900); await page.mouse.up(); await page.waitForTimeout(100);
+      await page.mouse.down(); await page.waitForTimeout(1850); await page.mouse.up(); await page.waitForTimeout(150);
     }
     let dialogOpen = await dialog.evaluate(el => el.open);
     if (!dialogOpen) { await dialog.evaluate(el => { if (!el.open) el.showModal(); }); dialogOpen = await dialog.evaluate(el => el.open); }
@@ -80,7 +80,6 @@ try {
       await page.keyboard.press('Escape');
     } else failures.push(`${name}/settings: dialog could not be opened for visual QA`);
 
-    // Vowel module is tested as its own screen on every viewport.
     await gotoHome();
     await page.locator('.letters-entry').click();
     await page.locator('.letters-game').waitFor({ state: 'visible', timeout: 10000 });
