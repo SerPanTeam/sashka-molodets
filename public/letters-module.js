@@ -18,20 +18,24 @@
   const unlockedCount = () => Math.min(5, Math.max(2, items.filter(x => score(x.letter) >= 3).length + 2));
   const activePool = () => items.slice(0, unlockedCount());
 
-  function stopSpeech(){ if ('speechSynthesis' in window) speechSynthesis.cancel(); }
-  function preferredVoice(){
-    if (!('speechSynthesis' in window)) return null;
-    const voices = speechSynthesis.getVoices().filter(v => /^de(-|_)/i.test(v.lang || ''));
-    const rank = v => /natural|neural|premium|enhanced|google|microsoft|online/i.test(v.name || '') ? 3 : v.localService ? 2 : 1;
-    return voices.sort((a,b)=>rank(b)-rank(a))[0] || null;
+  let activeAudio = null;
+  function stopSpeech(){
+    if(activeAudio){ activeAudio.pause(); activeAudio.currentTime=0; activeAudio=null; }
   }
-  function speak(text){
+  function audioPath(kind){
+    const id=current?.letter?.toLowerCase();
+    return id ? `./assets/generated/audio/letter-${id}.${kind}.de.wav` : '';
+  }
+  function playClip(kind){
     stopSpeech();
-    if (!('speechSynthesis' in window)) return;
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'de-DE'; u.rate = .78; u.pitch = 1;
-    const v = preferredVoice(); if(v) u.voice = v;
-    speechSynthesis.speak(u);
+    const src=audioPath(kind);
+    if(!src) return Promise.resolve(false);
+    return new Promise(resolve=>{
+      const a=new Audio(src); activeAudio=a; a.preload='auto'; a.volume=1;
+      a.onended=()=>{ if(activeAudio===a) activeAudio=null; resolve(true); };
+      a.onerror=()=>{ if(activeAudio===a) activeAudio=null; resolve(false); };
+      a.play().catch(()=>resolve(false));
+    });
   }
 
   function installEntry(){
@@ -77,7 +81,7 @@
         <div id="lettersAnchor" class="letters-anchor" aria-live="polite"></div>
       </section>`;
     main.querySelector('.letters-back').onclick = goHome;
-    main.querySelector('.letters-repeat').onclick = () => current && speak(`${current.letter}. Finde ${current.letter}.`);
+    main.querySelector('.letters-repeat').onclick = () => current && playClip('question');
     next();
   }
 
@@ -113,7 +117,7 @@
       b.setAttribute('aria-label',`Buchstabe ${item.letter}`);
       b.onclick=()=>choose(item,b); choices.appendChild(b);
     }
-    nextTimer=setTimeout(()=>speak(`${current.letter}. Finde ${current.letter}.`),220);
+    nextTimer=setTimeout(()=>playClip('question'),220);
   }
 
   function choose(item, button){
@@ -121,7 +125,7 @@
     if(item.letter !== current.letter){
       const p=progress[current.letter] || {correct:0,wrong:0}; p.wrong=(p.wrong||0)+1; progress[current.letter]=p; save();
       button.classList.add('is-wrong');
-      speak(`Noch einmal. Finde ${current.letter}.`);
+      playClip('retry');
       setTimeout(()=>button.classList.remove('is-wrong'),600);
       return;
     }
@@ -131,7 +135,7 @@
     const anchor=document.getElementById('lettersAnchor');
     const visual=current.image ? `<img src="${current.image}" alt="${current.word}">` : `<div class="letters-word-letter">${current.letter}</div>`;
     anchor.innerHTML=`<div class="letters-anchor-card"><div class="letters-anchor-visual">${visual}</div><div class="letters-anchor-copy"><span>Merkwort</span><strong>${current.letter} wie ${current.word}</strong><small>${current.word} · ${current.ua}</small></div></div>`;
-    speak(`${current.letter}. ${current.letter} wie ${current.word}.`);
+    playClip('success');
     nextTimer=setTimeout(next,2400);
   }
 
