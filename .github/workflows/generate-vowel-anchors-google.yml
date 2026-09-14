@@ -1,0 +1,55 @@
+name: Generate vowel anchors with Google Cloud
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate-vowel-anchors-google.mjs'
+      - '.github/workflows/generate-vowel-anchors-google.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+          create_credentials_file: true
+          export_environment_variables: true
+      - name: Generate Igel, Uhr and U voice
+        env:
+          GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+          GOOGLE_IMAGE_LOCATION: global
+          GOOGLE_VISION_LOCATION: global
+          GOOGLE_TTS_VOICE: Leda
+        run: node scripts/generate-vowel-anchors-google.mjs
+      - name: Validate generated assets
+        run: |
+          test -s public/assets/generated/images/igel.png
+          test -s public/assets/generated/images/uhr.png
+          test -s public/assets/generated/audio/letter-u.success.de.wav
+          grep -q "word:'Uhr'" public/letters-module.js
+          grep -q "igel.png" public/letters-module.js
+          grep -q "uhr.png" public/letters-module.js
+      - name: Commit generated production assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/generated/images/igel.png public/assets/generated/images/uhr.png public/assets/generated/audio/letter-u.success.de.wav public/letters-module.js
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: add Igel and Uhr vowel anchors"
+          git push
