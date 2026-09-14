@@ -32,9 +32,11 @@
     if(!src) return Promise.resolve(false);
     return new Promise(resolve=>{
       const a=new Audio(src); activeAudio=a; a.preload='auto'; a.volume=1;
-      a.onended=()=>{ if(activeAudio===a) activeAudio=null; resolve(true); };
-      a.onerror=()=>{ if(activeAudio===a) activeAudio=null; resolve(false); };
-      a.play().catch(()=>resolve(false));
+      let settled=false;
+      const done=value=>{ if(settled) return; settled=true; if(activeAudio===a) activeAudio=null; resolve(value); };
+      a.onended=()=>done(true);
+      a.onerror=()=>done(false);
+      a.play().catch(()=>done(false));
     });
   }
 
@@ -135,8 +137,10 @@
     const anchor=document.getElementById('lettersAnchor');
     const visual=current.image ? `<img src="${current.image}" alt="${current.word}">` : `<div class="letters-word-letter">${current.letter}</div>`;
     anchor.innerHTML=`<div class="letters-anchor-card"><div class="letters-anchor-visual">${visual}</div><div class="letters-anchor-copy"><span>Merkwort</span><strong>${current.letter} wie ${current.word}</strong><small>${current.word} · ${current.ua}</small></div></div>`;
-    playClip('success');
-    nextTimer=setTimeout(next,2400);
+    playClip('success').then(()=>{
+      if(!locked) return;
+      nextTimer=setTimeout(next,700);
+    });
   }
 
   const timer=setInterval(installEntry,300);
