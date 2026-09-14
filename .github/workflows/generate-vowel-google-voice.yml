@@ -17,7 +17,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
       GOOGLE_TTS_MODEL: gemini-2.5-flash-tts
@@ -49,6 +49,20 @@ jobs:
             ['a','A','Apfel'],['e','E','Elefant'],['i','I','Igel'],['o','O','Orange'],['u','U','Uhu']
           ];
           const style='warm, friendly, clear native German kindergarten teacher; calm and encouraging; natural smile in the voice; very clear vowel pronunciation; slightly elongated target vowel at the start; premium educational audio; no singing, no exaggerated cartoon voice, no background sound';
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function generateWithRetry(args,label){
+            for(let attempt=1;attempt<=5;attempt++){
+              try{return await generateSpeech(args)}catch(err){
+                const msg=String(err?.message||err);
+                const quota=/429|RESOURCE_EXHAUSTED|Quota exceeded/i.test(msg);
+                if(!quota || attempt===5) throw err;
+                const wait=65000;
+                console.log(`[TTS RETRY] ${label} attempt=${attempt} wait=${wait/1000}s`);
+                await sleep(wait);
+              }
+            }
+          }
+          let first=true;
           for(const [id,letter,word] of rows){
             const clips={
               question:`${letter}. Finde ${letter}.`,
@@ -56,7 +70,9 @@ jobs:
               retry:`Noch einmal. Finde ${letter}.`
             };
             for(const [kind,text] of Object.entries(clips)){
-              const r=await generateSpeech({text,language:'de-DE',style});
+              if(!first) await sleep(12000);
+              first=false;
+              const r=await generateWithRetry({text,language:'de-DE',style},`${letter}/${kind}`);
               const p=`${out}/letter-${id}.${kind}.de.wav`;
               await fs.writeFile(p,r.buffer);
               console.log(p,r.buffer.length);
