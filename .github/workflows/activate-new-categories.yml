@@ -1,0 +1,50 @@
+name: Activate rooms nature actions
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/activate-new-categories.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Patch game categories and action semantics
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('public/app.js')
+          s=p.read_text()
+          s=s.replace('home:{icon:"🏠",de:"Zu Hause",ua:"Дім"}};', 'home:{icon:"🏠",de:"Zu Hause",ua:"Дім"},rooms:{icon:"",de:"Räume",ua:"Кімнати"},nature:{icon:"",de:"Natur",ua:"Природа"},actions:{icon:"",de:"Aktionen",ua:"Дії"}};')
+          s=s.replace('"body","home"],defaults=', '"body","home","rooms","nature","actions"],defaults=')
+          s=s.replace('const out=[],vis=new Set([t.emoji]);for(const x of a){if(vis.has(x.emoji))continue;out.push(x);vis.add(x.emoji);', 'const key=x=>x.generatedImage||x.emoji||x.id,out=[],vis=new Set([key(t)]);for(const x of a){const k=key(x);if(vis.has(k))continue;out.push(x);vis.add(k);')
+          old='function promptFor(x,color){return color?{de:`Wo ist ${article(x)} ${x.attributes.color.de}e ${x.labels.de}?`,ua:`Де ${x.attributes.color.ua} ${x.labels.ua}?`}:{de:deQuestion(x),ua:`Де ${x.labels.ua}?`}}'
+          new='function promptFor(x,color){if(x.category==="actions")return{de:`Wer ${x.action?.de||x.labels.de}?`,ua:`Хто ${x.action?.ua||x.labels.ua}?`};return color?{de:`Wo ist ${article(x)} ${x.attributes.color.de}e ${x.labels.de}?`,ua:`Де ${x.attributes.color.ua} ${x.labels.ua}?`}:{de:deQuestion(x),ua:`Де ${x.labels.ua}?`}}'
+          if old not in s: raise SystemExit('promptFor anchor missing')
+          s=s.replace(old,new)
+          old='const good=t=>({de:`Olexander, super! Genau richtig. Das ist ${deNamed(t)}. Gut aufgepasst!`,ua:`Сашка, молодець! Саме так. Це ${uaNamed(t)}. Ти чудово придивився!`});'
+          new='const good=t=>t.category==="actions"?{de:`Olexander, super! Genau richtig. Die Person ${t.action?.de||t.labels.de}.`,ua:`Сашка, молодець! Саме так. Людина ${t.action?.ua||t.labels.ua}.`}:{de:`Olexander, super! Genau richtig. Das ist ${deNamed(t)}. Gut aufgepasst!`,ua:`Сашка, молодець! Саме так. Це ${uaNamed(t)}. Ти чудово придивився!`};'
+          if old not in s: raise SystemExit('good anchor missing')
+          s=s.replace(old,new)
+          p.write_text(s)
+          PY
+      - name: Validate activation
+        run: |
+          node --check public/app.js
+          grep -q '"rooms","nature","actions"' public/app.js
+          grep -q 'Wer ${x.action' public/app.js
+          grep -q 'categories/rooms.json' content/content.json
+          test -s content/categories/rooms.json
+          test -s content/categories/nature.json
+          test -s content/categories/actions.json
+      - name: Commit activation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/app.js content/content.json
+          git diff --cached --quiet || git commit -m 'feat: activate rooms nature actions in production'
+          git push
