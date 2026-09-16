@@ -1,0 +1,50 @@
+name: Generate rooms nature actions with Google Cloud
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate-new-categories-google.mjs'
+      - '.github/workflows/generate-new-categories-google.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  id-token: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-a095a9ee-fc31-43e4-9f8
+          workload_identity_provider: projects/375735107269/locations/global/workloadIdentityPools/github/providers/github
+          service_account: sashka-generator@project-a095a9ee-fc31-43e4-9f8.iam.gserviceaccount.com
+          token_format: access_token
+          create_credentials_file: true
+      - name: Generate production assets
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          GOOGLE_CLOUD_PROJECT: project-a095a9ee-fc31-43e4-9f8
+          GOOGLE_IMAGE_LOCATION: global
+          GOOGLE_VISION_LOCATION: global
+          GOOGLE_TTS_VOICE: Leda
+          GOOGLE_TTS_UA_VOICE: Sulafat
+        run: node scripts/generate-new-categories-google.mjs
+      - name: Validate
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          for(const c of ['rooms','nature','actions']){const d=JSON.parse(fs.readFileSync(`content/categories/${c}.json`));if(d.items.length!==6)throw Error(c);for(const x of d.items){if(!x.generatedImage||!x.generatedAudioDe?.question||!x.generatedAudioDe?.success||!x.generatedAudioDe?.wrong||!x.generatedAudioDe?.retry||!x.generatedAudioUa?.question||!x.generatedAudioUa?.success||!x.generatedAudioUa?.wrong||!x.generatedAudioUa?.retry)throw Error(x.id)}}
+          NODE
+      - name: Commit generated assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/categories/{rooms,nature,actions}.json public/assets/generated/images public/assets/generated/audio
+          git commit -m 'feat: generate rooms nature actions production assets'
+          git push
