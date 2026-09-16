@@ -1,0 +1,11 @@
+{
+  "category": "nature",
+  "items": [
+    {"id":"tree","category":"nature","emoji":"","labels":{"de":"Baum","ua":"дерево"},"article":{"de":"der"}},
+    {"id":"flower","category":"nature","emoji":"","labels":{"de":"Blume","ua":"квітка"},"article":{"de":"die"}},
+    {"id":"sun","category":"nature","emoji":"","labels":{"de":"Sonne","ua":"сонце"},"article":{"de":"die"}},
+    {"id":"cloud","category":"nature","emoji":"","labels":{"de":"Wolke","ua":"хмара"},"article":{"de":"die"}},
+    {"id":"rain","category":"nature","emoji":"","labels":{"de":"Regen","ua":"дощ"},"article":{"de":"der"}},
+    {"id":"snow","category":"nature","emoji":"","labels":{"de":"Schnee","ua":"сніг"},"article":{"de":"der"}}
+  ]
+}
