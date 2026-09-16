@@ -1,0 +1,11 @@
+{
+  "category": "actions",
+  "items": [
+    {"id":"action-run","category":"actions","emoji":"","labels":{"de":"laufen","ua":"бігти"},"action":{"de":"läuft","ua":"біжить"}},
+    {"id":"action-jump","category":"actions","emoji":"","labels":{"de":"springen","ua":"стрибати"},"action":{"de":"springt","ua":"стрибає"}},
+    {"id":"action-eat","category":"actions","emoji":"","labels":{"de":"essen","ua":"їсти"},"action":{"de":"isst","ua":"їсть"}},
+    {"id":"action-drink","category":"actions","emoji":"","labels":{"de":"trinken","ua":"пити"},"action":{"de":"trinkt","ua":"п'є"}},
+    {"id":"action-sleep","category":"actions","emoji":"","labels":{"de":"schlafen","ua":"спати"},"action":{"de":"schläft","ua":"спить"}},
+    {"id":"action-play","category":"actions","emoji":"","labels":{"de":"spielen","ua":"гратися"},"action":{"de":"spielt","ua":"грається"}}
+  ]
+}
