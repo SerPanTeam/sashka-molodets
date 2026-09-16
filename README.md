@@ -41,16 +41,7 @@ Wrong answers keep the current question active and provide contextual hints rath
 
 ## Current learning content
 
-The production build contains the core learning set used by the app today, including:
-
-- animals;
-- vegetables;
-- fruit;
-- household objects;
-- hygiene;
-- transport;
-- numbers 1–4;
-- coloured clothing.
+The production build contains the core learning set used by the app today, including animals, vegetables, fruit, household objects, hygiene, transport, numbers, clothing, rooms, nature and actions.
 
 The content model is data-driven, so categories and cards can be extended without rewriting the game engine.
 
