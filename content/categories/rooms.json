@@ -1,11 +1,155 @@
 {
   "category": "rooms",
   "items": [
-    {"id":"kitchen","category":"rooms","emoji":"","labels":{"de":"Küche","ua":"кухня"},"article":{"de":"die"}},
-    {"id":"living-room","category":"rooms","emoji":"","labels":{"de":"Wohnzimmer","ua":"вітальня"},"article":{"de":"das"}},
-    {"id":"bedroom","category":"rooms","emoji":"","labels":{"de":"Schlafzimmer","ua":"спальня"},"article":{"de":"das"}},
-    {"id":"bathroom","category":"rooms","emoji":"","labels":{"de":"Badezimmer","ua":"ванна кімната"},"article":{"de":"das"}},
-    {"id":"childrens-room","category":"rooms","emoji":"","labels":{"de":"Kinderzimmer","ua":"дитяча кімната"},"article":{"de":"das"}},
-    {"id":"hallway","category":"rooms","emoji":"","labels":{"de":"Flur","ua":"коридор"},"article":{"de":"der"}}
+    {
+      "id": "kitchen",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Küche",
+        "ua": "кухня"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/kitchen.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/kitchen.question.de.wav",
+        "success": "./assets/generated/audio/kitchen.success.de.wav",
+        "retry": "./assets/generated/audio/kitchen.retry.de.wav",
+        "wrong": "./assets/generated/audio/kitchen.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/kitchen.question.ua.wav",
+        "success": "./assets/generated/audio/kitchen.success.ua.wav",
+        "retry": "./assets/generated/audio/kitchen.retry.ua.wav",
+        "wrong": "./assets/generated/audio/kitchen.retry.ua.wav"
+      }
+    },
+    {
+      "id": "living-room",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Wohnzimmer",
+        "ua": "вітальня"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedImage": "./assets/generated/images/living-room.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/living-room.question.de.wav",
+        "success": "./assets/generated/audio/living-room.success.de.wav",
+        "retry": "./assets/generated/audio/living-room.retry.de.wav",
+        "wrong": "./assets/generated/audio/living-room.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/living-room.question.ua.wav",
+        "success": "./assets/generated/audio/living-room.success.ua.wav",
+        "retry": "./assets/generated/audio/living-room.retry.ua.wav",
+        "wrong": "./assets/generated/audio/living-room.retry.ua.wav"
+      }
+    },
+    {
+      "id": "bedroom",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Schlafzimmer",
+        "ua": "спальня"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedImage": "./assets/generated/images/bedroom.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bedroom.question.de.wav",
+        "success": "./assets/generated/audio/bedroom.success.de.wav",
+        "retry": "./assets/generated/audio/bedroom.retry.de.wav",
+        "wrong": "./assets/generated/audio/bedroom.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bedroom.question.ua.wav",
+        "success": "./assets/generated/audio/bedroom.success.ua.wav",
+        "retry": "./assets/generated/audio/bedroom.retry.ua.wav",
+        "wrong": "./assets/generated/audio/bedroom.retry.ua.wav"
+      }
+    },
+    {
+      "id": "bathroom",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Badezimmer",
+        "ua": "ванна кімната"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedImage": "./assets/generated/images/bathroom.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/bathroom.question.de.wav",
+        "success": "./assets/generated/audio/bathroom.success.de.wav",
+        "retry": "./assets/generated/audio/bathroom.retry.de.wav",
+        "wrong": "./assets/generated/audio/bathroom.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/bathroom.question.ua.wav",
+        "success": "./assets/generated/audio/bathroom.success.ua.wav",
+        "retry": "./assets/generated/audio/bathroom.retry.ua.wav",
+        "wrong": "./assets/generated/audio/bathroom.retry.ua.wav"
+      }
+    },
+    {
+      "id": "childrens-room",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Kinderzimmer",
+        "ua": "дитяча кімната"
+      },
+      "article": {
+        "de": "das"
+      },
+      "generatedImage": "./assets/generated/images/childrens-room.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/childrens-room.question.de.wav",
+        "success": "./assets/generated/audio/childrens-room.success.de.wav",
+        "retry": "./assets/generated/audio/childrens-room.retry.de.wav",
+        "wrong": "./assets/generated/audio/childrens-room.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/childrens-room.question.ua.wav",
+        "success": "./assets/generated/audio/childrens-room.success.ua.wav",
+        "retry": "./assets/generated/audio/childrens-room.retry.ua.wav",
+        "wrong": "./assets/generated/audio/childrens-room.retry.ua.wav"
+      }
+    },
+    {
+      "id": "hallway",
+      "category": "rooms",
+      "emoji": "",
+      "labels": {
+        "de": "Flur",
+        "ua": "коридор"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedImage": "./assets/generated/images/hallway.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/hallway.question.de.wav",
+        "success": "./assets/generated/audio/hallway.success.de.wav",
+        "retry": "./assets/generated/audio/hallway.retry.de.wav",
+        "wrong": "./assets/generated/audio/hallway.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/hallway.question.ua.wav",
+        "success": "./assets/generated/audio/hallway.success.ua.wav",
+        "retry": "./assets/generated/audio/hallway.retry.ua.wav",
+        "wrong": "./assets/generated/audio/hallway.retry.ua.wav"
+      }
+    }
   ]
 }

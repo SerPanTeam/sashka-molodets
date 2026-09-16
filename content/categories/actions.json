@@ -1,11 +1,161 @@
 {
   "category": "actions",
   "items": [
-    {"id":"action-run","category":"actions","emoji":"","labels":{"de":"laufen","ua":"бігти"},"action":{"de":"läuft","ua":"біжить"}},
-    {"id":"action-jump","category":"actions","emoji":"","labels":{"de":"springen","ua":"стрибати"},"action":{"de":"springt","ua":"стрибає"}},
-    {"id":"action-eat","category":"actions","emoji":"","labels":{"de":"essen","ua":"їсти"},"action":{"de":"isst","ua":"їсть"}},
-    {"id":"action-drink","category":"actions","emoji":"","labels":{"de":"trinken","ua":"пити"},"action":{"de":"trinkt","ua":"п'є"}},
-    {"id":"action-sleep","category":"actions","emoji":"","labels":{"de":"schlafen","ua":"спати"},"action":{"de":"schläft","ua":"спить"}},
-    {"id":"action-play","category":"actions","emoji":"","labels":{"de":"spielen","ua":"гратися"},"action":{"de":"spielt","ua":"грається"}}
+    {
+      "id": "action-run",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "laufen",
+        "ua": "бігти"
+      },
+      "action": {
+        "de": "läuft",
+        "ua": "біжить"
+      },
+      "generatedImage": "./assets/generated/images/action-run.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-run.question.de.wav",
+        "success": "./assets/generated/audio/action-run.success.de.wav",
+        "retry": "./assets/generated/audio/action-run.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-run.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-run.question.ua.wav",
+        "success": "./assets/generated/audio/action-run.success.ua.wav",
+        "retry": "./assets/generated/audio/action-run.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-run.retry.ua.wav"
+      }
+    },
+    {
+      "id": "action-jump",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "springen",
+        "ua": "стрибати"
+      },
+      "action": {
+        "de": "springt",
+        "ua": "стрибає"
+      },
+      "generatedImage": "./assets/generated/images/action-jump.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-jump.question.de.wav",
+        "success": "./assets/generated/audio/action-jump.success.de.wav",
+        "retry": "./assets/generated/audio/action-jump.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-jump.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-jump.question.ua.wav",
+        "success": "./assets/generated/audio/action-jump.success.ua.wav",
+        "retry": "./assets/generated/audio/action-jump.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-jump.retry.ua.wav"
+      }
+    },
+    {
+      "id": "action-eat",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "essen",
+        "ua": "їсти"
+      },
+      "action": {
+        "de": "isst",
+        "ua": "їсть"
+      },
+      "generatedImage": "./assets/generated/images/action-eat.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-eat.question.de.wav",
+        "success": "./assets/generated/audio/action-eat.success.de.wav",
+        "retry": "./assets/generated/audio/action-eat.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-eat.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-eat.question.ua.wav",
+        "success": "./assets/generated/audio/action-eat.success.ua.wav",
+        "retry": "./assets/generated/audio/action-eat.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-eat.retry.ua.wav"
+      }
+    },
+    {
+      "id": "action-drink",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "trinken",
+        "ua": "пити"
+      },
+      "action": {
+        "de": "trinkt",
+        "ua": "п'є"
+      },
+      "generatedImage": "./assets/generated/images/action-drink.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-drink.question.de.wav",
+        "success": "./assets/generated/audio/action-drink.success.de.wav",
+        "retry": "./assets/generated/audio/action-drink.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-drink.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-drink.question.ua.wav",
+        "success": "./assets/generated/audio/action-drink.success.ua.wav",
+        "retry": "./assets/generated/audio/action-drink.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-drink.retry.ua.wav"
+      }
+    },
+    {
+      "id": "action-sleep",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "schlafen",
+        "ua": "спати"
+      },
+      "action": {
+        "de": "schläft",
+        "ua": "спить"
+      },
+      "generatedImage": "./assets/generated/images/action-sleep.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-sleep.question.de.wav",
+        "success": "./assets/generated/audio/action-sleep.success.de.wav",
+        "retry": "./assets/generated/audio/action-sleep.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-sleep.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-sleep.question.ua.wav",
+        "success": "./assets/generated/audio/action-sleep.success.ua.wav",
+        "retry": "./assets/generated/audio/action-sleep.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-sleep.retry.ua.wav"
+      }
+    },
+    {
+      "id": "action-play",
+      "category": "actions",
+      "emoji": "",
+      "labels": {
+        "de": "spielen",
+        "ua": "гратися"
+      },
+      "action": {
+        "de": "spielt",
+        "ua": "грається"
+      },
+      "generatedImage": "./assets/generated/images/action-play.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/action-play.question.de.wav",
+        "success": "./assets/generated/audio/action-play.success.de.wav",
+        "retry": "./assets/generated/audio/action-play.retry.de.wav",
+        "wrong": "./assets/generated/audio/action-play.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/action-play.question.ua.wav",
+        "success": "./assets/generated/audio/action-play.success.ua.wav",
+        "retry": "./assets/generated/audio/action-play.retry.ua.wav",
+        "wrong": "./assets/generated/audio/action-play.retry.ua.wav"
+      }
+    }
   ]
 }

@@ -1,11 +1,155 @@
 {
   "category": "nature",
   "items": [
-    {"id":"tree","category":"nature","emoji":"","labels":{"de":"Baum","ua":"дерево"},"article":{"de":"der"}},
-    {"id":"flower","category":"nature","emoji":"","labels":{"de":"Blume","ua":"квітка"},"article":{"de":"die"}},
-    {"id":"sun","category":"nature","emoji":"","labels":{"de":"Sonne","ua":"сонце"},"article":{"de":"die"}},
-    {"id":"cloud","category":"nature","emoji":"","labels":{"de":"Wolke","ua":"хмара"},"article":{"de":"die"}},
-    {"id":"rain","category":"nature","emoji":"","labels":{"de":"Regen","ua":"дощ"},"article":{"de":"der"}},
-    {"id":"snow","category":"nature","emoji":"","labels":{"de":"Schnee","ua":"сніг"},"article":{"de":"der"}}
+    {
+      "id": "tree",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Baum",
+        "ua": "дерево"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedImage": "./assets/generated/images/tree.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/tree.question.de.wav",
+        "success": "./assets/generated/audio/tree.success.de.wav",
+        "retry": "./assets/generated/audio/tree.retry.de.wav",
+        "wrong": "./assets/generated/audio/tree.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/tree.question.ua.wav",
+        "success": "./assets/generated/audio/tree.success.ua.wav",
+        "retry": "./assets/generated/audio/tree.retry.ua.wav",
+        "wrong": "./assets/generated/audio/tree.retry.ua.wav"
+      }
+    },
+    {
+      "id": "flower",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Blume",
+        "ua": "квітка"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/flower.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/flower.question.de.wav",
+        "success": "./assets/generated/audio/flower.success.de.wav",
+        "retry": "./assets/generated/audio/flower.retry.de.wav",
+        "wrong": "./assets/generated/audio/flower.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/flower.question.ua.wav",
+        "success": "./assets/generated/audio/flower.success.ua.wav",
+        "retry": "./assets/generated/audio/flower.retry.ua.wav",
+        "wrong": "./assets/generated/audio/flower.retry.ua.wav"
+      }
+    },
+    {
+      "id": "sun",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Sonne",
+        "ua": "сонце"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/sun.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/sun.question.de.wav",
+        "success": "./assets/generated/audio/sun.success.de.wav",
+        "retry": "./assets/generated/audio/sun.retry.de.wav",
+        "wrong": "./assets/generated/audio/sun.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/sun.question.ua.wav",
+        "success": "./assets/generated/audio/sun.success.ua.wav",
+        "retry": "./assets/generated/audio/sun.retry.ua.wav",
+        "wrong": "./assets/generated/audio/sun.retry.ua.wav"
+      }
+    },
+    {
+      "id": "cloud",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Wolke",
+        "ua": "хмара"
+      },
+      "article": {
+        "de": "die"
+      },
+      "generatedImage": "./assets/generated/images/cloud.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/cloud.question.de.wav",
+        "success": "./assets/generated/audio/cloud.success.de.wav",
+        "retry": "./assets/generated/audio/cloud.retry.de.wav",
+        "wrong": "./assets/generated/audio/cloud.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/cloud.question.ua.wav",
+        "success": "./assets/generated/audio/cloud.success.ua.wav",
+        "retry": "./assets/generated/audio/cloud.retry.ua.wav",
+        "wrong": "./assets/generated/audio/cloud.retry.ua.wav"
+      }
+    },
+    {
+      "id": "rain",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Regen",
+        "ua": "дощ"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedImage": "./assets/generated/images/rain.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/rain.question.de.wav",
+        "success": "./assets/generated/audio/rain.success.de.wav",
+        "retry": "./assets/generated/audio/rain.retry.de.wav",
+        "wrong": "./assets/generated/audio/rain.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/rain.question.ua.wav",
+        "success": "./assets/generated/audio/rain.success.ua.wav",
+        "retry": "./assets/generated/audio/rain.retry.ua.wav",
+        "wrong": "./assets/generated/audio/rain.retry.ua.wav"
+      }
+    },
+    {
+      "id": "snow",
+      "category": "nature",
+      "emoji": "",
+      "labels": {
+        "de": "Schnee",
+        "ua": "сніг"
+      },
+      "article": {
+        "de": "der"
+      },
+      "generatedImage": "./assets/generated/images/snow.png",
+      "generatedAudioDe": {
+        "question": "./assets/generated/audio/snow.question.de.wav",
+        "success": "./assets/generated/audio/snow.success.de.wav",
+        "retry": "./assets/generated/audio/snow.retry.de.wav",
+        "wrong": "./assets/generated/audio/snow.retry.de.wav"
+      },
+      "generatedAudioUa": {
+        "question": "./assets/generated/audio/snow.question.ua.wav",
+        "success": "./assets/generated/audio/snow.success.ua.wav",
+        "retry": "./assets/generated/audio/snow.retry.ua.wav",
+        "wrong": "./assets/generated/audio/snow.retry.ua.wav"
+      }
+    }
   ]
 }
