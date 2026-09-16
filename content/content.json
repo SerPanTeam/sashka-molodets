@@ -16,6 +16,9 @@
     "categories/numbers.json",
     "categories/shapes.json",
     "categories/transport.json",
-    "categories/vegetables.json"
+    "categories/vegetables.json",
+    "categories/rooms.json",
+    "categories/nature.json",
+    "categories/actions.json"
   ]
 }
