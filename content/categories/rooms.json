@@ -1,0 +1,11 @@
+{
+  "category": "rooms",
+  "items": [
+    {"id":"kitchen","category":"rooms","emoji":"","labels":{"de":"Küche","ua":"кухня"},"article":{"de":"die"}},
+    {"id":"living-room","category":"rooms","emoji":"","labels":{"de":"Wohnzimmer","ua":"вітальня"},"article":{"de":"das"}},
+    {"id":"bedroom","category":"rooms","emoji":"","labels":{"de":"Schlafzimmer","ua":"спальня"},"article":{"de":"das"}},
+    {"id":"bathroom","category":"rooms","emoji":"","labels":{"de":"Badezimmer","ua":"ванна кімната"},"article":{"de":"das"}},
+    {"id":"childrens-room","category":"rooms","emoji":"","labels":{"de":"Kinderzimmer","ua":"дитяча кімната"},"article":{"de":"das"}},
+    {"id":"hallway","category":"rooms","emoji":"","labels":{"de":"Flur","ua":"коридор"},"article":{"de":"der"}}
+  ]
+}
