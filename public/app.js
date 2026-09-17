@@ -55,15 +55,20 @@ async function playItemVoice(item,kind,fallback){
 async function playWrongVoice(selected,target,fallback){
   const deWrong=selected?.generatedAudioDe?.wrong,deRetry=target?.generatedAudioDe?.retry;
   const uaWrong=selected?.generatedAudioUa?.wrong,uaRetry=target?.generatedAudioUa?.retry;
+  const playDistinct=async(a,b)=>{
+    if(!a&&!b)return false;
+    if(a)await playRecorded(a);
+    if(b&&b!==a)await playRecorded(b);
+    return true;
+  };
   if(state.settings.voiceMode==="de"){
-    if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);return true}
+    if(await playDistinct(deWrong,deRetry))return true;
     await speakSeq([{text:fallback.de,lang:"de-DE"}]);return false;
   }
-  let deOk=false,uaOk=false;
-  if(deWrong&&deRetry){await playRecorded(deWrong);await playRecorded(deRetry);deOk=true}
-  else await speakSeq([{text:fallback.de,lang:"de-DE"}]);
-  if(uaWrong&&uaRetry){await playRecorded(uaWrong);await playRecorded(uaRetry);uaOk=true}
-  else await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
+  const deOk=await playDistinct(deWrong,deRetry);
+  if(!deOk)await speakSeq([{text:fallback.de,lang:"de-DE"}]);
+  const uaOk=await playDistinct(uaWrong,uaRetry);
+  if(!uaOk)await speakSeq([{text:fallback.ua,lang:"uk-UA"}]);
   return deOk&&uaOk;
 }
 const speakCurrent=()=>state.current?playItemVoice(state.current.target,"question",state.current.prompt):Promise.resolve();
