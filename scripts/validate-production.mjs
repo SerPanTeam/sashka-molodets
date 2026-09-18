@@ -76,6 +76,8 @@ if (!app.includes('const deSrc=item?.generatedAudioDe?.[kind],uaSrc=item?.genera
 if (!app.includes('Подумай ще, друже')) errors.push('contextual Ukrainian first-miss explanation missing');
 if (!app.includes('Achte auf die Farbe')) errors.push('attribute-comparison feedback missing');
 if (!app.includes('preferredVoice')) errors.push('preferred natural browser voice selection missing');
+if (!app.includes('voiceTimer:null') || !app.includes('scheduleCurrentVoice(250)')) errors.push('tracked auto-speak timer protection missing');
+for (const cover of ['./assets/generated/images/living-room.png','./assets/generated/images/tree.png','./assets/generated/images/action-run.png']) if (!app.includes(`cover:"${cover}"`)) errors.push(`new category cover missing from home: ${cover}`);
 
 const successFlowStart = app.indexOf('(async()=>{await playApplause()');
 const successFlowEnd = successFlowStart >= 0 ? app.indexOf('})();return}', successFlowStart) : -1;
@@ -97,9 +99,9 @@ if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
   errors.push('recorded wrong-answer voice block not found');
 } else {
   const flow = app.slice(recordedWrongStart, recordedWrongEnd);
-  const dePos = flow.indexOf('deWrong&&deRetry');
-  const uaPos = flow.indexOf('uaWrong&&uaRetry', dePos + 1);
-  if (!(dePos >= 0 && uaPos > dePos)) errors.push('recorded wrong-answer order must remain German → Ukrainian');
+  if (!flow.includes('target?.generatedAudioDe?.retry||selected?.generatedAudioDe?.wrong')) errors.push('wrong-answer German voice must prefer one target retry clip');
+  if (!flow.includes('target?.generatedAudioUa?.retry||selected?.generatedAudioUa?.wrong')) errors.push('wrong-answer Ukrainian voice must prefer one target retry clip');
+  if ((flow.match(/await playRecorded\(deSrc\)/g)||[]).length !== 1 || (flow.match(/await playRecorded\(uaSrc\)/g)||[]).length !== 1) errors.push('wrong-answer flow must play at most one recorded clip per language');
 }
 
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
