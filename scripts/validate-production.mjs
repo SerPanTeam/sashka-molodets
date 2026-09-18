@@ -101,7 +101,8 @@ if (recordedWrongStart < 0 || recordedWrongEnd < 0) {
   const flow = app.slice(recordedWrongStart, recordedWrongEnd);
   if (!flow.includes('target?.generatedAudioDe?.retry||selected?.generatedAudioDe?.wrong')) errors.push('wrong-answer German voice must prefer one target retry clip');
   if (!flow.includes('target?.generatedAudioUa?.retry||selected?.generatedAudioUa?.wrong')) errors.push('wrong-answer Ukrainian voice must prefer one target retry clip');
-  if ((flow.match(/await playRecorded\(deSrc\)/g)||[]).length !== 1 || (flow.match(/await playRecorded\(uaSrc\)/g)||[]).length !== 1) errors.push('wrong-answer flow must play at most one recorded clip per language');
+  if (!flow.includes('if(deSrc)deOk=await playRecorded(deSrc)') || !flow.includes('if(uaSrc)uaOk=await playRecorded(uaSrc)')) errors.push('wrong-answer flow must use one recorded source per language');
+  if (flow.includes('playDistinct') || flow.includes('deWrong,deRetry') || flow.includes('uaWrong,uaRetry')) errors.push('wrong-answer flow must not chain wrong + retry recordings');
 }
 
 if (!index.includes('object-sfx.js')) errors.push('index.html does not load object-sfx.js');
