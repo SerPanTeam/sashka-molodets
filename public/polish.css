@@ -39,3 +39,10 @@
   .parent-header h2{font-size:22px}
   .parent-note{font-size:11px}
 }
+
+
+/* Generated covers for the newest home categories. */
+.category-button .category-cover{position:absolute;z-index:1;left:7px;right:7px;top:7px;width:calc(100% - 14px);height:calc(100% - 49px);object-fit:contain;object-position:center;border-radius:15px;pointer-events:none}
+@media(max-width:700px){.category-button .category-cover{left:4px;right:4px;top:4px;width:calc(100% - 8px);height:calc(100% - 33px);border-radius:10px}}
+@media(orientation:landscape) and (max-height:650px){.category-button .category-cover{left:4px;right:4px;top:4px;width:calc(100% - 8px);height:calc(100% - 31px);border-radius:9px}}
+@media(max-height:520px) and (orientation:portrait){.category-button .category-cover{height:calc(100% - 24px)}}
